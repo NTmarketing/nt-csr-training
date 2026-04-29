@@ -18,8 +18,17 @@ export default function Quiz({ questions, onSubmit, passingPct = 70 }: Props) {
   const current = questions[currentIdx];
   const total = questions.length;
 
+  const isAnswered = (q: ModuleQuizQuestion): boolean => {
+    const v = answers[q.id];
+    if (v === undefined) return false;
+    if (q.type === 'short_answer') return typeof v === 'string' && v.trim().length > 0;
+    return v !== '';
+  };
+
+  const currentAnswered = isAnswered(current);
   const allAnswered = useMemo(
-    () => questions.every((q) => answers[q.id] !== undefined && answers[q.id] !== ''),
+    () => questions.every(isAnswered),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [questions, answers],
   );
 
@@ -89,23 +98,34 @@ export default function Quiz({ questions, onSubmit, passingPct = 70 }: Props) {
         </button>
 
         {currentIdx < total - 1 ? (
-          <button
-            type="button"
-            onClick={() => setCurrentIdx((i) => Math.min(total - 1, i + 1))}
-            className="btn-primary"
-          >
-            Next <ArrowRight className="h-4 w-4" />
-          </button>
+          <div className="flex flex-col items-end gap-1">
+            <button
+              type="button"
+              onClick={() => setCurrentIdx((i) => Math.min(total - 1, i + 1))}
+              disabled={!currentAnswered}
+              className="btn-primary"
+            >
+              Next <ArrowRight className="h-4 w-4" />
+            </button>
+            {!currentAnswered && (
+              <span className="text-xs text-gray-500">Select an answer to continue</span>
+            )}
+          </div>
         ) : (
-          <button
-            type="button"
-            onClick={handleSubmit}
-            disabled={!allAnswered || submitting}
-            className="btn-primary"
-          >
-            {submitting ? <Loader2 className="h-4 w-4 animate-spin" /> : null}
-            Submit quiz
-          </button>
+          <div className="flex flex-col items-end gap-1">
+            <button
+              type="button"
+              onClick={handleSubmit}
+              disabled={!allAnswered || submitting}
+              className="btn-primary"
+            >
+              {submitting ? <Loader2 className="h-4 w-4 animate-spin" /> : null}
+              Submit quiz
+            </button>
+            {!allAnswered && (
+              <span className="text-xs text-gray-500">Answer all questions to submit</span>
+            )}
+          </div>
         )}
       </div>
     </div>

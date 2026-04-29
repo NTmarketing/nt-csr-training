@@ -1,9 +1,11 @@
-import { Loader2, Plus, RotateCcw, Trash2, UserPlus } from 'lucide-react';
+import { Eye, Loader2, Plus, RotateCcw, Trash2, UserPlus } from 'lucide-react';
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { admin } from '../api/client';
 import type { AdminUserSummary, Role } from '../types';
 
 export default function Admin() {
+  const navigate = useNavigate();
   const [users, setUsers] = useState<AdminUserSummary[] | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [showCreate, setShowCreate] = useState(false);
@@ -85,7 +87,11 @@ export default function Admin() {
                 </tr>
               )}
               {users.map((u) => (
-                <tr key={u.id} className="hover:bg-gray-50">
+                <tr
+                  key={u.id}
+                  className="cursor-pointer hover:bg-gray-50"
+                  onClick={() => navigate(`/admin/trainee/${u.id}`)}
+                >
                   <td className="px-4 py-3 font-medium text-gray-900">{u.username}</td>
                   <td className="px-4 py-3 text-gray-700">{u.name}</td>
                   <td className="px-4 py-3">
@@ -103,8 +109,15 @@ export default function Admin() {
                   <td className="px-4 py-3 text-gray-600">
                     {u.last_activity ? new Date(u.last_activity).toLocaleString() : '—'}
                   </td>
-                  <td className="px-4 py-3 text-right">
+                  <td className="px-4 py-3 text-right" onClick={(e) => e.stopPropagation()}>
                     <div className="flex justify-end gap-1">
+                      <button
+                        onClick={() => navigate(`/admin/trainee/${u.id}`)}
+                        className="inline-flex items-center gap-1 rounded-md border border-gray-300 bg-white px-2 py-1 text-xs font-medium text-gray-700 hover:bg-gray-50"
+                        title="View trainee detail"
+                      >
+                        <Eye className="h-3.5 w-3.5" /> View
+                      </button>
                       <button
                         onClick={() => handleReset(u.id, u.username)}
                         className="inline-flex items-center gap-1 rounded-md border border-gray-300 bg-white px-2 py-1 text-xs font-medium text-gray-700 hover:bg-gray-50"

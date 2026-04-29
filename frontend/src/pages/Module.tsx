@@ -13,9 +13,9 @@ import {
   Target,
   X,
 } from 'lucide-react';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import { modules, progress } from '../api/client';
+import { modules, progress, sections } from '../api/client';
 import AIChat from '../components/AIChat';
 import Markdown from '../components/Markdown';
 import ProgressBar from '../components/ProgressBar';
@@ -31,6 +31,31 @@ export default function Module() {
   const [chatOpen, setChatOpen] = useState(false);
   const [objectivesOpen, setObjectivesOpen] = useState(true);
 
+  const sectionTimer = useRef<{ moduleId: string; sectionId: string; start: number } | null>(null);
+
+  const flushSectionTime = (useBeacon = false) => {
+    const t = sectionTimer.current;
+    sectionTimer.current = null;
+    if (!t) return;
+    const elapsed = Math.round((Date.now() - t.start) / 1000);
+    if (elapsed < 2) return;
+    const capped = Math.min(elapsed, 3600);
+    if (useBeacon && typeof navigator !== 'undefined' && navigator.sendBeacon) {
+      const payload = JSON.stringify({
+        moduleId: t.moduleId,
+        sectionId: t.sectionId,
+        durationSeconds: capped,
+      });
+      navigator.sendBeacon('/api/sections/view', new Blob([payload], { type: 'application/json' }));
+    } else {
+      sections.recordView(t.moduleId, t.sectionId, capped).catch(() => {});
+    }
+  };
+
+  const startSectionTimer = (moduleId: string, sectionId: string) => {
+    sectionTimer.current = { moduleId, sectionId, start: Date.now() };
+  };
+
   useEffect(() => {
     if (!id) return;
     let mounted = true;
@@ -45,6 +70,7 @@ export default function Module() {
         setModule(m);
         if (m.sections.length) {
           setViewedSections(new Set([m.sections[0].id]));
+          startSectionTimer(m.id, m.sections[0].id);
         }
       })
       .catch((err) => {
@@ -53,8 +79,17 @@ export default function Module() {
 
     return () => {
       mounted = false;
+      flushSectionTime();
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
+
+  useEffect(() => {
+    const onBeforeUnload = () => flushSectionTime(true);
+    window.addEventListener('beforeunload', onBeforeUnload);
+    return () => window.removeEventListener('beforeunload', onBeforeUnload);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // Refetch when the tab regains focus so scenario completion badges update
   // after the trainee returns from /module/:id/scenario/:scenarioId.
@@ -95,8 +130,11 @@ export default function Module() {
   const goToSection = (idx: number) => {
     if (!module) return;
     const clamped = Math.max(0, Math.min(module.sections.length - 1, idx));
+    if (clamped === sectionIdx) return;
+    flushSectionTime();
     setSectionIdx(clamped);
     setViewedSections((prev) => new Set(prev).add(module.sections[clamped].id));
+    startSectionTimer(module.id, module.sections[clamped].id);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 

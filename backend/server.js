@@ -44,6 +44,7 @@ app.use('/api/quiz', require('./routes/quiz'));
 app.use('/api/exam', require('./routes/exam'));
 app.use('/api/ai', require('./routes/ai'));
 app.use('/api/admin', require('./routes/admin'));
+app.use('/api/sections', require('./routes/sections'));
 
 app.use((req, res) => {
   res.status(404).json({ error: 'Not found' });

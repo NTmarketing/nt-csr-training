@@ -74,8 +74,19 @@ CREATE TABLE IF NOT EXISTS final_exam_attempts (
   FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
+CREATE TABLE IF NOT EXISTS section_views (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  user_id INTEGER NOT NULL,
+  module_id TEXT NOT NULL,
+  section_id TEXT NOT NULL,
+  duration_seconds INTEGER NOT NULL,
+  viewed_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
 CREATE INDEX IF NOT EXISTS idx_progress_user ON progress(user_id);
 CREATE INDEX IF NOT EXISTS idx_quiz_user_module ON quiz_attempts(user_id, module_id);
+CREATE INDEX IF NOT EXISTS idx_section_views_user ON section_views(user_id);
 `;
 
 function init() {

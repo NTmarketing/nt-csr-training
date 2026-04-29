@@ -1,5 +1,6 @@
-import { AlertCircle, Loader2 } from 'lucide-react';
+import { AlertCircle, ArrowRight, Loader2, ShieldCheck } from 'lucide-react';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { modules } from '../api/client';
 import ModuleCard from '../components/ModuleCard';
 import { useAuth } from '../contexts/AuthContext';
@@ -32,6 +33,24 @@ export default function Dashboard() {
 
   return (
     <div>
+      {user?.role === 'admin' && (
+        <Link
+          to="/admin"
+          className="mb-5 flex items-center justify-between gap-3 rounded-lg border border-purple-200 bg-purple-50 p-4 text-purple-900 transition hover:bg-purple-100"
+        >
+          <div className="flex items-center gap-3">
+            <ShieldCheck className="h-5 w-5" />
+            <div>
+              <div className="text-sm font-semibold">Admin console</div>
+              <div className="text-xs text-purple-800">
+                Manage trainees, view detailed progress and activity.
+              </div>
+            </div>
+          </div>
+          <ArrowRight className="h-4 w-4" />
+        </Link>
+      )}
+
       <div className="mb-6">
         <h1 className="text-2xl font-bold text-gray-900">Welcome back, {firstName}</h1>
         <p className="mt-1 text-sm text-gray-600">

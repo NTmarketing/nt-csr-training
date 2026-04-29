@@ -10,6 +10,11 @@ import type {
   QuizResult,
   Role,
   RoleplayGrade,
+  TraineeActivityEvent,
+  TraineeConversation,
+  TraineeDetail,
+  TraineeQuizAttempt,
+  TraineeScenarioAttempt,
   User,
 } from '../types';
 
@@ -125,4 +130,22 @@ export const admin = {
     reset: (id: number) => apiClient.post<{ ok: true }>(`/api/admin/users/${id}/reset`),
     delete: (id: number) => apiClient.delete<{ ok: true }>(`/api/admin/users/${id}`),
   },
+  getTrainee: (id: number) => apiClient.get<TraineeDetail>(`/api/admin/users/${id}`),
+  getTraineeActivity: (id: number) =>
+    apiClient.get<TraineeActivityEvent[]>(`/api/admin/users/${id}/activity`),
+  getTraineeConversations: (id: number) =>
+    apiClient.get<TraineeConversation[]>(`/api/admin/users/${id}/conversations`),
+  getTraineeScenarios: (id: number) =>
+    apiClient.get<TraineeScenarioAttempt[]>(`/api/admin/users/${id}/scenario-attempts`),
+  getTraineeQuizzes: (id: number) =>
+    apiClient.get<TraineeQuizAttempt[]>(`/api/admin/users/${id}/quiz-attempts`),
+};
+
+export const sections = {
+  recordView: (moduleId: string, sectionId: string, durationSeconds: number) =>
+    apiClient.post<{ ok: true; duration_seconds: number }>('/api/sections/view', {
+      moduleId,
+      sectionId,
+      durationSeconds,
+    }),
 };

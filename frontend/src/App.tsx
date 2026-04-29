@@ -2,6 +2,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import Layout from './components/Layout';
 import ProtectedRoute from './components/ProtectedRoute';
 import Admin from './pages/Admin';
+import AdminTrainee from './pages/AdminTrainee';
 import Certificate from './pages/Certificate';
 import Dashboard from './pages/Dashboard';
 import FinalExam from './pages/FinalExam';
@@ -33,6 +34,14 @@ export default function App() {
           element={
             <ProtectedRoute requireAdmin>
               <Admin />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="admin/trainee/:id"
+          element={
+            <ProtectedRoute requireAdmin>
+              <AdminTrainee />
             </ProtectedRoute>
           }
         />
