@@ -2,10 +2,13 @@ import {
   AlertCircle,
   ArrowLeft,
   ArrowRight,
+  Circle,
+  CheckCircle2,
   ChevronDown,
   ChevronUp,
   ClipboardCheck,
   Loader2,
+  Lock,
   MessageSquare,
   Target,
   X,
@@ -53,11 +56,41 @@ export default function Module() {
     };
   }, [id]);
 
+  // Refetch when the tab regains focus so scenario completion badges update
+  // after the trainee returns from /module/:id/scenario/:scenarioId.
+  useEffect(() => {
+    if (!id) return;
+    const refetch = () => {
+      modules
+        .get(id)
+        .then((m) => setModule((prev) => (prev ? { ...prev, scenario_completion: m.scenario_completion } : m)))
+        .catch(() => {});
+    };
+    const onVisible = () => {
+      if (document.visibilityState === 'visible') refetch();
+    };
+    window.addEventListener('focus', refetch);
+    document.addEventListener('visibilitychange', onVisible);
+    return () => {
+      window.removeEventListener('focus', refetch);
+      document.removeEventListener('visibilitychange', onVisible);
+    };
+  }, [id]);
+
   const totalSections = module?.sections.length ?? 0;
   const allViewed = useMemo(
     () => !!module && module.sections.every((s) => viewedSections.has(s.id)),
     [module, viewedSections],
   );
+
+  const scenarios = module?.scenarios ?? [];
+  const completion = module?.scenario_completion ?? {};
+  const completedScenarios = useMemo(
+    () => scenarios.filter((s) => completion[s.id]?.attempted).length,
+    [scenarios, completion],
+  );
+  const allScenariosDone = scenarios.length === 0 || completedScenarios === scenarios.length;
+  const quizUnlocked = allViewed && allScenariosDone;
 
   const goToSection = (idx: number) => {
     if (!module) return;
@@ -90,6 +123,7 @@ export default function Module() {
   }
 
   const section = module.sections[sectionIdx];
+  const hasScenarios = scenarios.length > 0;
 
   return (
     <div className="grid grid-cols-1 gap-6 lg:grid-cols-5">
@@ -141,6 +175,15 @@ export default function Module() {
           </div>
         )}
 
+        {/* Phase 1 — Lessons */}
+        <PhaseHeader
+          step={1}
+          total={hasScenarios ? 3 : 2}
+          title="Lessons"
+          done={allViewed}
+          locked={false}
+        />
+
         <div className="card p-6">
           <div className="mb-2 flex items-center justify-between text-xs text-gray-500">
             <span>
@@ -177,43 +220,129 @@ export default function Module() {
                 Next section <ArrowRight className="h-4 w-4" />
               </button>
             ) : (
-              <button
-                type="button"
-                onClick={() => navigate(`/module/${module.id}/quiz`)}
-                disabled={!allViewed}
-                className="btn-primary"
-                title={allViewed ? 'Take the quiz' : 'View all sections to unlock the quiz'}
-              >
-                <ClipboardCheck className="h-4 w-4" /> Take quiz
-              </button>
+              <span className="text-xs text-gray-500">
+                {allViewed ? 'All sections viewed' : 'View previous sections to continue'}
+              </span>
             )}
           </div>
         </div>
 
-        {module.scenarios?.length > 0 && (
-          <div className="mt-6">
-            <h3 className="mb-2 text-sm font-semibold uppercase tracking-wide text-gray-500">
-              Practice scenarios
-            </h3>
-            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-              {module.scenarios.map((sc) => (
-                <Link
-                  key={sc.id}
-                  to={`/module/${module.id}/scenario/${sc.id}`}
-                  className="card flex flex-col p-4 transition hover:shadow-md"
-                >
-                  <span className="text-xs font-semibold uppercase tracking-wide text-nt-primary-dark">
-                    {sc.type === 'roleplay' ? 'Roleplay' : 'Free response'}
+        {/* Phase 2 — Practice scenarios (only if module has any) */}
+        {hasScenarios && (
+          <div className="mt-8">
+            <PhaseHeader
+              step={2}
+              total={3}
+              title="Practice scenarios"
+              done={allScenariosDone}
+              locked={!allViewed}
+              progress={`${completedScenarios} / ${scenarios.length}`}
+            />
+            <div
+              className={`rounded-lg border p-4 ${
+                !allViewed
+                  ? 'border-gray-200 bg-gray-50 opacity-60'
+                  : allScenariosDone
+                    ? 'border-emerald-200 bg-emerald-50/40'
+                    : 'border-amber-200 bg-amber-50/40'
+              }`}
+            >
+              <div className="mb-3 flex items-start gap-2 text-sm">
+                {!allViewed ? (
+                  <>
+                    <Lock className="mt-0.5 h-4 w-4 shrink-0 text-gray-500" />
+                    <span className="text-gray-600">
+                      Finish all lessons above to unlock practice scenarios.
+                    </span>
+                  </>
+                ) : (
+                  <span className="font-medium text-gray-900">
+                    Required: complete all practice scenarios before the quiz.
                   </span>
-                  <p className="mt-1 line-clamp-3 text-sm text-gray-800">{sc.prompt}</p>
-                  <span className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-gray-600">
-                    Practice <ArrowRight className="h-3.5 w-3.5" />
-                  </span>
-                </Link>
-              ))}
+                )}
+              </div>
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                {scenarios.map((sc) => {
+                  const attempted = !!completion[sc.id]?.attempted;
+                  const card = (
+                    <div className="card flex h-full flex-col p-4 transition hover:shadow-md">
+                      <div className="flex items-center justify-between">
+                        <span className="text-xs font-semibold uppercase tracking-wide text-nt-primary-dark">
+                          {sc.type === 'roleplay' ? 'Roleplay' : 'Free response'}
+                        </span>
+                        {attempted ? (
+                          <span className="inline-flex items-center gap-1 rounded-full bg-emerald-100 px-2 py-0.5 text-[11px] font-semibold text-emerald-800">
+                            <CheckCircle2 className="h-3 w-3" /> Completed
+                          </span>
+                        ) : (
+                          <span className="inline-flex items-center gap-1 rounded-full bg-gray-100 px-2 py-0.5 text-[11px] font-semibold text-gray-600">
+                            <Circle className="h-3 w-3" /> Not yet
+                          </span>
+                        )}
+                      </div>
+                      <p className="mt-2 line-clamp-3 text-sm text-gray-800">{sc.prompt}</p>
+                      <span className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-gray-600">
+                        {attempted ? 'Practice again' : 'Start practice'}{' '}
+                        <ArrowRight className="h-3.5 w-3.5" />
+                      </span>
+                    </div>
+                  );
+                  return allViewed ? (
+                    <Link key={sc.id} to={`/module/${module.id}/scenario/${sc.id}`}>
+                      {card}
+                    </Link>
+                  ) : (
+                    <div key={sc.id} className="pointer-events-none">
+                      {card}
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </div>
         )}
+
+        {/* Phase 3 — Quiz */}
+        <div className="mt-8">
+          <PhaseHeader
+            step={hasScenarios ? 3 : 2}
+            total={hasScenarios ? 3 : 2}
+            title="Quiz"
+            done={false}
+            locked={!quizUnlocked}
+          />
+          <div
+            className={`rounded-lg border p-5 ${
+              quizUnlocked ? 'border-nt-primary/30 bg-nt-primary/5' : 'border-gray-200 bg-gray-50'
+            }`}
+          >
+            <div className="flex items-center justify-between gap-3">
+              <div className="text-sm">
+                {quizUnlocked ? (
+                  <span className="font-medium text-gray-900">
+                    Ready when you are. You'll need {module.passing_score_percent}% to pass.
+                  </span>
+                ) : !allViewed ? (
+                  <span className="text-gray-600">View all lesson sections first.</span>
+                ) : (
+                  <span className="text-gray-600">
+                    Complete all {scenarios.length} practice scenario{scenarios.length === 1 ? '' : 's'} above to
+                    unlock the quiz.
+                  </span>
+                )}
+              </div>
+              <button
+                type="button"
+                onClick={() => navigate(`/module/${module.id}/quiz`)}
+                disabled={!quizUnlocked}
+                className="btn-primary shrink-0"
+                title={quizUnlocked ? 'Take the quiz' : 'Quiz locked'}
+              >
+                <ClipboardCheck className="h-4 w-4" /> Take quiz
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
 
       <aside className="hidden lg:col-span-2 lg:block">
@@ -251,6 +380,44 @@ export default function Module() {
           </div>
         </div>
       )}
+    </div>
+  );
+}
+
+function PhaseHeader({
+  step,
+  total,
+  title,
+  done,
+  locked,
+  progress,
+}: {
+  step: number;
+  total: number;
+  title: string;
+  done: boolean;
+  locked: boolean;
+  progress?: string;
+}) {
+  return (
+    <div className="mb-3 flex items-center justify-between">
+      <div className="flex items-center gap-2">
+        <span
+          className={`inline-flex h-6 w-6 items-center justify-center rounded-full text-[11px] font-bold ${
+            done
+              ? 'bg-emerald-600 text-white'
+              : locked
+                ? 'bg-gray-300 text-gray-600'
+                : 'bg-nt-primary text-white'
+          }`}
+        >
+          {done ? <CheckCircle2 className="h-4 w-4" /> : step}
+        </span>
+        <h3 className="text-sm font-semibold uppercase tracking-wide text-gray-700">
+          Phase {step} of {total} — {title}
+        </h3>
+      </div>
+      {progress && <span className="text-xs font-medium text-gray-600">{progress}</span>}
     </div>
   );
 }

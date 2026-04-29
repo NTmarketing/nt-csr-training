@@ -44,10 +44,17 @@ export interface ModuleQuizQuestion {
   explanation: string;
 }
 
+export interface ScenarioCompletion {
+  attempted: boolean;
+  best_score: number | null;
+  attempt_count: number;
+}
+
 export interface ModuleFull extends ModuleSummary {
   learning_objectives: string[];
   sections: ModuleSection[];
   scenarios: ModuleScenario[];
+  scenario_completion: Record<string, ScenarioCompletion>;
   quiz: ModuleQuizQuestion[];
   kb_references: string[];
   passing_score_percent: number;

@@ -21,6 +21,23 @@ router.post('/:moduleId/submit', authRequired, (req, res, next) => {
       return res.status(400).json({ error: 'Module has no quiz' });
     }
 
+    const scenarios = mod.scenarios || [];
+    if (scenarios.length > 0) {
+      const db = getDb();
+      const attempted = db.prepare(
+        `SELECT DISTINCT scenario_id FROM scenario_attempts
+         WHERE user_id = ? AND module_id = ?`
+      ).all(req.user.id, moduleId);
+      const attemptedIds = new Set(attempted.map(r => r.scenario_id));
+      const missing = scenarios.filter(s => !attemptedIds.has(s.id));
+      if (missing.length > 0) {
+        return res.status(403).json({
+          error: 'Complete all practice scenarios before taking the quiz',
+          missing_scenario_ids: missing.map(s => s.id)
+        });
+      }
+    }
+
     const answerByQ = {};
     for (const a of answers) {
       if (a && a.questionId != null) answerByQ[a.questionId] = a.answer;

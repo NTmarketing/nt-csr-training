@@ -77,6 +77,28 @@ router.get('/:id', authRequired, (req, res) => {
   const mod = content.getModule(req.params.id);
   if (!mod) return res.status(404).json({ error: 'Module not found' });
 
+  const scenarios = mod.scenarios || [];
+  const scenario_completion = {};
+  if (scenarios.length > 0) {
+    const db = getDb();
+    const rows = db.prepare(
+      `SELECT scenario_id, COUNT(*) AS attempt_count, MAX(score) AS best_score
+       FROM scenario_attempts
+       WHERE user_id = ? AND module_id = ?
+       GROUP BY scenario_id`
+    ).all(req.user.id, mod.id);
+    const byId = {};
+    for (const r of rows) byId[r.scenario_id] = r;
+    for (const sc of scenarios) {
+      const r = byId[sc.id];
+      scenario_completion[sc.id] = {
+        attempted: !!r && r.attempt_count > 0,
+        best_score: r && r.best_score != null ? r.best_score : null,
+        attempt_count: r ? r.attempt_count : 0
+      };
+    }
+  }
+
   res.json({
     id: mod.id,
     number: mod.number,
@@ -85,7 +107,8 @@ router.get('/:id', authRequired, (req, res) => {
     estimated_minutes: mod.estimated_minutes,
     learning_objectives: mod.learning_objectives || [],
     sections: mod.sections || [],
-    scenarios: mod.scenarios || [],
+    scenarios,
+    scenario_completion,
     quiz: mod.quiz || [],
     passing_score_percent: mod.passing_score_percent || 70
   });
