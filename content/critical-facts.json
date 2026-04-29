@@ -1,0 +1,76 @@
+{
+  "facts": [
+    {
+      "id": "fact-1",
+      "fact": "Early return refund maximum is 80% of rent for the unused portion. Not 75%. The help center is out of date.",
+      "test_question": "What is the maximum refund on an early return?",
+      "test_answer": "80% of rent for the unused portion"
+    },
+    {
+      "id": "fact-2",
+      "fact": "The $25 early-return processing fee comes from the owner's payout, not from the renter's refund.",
+      "test_question": "Where does the $25 early-return processing fee come from?",
+      "test_answer": "The owner's payout"
+    },
+    {
+      "id": "fact-3",
+      "fact": "Platform fees, tax, and the Protection Package are non-refundable once a booking is accepted.",
+      "test_question": "Are platform fees, tax, and Protection Package refundable after a booking is accepted?",
+      "test_answer": "No, they are non-refundable"
+    },
+    {
+      "id": "fact-4",
+      "fact": "Cancellation refund schedule: 72+ hours before rental start = 75%, 48-72 hours = 50%, 24-48 hours = 25%, under 24 hours = 0%, same-day = 0%.",
+      "test_question": "What is the cancellation refund schedule from 72+ hours down to same-day?",
+      "test_answer": "72+ hours: 75%, 48-72 hours: 50%, 24-48 hours: 25%, under 24 hours: 0%, same-day: 0%"
+    },
+    {
+      "id": "fact-5",
+      "fact": "Cancellations must be done by the renter through their account. Phone, email, and chat requests do not cancel a booking.",
+      "test_question": "Can a CSR cancel a booking on behalf of a renter via phone or email?",
+      "test_answer": "No, the renter must cancel through their own account"
+    },
+    {
+      "id": "fact-6",
+      "fact": "A no-show counts as a renter cancellation without notice and results in no refund.",
+      "test_question": "What is the refund for a no-show?",
+      "test_answer": "No refund"
+    },
+    {
+      "id": "fact-7",
+      "fact": "Deposit refund timing is 3-7 business days after the rental is officially closed.",
+      "test_question": "How long does a deposit refund take after the rental closes?",
+      "test_answer": "3 to 7 business days"
+    },
+    {
+      "id": "fact-8",
+      "fact": "Tire damage is not covered by NT Protect / the Protection Package.",
+      "test_question": "Does NT Protect cover tire damage?",
+      "test_answer": "No, tire damage is not covered"
+    },
+    {
+      "id": "fact-9",
+      "fact": "A CSR cannot override an MVR rejection. These must be escalated.",
+      "test_question": "Can a CSR override an MVR rejection?",
+      "test_answer": "No, MVR rejections must be escalated"
+    },
+    {
+      "id": "fact-10",
+      "fact": "A CSR cannot cancel a booking on behalf of a renter. The renter must do it themselves.",
+      "test_question": "Can a CSR cancel a booking for a renter?",
+      "test_answer": "No, only the renter can cancel through their account"
+    },
+    {
+      "id": "fact-11",
+      "fact": "The pickup address is shared automatically with the renter after the owner accepts the booking. Most 'where is the address' calls are from renters who haven't checked their booking page.",
+      "test_question": "When is the pickup address shared with the renter?",
+      "test_answer": "Automatically after the owner accepts the booking"
+    },
+    {
+      "id": "fact-12",
+      "fact": "Phone number policy: do not share NT's phone number unless the customer explicitly asks. Default to email or live chat.",
+      "test_question": "Should a CSR proactively share NT's phone number?",
+      "test_answer": "No, only share it if the customer explicitly asks; default to email or live chat"
+    }
+  ]
+}

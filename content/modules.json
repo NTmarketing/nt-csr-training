@@ -1,0 +1,1432 @@
+{
+  "modules": [
+    {
+      "id": "module-1",
+      "number": 1,
+      "title": "Platform Foundations",
+      "description": "Overview of NT, the renter and owner roles, the booking lifecycle, and core platform terminology.",
+      "estimated_minutes": 15,
+      "learning_objectives": [
+        "Explain what Neighbors Trailer is in one sentence",
+        "Distinguish between Renter and Owner roles",
+        "Walk through the full booking lifecycle from search to payout",
+        "Define core platform terminology (NT Protect, MVR, Clear, Toll Program)"
+      ],
+      "sections": [
+        {
+          "id": "section-1-1",
+          "title": "What is Neighbors Trailer?",
+          "content_md": "Neighbors Trailer (NT) is a peer-to-peer trailer rental marketplace. **Owners list their trailers** and **renters book them**. NT does not own any of the trailers on the platform.\n\nWhat NT actually provides:\n- Payment processing\n- Identity verification (Clear)\n- MVR (driver record) checks\n- GPS tracking on rentals\n- NT Protect insurance for accidental damage\n- Dispute resolution\n\nIf someone asks 'aren't you just like Turo for trailers?' — yes, that's a fine analogy. The model is the same: a two-sided marketplace where the platform handles trust, payments, and safety so that owners and renters can transact directly.",
+          "key_points": [
+            "Peer-to-peer marketplace — NT does not own trailers",
+            "Two roles: Owner and Renter",
+            "NT handles payments, verification, GPS, insurance, disputes"
+          ]
+        },
+        {
+          "id": "section-1-2",
+          "title": "The Booking Lifecycle",
+          "content_md": "Every rental follows the same nine-step lifecycle. Memorize this — most CSR calls map back to a specific step.\n\n1. Renter searches and finds a trailer\n2. Renter requests a booking\n3. Renter completes ID verification (Clear) and MVR\n4. Owner accepts (or rejects) the booking\n5. Pickup address and owner phone shared automatically once accepted\n6. Renter picks up trailer; owner 'starts' the rental\n7. Rental period — renter has the trailer\n8. Renter returns trailer; owner 'ends' the rental\n9. Reviews left, deposit refunded, owner payout issued\n\nKey friction points to know cold:\n- The pickup address is **not** sent in a separate email — it appears on the booking page after acceptance.\n- Booking confirmation is **not instant** — it requires owner acceptance.\n- The rental is only 'started' and 'ended' by the owner clicking those buttons in their account.",
+          "key_points": [
+            "9 steps from search to payout",
+            "Pickup address shows after owner accepts — auto",
+            "Owner manually starts and ends each rental"
+          ]
+        },
+        {
+          "id": "section-1-3",
+          "title": "Core Terminology",
+          "content_md": "These terms come up in nearly every conversation. Use them confidently.\n\n- **NT Protect / Protection Package** — built-in insurance covering accidental damage during rentals. Tire damage and intentional damage are excluded.\n- **Toll Program** — opt-in for owners. Auto-tracks tolls during rentals and bills the renter.\n- **My Reservations** — owner-side feature for managing their bookings.\n- **MVR** — Motor Vehicle Record check, required for renters before booking is allowed.\n- **Clear** — third-party ID verification provider used by NT.\n- **Pending booking** — a booking the owner has not yet accepted.",
+          "key_points": [
+            "NT Protect = insurance, with exclusions",
+            "Toll Program = owner opt-in",
+            "MVR + Clear = required renter verifications"
+          ]
+        }
+      ],
+      "kb_references": [
+        "Why Rent from Neighbors Trailer?",
+        "Why List with Neighbors Trailer?",
+        "How It Works",
+        "How do I book a trailer rental?"
+      ],
+      "scenarios": [
+        {
+          "id": "module-1-scenario-1",
+          "type": "free_response",
+          "prompt": "A friend asks at dinner: 'What does Neighbors Trailer actually do? Aren't they just like Turo for trailers?' Give a 30-second pitch.",
+          "rubric": [
+            "Mentions peer-to-peer marketplace model",
+            "Explains owner/renter dynamic",
+            "Mentions NT's role as facilitator (payments, verification, insurance)",
+            "Concise — fits in 30 seconds"
+          ]
+        },
+        {
+          "id": "module-1-scenario-2",
+          "type": "free_response",
+          "prompt": "A new coworker asks: 'What's the difference between an owner and a renter on the platform?' Explain each role in two sentences.",
+          "rubric": [
+            "Owner: lists trailers, accepts bookings, starts/ends rentals, gets paid",
+            "Renter: searches, books, completes Clear + MVR, picks up and returns trailer",
+            "Two sentences per role — not a wall of text"
+          ]
+        },
+        {
+          "id": "module-1-scenario-3",
+          "type": "roleplay",
+          "prompt": "You're answering an inbound call. The caller is a brand-new renter and confused about how the platform works.",
+          "customer_persona": "First-time renter, friendly but uncertain. Has never used a peer-to-peer platform before. Will ask basic questions about how booking works, when they pay, and where they pick up.",
+          "rubric": [
+            "Friendly opening with name",
+            "Explains lifecycle clearly without info-dumping",
+            "Confirms understanding before moving on",
+            "Asks if they have specific questions"
+          ]
+        }
+      ],
+      "quiz": [
+        {
+          "id": "m1-q1",
+          "question": "Does Neighbors Trailer own the trailers it rents?",
+          "type": "multiple_choice",
+          "options": ["Yes", "No"],
+          "correct_index": 1,
+          "explanation": "NT is a peer-to-peer marketplace. Owners list their trailers; NT facilitates the transaction."
+        },
+        {
+          "id": "m1-q2",
+          "question": "When is the pickup address shared with the renter?",
+          "type": "multiple_choice",
+          "options": [
+            "Immediately after booking request",
+            "After owner accepts the booking",
+            "Only after ID verification completes",
+            "When the rental starts"
+          ],
+          "correct_index": 1,
+          "explanation": "Pickup address appears automatically on the booking details page after owner acceptance."
+        },
+        {
+          "id": "m1-q3",
+          "question": "Who initiates ID verification through Clear?",
+          "type": "multiple_choice",
+          "options": ["The owner", "The renter", "Either party", "NT staff"],
+          "correct_index": 1,
+          "explanation": "ID verification is required for the renter before booking is permitted."
+        },
+        {
+          "id": "m1-q4",
+          "question": "What does NT Protect cover?",
+          "type": "short_answer",
+          "expected_keywords": ["accidental damage", "rentals"],
+          "explanation": "NT Protect covers accidental damage during rentals. Tire damage and intentional damage are excluded."
+        }
+      ],
+      "passing_score_percent": 70
+    },
+    {
+      "id": "module-2",
+      "number": 2,
+      "title": "Account & Verification",
+      "description": "Account creation, Clear ID verification, MVR checks, and the most common 'my account is inactive' triage.",
+      "estimated_minutes": 15,
+      "learning_objectives": [
+        "Walk renters and owners through account creation",
+        "Explain Clear ID verification and respond to refusals",
+        "Explain MVR and the most common rejection reasons",
+        "Triage 'my account is inactive' inquiries"
+      ],
+      "sections": [
+        {
+          "id": "section-2-1",
+          "title": "The Two Required Verifications",
+          "content_md": "Before a renter can book, they must complete **two** verifications:\n\n1. **ID verification via Clear** — third-party identity check\n2. **MVR (Motor Vehicle Record)** — driver record check\n\nIf either fails, the booking is blocked. There is no manual override path that a CSR can take. A failed MVR is escalated; a refused Clear is handled by re-explaining the purpose.\n\nA standard **Class C license** is sufficient for renting a standard trailer. **No CDL required.** Customers often think a CDL is needed and it isn't — clear that up early in the call.",
+          "key_points": [
+            "Both Clear and MVR must pass before booking",
+            "Standard Class C license is enough — no CDL",
+            "CSR cannot override either rejection"
+          ]
+        },
+        {
+          "id": "section-2-2",
+          "title": "Handling Clear Refusals",
+          "content_md": "The most common reasons renters refuse Clear:\n- Privacy concerns ('I don't want to share my ID')\n- Technical issues with the Clear flow\n- They don't have the right ID on hand\n\nWhat to say:\n- Clear is industry-standard and used by airlines and stadiums.\n- NT does **not** store your ID image.\n- Verification protects both renters and owners — it's how we keep bad actors off the platform.\n\nDon't argue. Acknowledge their concern, explain the purpose, and let them decide. If they still refuse, the booking simply can't proceed.",
+          "key_points": [
+            "Clear is industry-standard — name-drop airlines/stadiums",
+            "NT does not store ID images",
+            "If they still refuse, booking can't proceed"
+          ]
+        },
+        {
+          "id": "section-2-3",
+          "title": "MVR Rejections",
+          "content_md": "MVR rejections come from things like:\n- License suspensions\n- Multiple recent moving violations\n- License expired\n- License type doesn't qualify\n\n**A CSR cannot override an MVR rejection. Escalate.**\n\nWhen handling the call:\n1. Acknowledge their frustration ('I hear you, that's not the answer you were hoping for')\n2. Explain that MVR is a third-party check and NT cannot manually override it\n3. Offer to escalate so the team can review the specific reason\n4. Don't promise a reversal",
+          "key_points": [
+            "CSR cannot override — escalate every time",
+            "Be empathetic but don't promise an outcome",
+            "Explain MVR is third-party"
+          ]
+        },
+        {
+          "id": "section-2-4",
+          "title": "'My Account Is Inactive'",
+          "content_md": "Three usual causes:\n1. **Unverified email** — most common; have them check spam and resend the verification email\n2. **Missing required listing fields** (owner side) — listing is incomplete\n3. **Compliance hold** — admin action; escalate\n\nTriage in that order. If 1 and 2 don't fit, escalate.",
+          "key_points": [
+            "Triage order: email → listing fields → compliance hold",
+            "Email change requires verification of the new address"
+          ]
+        }
+      ],
+      "kb_references": [
+        "How do I complete ID verification?",
+        "What are the requirements to rent a trailer?",
+        "Why is my account inactive?",
+        "How do I change my email address for my account?",
+        "Template: Refusal to use Clear",
+        "Template: MVR Booking Rejection"
+      ],
+      "scenarios": [
+        {
+          "id": "module-2-scenario-1",
+          "type": "roleplay",
+          "prompt": "A renter calls and says they refuse to use Clear because it 'feels invasive.'",
+          "customer_persona": "Privacy-conscious renter in their 40s. Polite but firm. Will push back if you're too pushy or salesy. Will engage if you genuinely explain the purpose.",
+          "rubric": [
+            "Acknowledges concern without dismissing it",
+            "Explains Clear is industry-standard",
+            "Mentions NT does not store ID data",
+            "Doesn't pressure — lets them decide"
+          ]
+        },
+        {
+          "id": "module-2-scenario-2",
+          "type": "roleplay",
+          "prompt": "A renter received an MVR rejection email this morning and is upset. They had a trip planned for the weekend.",
+          "customer_persona": "Frustrated renter who feels the system is unfair. Wants the rejection reversed. Will escalate verbally if they sense you're being dismissive.",
+          "rubric": [
+            "Acknowledges frustration explicitly",
+            "Does NOT promise a reversal",
+            "Explains MVR is third-party and CSR cannot override",
+            "Offers to escalate to the team"
+          ]
+        },
+        {
+          "id": "module-2-scenario-3",
+          "type": "free_response",
+          "prompt": "An owner calls saying their account is inactive and they don't know why. What three things do you check, in order?",
+          "rubric": [
+            "Mentions unverified email first",
+            "Mentions missing required listing fields second",
+            "Mentions compliance hold third (and that it's escalated)",
+            "Concise"
+          ]
+        }
+      ],
+      "quiz": [
+        {
+          "id": "m2-q1",
+          "question": "Can a CSR override an MVR rejection?",
+          "type": "multiple_choice",
+          "options": ["Yes, with manager approval", "No — escalate", "Yes, after re-running the check", "Only for owners"],
+          "correct_index": 1,
+          "explanation": "MVR is a third-party check. CSRs cannot override; these must be escalated."
+        },
+        {
+          "id": "m2-q2",
+          "question": "What is Clear used for?",
+          "type": "multiple_choice",
+          "options": [
+            "Owner background checks",
+            "Renter ID verification",
+            "Insurance underwriting",
+            "Payment processing"
+          ],
+          "correct_index": 1,
+          "explanation": "Clear is the third-party ID verification provider for renters."
+        },
+        {
+          "id": "m2-q3",
+          "question": "Is a CDL required to rent a standard trailer?",
+          "type": "multiple_choice",
+          "options": ["Yes", "No — a standard Class C license is sufficient", "Only for trailers over 5,000 lbs", "Depends on the state"],
+          "correct_index": 1,
+          "explanation": "A standard Class C license is sufficient. No CDL is required for standard trailers."
+        },
+        {
+          "id": "m2-q4",
+          "question": "What is the most common cause of an 'account inactive' issue?",
+          "type": "short_answer",
+          "expected_keywords": ["unverified email", "email"],
+          "explanation": "Unverified email is the first thing to check — usually the renter or owner missed the verification email."
+        }
+      ],
+      "passing_score_percent": 70
+    },
+    {
+      "id": "module-3",
+      "number": 3,
+      "title": "Booking Lifecycle (Renter Side)",
+      "description": "Walking renters through booking, owner non-response, date changes, trailer switches, and pickup confusion.",
+      "estimated_minutes": 15,
+      "learning_objectives": [
+        "Walk a renter through booking start to finish",
+        "Set expectations when an owner does not respond",
+        "Handle date change requests and trailer switches",
+        "Resolve 'where is my pickup address' calls"
+      ],
+      "sections": [
+        {
+          "id": "section-3-1",
+          "title": "From Request to Acceptance",
+          "content_md": "A renter selects a trailer and submits a booking request. The owner then has time to accept or reject.\n\n**NT does not have a hard SLA on owner response.** This trips up renters who expect instant confirmation.\n\nWhat to tell renters:\n- Booking confirmation is **not** instant — it requires owner acceptance\n- If it's been over 24 hours and no response, message the owner directly through the booking\n- Encourage them to look at backup options in case this owner doesn't come through\n- Once the owner accepts, the pickup address and owner phone appear automatically on the booking page",
+          "key_points": [
+            "No hard SLA on owner response",
+            "After 24 hours of silence: message owner, look at backups",
+            "Pickup address auto-appears after acceptance"
+          ]
+        },
+        {
+          "id": "section-3-2",
+          "title": "Date Changes & Trailer Switches",
+          "content_md": "**Date changes:** Renters can request a date change through their booking. The owner must accept the new dates. If the owner declines, the renter has to cancel under the cancellation policy (Module 7) — they can't force the new dates.\n\n**Trailer switches:** A renter can switch to a different trailer **from the same owner** through the owner's 'My Reservations' feature. The owner has to facilitate the switch on their end.\n\nA renter cannot switch to a different owner without cancelling and rebooking.",
+          "key_points": [
+            "Date change = owner must accept",
+            "Same-owner switch = via owner's My Reservations",
+            "Different-owner change = cancel + rebook"
+          ]
+        },
+        {
+          "id": "section-3-3",
+          "title": "Pickup Address Calls",
+          "content_md": "This is one of the highest-volume call types: 'where do I pick up?'\n\nMost of the time the address is already on their booking page — they just haven't scrolled or didn't realize. Walk them to the booking details page first.\n\nIf the owner has not yet accepted, the address won't be there yet. That's the actual issue in maybe 10% of these calls.\n\n**Renters cannot cancel via phone, email, or chat.** Only through their account. This applies even when they're asking the CSR to cancel for them.",
+          "key_points": [
+            "Most pickup-address calls = renter hasn't checked booking page",
+            "If owner not yet accepted → no address yet",
+            "CSR cannot cancel for the renter"
+          ]
+        }
+      ],
+      "kb_references": [
+        "How do I book a trailer rental?",
+        "How long does booking confirmation take?",
+        "How Do I Change My Booking Dates?",
+        "How do I get the pick-up address?",
+        "Can I switch to a different trailer from the same owner?",
+        "How do I contact a trailer owner?"
+      ],
+      "scenarios": [
+        {
+          "id": "module-3-scenario-1",
+          "type": "roleplay",
+          "prompt": "Inbound call: a renter says 'I booked yesterday and the guy still hasn't accepted. Where's my trailer?'",
+          "customer_persona": "Impatient renter who expected instant confirmation. Has plans for the weekend. Will get more frustrated if you don't acknowledge the issue quickly.",
+          "rubric": [
+            "Acknowledges frustration",
+            "Sets correct expectation: no hard SLA, but >24h is reasonable to message owner",
+            "Offers practical next steps (message owner, look at backups)",
+            "Doesn't overpromise"
+          ]
+        },
+        {
+          "id": "module-3-scenario-2",
+          "type": "free_response",
+          "prompt": "A renter wants to push their booking dates back two days. Walk them through self-serve in 3-4 sentences.",
+          "rubric": [
+            "Mentions requesting date change through the booking",
+            "Mentions owner must accept the new dates",
+            "Mentions fallback (cancel under policy) if declined",
+            "Concise"
+          ]
+        },
+        {
+          "id": "module-3-scenario-3",
+          "type": "roleplay",
+          "prompt": "A renter says they can't find the pickup address. Diagnose and resolve.",
+          "customer_persona": "Renter who just booked. Doesn't realize the address is on their booking page. Slightly flustered.",
+          "rubric": [
+            "First checks if owner has accepted yet",
+            "If yes — walks them to the booking details page",
+            "If no — explains the address appears after acceptance",
+            "Calm, doesn't make them feel dumb"
+          ]
+        }
+      ],
+      "quiz": [
+        {
+          "id": "m3-q1",
+          "question": "Can a CSR cancel a booking on behalf of a renter?",
+          "type": "multiple_choice",
+          "options": [
+            "Yes, with the renter's verbal consent",
+            "Yes, by submitting an internal form",
+            "No — the renter must do it through their account",
+            "Only for emergencies"
+          ],
+          "correct_index": 2,
+          "explanation": "Cancellations must be done by the renter through their own account. Phone/email/chat requests don't cancel a booking."
+        },
+        {
+          "id": "m3-q2",
+          "question": "When does the pickup address get shared with the renter?",
+          "type": "multiple_choice",
+          "options": [
+            "Via SMS one hour before pickup",
+            "Automatically on the booking details page after the owner accepts",
+            "By the owner manually",
+            "After payment clears"
+          ],
+          "correct_index": 1,
+          "explanation": "The address appears automatically on the booking page once the owner accepts."
+        },
+        {
+          "id": "m3-q3",
+          "question": "How does a renter switch to a different trailer from the same owner?",
+          "type": "multiple_choice",
+          "options": [
+            "By cancelling and rebooking",
+            "Through the owner's 'My Reservations' feature",
+            "By contacting NT support",
+            "Through the renter's profile settings"
+          ],
+          "correct_index": 1,
+          "explanation": "Same-owner switches happen through the owner's My Reservations feature."
+        },
+        {
+          "id": "m3-q4",
+          "question": "If an owner does not respond for 24+ hours, what should the renter do?",
+          "type": "short_answer",
+          "expected_keywords": ["message", "owner", "backup"],
+          "explanation": "Encourage the renter to message the owner directly through the booking and to look at backup options."
+        }
+      ],
+      "passing_score_percent": 70
+    },
+    {
+      "id": "module-4",
+      "number": 4,
+      "title": "Booking Lifecycle (Owner Side)",
+      "description": "Owner-side flows: accepting bookings, starting and ending rentals, listing approval, and 'my listing isn't showing' troubleshooting.",
+      "estimated_minutes": 15,
+      "learning_objectives": [
+        "Walk an owner through accepting, starting, and ending a rental",
+        "Explain listing approval timing and common rejection reasons",
+        "Handle 'my listing isn't showing' calls",
+        "Coach owners on photo and listing policy"
+      ],
+      "sections": [
+        {
+          "id": "section-4-1",
+          "title": "Listing Approval",
+          "content_md": "New listings go through approval — typically **24-48 hours**. It's a mix of automated and manual review.\n\nCommon rejection reasons:\n- Bad or low-quality photos\n- Phone numbers, addresses, or company names visible in photos\n- Missing dimensions (length, width, height, weight capacity)\n- Formatting issues in the description\n- Hitch type not specified\n\nIf an owner asks to add their company logo to photos, the answer is **no** — that violates listing policy and the photo will be removed during review.",
+          "key_points": [
+            "Approval typically 24-48 hours",
+            "No phone numbers, addresses, logos, or company names in photos",
+            "Missing dimensions is the most common rejection reason"
+          ]
+        },
+        {
+          "id": "section-4-2",
+          "title": "Start and End — The Two Compliance Actions",
+          "content_md": "After acceptance, the owner has two responsibilities tied to specific buttons in their account:\n\n1. **Start the rental** when the renter picks up the trailer\n2. **End the rental** when the trailer is returned\n\nFailure to start or end on time triggers escalation templates and possible payout deductions. This is one of the most common owner-facing issues.\n\nWhen an owner calls saying 'I forgot to end the rental yesterday,' walk them through ending it now and explain that NT may need to manually adjust timing.",
+          "key_points": [
+            "Owner manually starts and ends each rental",
+            "Late start/end → escalation templates + possible payout deductions",
+            "If they forgot, end it now and let them know about adjustments"
+          ]
+        },
+        {
+          "id": "section-4-3",
+          "title": "Owner Self-Serve Tools",
+          "content_md": "Owners can self-serve the following without involving NT:\n- Block calendar dates\n- Set or change rental rates\n- Message renters through the platform\n- Switch a renter to a different trailer (via My Reservations)\n\nOwners do **not** install hitches and should **not** quote tow capacity for the renter's vehicle. Tow capacity is the renter's responsibility based on their vehicle's documentation. Coach owners away from giving towing advice.",
+          "key_points": [
+            "Self-serve: calendar block-out, rates, messaging, trailer switch",
+            "Owners do not install hitches",
+            "Owners should not quote tow capacity"
+          ]
+        }
+      ],
+      "kb_references": [
+        "How Do I List A Trailer for Rent?",
+        "Trailer Listing Approval Time",
+        "How do I accept a booking?",
+        "How do I start a rental from my account?",
+        "How do I end a rental from my account?",
+        "How do I block calendar dates?",
+        "How Do I Change My Rental Rates?",
+        "Template: How It Works for Trailer Owners"
+      ],
+      "scenarios": [
+        {
+          "id": "module-4-scenario-1",
+          "type": "free_response",
+          "prompt": "A new owner asks: 'I submitted my listing 2 days ago and it's still pending. What's going on?' Explain timing and what could be holding it up.",
+          "rubric": [
+            "Mentions 24-48 hour typical approval window",
+            "Notes that common holds are bad photos, missing dimensions, or contact info in photos",
+            "Offers to look at the listing or have the team look",
+            "Doesn't promise a specific timeline"
+          ]
+        },
+        {
+          "id": "module-4-scenario-2",
+          "type": "roleplay",
+          "prompt": "An owner calls saying they forgot to end the rental yesterday. The renter returned the trailer on time.",
+          "customer_persona": "Owner who is mildly worried about getting penalized. Wants to know if they're going to lose money.",
+          "rubric": [
+            "Reassures without overpromising",
+            "Walks them through ending it now",
+            "Explains NT may adjust timing manually",
+            "Mentions the importance of starting/ending on time going forward"
+          ]
+        },
+        {
+          "id": "module-4-scenario-3",
+          "type": "roleplay",
+          "prompt": "An owner asks: 'Why can't I put my company logo on the trailer photos? It looks more professional.'",
+          "customer_persona": "Confident owner running a small rental business. Not hostile, but pushes back on the policy.",
+          "rubric": [
+            "Explains policy clearly: no logos, phone numbers, addresses in photos",
+            "Doesn't agree the policy is bad",
+            "Explains the purpose (consistent platform look, anti-circumvention)",
+            "Stays professional"
+          ]
+        }
+      ],
+      "quiz": [
+        {
+          "id": "m4-q1",
+          "question": "What two compliance actions must an owner take during a rental?",
+          "type": "multiple_choice",
+          "options": [
+            "Start and End",
+            "Confirm and Bill",
+            "Approve and Release",
+            "Inspect and Report"
+          ],
+          "correct_index": 0,
+          "explanation": "Owners manually 'Start' the rental at pickup and 'End' it at return."
+        },
+        {
+          "id": "m4-q2",
+          "question": "What's the typical listing approval timeframe?",
+          "type": "multiple_choice",
+          "options": ["1-2 hours", "Same day", "24-48 hours", "5-7 business days"],
+          "correct_index": 2,
+          "explanation": "Listing approval is typically 24-48 hours and combines automated and manual review."
+        },
+        {
+          "id": "m4-q3",
+          "question": "Can owners include their phone number in trailer photos?",
+          "type": "multiple_choice",
+          "options": [
+            "Yes",
+            "Only for owners with verified business accounts",
+            "No",
+            "Only on the cover photo"
+          ],
+          "correct_index": 2,
+          "explanation": "Phone numbers, addresses, and company names are not allowed in photos and will be removed during review."
+        },
+        {
+          "id": "m4-q4",
+          "question": "Should owners quote tow capacity for the renter's vehicle?",
+          "type": "short_answer",
+          "expected_keywords": ["no", "renter", "responsibility"],
+          "explanation": "Owners should not quote tow capacity. Tow capacity is the renter's responsibility based on their vehicle's documentation."
+        }
+      ],
+      "passing_score_percent": 70
+    },
+    {
+      "id": "module-5",
+      "number": 5,
+      "title": "Payments, Fees & Payouts",
+      "description": "Renter-side fees, owner-side payouts, the Toll Program, and 'my payout failed' diagnosis.",
+      "estimated_minutes": 15,
+      "learning_objectives": [
+        "Explain renter-side fees (rent, platform fee, tax, deposit, Protection Package)",
+        "Explain owner-side payouts (timing, methods, common failures)",
+        "Resolve 'my payout failed' or 'my bank info won't save' issues",
+        "Explain the Toll Program"
+      ],
+      "sections": [
+        {
+          "id": "section-5-1",
+          "title": "Renter Fees and Charges",
+          "content_md": "When a renter books, the total includes:\n- **Rent** (the trailer's nightly/daily rate)\n- **Platform fee** (NT's service fee — non-refundable)\n- **Tax** (non-refundable)\n- **Deposit** (a hold, refunded after rental closes)\n- **Protection Package** (NT Protect insurance — non-refundable once accepted)\n\n**The renter's card is charged when the booking is accepted, not when the request is submitted.** This trips up some renters.\n\nDeposits are released **3-7 business days** after the rental officially closes. If a renter calls 24 hours after rental end asking where their deposit is, the answer is 'it's still processing — typical timing is 3-7 business days.'",
+          "key_points": [
+            "Card charged at acceptance, not request",
+            "Platform fee, tax, Protection Package = non-refundable once accepted",
+            "Deposit refund: 3-7 business days after rental closes"
+          ]
+        },
+        {
+          "id": "section-5-2",
+          "title": "Owner Payouts",
+          "content_md": "Owner payouts go out after the rental ends successfully. The flow:\n\n1. Owner ends the rental in their account\n2. NT processes the payout to the owner's connected bank\n3. Owner receives funds in standard ACH timing\n\n**The single biggest cause of payout delays is the owner's bank info — either not connected or entered incorrectly.** If a payout fails, the owner gets a 'Payout Failed' template email asking them to update their bank info.\n\nWhen an owner calls about a missing payout, ask them in this order:\n1. Did you end the rental?\n2. Is your bank info connected and correct?\n3. How long has it been since the rental ended?\n\nIf bank info is the issue, walk them through updating it. If everything looks right and it's been more than a week, escalate.",
+          "key_points": [
+            "Payout flow: end rental → NT processes → ACH",
+            "Bank info is the #1 cause of failures",
+            "Triage: did you end? bank info? how long?"
+          ]
+        },
+        {
+          "id": "section-5-3",
+          "title": "The Toll Program",
+          "content_md": "The Toll Program is an **opt-in feature for owners**. When enabled, NT auto-tracks tolls during rentals and bills the renter directly. This saves owners from chasing toll-by-mail bills weeks later.\n\nWhen explaining to owners, be honest about pros and cons:\n- **Pro:** No more chasing toll-by-mail bills\n- **Pro:** Renter pays automatically, no friction\n- **Con:** Small percentage of edge cases where tolls aren't captured cleanly\n\nOwners can opt in through their account settings. Encourage it for owners who rent frequently in toll-heavy areas.",
+          "key_points": [
+            "Opt-in for owners",
+            "Auto-tracks tolls and bills the renter",
+            "Be honest about edge cases"
+          ]
+        }
+      ],
+      "kb_references": [
+        "What forms of payment can I use to rent a trailer?",
+        "When will my credit card be charged?",
+        "What are the rental fees?",
+        "Why does Neighbors Trailer charge a service fee?",
+        "When will I receive the payout from my rental?",
+        "How do I receive payouts for my rentals?",
+        "Bank information won't submit. What should I do?",
+        "How Does the Toll Program Work?",
+        "Template: Your Payout Failed / Action Required"
+      ],
+      "scenarios": [
+        {
+          "id": "module-5-scenario-1",
+          "type": "roleplay",
+          "prompt": "A renter cancelled and only got most of their money back. They want to know where the rest is.",
+          "customer_persona": "Frustrated renter who feels they're being short-changed. Doesn't remember reading about non-refundable fees.",
+          "rubric": [
+            "Explains the cancellation refund amount based on timing",
+            "Explains platform fee, tax, and Protection Package are non-refundable",
+            "Doesn't apologize for the policy itself",
+            "Calm, factual"
+          ]
+        },
+        {
+          "id": "module-5-scenario-2",
+          "type": "roleplay",
+          "prompt": "An owner says they ended the rental 5 days ago and still haven't been paid.",
+          "customer_persona": "Owner who is starting to worry. Wants a real answer, not boilerplate.",
+          "rubric": [
+            "Confirms rental was ended",
+            "Asks about bank info connection",
+            "Explains typical timing",
+            "Offers to escalate if everything looks correct on their end"
+          ]
+        },
+        {
+          "id": "module-5-scenario-3",
+          "type": "free_response",
+          "prompt": "An owner asks: 'What is this Toll Program and should I opt in?' Give an honest 4-5 sentence answer.",
+          "rubric": [
+            "Explains the basic mechanic (auto-track + bill renter)",
+            "Mentions the main pro (no toll-by-mail chasing)",
+            "Mentions edge cases honestly",
+            "Doesn't oversell"
+          ]
+        }
+      ],
+      "quiz": [
+        {
+          "id": "m5-q1",
+          "question": "Are platform fees refundable?",
+          "type": "multiple_choice",
+          "options": ["Yes, always", "No — non-refundable once accepted", "Only on cancellations >72 hours out", "Only for owners"],
+          "correct_index": 1,
+          "explanation": "Platform fees are non-refundable once a booking is accepted. So are tax and the Protection Package."
+        },
+        {
+          "id": "m5-q2",
+          "question": "When is the renter's card charged?",
+          "type": "multiple_choice",
+          "options": [
+            "When the booking request is submitted",
+            "When the booking is accepted",
+            "At pickup",
+            "When the rental ends"
+          ],
+          "correct_index": 1,
+          "explanation": "The card is charged at acceptance, not at the request stage."
+        },
+        {
+          "id": "m5-q3",
+          "question": "What's the most common reason for a delayed owner payout?",
+          "type": "multiple_choice",
+          "options": [
+            "Public holiday",
+            "Bank account not connected or info incorrect",
+            "Rental dispute",
+            "Tax form missing"
+          ],
+          "correct_index": 1,
+          "explanation": "The biggest cause of payout failures is bank info — not connected or entered incorrectly."
+        },
+        {
+          "id": "m5-q4",
+          "question": "What is the typical timing for a deposit refund after a rental closes?",
+          "type": "short_answer",
+          "expected_keywords": ["3", "7", "business days"],
+          "explanation": "Deposit refunds are typically 3-7 business days after the rental officially closes."
+        }
+      ],
+      "passing_score_percent": 70
+    },
+    {
+      "id": "module-6",
+      "number": 6,
+      "title": "Deposits, Damage Claims & Disputes",
+      "description": "HIGH STAKES. Damage claim filing, dispute rights, what NT Protect covers and excludes, and how to handle 'I'm being charged for damage I didn't cause.'",
+      "estimated_minutes": 20,
+      "learning_objectives": [
+        "Explain the damage claim filing process to an owner",
+        "Explain dispute rights to a renter",
+        "Define what NT Protect covers and excludes",
+        "Handle damage dispute calls without committing to fault either way"
+      ],
+      "sections": [
+        {
+          "id": "section-6-1",
+          "title": "When Damage Happens",
+          "content_md": "When a trailer is returned with damage, the **owner files a damage claim**. The claim must include:\n- A description specific to that rental\n- Photos showing the damage\n- A repair estimate or invoice\n- The completed claim form\n\nNT reviews the claim. If the renter disputes, NT reviews both sides and makes a final determination.\n\nIf damage costs **exceed the deposit**, the owner can pursue additional recovery through NT.",
+          "key_points": [
+            "Owner files: description, photos, estimate/invoice, form",
+            "Renter can dispute through their account",
+            "NT makes final determination on disputed claims"
+          ]
+        },
+        {
+          "id": "section-6-2",
+          "title": "What NT Protect Covers (and Doesn't)",
+          "content_md": "**Covers:** Accidental damage during rentals, automatically applied to eligible bookings.\n\n**Does NOT cover:**\n- **Tire damage** (blowouts, road debris) — this is the most common 'is it covered' question\n- Intentional damage\n- Theft due to renter negligence\n\nIf a renter calls saying 'I blew a tire on the highway, am I covered?' — the answer is **no, NT Protect does not cover tire damage**. Be direct but empathetic.",
+          "key_points": [
+            "Tire damage is NOT covered — high-volume call type",
+            "Intentional damage and theft from negligence not covered",
+            "Be direct and empathetic, not apologetic"
+          ]
+        },
+        {
+          "id": "section-6-3",
+          "title": "How to Handle Dispute Calls",
+          "content_md": "**Critical rule:** Never agree with a renter that 'the deduction is wrong' or that 'the owner is making it up.' You don't have visibility into the claim, the photos, or the prior condition. Stay neutral.\n\nWhat to say:\n- Acknowledge their frustration\n- Explain the dispute process exists exactly for this situation\n- Direct them to dispute through their account\n- Tell them NT will review both sides\n\nWhat NOT to say:\n- 'That sounds unfair'\n- 'I'll get this reversed for you'\n- 'The owner is probably wrong'\n\nIf the customer escalates to demanding a final answer, escalate the call.",
+          "key_points": [
+            "Never agree the deduction is wrong",
+            "Direct to the dispute process — not your call to make",
+            "Demanding a final answer = escalate"
+          ]
+        }
+      ],
+      "kb_references": [
+        "How can I file a damage claim?",
+        "How can I recover damage costs that exceed the deposit?",
+        "How can I dispute a deposit deduction claim?",
+        "What is the Protection Package?",
+        "How much does the Protection Package cost?",
+        "Am I responsible for tire damage?",
+        "What types of disputes will Neighbors Trailer handle?",
+        "Template: Damage Claim Form",
+        "Template: Deposit Deduction Dispute"
+      ],
+      "scenarios": [
+        {
+          "id": "module-6-scenario-1",
+          "type": "roleplay",
+          "prompt": "A frustrated renter calls: 'They're charging me $400 for a scratch that was already there!' Handle without committing to fault either way.",
+          "customer_persona": "Angry renter who is convinced they're being scammed. Will push you to agree with them. Will threaten escalation if you don't.",
+          "rubric": [
+            "Acknowledges frustration without agreeing the deduction is wrong",
+            "Explains the dispute process exists for this exact situation",
+            "Directs them to dispute through their account",
+            "Stays neutral — doesn't take a side",
+            "Escalates if pushed for a final answer"
+          ]
+        },
+        {
+          "id": "module-6-scenario-2",
+          "type": "free_response",
+          "prompt": "An owner asks how to file a damage claim. Walk through the four things they need to submit.",
+          "rubric": [
+            "Description specific to the rental",
+            "Photos of the damage",
+            "Repair estimate or invoice",
+            "Completed claim form",
+            "Concise"
+          ]
+        },
+        {
+          "id": "module-6-scenario-3",
+          "type": "roleplay",
+          "prompt": "A renter blew a tire on the highway and is asking if they're covered.",
+          "customer_persona": "Stranded renter, stressed but not angry. Wants to know what to do next.",
+          "rubric": [
+            "Direct: tire damage is not covered by NT Protect",
+            "Empathetic about the situation",
+            "Doesn't apologize for the policy",
+            "Helps them think about practical next steps"
+          ]
+        }
+      ],
+      "quiz": [
+        {
+          "id": "m6-q1",
+          "question": "Does NT Protect cover tire blowouts?",
+          "type": "multiple_choice",
+          "options": ["Yes", "No", "Only with the upgraded plan", "Only on highways"],
+          "correct_index": 1,
+          "explanation": "Tire damage is not covered by NT Protect. This is one of the most common 'is it covered' questions."
+        },
+        {
+          "id": "m6-q2",
+          "question": "When a renter calls disputing a deduction, what's the right next step?",
+          "type": "multiple_choice",
+          "options": [
+            "Tell them you'll get it reversed",
+            "Direct them to dispute through their account; NT will review",
+            "Escalate immediately",
+            "Agree the deduction sounds unfair"
+          ],
+          "correct_index": 1,
+          "explanation": "Direct the renter to the dispute process. CSR cannot adjudicate and should not commit to fault."
+        },
+        {
+          "id": "m6-q3",
+          "question": "What four things does an owner submit when filing a damage claim?",
+          "type": "short_answer",
+          "expected_keywords": ["description", "photos", "estimate", "form"],
+          "explanation": "Description specific to rental, photos, repair estimate or invoice, and the completed claim form."
+        },
+        {
+          "id": "m6-q4",
+          "question": "If damage costs exceed the deposit, can the owner recover the rest?",
+          "type": "multiple_choice",
+          "options": [
+            "No — capped at deposit",
+            "Yes — through NT's additional recovery process",
+            "Only with court order",
+            "Only with the renter's consent"
+          ],
+          "correct_index": 1,
+          "explanation": "Owners can pursue additional recovery through NT when costs exceed the deposit."
+        }
+      ],
+      "passing_score_percent": 70
+    },
+    {
+      "id": "module-7",
+      "number": 7,
+      "title": "Extensions, Cancellations & Late Returns",
+      "description": "Cancellation refund schedule, the 80% early-return override, extensions, and late-return escalation.",
+      "estimated_minutes": 20,
+      "learning_objectives": [
+        "Explain the cancellation refund schedule from memory",
+        "Explain the early return refund — including the 80% override",
+        "Walk renters and owners through extensions",
+        "Recognize a late return situation and trigger the right escalation"
+      ],
+      "sections": [
+        {
+          "id": "section-7-1",
+          "title": "Cancellation Refund Schedule",
+          "content_md": "Memorize this:\n\n| Time before rental start | Refund |\n|---|---|\n| 72+ hours | 75% |\n| 48-72 hours | 50% |\n| 24-48 hours | 25% |\n| Under 24 hours / same-day | 0% |\n\n**Always non-refundable:** platform fee, tax, Protection Package.\n\n**A no-show counts as a cancellation without notice = no refund.**\n\n**Cancellations must be done by the renter through their account.** A phone, email, or chat request does NOT cancel a booking. CSRs cannot cancel for the renter.",
+          "key_points": [
+            "75 / 50 / 25 / 0 — at 72 / 48 / 24 / under-24 hours",
+            "Platform fee, tax, Protection Package always non-refundable",
+            "No-show = no refund",
+            "CSR cannot cancel for the renter"
+          ]
+        },
+        {
+          "id": "section-7-2",
+          "title": "Early Return — The 80% Override",
+          "content_md": "**This is the single most important policy correction in this curriculum.**\n\n- Maximum refundable amount on early return is **80% of the rent for the unused portion** — per Section 20 of the Terms of Service.\n- A **$25 processing fee comes out of the OWNER'S payout** — NOT from the renter's refund.\n- Refund only processes if the **owner authorizes it BEFORE ending the rental.**\n\n**Known discrepancy:** The help center article currently says 75%. The correct policy is 80%. If a customer cites the 75% number, acknowledge that the help center text needs updating but the policy is 80%. If they press for documentation, escalate so the team can provide it.\n\n**Why this matters:** A CSR who confirms 75% is making the customer worse off than the actual policy. Always say 80%.",
+          "key_points": [
+            "Early return = 80% of rent for unused portion (NOT 75%)",
+            "$25 fee comes from OWNER'S payout (NOT renter's refund)",
+            "Owner must authorize BEFORE ending the rental",
+            "If customer cites 75% from help center: acknowledge, correct, escalate if pressed"
+          ]
+        },
+        {
+          "id": "section-7-3",
+          "title": "Extensions",
+          "content_md": "Renters can request an extension through the booking. Owners can accept or decline. Owners can also propose extensions to renters.\n\nIf the renter holds the trailer **beyond the booked end time without an approved extension, that's a late return.**\n\nNo manual CSR override on extensions — both parties have to agree through the platform.",
+          "key_points": [
+            "Renter requests, owner accepts/declines",
+            "Owner can also propose",
+            "Holding past end time without approval = late return"
+          ]
+        },
+        {
+          "id": "section-7-4",
+          "title": "Late Returns",
+          "content_md": "Late returns trigger a sequence of templates that the CSR should know cold:\n\n1. **Late Return Notice** — first communication when trailer is overdue\n2. **Urgent Notice** — escalated tone, more time has passed\n3. **Trailer Not Returned by Renter** — final escalation before NT involvement\n\nKnow when each one fires so you can tell an owner what to expect. After 'Trailer Not Returned' is sent, NT staff get involved. CSR escalates here.",
+          "key_points": [
+            "Three templates: Late Return Notice → Urgent Notice → Trailer Not Returned",
+            "After final template: NT staff involvement, CSR escalates"
+          ]
+        }
+      ],
+      "kb_references": [
+        "What is the cancellation policy?",
+        "How do I cancel a booking?",
+        "What if I need to cancel due to an emergency?",
+        "Will I get a partial refund if I return the trailer early?",
+        "What is the refund policy for early return?",
+        "How do I extend my rental?",
+        "How can I extend a rental?",
+        "Template: Late Return Notice",
+        "Template: Trailer Not Returned by Renter"
+      ],
+      "scenarios": [
+        {
+          "id": "module-7-scenario-1",
+          "type": "roleplay",
+          "prompt": "A renter calls 23 hours before pickup: 'Something came up, I need to cancel and get my money back.'",
+          "customer_persona": "Renter with a real schedule conflict. Friendly but expects a full refund.",
+          "rubric": [
+            "States the under-24-hour refund is 0%",
+            "Mentions platform fee, tax, Protection Package non-refundable regardless",
+            "Empathetic without apologizing for the policy",
+            "Directs them to cancel through their account"
+          ]
+        },
+        {
+          "id": "module-7-scenario-2",
+          "type": "roleplay",
+          "prompt": "A renter returned the trailer 2 days early and wants their money back. Walk through the rules and the 80% override.",
+          "customer_persona": "Renter who didn't know early return rules existed. Friendly. Wants to know how this works.",
+          "rubric": [
+            "States 80% of rent for unused portion (NOT 75%)",
+            "Explains the $25 fee comes from owner's payout, not renter's refund",
+            "Explains owner must authorize before ending the rental",
+            "Doesn't promise an outcome"
+          ]
+        },
+        {
+          "id": "module-7-scenario-3",
+          "type": "roleplay",
+          "prompt": "An owner reports the trailer is 6 hours late and the renter isn't responding.",
+          "customer_persona": "Worried owner. Has another rental coming up. Wants to know what NT will do.",
+          "rubric": [
+            "Names the escalation template sequence (Late Return Notice → Urgent → Trailer Not Returned)",
+            "Confirms the renter has been contacted through templates",
+            "Sets expectation about NT involvement at the final stage",
+            "Calm and reassuring without overpromising"
+          ]
+        },
+        {
+          "id": "module-7-scenario-4",
+          "type": "roleplay",
+          "prompt": "A renter cites the help center saying 75% on early return. How do you handle?",
+          "customer_persona": "Renter holding their phone open to the help center page. Will quote it back to you.",
+          "rubric": [
+            "Acknowledges the help center text",
+            "Confirms the actual policy is 80% per Terms of Service Section 20",
+            "Doesn't argue or get defensive",
+            "Offers to escalate for documentation if pressed"
+          ]
+        }
+      ],
+      "quiz": [
+        {
+          "id": "m7-q1",
+          "question": "What's the refund if a renter cancels 60 hours before rental start?",
+          "type": "multiple_choice",
+          "options": ["75%", "50%", "25%", "0%"],
+          "correct_index": 1,
+          "explanation": "60 hours falls in the 48-72 hour window, which is 50%."
+        },
+        {
+          "id": "m7-q2",
+          "question": "What's the maximum refundable amount on early return?",
+          "type": "multiple_choice",
+          "options": [
+            "75% of rent for unused portion",
+            "80% of rent for unused portion",
+            "100% of unused portion",
+            "No refund"
+          ],
+          "correct_index": 1,
+          "explanation": "Per Section 20 of TOS, 80% of rent for the unused portion. The help center saying 75% is out of date."
+        },
+        {
+          "id": "m7-q3",
+          "question": "Where does the $25 early-return processing fee come from?",
+          "type": "multiple_choice",
+          "options": [
+            "The renter's refund",
+            "The owner's payout",
+            "Split 50/50",
+            "NT absorbs it"
+          ],
+          "correct_index": 1,
+          "explanation": "The $25 fee comes out of the owner's payout — not from the renter's refund."
+        },
+        {
+          "id": "m7-q4",
+          "question": "Can a CSR cancel a booking by phone for a renter who's having trouble logging in?",
+          "type": "multiple_choice",
+          "options": [
+            "Yes — it's a courtesy override",
+            "Yes, with manager approval",
+            "No — must be done by the renter through their account",
+            "Only within the 72-hour window"
+          ],
+          "correct_index": 2,
+          "explanation": "Cancellations must be done by the renter through their account. The CSR's job is to help them get logged in, not to cancel for them."
+        },
+        {
+          "id": "m7-q5",
+          "question": "Is the platform fee refundable on cancellation?",
+          "type": "short_answer",
+          "expected_keywords": ["no", "non-refundable"],
+          "explanation": "Platform fee, tax, and Protection Package are non-refundable on cancellation regardless of timing."
+        }
+      ],
+      "passing_score_percent": 70
+    },
+    {
+      "id": "module-8",
+      "number": 8,
+      "title": "Phone Skills (Inbound & Outbound)",
+      "description": "Opening calls confidently, handling holds and transfers, closing well, and the 'one-sentence response' discipline.",
+      "estimated_minutes": 15,
+      "learning_objectives": [
+        "Open inbound and outbound calls with the right structure",
+        "Handle holds, transfers, and closings",
+        "Maintain pace and tone — neither rushed nor rambling",
+        "Apply the 'one-sentence response' discipline: reactive, no upsells, no option dumps, no filler"
+      ],
+      "sections": [
+        {
+          "id": "section-8-1",
+          "title": "Openings",
+          "content_md": "**Inbound:**\n> 'Thanks for calling Neighbors Trailer, this is [name], how can I help you today?'\n\n**Outbound:**\n> 'Hi, this is [name] with Neighbors Trailer — is this [customer name]? Do you have a few minutes? I'm calling about [specific reason].'\n\nEvery outbound call must include three things: **who you are, where you're calling from, and the reason for the call.** Don't bury the lead.\n\nAfter the opening, **wait for the customer to react.** Don't keep talking.",
+          "key_points": [
+            "Inbound: thanks for calling, name, how can I help",
+            "Outbound: name, NT, reason — all three",
+            "Wait for reaction"
+          ]
+        },
+        {
+          "id": "section-8-2",
+          "title": "Holds and Transfers",
+          "content_md": "**Hold:**\n> 'Can I put you on a brief hold while I look into that? I'll be back in under two minutes.'\n\nAlways come back when you said you would, even if it's just to give an update. If you said 30 seconds and it's been 90, come back and reset expectations.\n\n**Transfer:**\n> 'Let me transfer you to [team/person] who can help with that. One moment — I'll stay on the line until they pick up.'\n\nWarm transfers (staying on until pickup) feel better to customers than cold transfers.",
+          "key_points": [
+            "Hold timing: come back when you said you would",
+            "Transfer warmly — stay on until pickup",
+            "Set expectation, then meet it"
+          ]
+        },
+        {
+          "id": "section-8-3",
+          "title": "Closing & Tone Discipline",
+          "content_md": "**Closing:**\n> 'Is there anything else I can help you with today? Great — thanks for calling, have a good one.'\n\n**Tone discipline (mirrors the Vapi voice agent):**\n- **Concise.** Don't dump 5 options when 1 will do.\n- **Reactive.** Wait for the customer to react before adding more info.\n- **No filler.** Avoid 'um, like, kinda, basically,' and 'to be honest with you.'\n- **No unsolicited upsells.** Don't pitch things they didn't ask about.\n- **Don't read verbatim from the KB.** Paraphrase.\n\nThe one-sentence response discipline: when a customer asks a yes/no or simple question, answer it in one sentence. Then stop. Wait for the follow-up. Don't preempt questions they haven't asked.",
+          "key_points": [
+            "Closing: anything else? thanks, have a good one",
+            "Concise > thorough",
+            "Reactive > preemptive",
+            "Paraphrase, don't read"
+          ]
+        }
+      ],
+      "kb_references": [
+        "Live Chat Bot guidelines (one-sentence response discipline)",
+        "Voice agent system prompt (Vapi)"
+      ],
+      "scenarios": [
+        {
+          "id": "module-8-scenario-1",
+          "type": "roleplay",
+          "prompt": "Inbound, generic call. Open the call, ask the right qualifying question, route the conversation.",
+          "customer_persona": "Generic renter with a non-urgent question about a booking. Friendly.",
+          "rubric": [
+            "Standard inbound opening with name",
+            "Short qualifying question",
+            "Doesn't info-dump or pitch",
+            "Reactive tone"
+          ]
+        },
+        {
+          "id": "module-8-scenario-2",
+          "type": "roleplay",
+          "prompt": "Outbound to an owner whose listing was flagged for missing dimensions. Open, deliver the message, get them on the path to fix it.",
+          "customer_persona": "Owner who didn't realize there was an issue. Cooperative.",
+          "rubric": [
+            "Outbound opening with all three elements (name, NT, reason)",
+            "Asks if they have a few minutes",
+            "Delivers the specific reason early",
+            "Gives clear next step"
+          ]
+        },
+        {
+          "id": "module-8-scenario-3",
+          "type": "roleplay",
+          "prompt": "A renter asks a question you don't immediately know the answer to. Practice the right 'let me look into that' recovery.",
+          "customer_persona": "Patient renter. Will hold if you ask politely.",
+          "rubric": [
+            "Doesn't fake an answer",
+            "Asks for a brief hold with a time estimate",
+            "Comes back when promised",
+            "Confident, not flustered"
+          ]
+        },
+        {
+          "id": "module-8-scenario-4",
+          "type": "roleplay",
+          "prompt": "A customer is rambling far off-topic. Practice politely steering back to the issue.",
+          "customer_persona": "Friendly but talkative customer who keeps drifting into unrelated stories.",
+          "rubric": [
+            "Doesn't cut them off mid-sentence",
+            "Uses a polite redirect ('that makes sense — so coming back to the booking...')",
+            "Stays warm",
+            "Gets back on track within a few seconds"
+          ]
+        }
+      ],
+      "quiz": [
+        {
+          "id": "m8-q1",
+          "question": "What three things must every outbound call opening include?",
+          "type": "multiple_choice",
+          "options": [
+            "Greeting, weather, request",
+            "Name, NT, reason for the call",
+            "Promo, name, callback number",
+            "Greeting, hold, transfer"
+          ],
+          "correct_index": 1,
+          "explanation": "Who you are, where you're from (NT), and why you're calling. Always all three."
+        },
+        {
+          "id": "m8-q2",
+          "question": "If you put a customer on hold for '30 seconds' and it's now been 90 seconds, what do you do?",
+          "type": "multiple_choice",
+          "options": [
+            "Stay silent — they'll wait",
+            "Come back, give an update, set new expectation",
+            "Hang up and call them back",
+            "Apologize repeatedly"
+          ],
+          "correct_index": 1,
+          "explanation": "Come back when you said you would, even if it's just to update them."
+        },
+        {
+          "id": "m8-q3",
+          "question": "Should you lead with a sales pitch on every inbound call?",
+          "type": "multiple_choice",
+          "options": [
+            "Yes — every call is a chance to upsell",
+            "No — be reactive, no unsolicited pitches",
+            "Only on calls about the Toll Program",
+            "Only with new renters"
+          ],
+          "correct_index": 1,
+          "explanation": "Be reactive. No unsolicited upsells. Answer what they asked."
+        },
+        {
+          "id": "m8-q4",
+          "question": "What's the one-sentence response discipline?",
+          "type": "short_answer",
+          "expected_keywords": ["one sentence", "wait", "reactive"],
+          "explanation": "Answer simple questions in one sentence, then stop and wait for the follow-up. Reactive, not preemptive."
+        }
+      ],
+      "passing_score_percent": 70
+    },
+    {
+      "id": "module-9",
+      "number": 9,
+      "title": "De-escalation & When to Escalate",
+      "description": "Spotting frustration, using empathy without agreeing the policy is bad, and knowing exactly when to escalate.",
+      "estimated_minutes": 15,
+      "learning_objectives": [
+        "Spot early signs of a frustrated customer",
+        "Use empathy without over-apologizing or agreeing the policy is bad",
+        "Apply the 'explain the purpose, don't agree the experience is bad' framework",
+        "Know exactly when to escalate vs. handle solo"
+      ],
+      "sections": [
+        {
+          "id": "section-9-1",
+          "title": "The De-escalation Framework",
+          "content_md": "From the live chat bot rubric:\n- **Be empathetic but balanced.**\n- **Explain the purpose and importance** of processes (verification, compliance, etc.) rather than simply agreeing the experience is bad.\n- **Always represent NT in a positive, professional light.**\n- **Acknowledge the feeling, then redirect to the path forward.**\n\n**Bad CSR move:**\n> 'Yeah, that's so frustrating. Our system is awful, I'm so sorry.'\n\nThat agrees with the customer's negative framing of NT. Avoid this.\n\n**Good CSR move:**\n> 'I hear you — that wasn't the experience we want. The reason verification exists is to protect both renters and owners. Let me walk you through how to get past it.'\n\nThat acknowledges feeling, explains purpose, and redirects.",
+          "key_points": [
+            "Empathy without trashing the platform",
+            "Explain the purpose of the process",
+            "Acknowledge → redirect → next step"
+          ]
+        },
+        {
+          "id": "section-9-2",
+          "title": "When to Escalate",
+          "content_md": "Escalate when:\n- Customer threatens **legal action**\n- **Active payout failure** that requires admin tools (not a simple bank info fix)\n- **Damage claim disputes** where the customer is demanding a final answer\n- **Account suspension or compliance hold** inquiries\n- **A specific booking ID where you don't have visibility**\n- **Multi-topic situations** mixing billing + damage + escalated tone\n- **You don't know.** When in doubt, escalate.\n\nDo NOT escalate when:\n- Standard how-to question (any KB-covered topic)\n- Cancellation refund explanation\n- Listing approval timing\n- Toll Program questions\n- Deposit timing questions\n\nCustomers asking for 'a manager' aren't an automatic escalation. Ask what they need; if it's something you can handle, handle it.",
+          "key_points": [
+            "Always escalate: legal threats, payout admin issues, final-answer damage disputes, suspensions",
+            "Don't escalate: standard KB questions",
+            "'I want a manager' ≠ escalate — ask what they need first"
+          ]
+        }
+      ],
+      "kb_references": [
+        "Live Chat Bot rubric (de-escalation framework)",
+        "Voice agent escalation triggers"
+      ],
+      "scenarios": [
+        {
+          "id": "module-9-scenario-1",
+          "type": "roleplay",
+          "prompt": "A renter is shouting that 'this whole platform is a scam' because their MVR was rejected.",
+          "customer_persona": "Very frustrated renter. Loud, accusatory, will escalate language. Will calm down if you stay grounded and don't agree with their framing.",
+          "rubric": [
+            "Acknowledges frustration without validating 'scam' framing",
+            "Explains purpose of MVR (third-party check, protects both sides)",
+            "Doesn't promise reversal",
+            "Offers escalation since CSR cannot override MVR",
+            "Stays calm under pressure"
+          ]
+        },
+        {
+          "id": "module-9-scenario-2",
+          "type": "roleplay",
+          "prompt": "An owner threatens to 'report you to the BBB' because their payout is 6 days late. Decide: handle or escalate?",
+          "customer_persona": "Angry owner. Has a legitimate gripe (payout is late). Wants action, not boilerplate.",
+          "rubric": [
+            "Acknowledges the legitimate frustration",
+            "Triages: bank info connected? rental ended? how long?",
+            "If admin tools are needed, escalates explicitly",
+            "Doesn't promise specific outcome",
+            "Doesn't try to talk them down from the BBB threat"
+          ]
+        },
+        {
+          "id": "module-9-scenario-3",
+          "type": "roleplay",
+          "prompt": "A customer asks a basic question but is using aggressive language throughout.",
+          "customer_persona": "Generally angry person who happens to have a simple question. Aggressive tone, simple ask.",
+          "rubric": [
+            "Stays calm",
+            "Answers the actual question concisely",
+            "Doesn't match the energy",
+            "Doesn't escalate unnecessarily — it's a KB answer"
+          ]
+        },
+        {
+          "id": "module-9-scenario-4",
+          "type": "roleplay",
+          "prompt": "Customer says 'I want to speak to a manager.' Practice the response.",
+          "customer_persona": "Determined customer. Has something specific they want, but hasn't told you yet.",
+          "rubric": [
+            "Doesn't immediately escalate",
+            "Asks what they need help with",
+            "If it's a CSR-handleable issue, handles it",
+            "If it's a true escalation trigger, escalates",
+            "Polite throughout"
+          ]
+        }
+      ],
+      "quiz": [
+        {
+          "id": "m9-q1",
+          "question": "Should you agree with a customer who says 'your verification process is ridiculous'?",
+          "type": "multiple_choice",
+          "options": [
+            "Yes — empathy means agreement",
+            "No — acknowledge the frustration, then explain the purpose",
+            "Only if a manager is on the line",
+            "Yes, in writing only"
+          ],
+          "correct_index": 1,
+          "explanation": "Acknowledge feeling, explain purpose. Don't trash the platform's processes."
+        },
+        {
+          "id": "m9-q2",
+          "question": "Should a CSR handle a customer who threatens legal action?",
+          "type": "multiple_choice",
+          "options": [
+            "Yes",
+            "No — escalate",
+            "Only if they're an owner",
+            "Yes, with a script"
+          ],
+          "correct_index": 1,
+          "explanation": "Legal threats are an automatic escalation."
+        },
+        {
+          "id": "m9-q3",
+          "question": "Should a CSR escalate a question about deposit refund timing?",
+          "type": "multiple_choice",
+          "options": [
+            "Yes",
+            "No — that's a KB answer (3-7 business days)",
+            "Only if it's been more than a week",
+            "Yes, by default"
+          ],
+          "correct_index": 1,
+          "explanation": "Deposit refund timing is a standard KB answer (3-7 business days). Don't escalate."
+        },
+        {
+          "id": "m9-q4",
+          "question": "A customer says 'I want to speak to a manager.' What's the right next step?",
+          "type": "short_answer",
+          "expected_keywords": ["ask", "what", "need", "help"],
+          "explanation": "Ask what they need first. If it's something a CSR can handle, handle it. Only escalate if it's a real escalation trigger."
+        }
+      ],
+      "passing_score_percent": 70
+    },
+    {
+      "id": "module-10",
+      "number": 10,
+      "title": "Critical Policy Knowledge",
+      "description": "The 12 must-know facts every CSR must know cold. Spaced-repetition drilling required before unlocking the final exam.",
+      "estimated_minutes": 20,
+      "learning_objectives": [
+        "Recall all 12 critical facts from memory in any order",
+        "Apply each fact correctly in a customer scenario",
+        "Recognize when the help center contradicts the curriculum (and follow the curriculum)"
+      ],
+      "sections": [
+        {
+          "id": "section-10-1",
+          "title": "The 12 Facts",
+          "content_md": "Every CSR must know these cold. The drill in this module quizzes you in random order until you get all 12 right two times in a row.\n\n1. **Early return refund max = 80%** of rent for unused portion. Not 75%. The help center is out of date.\n2. **The $25 early-return processing fee comes from the OWNER'S payout.** Not from the renter's refund.\n3. **Platform fees, tax, and Protection Package are non-refundable** once a booking is accepted.\n4. **Cancellation refund schedule:** 72+ hrs = 75% / 48-72 hrs = 50% / 24-48 hrs = 25% / under 24 hrs = 0% / same-day = 0%.\n5. **Cancellations must be done by the renter through their account.** Phone/email/chat requests don't cancel a booking.\n6. **A no-show = no refund.**\n7. **Deposit refund timing: 3-7 business days** after the rental is officially closed.\n8. **Tire damage is not covered by NT Protect.**\n9. **CSR cannot override an MVR rejection.** Escalate.\n10. **CSR cannot cancel a booking on behalf of a renter.** Renter must do it.\n11. **Pickup address is shared automatically after owner acceptance** — most 'where's my address' calls are renters who haven't checked their booking page.\n12. **Phone number policy: do not share NT's phone number unless the customer explicitly asks.** Default to email or live chat.",
+          "key_points": [
+            "12 facts — must know cold",
+            "When help center contradicts curriculum, follow curriculum",
+            "Drill randomized — 2x in a row to pass"
+          ]
+        },
+        {
+          "id": "section-10-2",
+          "title": "Why These Twelve",
+          "content_md": "Each of these facts represents one of:\n- A **policy correction** the help center got wrong (early return)\n- A **scope boundary** for what a CSR can and can't do (MVR, cancellations)\n- A **commonly-misunderstood timing** (deposit refund, pickup address)\n- A **friction point** that drives high call volume (cancellation schedule, tire damage)\n\nKnowing them cold means most calls become muscle memory instead of KB lookups.",
+          "key_points": [
+            "Policy corrections, scope boundaries, timing, friction points",
+            "Cold knowledge = faster calls, fewer mistakes"
+          ]
+        }
+      ],
+      "kb_references": [
+        "All Module 1-9 KB references"
+      ],
+      "scenarios": [
+        {
+          "id": "module-10-scenario-1",
+          "type": "free_response",
+          "prompt": "Recite all 12 critical facts in any order. (No peeking.)",
+          "rubric": [
+            "All 12 facts present",
+            "Correct numbers (80%, 75/50/25/0, 3-7 days)",
+            "Correct ownership (owner's payout, renter's account)",
+            "No invented facts"
+          ]
+        },
+        {
+          "id": "module-10-scenario-2",
+          "type": "free_response",
+          "prompt": "A renter cites the help center on early return refund (75%). What do you say?",
+          "rubric": [
+            "States actual policy is 80%",
+            "Acknowledges help center text needs updating",
+            "Cites Section 20 of TOS as the source",
+            "Offers to escalate if pressed for documentation"
+          ]
+        },
+        {
+          "id": "module-10-scenario-3",
+          "type": "free_response",
+          "prompt": "A renter on a call asks for NT's phone number. What do you do?",
+          "rubric": [
+            "Recognizes the phone number was explicitly asked for",
+            "Provides it (since explicitly asked)",
+            "If not asked, would default to email or live chat",
+            "Demonstrates understanding of the default-to-email policy"
+          ]
+        }
+      ],
+      "quiz": [
+        {
+          "id": "m10-q1",
+          "question": "Maximum refund on early return?",
+          "type": "multiple_choice",
+          "options": ["75%", "80%", "100%", "0%"],
+          "correct_index": 1,
+          "explanation": "80% of rent for the unused portion. The help center says 75% but it's out of date."
+        },
+        {
+          "id": "m10-q2",
+          "question": "Where does the $25 early-return processing fee come from?",
+          "type": "multiple_choice",
+          "options": [
+            "Renter's refund",
+            "Owner's payout",
+            "Split equally",
+            "NT's pocket"
+          ],
+          "correct_index": 1,
+          "explanation": "Owner's payout. Always."
+        },
+        {
+          "id": "m10-q3",
+          "question": "Deposit refund typical timing?",
+          "type": "multiple_choice",
+          "options": ["Same day", "1-2 business days", "3-7 business days", "2-4 weeks"],
+          "correct_index": 2,
+          "explanation": "3-7 business days after the rental officially closes."
+        },
+        {
+          "id": "m10-q4",
+          "question": "Phone number policy default?",
+          "type": "short_answer",
+          "expected_keywords": ["explicitly", "asked", "email", "chat"],
+          "explanation": "Don't share NT's phone number unless explicitly asked. Default to email or live chat."
+        },
+        {
+          "id": "m10-q5",
+          "question": "Cancellation refund at 24-48 hours before rental start?",
+          "type": "multiple_choice",
+          "options": ["75%", "50%", "25%", "0%"],
+          "correct_index": 2,
+          "explanation": "24-48 hours = 25% refund."
+        }
+      ],
+      "passing_score_percent": 70
+    },
+    {
+      "id": "module-11",
+      "number": 11,
+      "title": "Final Certification Exam",
+      "description": "25 questions sampled across all modules. Pass = 84% (21/25). Fail = remediation on lowest-scoring modules.",
+      "estimated_minutes": 60,
+      "type": "exam",
+      "learning_objectives": [
+        "Demonstrate end-to-end CSR competence across all modules",
+        "Apply policies correctly under realistic scenario pressure",
+        "Recognize escalation triggers correctly"
+      ],
+      "sections": [
+        {
+          "id": "section-11-1",
+          "title": "Exam Instructions",
+          "content_md": "**Format:** 25 questions sampled across Modules 1-10. Questions come from the exam-questions pool.\n\n**Passing score:** 84% (21 of 25 correct).\n\n**Rules:**\n- No AI tutor available during the exam.\n- Multi-choice questions are auto-scored.\n- Short-answer questions are graded by Claude against the rubric.\n- You can take the exam multiple times if you fail. After failing, the system will recommend remediation on your lowest-scoring modules.\n\n**Scoring rubric (for short-answer questions):**\n- Did you identify the correct policy/procedure?\n- Did you communicate it clearly and concisely?\n- Did you handle tone appropriately (de-escalation when needed)?\n- Did you correctly recognize escalation triggers?\n- Did you avoid sharing the phone number unless explicitly asked?\n- Did you paraphrase rather than reading verbatim from the KB?\n\n**Pass = certified** to start handling live customers with backup support.",
+          "key_points": [
+            "25 questions, 84% to pass",
+            "Auto-scored multi-choice + Claude-graded short-answer",
+            "No AI tutor during exam",
+            "Retakes allowed with remediation recommendations"
+          ]
+        }
+      ],
+      "kb_references": [
+        "All curriculum modules"
+      ],
+      "scenarios": [],
+      "quiz": [],
+      "passing_score_percent": 84
+    }
+  ]
+}
