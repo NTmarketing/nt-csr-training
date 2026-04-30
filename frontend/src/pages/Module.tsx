@@ -17,6 +17,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import { modules, progress, sections } from '../api/client';
 import AIChat from '../components/AIChat';
 import Markdown from '../components/Markdown';
+import MediaBlock from '../components/MediaBlock';
 import ProgressBar from '../components/ProgressBar';
 import type { ModuleFull } from '../types';
 
@@ -330,6 +331,14 @@ export default function Module() {
           <h2 className="mb-3 text-xl font-semibold text-gray-900">{section.title}</h2>
 
           <Markdown source={section.content_md} />
+
+          {section.media && section.media.length > 0 && (
+            <div className="mt-4">
+              {section.media.map((block, i) => (
+                <MediaBlock key={i} block={block} />
+              ))}
+            </div>
+          )}
 
           {section.key_points?.length > 0 && (
             <div className="mt-6 rounded-lg border border-nt-primary/20 bg-nt-primary/5 p-4">

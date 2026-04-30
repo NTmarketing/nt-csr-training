@@ -17,6 +17,12 @@ function renderInline(text: string): string {
   s = s.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
   // Italic (simple)
   s = s.replace(/(^|\s)\*([^*\n]+)\*/g, '$1<em>$2</em>');
+  // Images ![alt](url) — must run before links since the link regex would
+  // otherwise match the trailing [alt](url) portion.
+  s = s.replace(
+    /!\[([^\]]*)\]\(([^)\s]+)\)/g,
+    '<img src="$2" alt="$1" class="md-inline-image" loading="lazy" />',
+  );
   // Links [text](url)
   s = s.replace(
     /\[([^\]]+)\]\(([^)\s]+)\)/g,

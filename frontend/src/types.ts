@@ -21,11 +21,36 @@ export interface ModuleSummary {
   quiz_score: number | null;
 }
 
+export interface MediaImage {
+  src: string;
+  alt: string;
+  caption?: string;
+}
+
+export interface MediaGalleryImage {
+  src: string;
+  alt: string;
+  caption?: string;
+}
+
+export interface MediaComparisonSide {
+  src: string;
+  alt: string;
+  label: string;
+}
+
+export type MediaBlock =
+  | { type: 'image'; src: string; alt: string; caption?: string }
+  | { type: 'gallery'; columns: 2 | 3 | 4; images: MediaGalleryImage[] }
+  | { type: 'comparison'; left: MediaComparisonSide; right: MediaComparisonSide }
+  | { type: 'svg'; svg: string; caption?: string };
+
 export interface ModuleSection {
   id: string;
   title: string;
   content_md: string;
   key_points: string[];
+  media?: MediaBlock[];
 }
 
 export interface ModuleScenario {

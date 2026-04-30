@@ -247,6 +247,24 @@ The structured curriculum data, derived from `nt-csr-training-curriculum.md`. Se
 - `professional`: standard CSR-call expectations; cover relevant policies clearly.
 - `escalated`: empathy + de-escalation first, policy second; reward calm acknowledgment, penalize agreeing with the customer's negative framing.
 
+**Section media:** each section may optionally include a `media: MediaBlock[]` field rendered after the prose. Block types (see `frontend/src/types.ts`):
+
+```typescript
+type MediaBlock =
+  | { type: 'image'; src: string; alt: string; caption?: string }
+  | { type: 'gallery'; columns: 2 | 3 | 4; images: { src; alt; caption? }[] }
+  | { type: 'comparison'; left: { src; alt; label }; right: { src; alt; label } }
+  | { type: 'svg'; svg: string; caption?: string };
+```
+
+All photo blocks support click-to-zoom lightbox. Inline `![alt](url)` inside `content_md` continues to work for images that flow with text (no lightbox in v1).
+
+**Image hosting:** photos live at `frontend/public/images/<module-id>/...`. Vite serves them directly at `/images/...` in dev; on build they are copied into `dist/images/` and Nginx serves them in production. One folder per module, named by module **id** (not display number) so renumbering doesn't break references. See `frontend/public/images/README.md` for naming/sizing rules.
+
+**Named SVG diagrams:** `frontend/src/content/svgs.ts` exports reusable inline SVGs (`BALL_HITCH_SIZES`, `PIN_PLUG_4VS7`, `BOOKING_LIFECYCLE`, `CANCELLATION_REFUND_TIMELINE`). Reference them from `modules.json` with a `$NAME` shortcut on the `svg` field — the renderer resolves it via `resolveSvg()`. Raw inline SVG markup is also accepted.
+
+**Phase B (image content):** populating `frontend/public/images/<module>/` and adding `media` blocks to `modules.json` is a separate workstream. The infrastructure here is intentionally empty.
+
 ```json
 {
   "modules": [
