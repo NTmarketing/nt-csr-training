@@ -21,13 +21,6 @@
             "Trailers don't have their own engine — they're towed",
             "Most people need a trailer occasionally, not regularly",
             "Renting is cheaper than buying for occasional use"
-          ],
-          "media": [
-            {
-              "type": "svg",
-              "svg": "$BOOKING_LIFECYCLE",
-              "caption": "The Neighbors Trailer booking lifecycle"
-            }
           ]
         },
         {
@@ -343,6 +336,13 @@
             "9 steps from search to payout",
             "Pickup address shows after owner accepts — auto",
             "Owner manually starts and ends each rental"
+          ],
+          "media": [
+            {
+              "type": "svg",
+              "svg": "$BOOKING_LIFECYCLE",
+              "caption": "The Neighbors Trailer booking lifecycle"
+            }
           ]
         },
         {
