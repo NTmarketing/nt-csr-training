@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-30T21:05:43.343Z",
+  "generatedAt": "2026-04-30T21:19:06.954Z",
   "categories": [
     {
       "key": "utility",
@@ -12,29 +12,9 @@
           "fileSizeBytes": 353172
         },
         {
-          "trailerID": 6929,
-          "imageUrl": "https://api.neighborstrailer.com/Upload/trailerImage/Original/c97a506b-8088-40c8-bd21-3e7b335f2ffc.webp",
-          "fileSizeBytes": 323574
-        },
-        {
-          "trailerID": 8879,
-          "imageUrl": "https://api.neighborstrailer.com/Upload/trailerImage/Original/e31ee191-43d6-4dde-9307-c26aa2550349.webp",
-          "fileSizeBytes": 308570
-        },
-        {
-          "trailerID": 7895,
-          "imageUrl": "https://api.neighborstrailer.com/Upload/trailerImage/Original/c9820e92-db75-42a4-84ec-dd32ef149c50.webp",
-          "fileSizeBytes": 308268
-        },
-        {
-          "trailerID": 7753,
-          "imageUrl": "https://api.neighborstrailer.com/Upload/trailerImage/Original/f1aa2530-9acc-4870-901a-9167d81c5af7.webp",
-          "fileSizeBytes": 296430
-        },
-        {
-          "trailerID": 7898,
-          "imageUrl": "https://api.neighborstrailer.com/Upload/trailerImage/Original/b73c1da9-ded9-4c69-8626-b8e934de1438.webp",
-          "fileSizeBytes": 291334
+          "trailerID": 8448,
+          "imageUrl": "https://api.neighborstrailer.com/Upload/trailerImage/Original/4da02233-eae1-430e-b16a-b3d891cc94e9.webp",
+          "fileSizeBytes": 172512
         }
       ],
       "failures": []
@@ -50,29 +30,9 @@
           "fileSizeBytes": 257428
         },
         {
-          "trailerID": 14202,
-          "imageUrl": "https://api.neighborstrailer.com/Upload/trailerImage/Original/6d00e605-7b3f-48e6-b1ce-c389a95007cb.webp",
-          "fileSizeBytes": 220704
-        },
-        {
-          "trailerID": 11589,
-          "imageUrl": "https://api.neighborstrailer.com/Upload/trailerImage/Original/f3032d9e-2085-4c78-bdd9-9e330b2bd9db.webp",
-          "fileSizeBytes": 213794
-        },
-        {
-          "trailerID": 13964,
-          "imageUrl": "https://api.neighborstrailer.com/Upload/trailerImage/Original/ac2cbbc1-8808-455d-bddc-dd2da1e943ee.webp",
-          "fileSizeBytes": 165402
-        },
-        {
-          "trailerID": 8283,
-          "imageUrl": "https://api.neighborstrailer.com/Upload/trailerImage/Original/0a0d13fb-d532-42c9-a78b-3db82cd52e78.webp",
-          "fileSizeBytes": 161416
-        },
-        {
-          "trailerID": 13390,
-          "imageUrl": "https://api.neighborstrailer.com/Upload/trailerImage/Original/06c400d9-0f96-4965-b2d5-5cfb500c400b.webp",
-          "fileSizeBytes": 160656
+          "trailerID": 3654,
+          "imageUrl": "https://api.neighborstrailer.com/Upload/trailerImage/Original/7ea2a2f3-12b5-4437-b2ef-8335ab63edf5.webp",
+          "fileSizeBytes": 88982
         }
       ],
       "failures": []
@@ -88,29 +48,9 @@
           "fileSizeBytes": 389804
         },
         {
-          "trailerID": 13678,
-          "imageUrl": "https://api.neighborstrailer.com/Upload/trailerImage/Original/efd14b85-760b-467a-96da-7f3f8d331948.webp",
-          "fileSizeBytes": 387112
-        },
-        {
-          "trailerID": 7149,
-          "imageUrl": "https://api.neighborstrailer.com/Upload/trailerImage/Original/8933b90f-6c91-4f45-8986-7d4cee948a64.webp",
-          "fileSizeBytes": 330288
-        },
-        {
-          "trailerID": 12618,
-          "imageUrl": "https://api.neighborstrailer.com/Upload/trailerImage/Original/58ab7dbb-cc8f-4c73-99fa-c98f5459b6b8.webp",
-          "fileSizeBytes": 319332
-        },
-        {
-          "trailerID": 6190,
-          "imageUrl": "https://api.neighborstrailer.com/Upload/trailerImage/Original/00261f60-097a-4fa3-96b2-5a432111d04c.webp",
-          "fileSizeBytes": 303514
-        },
-        {
-          "trailerID": 12141,
-          "imageUrl": "https://api.neighborstrailer.com/Upload/trailerImage/Original/1950b1d2-ff5e-4bc1-b989-fe38e57c05e1.webp",
-          "fileSizeBytes": 292316
+          "trailerID": 10450,
+          "imageUrl": "https://api.neighborstrailer.com/Upload/trailerImage/Original/679f923e-9fe2-4877-9cbf-7a3da10ad972.webp",
+          "fileSizeBytes": 118730
         }
       ],
       "failures": []
@@ -126,29 +66,9 @@
           "fileSizeBytes": 345710
         },
         {
-          "trailerID": 9063,
-          "imageUrl": "https://api.neighborstrailer.com/Upload/trailerImage/Original/a29bf08a-5aa3-48e7-acc3-74da2207846b.webp",
-          "fileSizeBytes": 310124
-        },
-        {
-          "trailerID": 8431,
-          "imageUrl": "https://api.neighborstrailer.com/Upload/trailerImage/Original/9ec0b978-e3da-460c-b0b8-461e4375a76e.webp",
-          "fileSizeBytes": 300612
-        },
-        {
-          "trailerID": 15049,
-          "imageUrl": "https://api.neighborstrailer.com/Upload/trailerImage/Original/96294a18-9302-46ca-b64c-31b88f7da2be.webp",
-          "fileSizeBytes": 278898
-        },
-        {
-          "trailerID": 8683,
-          "imageUrl": "https://api.neighborstrailer.com/Upload/trailerImage/Original/b14dc65c-7cd8-4e28-8696-8f3e4a7abb08.webp",
-          "fileSizeBytes": 256400
-        },
-        {
-          "trailerID": 10927,
-          "imageUrl": "https://api.neighborstrailer.com/Upload/trailerImage/Original/d5de7eca-41cd-4614-8ed7-40009eb28f72.webp",
-          "fileSizeBytes": 238272
+          "trailerID": 12411,
+          "imageUrl": "https://api.neighborstrailer.com/Upload/trailerImage/Original/27dd7227-6b32-4406-a6e1-8139e171d838.webp",
+          "fileSizeBytes": 120162
         }
       ],
       "failures": []
@@ -164,29 +84,9 @@
           "fileSizeBytes": 287582
         },
         {
-          "trailerID": 12919,
-          "imageUrl": "https://api.neighborstrailer.com/Upload/trailerImage/Original/2701044b-7376-4b7f-b9db-8ea995f00944.webp",
-          "fileSizeBytes": 231794
-        },
-        {
-          "trailerID": 13163,
-          "imageUrl": "https://api.neighborstrailer.com/Upload/trailerImage/Original/f7226625-adbf-4991-ac90-154d53ca1d21.webp",
-          "fileSizeBytes": 222940
-        },
-        {
-          "trailerID": 5197,
-          "imageUrl": "https://api.neighborstrailer.com/Upload/trailerImage/Original/f1ec931e-43b1-49d6-9c09-f55952eba430.webp",
-          "fileSizeBytes": 219470
-        },
-        {
-          "trailerID": 11867,
-          "imageUrl": "https://api.neighborstrailer.com/Upload/trailerImage/Original/2a855e53-e722-4941-a8ba-f91d466e9dd0.webp",
-          "fileSizeBytes": 207554
-        },
-        {
-          "trailerID": 12716,
-          "imageUrl": "https://api.neighborstrailer.com/Upload/trailerImage/Original/db5dcf5b-6d56-48af-969b-46fe50e03286.webp",
-          "fileSizeBytes": 203230
+          "trailerID": 14822,
+          "imageUrl": "https://api.neighborstrailer.com/Upload/trailerImage/Original/c68cd683-434d-4b37-b69b-32ba5a6b1808.webp",
+          "fileSizeBytes": 128092
         }
       ],
       "failures": []
@@ -202,29 +102,9 @@
           "fileSizeBytes": 296502
         },
         {
-          "trailerID": 11708,
-          "imageUrl": "https://api.neighborstrailer.com/Upload/trailerImage/Original/95dd624f-9e2f-48f4-be2f-5e0bbae6056a.webp",
-          "fileSizeBytes": 288688
-        },
-        {
-          "trailerID": 12484,
-          "imageUrl": "https://api.neighborstrailer.com/Upload/trailerImage/Original/789cb172-c868-4587-a12d-da664b6286ef.webp",
-          "fileSizeBytes": 280096
-        },
-        {
-          "trailerID": 5513,
-          "imageUrl": "https://api.neighborstrailer.com/Upload/trailerImage/Original/545c8355-ec7e-4eab-aaaf-29c07622a816.webp",
-          "fileSizeBytes": 230240
-        },
-        {
-          "trailerID": 11720,
-          "imageUrl": "https://api.neighborstrailer.com/Upload/trailerImage/Original/d3444de8-4f78-487f-8c78-6f622c6d916b.webp",
-          "fileSizeBytes": 223592
-        },
-        {
-          "trailerID": 11695,
-          "imageUrl": "https://api.neighborstrailer.com/Upload/trailerImage/Original/64a33d0b-eaa1-4ca6-bfdc-54d99161a282.webp",
-          "fileSizeBytes": 201026
+          "trailerID": 5483,
+          "imageUrl": "https://api.neighborstrailer.com/Upload/trailerImage/Original/81b523e0-4948-4fa4-a5b3-a52595dceac7.webp",
+          "fileSizeBytes": 113966
         }
       ],
       "failures": []
@@ -240,29 +120,9 @@
           "fileSizeBytes": 321862
         },
         {
-          "trailerID": 7263,
-          "imageUrl": "https://api.neighborstrailer.com/Upload/trailerImage/Original/39b927c5-5a3d-4e4c-a7b0-25f09f54f1bb.webp",
-          "fileSizeBytes": 317630
-        },
-        {
-          "trailerID": 12787,
-          "imageUrl": "https://api.neighborstrailer.com/Upload/trailerImage/Original/07af944f-f700-4ec7-b82b-e2d32f0a34fd.webp",
-          "fileSizeBytes": 312108
-        },
-        {
-          "trailerID": 7294,
-          "imageUrl": "https://api.neighborstrailer.com/Upload/trailerImage/Original/0f3a3f2c-e644-43a9-8be8-71d5baf45e0f.webp",
-          "fileSizeBytes": 268680
-        },
-        {
-          "trailerID": 9861,
-          "imageUrl": "https://api.neighborstrailer.com/Upload/trailerImage/Original/64091099-3214-40e8-bc71-10542abfbb0b.webp",
-          "fileSizeBytes": 259748
-        },
-        {
-          "trailerID": 6734,
-          "imageUrl": "https://api.neighborstrailer.com/Upload/trailerImage/Original/1056ca9a-dedf-4d26-a7eb-1874fb71b168.webp",
-          "fileSizeBytes": 226840
+          "trailerID": 14570,
+          "imageUrl": "https://api.neighborstrailer.com/Upload/trailerImage/Original/a8c33fd1-d12f-47d0-b21a-9344468e9c63.webp",
+          "fileSizeBytes": 189052
         }
       ],
       "failures": []
@@ -278,29 +138,9 @@
           "fileSizeBytes": 214948
         },
         {
-          "trailerID": 9367,
-          "imageUrl": "https://api.neighborstrailer.com/Upload/trailerImage/Original/fa7d10a6-c592-4170-8d06-70d8164814e9.webp",
-          "fileSizeBytes": 156226
-        },
-        {
-          "trailerID": 9609,
-          "imageUrl": "https://api.neighborstrailer.com/Upload/trailerImage/Original/10f021f6-ebc8-40d7-84df-c148527d987a.webp",
-          "fileSizeBytes": 147388
-        },
-        {
           "trailerID": 13302,
           "imageUrl": "https://api.neighborstrailer.com/Upload/trailerImage/Original/1619009e-591c-4004-8eb4-31fdfe19adf1.webp",
           "fileSizeBytes": 146346
-        },
-        {
-          "trailerID": 2370,
-          "imageUrl": "https://api.neighborstrailer.com/Upload/trailerImage/Original/339d5352-2a6a-45cc-ace4-e99b1a2e8f6b.webp",
-          "fileSizeBytes": 49564
-        },
-        {
-          "trailerID": 9306,
-          "imageUrl": "https://api.neighborstrailer.com/Upload/trailerImage/Original/c4ebb992-bc95-4d93-b5ad-2c8e04015e23.webp",
-          "fileSizeBytes": 31726
         }
       ],
       "failures": []

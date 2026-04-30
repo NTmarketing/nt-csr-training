@@ -1,14 +1,17 @@
 #!/usr/bin/env node
-// Pick 6 listings per category from the manifest, HEAD-check each
-// imageUrl, and emit a JSON report at content/picked-images.json.
+// Pick TARGET_PER_CAT listings per category from the manifest, HEAD-check
+// each imageUrl, and emit a JSON report at content/picked-images.json.
 //
-// Selection rules:
+// Selection strategy (for visual diversity):
 //   - category field must exactly match the target trailer type
-//   - prefer larger fileSizeBytes
-//   - spread across trailerIDs (one image per trailer)
-//   - replace failures with next-best, EXCEPT for motorcycle which
-//     keeps whatever passes (drops failures, no replacement)
-//   - if motorcycle ends up < 3, drop it entirely
+//   - rank candidates by fileSizeBytes desc, dedup by trailerID
+//   - pick at *spread* anchor positions across the ranked pool (top + mid-pool)
+//     so the two photos aren't always the two largest files (which tend to
+//     come from the same listing/shoot). Different trailerIDs is the strongest
+//     diversity signal we can enforce without visual review.
+//   - HEAD-check each pick. Walk forward from the anchor on failure, EXCEPT
+//     for motorcycle which keeps whatever passes (drops failures, no replacement).
+//   - if motorcycle ends up at 0, drop the gallery entirely.
 
 const fs = require('fs');
 const path = require('path');
@@ -30,8 +33,7 @@ const CATEGORIES = [
   { key: 'motorcycle',  label: 'Motorcycle',  match: 'Motorcycle Trailer Rentals' },
 ];
 
-const TARGET_PER_CAT = 6;
-const MIN_MOTORCYCLE = 3;
+const TARGET_PER_CAT = 2;
 
 const allEntries = Array.isArray(manifest) ? manifest : Object.values(manifest);
 
@@ -45,6 +47,19 @@ function rankCandidates(matchCat) {
       seen.add(e.trailerID);
       return true;
     });
+}
+
+// Anchor positions for TARGET_PER_CAT picks across a pool of size n.
+// For TARGET=2 with a healthy pool: index 0 and ~40% in. For tiny pools,
+// space evenly.
+function anchorIndexes(n, target) {
+  if (target >= n) return [...Array(n).keys()];
+  if (target === 1) return [0];
+  const idx = [];
+  for (let i = 0; i < target; i++) {
+    idx.push(Math.floor((i * n) / target));
+  }
+  return Array.from(new Set(idx));
 }
 
 function head(url, timeoutMs = 10000) {
@@ -62,38 +77,61 @@ function head(url, timeoutMs = 10000) {
   });
 }
 
+async function pickWithReplacement(candidates, anchor, used, failures) {
+  // Walk forward from anchor (and wrap if needed) until a passing,
+  // not-yet-used candidate is found. Returns { entry, ok }.
+  const n = candidates.length;
+  for (let off = 0; off < n; off++) {
+    const i = (anchor + off) % n;
+    if (used.has(i)) continue;
+    const c = candidates[i];
+    const r = await head(c.imageUrl);
+    if (r.ok && r.isImage) {
+      used.add(i);
+      return { entry: c };
+    }
+    failures.push({ entry: c, ...r });
+    console.log(`  FAIL idx=${i} ${c.trailerID} ${c.imageUrl} status=${r.status} err=${r.error || ''}`);
+  }
+  return null;
+}
+
 async function pickForCategory(cat) {
   const candidates = rankCandidates(cat.match);
   console.log(`\n[${cat.key}] ${candidates.length} clean candidates`);
 
+  const anchors = anchorIndexes(candidates.length, TARGET_PER_CAT);
+  console.log(`  anchors: [${anchors.join(', ')}]`);
+
   if (cat.key === 'motorcycle') {
-    // No replacement: take top 6, head-check, drop failures, no fallback.
-    const picks = candidates.slice(0, TARGET_PER_CAT);
-    const results = await Promise.all(picks.map((p) => head(p.imageUrl).then((r) => ({ entry: p, ...r }))));
-    const passing = results.filter((r) => r.ok && r.isImage);
-    const failing = results.filter((r) => !(r.ok && r.isImage));
-    for (const f of failing) console.log(`  FAIL ${f.entry.trailerID} ${f.url} status=${f.status} ct=${f.contentType || ''} err=${f.error || ''}`);
-    if (passing.length < MIN_MOTORCYCLE) {
-      console.log(`  -> only ${passing.length} passed; below threshold (${MIN_MOTORCYCLE}) — DROPPING gallery entirely`);
-      return { cat, picks: [], dropped: true, failures: failing };
+    // No replacement: HEAD-check the anchor positions only, drop failures.
+    const failures = [];
+    const picks = [];
+    for (const a of anchors) {
+      const c = candidates[a];
+      const r = await head(c.imageUrl);
+      if (r.ok && r.isImage) picks.push(c);
+      else {
+        failures.push({ entry: c, ...r });
+        console.log(`  FAIL idx=${a} ${c.trailerID} ${c.imageUrl} status=${r.status} err=${r.error || ''}`);
+      }
     }
-    console.log(`  -> ${passing.length} passing motorcycle entries`);
-    return { cat, picks: passing.map((r) => r.entry), failures: failing };
+    if (picks.length === 0) {
+      console.log(`  -> 0 passing — DROPPING gallery entirely`);
+      return { cat, picks: [], dropped: true, failures };
+    }
+    console.log(`  -> ${picks.length} passing motorcycle entries`);
+    return { cat, picks, failures };
   }
 
-  // For other categories: walk the ranked list until we have 6 passing.
-  const picks = [];
+  // Other categories: each anchor picks one slot, with replacement walk-forward
+  // on failure. Distinct used-set ensures no double-pick.
+  const used = new Set();
   const failures = [];
-  let i = 0;
-  while (picks.length < TARGET_PER_CAT && i < candidates.length) {
-    const c = candidates[i++];
-    const r = await head(c.imageUrl);
-    if (r.ok && r.isImage) {
-      picks.push(c);
-    } else {
-      failures.push({ entry: c, ...r });
-      console.log(`  FAIL ${c.trailerID} ${c.imageUrl} status=${r.status} err=${r.error || ''}`);
-    }
+  const picks = [];
+  for (const a of anchors) {
+    const got = await pickWithReplacement(candidates, a, used, failures);
+    if (got) picks.push(got.entry);
   }
   console.log(`  -> ${picks.length}/${TARGET_PER_CAT} picked, ${failures.length} failures`);
   return { cat, picks, failures };

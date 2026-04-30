@@ -35,7 +35,7 @@ for (const cat of picked.categories) {
   if (cat.droppedEntirely || !cat.picks.length) continue;
   galleries.push({
     type: 'gallery',
-    columns: 3,
+    columns: 2,
     images: cat.picks.map((p) => ({
       src: p.imageUrl,
       alt: `${cat.label} trailer`,
