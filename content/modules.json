@@ -173,6 +173,36 @@
             "Gooseneck = heavy-duty, mounts in pickup bed",
             "Light plugs: 4-pin (basic) vs 7-pin (with electric brakes)",
             "Never quote tow capacity for someone's specific vehicle"
+          ],
+          "media": [
+            {
+              "type": "image",
+              "src": "https://api.neighborstrailer.com/Upload/Blog/e1a415fb-4082-4ca9-882d-ecb835696739.webp",
+              "alt": "Ball hitch size comparison",
+              "caption": "Ball hitch sizes — 1-7/8\", 2\", 2-5/16\". Must match the trailer coupler exactly."
+            },
+            {
+              "type": "image",
+              "src": "https://api.neighborstrailer.com/Upload/Blog/e58508a6-5f21-4adc-b71e-142916f5c5ff.webp",
+              "alt": "Gooseneck trailer mounted in a pickup bed",
+              "caption": "Gooseneck hitch — mounts in the bed of a pickup truck, used for heavier loads."
+            },
+            {
+              "type": "gallery",
+              "columns": 2,
+              "images": [
+                {
+                  "src": "https://api.neighborstrailer.com/Upload/Blog/b090b1f1-9d82-4bc3-9ed9-ae9a29e44457.webp",
+                  "alt": "4-pin flat trailer light plug",
+                  "caption": "4-pin: running, brake, and turn signal lights only"
+                },
+                {
+                  "src": "https://api.neighborstrailer.com/Upload/Blog/7ee05dfa-91ca-4719-82ea-2b0305fa2bc1.webp",
+                  "alt": "7-pin round trailer light plug",
+                  "caption": "7-pin: adds electric brakes, reverse, and charging"
+                }
+              ]
+            }
           ]
         },
         {
