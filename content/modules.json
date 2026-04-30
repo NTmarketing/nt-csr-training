@@ -218,7 +218,7 @@
         {
           "id": "tb-section-5",
           "title": "Safety and legal essentials",
-          "content_md": "You don't need to be a tow expert as a CSR, but you should recognize the most common safety/legal issues that come up:\n\n**Driver's license requirements** — for standard trailers (under ~10,000 lb GVWR), a regular Class C driver's license is sufficient in Texas and most US states. CDL is only required for commercial heavy-duty hauling. Renters sometimes call worried they need a special license — they almost certainly don't, but the verification process (MVR) covers this.\n\n**Insurance** — Neighbors Trailer provides NT Protect (the Protection Package) on every booking, which covers accidental damage during the rental. It does NOT cover tire damage from blowouts/road debris, intentional damage, or theft due to negligence.\n\n**Trailer registration & plates** — owner's responsibility. Every trailer on the platform must be legally registered in the owner's state.\n\n**Securing the load** — the renter's responsibility. Nothing falling out, nothing flying off, properly tied down. NT does not inspect this; the owner verbally walks renters through it at pickup.\n\n**Speed and route** — towing changes everything about driving. Stopping distance is longer. Turns are wider. Some highways and bridges have weight restrictions. Most rental trailers have a recommended max speed (typically 55-65 mph).\n\nWhen a renter calls and says 'I had a tire blow out, who covers it?' — you now know that's not covered by NT Protect. When they say 'do I need a CDL?' — you know almost certainly not.",
+          "content_md": "You don't need to be a tow expert as a CSR, but you should recognize the most common safety/legal issues that come up:\n\n**Driver's license requirements** — for standard trailers (under ~10,000 lb GVWR), a regular Class C driver's license is sufficient in Texas and most US states. CDL is only required for commercial heavy-duty hauling. Renters sometimes call worried they need a special license — they almost certainly don't, but the verification process (MVR) covers this.\n\n**Damage protection** — Neighbors Trailer provides NT Protect / the Protection Package on every booking — a built-in damage protection product, **not insurance**, that covers accidental damage during the rental. It does NOT cover tire damage from blowouts/road debris, intentional damage, or theft due to negligence.\n\n**Trailer registration & plates** — owner's responsibility. Every trailer on the platform must be legally registered in the owner's state.\n\n**Securing the load** — the renter's responsibility. Nothing falling out, nothing flying off, properly tied down. NT does not inspect this; the owner verbally walks renters through it at pickup.\n\n**Speed and route** — towing changes everything about driving. Stopping distance is longer. Turns are wider. Some highways and bridges have weight restrictions. Most rental trailers have a recommended max speed (typically 55-65 mph).\n\nWhen a renter calls and says 'I had a tire blow out, who covers it?' — you now know that's not covered by NT Protect. When they say 'do I need a CDL?' — you know almost certainly not.",
           "key_points": [
             "Standard Class C license is sufficient for most trailers",
             "NT Protect covers accidental damage, NOT tire blowouts",
@@ -351,11 +351,11 @@
         {
           "id": "section-1-1",
           "title": "What is Neighbors Trailer?",
-          "content_md": "Neighbors Trailer (NT) is a peer-to-peer trailer rental marketplace. **Owners list their trailers** and **renters book them**. NT does not own any of the trailers on the platform.\n\nWhat NT actually provides:\n- Payment processing\n- Identity verification (Clear)\n- MVR (driver record) checks\n- GPS tracking on rentals\n- NT Protect insurance for accidental damage\n- Dispute resolution\n\nIf someone asks 'aren't you just like Turo for trailers?' — yes, that's a fine analogy. The model is the same: a two-sided marketplace where the platform handles trust, payments, and safety so that owners and renters can transact directly.",
+          "content_md": "Neighbors Trailer (NT) is a peer-to-peer trailer rental marketplace. **Owners list their trailers** and **renters book them**. NT does not own any of the trailers on the platform.\n\nWhat NT actually provides:\n- Payment processing\n- Identity verification (Clear)\n- MVR (driver record) checks\n- GPS tracking on rentals\n- NT Protect — the Protection Package, a built-in damage protection product (NOT insurance) that covers accidental damage\n- Dispute resolution\n\nIf someone asks 'aren't you just like Turo for trailers?' — yes, that's a fine analogy. The model is the same: a two-sided marketplace where the platform handles trust, payments, and safety so that owners and renters can transact directly.",
           "key_points": [
             "Peer-to-peer marketplace — NT does not own trailers",
             "Two roles: Owner and Renter",
-            "NT handles payments, verification, GPS, insurance, disputes"
+            "NT handles payments, verification, GPS, Protection Package, disputes"
           ]
         },
         {
@@ -378,9 +378,9 @@
         {
           "id": "section-1-3",
           "title": "Core Terminology",
-          "content_md": "These terms come up in nearly every conversation. Use them confidently.\n\n- **NT Protect / Protection Package** — built-in insurance covering accidental damage during rentals. Tire damage and intentional damage are excluded.\n- **Toll Program** — opt-in for owners. Auto-tracks tolls during rentals and bills the renter.\n- **My Reservations** — owner-side feature for managing their bookings.\n- **MVR** — Motor Vehicle Record check, required for renters before booking is allowed.\n- **Clear** — third-party ID verification provider used by NT.\n- **Pending booking** — a booking the owner has not yet accepted.",
+          "content_md": "These terms come up in nearly every conversation. Use them confidently.\n\n- **NT Protect / Protection Package** — built-in damage protection covering accidental damage during rentals. **Not insurance** — it's a damage protection product, not an insurance policy. Tire damage and intentional damage are excluded.\n- **Toll Program** — opt-in for owners. Auto-tracks tolls during rentals and bills the renter.\n- **My Reservations** — owner-side feature for managing their bookings.\n- **MVR** — Motor Vehicle Record check, required for renters before booking is allowed.\n- **Clear** — third-party ID verification provider used by NT.\n- **Pending booking** — a booking the owner has not yet accepted.",
           "key_points": [
-            "NT Protect = insurance, with exclusions",
+            "NT Protect = damage protection (not insurance), with exclusions",
             "Toll Program = owner opt-in",
             "MVR + Clear = required renter verifications"
           ]
@@ -944,7 +944,7 @@
         {
           "id": "section-5-1",
           "title": "Renter Fees and Charges",
-          "content_md": "When a renter books, the total includes:\n- **Rent** (the trailer's nightly/daily rate)\n- **Platform fee** (NT's service fee — non-refundable)\n- **Tax** (non-refundable)\n- **Deposit** (a hold, refunded after rental closes)\n- **Protection Package** (NT Protect insurance — non-refundable once accepted)\n\n**The renter's card is charged when the booking is accepted, not when the request is submitted.** This trips up some renters.\n\nDeposits are released **3-7 business days** after the rental officially closes. If a renter calls 24 hours after rental end asking where their deposit is, the answer is 'it's still processing — typical timing is 3-7 business days.'",
+          "content_md": "When a renter books, the total includes:\n- **Rent** (the trailer's nightly/daily rate)\n- **Platform fee** (NT's service fee — non-refundable)\n- **Tax** (non-refundable)\n- **Deposit** (a hold, refunded after rental closes)\n- **Protection Package** — NT Protect's built-in damage protection (not insurance), non-refundable once accepted\n\n**The renter's card is charged when the booking is accepted, not when the request is submitted.** This trips up some renters.\n\nDeposits are released **3-7 business days** after the rental officially closes. If a renter calls 24 hours after rental end asking where their deposit is, the answer is 'it's still processing — typical timing is 3-7 business days.'",
           "key_points": [
             "Card charged at acceptance, not request",
             "Platform fee, tax, Protection Package = non-refundable once accepted",
