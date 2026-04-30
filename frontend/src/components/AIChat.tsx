@@ -1,9 +1,7 @@
-import { Bot, Loader2, Send, Sparkles, StopCircle, User as UserIcon } from 'lucide-react';
+import { Bot, Loader2, Send, Sparkles, StopCircle, Trash2, User as UserIcon } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { ai } from '../api/client';
 import type { ChatMessage } from '../types';
-
-type Mode = 'tutor' | 'roleplay';
 
 interface BaseProps {
   moduleId: string;
@@ -24,13 +22,44 @@ type Props = TutorProps | RoleplayProps;
 
 export default function AIChat(props: Props) {
   const { mode, moduleId, initialGreeting } = props;
-  const [messages, setMessages] = useState<ChatMessage[]>(
-    initialGreeting ? [{ role: 'assistant', content: initialGreeting }] : [],
-  );
+  const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState('');
   const [sending, setSending] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [hydrating, setHydrating] = useState(mode === 'tutor');
   const scrollRef = useRef<HTMLDivElement>(null);
+
+  // Hydrate persisted tutor conversation; roleplay starts fresh.
+  useEffect(() => {
+    let cancelled = false;
+    if (mode === 'tutor') {
+      setHydrating(true);
+      ai
+        .getConversation(moduleId)
+        .then((conv) => {
+          if (cancelled) return;
+          if (conv && Array.isArray(conv.messages) && conv.messages.length > 0) {
+            setMessages(conv.messages);
+          } else if (initialGreeting) {
+            setMessages([{ role: 'assistant', content: initialGreeting }]);
+          }
+        })
+        .catch(() => {
+          if (!cancelled && initialGreeting) {
+            setMessages([{ role: 'assistant', content: initialGreeting }]);
+          }
+        })
+        .finally(() => {
+          if (!cancelled) setHydrating(false);
+        });
+    } else {
+      setMessages(initialGreeting ? [{ role: 'assistant', content: initialGreeting }] : []);
+    }
+    return () => {
+      cancelled = true;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [mode, moduleId]);
 
   useEffect(() => {
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: 'smooth' });
@@ -48,11 +77,24 @@ export default function AIChat(props: Props) {
     setError(null);
 
     try {
-      const result =
-        mode === 'tutor'
-          ? await ai.tutor(moduleId, text, messages)
-          : await ai.roleplay(moduleId, (props as RoleplayProps).scenarioId, text, messages);
-      setMessages([...nextHistory, { role: 'assistant', content: result.message }]);
+      if (mode === 'tutor') {
+        const result = await ai.tutor(moduleId, text);
+        // Server returns canonical conversation — trust it. Falls back to local
+        // append if response shape is missing messages for any reason.
+        if (Array.isArray(result.messages)) {
+          setMessages(result.messages);
+        } else {
+          setMessages([...nextHistory, { role: 'assistant', content: result.message }]);
+        }
+      } else {
+        const result = await ai.roleplay(
+          moduleId,
+          (props as RoleplayProps).scenarioId,
+          text,
+          messages,
+        );
+        setMessages([...nextHistory, { role: 'assistant', content: result.message }]);
+      }
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to send message');
       setMessages(nextHistory);
@@ -65,6 +107,18 @@ export default function AIChat(props: Props) {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
       handleSend();
+    }
+  };
+
+  const handleClearTutor = async () => {
+    if (mode !== 'tutor') return;
+    if (!confirm('Clear this tutor conversation? You can start a new thread.')) return;
+    try {
+      await ai.clearConversation(moduleId);
+      setMessages(initialGreeting ? [{ role: 'assistant', content: initialGreeting }] : []);
+      setError(null);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to clear conversation');
     }
   };
 
@@ -85,6 +139,17 @@ export default function AIChat(props: Props) {
           </div>
         </div>
 
+        {mode === 'tutor' && messages.length > 0 && (
+          <button
+            type="button"
+            onClick={handleClearTutor}
+            className="inline-flex items-center gap-1 rounded-md px-2 py-1 text-xs font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800"
+            title="Clear this conversation"
+          >
+            <Trash2 className="h-3.5 w-3.5" /> Clear
+          </button>
+        )}
+
         {mode === 'roleplay' && (
           <button
             type="button"
@@ -99,7 +164,14 @@ export default function AIChat(props: Props) {
       </div>
 
       <div ref={scrollRef} className="flex-1 space-y-3 overflow-y-auto p-4">
-        {messages.length === 0 && (
+        {hydrating && (
+          <div className="flex items-center gap-2 text-xs text-gray-500">
+            <Loader2 className="h-3.5 w-3.5 animate-spin" />
+            <span>Loading previous conversation…</span>
+          </div>
+        )}
+
+        {!hydrating && messages.length === 0 && (
           <div className="flex h-full flex-col items-center justify-center text-center text-sm text-gray-500">
             <Bot className="mb-2 h-8 w-8 text-gray-300" />
             <p>{mode === 'tutor' ? 'Ask a question to start the conversation.' : 'Send your opening line to begin the call.'}</p>
@@ -131,12 +203,12 @@ export default function AIChat(props: Props) {
             placeholder={mode === 'tutor' ? 'Ask a question…' : 'Type your reply as the CSR…'}
             rows={2}
             className="input resize-none"
-            disabled={sending}
+            disabled={sending || hydrating}
           />
           <button
             type="button"
             onClick={handleSend}
-            disabled={sending || !input.trim()}
+            disabled={sending || hydrating || !input.trim()}
             className="btn-primary !p-2"
             aria-label="Send"
           >

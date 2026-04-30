@@ -1,4 +1,13 @@
-import { Eye, Loader2, Plus, RotateCcw, Trash2, UserPlus } from 'lucide-react';
+import {
+  Eye,
+  KeyRound,
+  Loader2,
+  Pencil,
+  Plus,
+  RotateCcw,
+  Trash2,
+  UserPlus,
+} from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { admin } from '../api/client';
@@ -9,6 +18,8 @@ export default function Admin() {
   const [users, setUsers] = useState<AdminUserSummary[] | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [showCreate, setShowCreate] = useState(false);
+  const [editingUser, setEditingUser] = useState<AdminUserSummary | null>(null);
+  const [resettingPwUser, setResettingPwUser] = useState<AdminUserSummary | null>(null);
 
   const load = async () => {
     try {
@@ -110,13 +121,27 @@ export default function Admin() {
                     {u.last_activity ? new Date(u.last_activity).toLocaleString() : '—'}
                   </td>
                   <td className="px-4 py-3 text-right" onClick={(e) => e.stopPropagation()}>
-                    <div className="flex justify-end gap-1">
+                    <div className="flex flex-wrap justify-end gap-1">
                       <button
                         onClick={() => navigate(`/admin/trainee/${u.id}`)}
                         className="inline-flex items-center gap-1 rounded-md border border-gray-300 bg-white px-2 py-1 text-xs font-medium text-gray-700 hover:bg-gray-50"
                         title="View trainee detail"
                       >
                         <Eye className="h-3.5 w-3.5" /> View
+                      </button>
+                      <button
+                        onClick={() => setEditingUser(u)}
+                        className="inline-flex items-center gap-1 rounded-md border border-gray-300 bg-white px-2 py-1 text-xs font-medium text-gray-700 hover:bg-gray-50"
+                        title="Edit name and role"
+                      >
+                        <Pencil className="h-3.5 w-3.5" /> Edit
+                      </button>
+                      <button
+                        onClick={() => setResettingPwUser(u)}
+                        className="inline-flex items-center gap-1 rounded-md border border-gray-300 bg-white px-2 py-1 text-xs font-medium text-gray-700 hover:bg-gray-50"
+                        title="Reset password"
+                      >
+                        <KeyRound className="h-3.5 w-3.5" /> Password
                       </button>
                       <button
                         onClick={() => handleReset(u.id, u.username)}
@@ -148,6 +173,25 @@ export default function Admin() {
             setShowCreate(false);
             await load();
           }}
+        />
+      )}
+
+      {editingUser && (
+        <EditUserModal
+          user={editingUser}
+          onClose={() => setEditingUser(null)}
+          onSaved={async () => {
+            setEditingUser(null);
+            await load();
+          }}
+        />
+      )}
+
+      {resettingPwUser && (
+        <PasswordResetModal
+          user={resettingPwUser}
+          onClose={() => setResettingPwUser(null)}
+          onSaved={() => setResettingPwUser(null)}
         />
       )}
     </div>
@@ -200,7 +244,12 @@ function CreateUserModal({
               className="input"
               required
               autoFocus
+              pattern="[a-zA-Z0-9._-]{3,32}"
+              title="3-32 chars: letters, numbers, dot, dash, underscore"
             />
+            <div className="mt-1 text-[11px] text-gray-500">
+              3-32 chars: letters, numbers, dot, dash, or underscore.
+            </div>
           </div>
           <div>
             <label className="mb-1 block text-sm font-medium text-gray-700">Full name</label>
@@ -210,6 +259,7 @@ function CreateUserModal({
               onChange={(e) => setName(e.target.value)}
               className="input"
               required
+              maxLength={100}
             />
           </div>
           <div>
@@ -222,6 +272,7 @@ function CreateUserModal({
               required
               minLength={8}
             />
+            <div className="mt-1 text-[11px] text-gray-500">Minimum 8 characters.</div>
           </div>
           <div>
             <label className="mb-1 block text-sm font-medium text-gray-700">Role</label>
@@ -249,6 +300,167 @@ function CreateUserModal({
             </button>
           </div>
         </form>
+      </div>
+    </div>
+  );
+}
+
+function EditUserModal({
+  user,
+  onClose,
+  onSaved,
+}: {
+  user: AdminUserSummary;
+  onClose: () => void;
+  onSaved: () => void;
+}) {
+  const [name, setName] = useState(user.name);
+  const [role, setRole] = useState<Role>(user.role);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmitting(true);
+    setError(null);
+    try {
+      await admin.users.update(user.id, { name, role });
+      onSaved();
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Could not save changes');
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4">
+      <div className="card w-full max-w-md p-6">
+        <div className="mb-4 flex items-center gap-2">
+          <Pencil className="h-5 w-5 text-nt-primary-dark" />
+          <h2 className="text-lg font-semibold text-gray-900">Edit @{user.username}</h2>
+        </div>
+
+        <form onSubmit={handleSubmit} className="space-y-3">
+          <div>
+            <label className="mb-1 block text-sm font-medium text-gray-700">Full name</label>
+            <input
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="input"
+              required
+              maxLength={100}
+              autoFocus
+            />
+          </div>
+          <div>
+            <label className="mb-1 block text-sm font-medium text-gray-700">Role</label>
+            <select
+              value={role}
+              onChange={(e) => setRole(e.target.value as Role)}
+              className="input"
+            >
+              <option value="trainee">Trainee</option>
+              <option value="admin">Admin</option>
+            </select>
+          </div>
+
+          {error && (
+            <div className="rounded-md border border-red-200 bg-red-50 p-2 text-sm text-red-700">{error}</div>
+          )}
+
+          <div className="flex justify-end gap-2 pt-2">
+            <button type="button" onClick={onClose} className="btn-secondary">
+              Cancel
+            </button>
+            <button type="submit" disabled={submitting} className="btn-primary">
+              {submitting && <Loader2 className="h-4 w-4 animate-spin" />}
+              Save
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
+}
+
+function PasswordResetModal({
+  user,
+  onClose,
+  onSaved,
+}: {
+  user: AdminUserSummary;
+  onClose: () => void;
+  onSaved: () => void;
+}) {
+  const [password, setPassword] = useState('');
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [done, setDone] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmitting(true);
+    setError(null);
+    try {
+      await admin.users.updatePassword(user.id, password);
+      setDone(true);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Could not reset password');
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4">
+      <div className="card w-full max-w-md p-6">
+        <div className="mb-4 flex items-center gap-2">
+          <KeyRound className="h-5 w-5 text-nt-primary-dark" />
+          <h2 className="text-lg font-semibold text-gray-900">Reset password — @{user.username}</h2>
+        </div>
+
+        {done ? (
+          <div className="space-y-3">
+            <div className="rounded-md border border-emerald-200 bg-emerald-50 p-3 text-sm text-emerald-800">
+              Password updated. Share it with {user.name} and have them log in to confirm.
+            </div>
+            <div className="flex justify-end">
+              <button onClick={onSaved} className="btn-primary">Close</button>
+            </div>
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit} className="space-y-3">
+            <div>
+              <label className="mb-1 block text-sm font-medium text-gray-700">New password</label>
+              <input
+                type="text"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="input"
+                required
+                minLength={8}
+                autoFocus
+              />
+              <div className="mt-1 text-[11px] text-gray-500">Minimum 8 characters.</div>
+            </div>
+
+            {error && (
+              <div className="rounded-md border border-red-200 bg-red-50 p-2 text-sm text-red-700">{error}</div>
+            )}
+
+            <div className="flex justify-end gap-2 pt-2">
+              <button type="button" onClick={onClose} className="btn-secondary">
+                Cancel
+              </button>
+              <button type="submit" disabled={submitting} className="btn-primary">
+                {submitting && <Loader2 className="h-4 w-4 animate-spin" />}
+                Set password
+              </button>
+            </div>
+          </form>
+        )}
       </div>
     </div>
   );

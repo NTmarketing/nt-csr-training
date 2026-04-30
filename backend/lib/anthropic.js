@@ -88,8 +88,29 @@ ${(kbContext || '').slice(0, 12000)}`;
   return extractText(resp);
 }
 
+const TONE_GUIDANCE = {
+  casual:
+    "casual: friendly, conversational, brief — like talking to a friend. Don't penalize for missing formal structure or comprehensive coverage. Reward warmth and brevity.",
+  professional:
+    'professional: polished, clear, appropriate for a customer service call. Expect coverage of relevant policies and clear communication.',
+  escalated:
+    "escalated: empathy and de-escalation come FIRST, policy second. Reward acknowledgment of frustration and calm tone. Heavily penalize agreeing with the customer's negative framing or matching their hostility."
+};
+
+function normalizeTone(t) {
+  return t === 'casual' || t === 'escalated' ? t : 'professional';
+}
+
+function toneInstruction(tone) {
+  const t = normalizeTone(tone);
+  return `This scenario is tagged tone='${t}'. Grade accordingly:\n- ${TONE_GUIDANCE[t]}`;
+}
+
 async function gradeResponse(scenario, rubric, response) {
+  const tone = normalizeTone(scenario && scenario.tone);
   const system = `You are grading a CSR trainee's response to a scenario. Evaluate honestly — false confidence creates real customer mistakes later.
+
+${toneInstruction(tone)}
 
 Respond with VALID JSON ONLY, no prose, no code fences. Schema:
 {
@@ -99,7 +120,7 @@ Respond with VALID JSON ONLY, no prose, no code fences. Schema:
   "weaknesses": ["<bullet>", ...]
 }`;
 
-  const userMsg = `Scenario prompt:\n${scenario && scenario.prompt ? scenario.prompt : ''}\n\nRubric:\n${(rubric || []).map((r, i) => `${i + 1}. ${r}`).join('\n')}\n\nTrainee response:\n${response}`;
+  const userMsg = `Scenario prompt:\n${scenario && scenario.prompt ? scenario.prompt : ''}\n\nTone: ${tone}\n\nRubric:\n${(rubric || []).map((r, i) => `${i + 1}. ${r}`).join('\n')}\n\nTrainee response:\n${response}`;
 
   const resp = await getClient().messages.create({
     model: MODEL,
@@ -140,7 +161,10 @@ The trainee is the CSR. After they end the conversation, grading happens separat
 }
 
 async function gradeRoleplay(scenario, transcript, rubric) {
+  const tone = normalizeTone(scenario && scenario.tone);
   const system = `You are grading a CSR trainee's performance in a customer roleplay. Be honest and specific — false confidence creates real customer mistakes later.
+
+${toneInstruction(tone)}
 
 Respond with VALID JSON ONLY, no prose, no code fences. Schema:
 {
@@ -158,6 +182,8 @@ Respond with VALID JSON ONLY, no prose, no code fences. Schema:
   }).join('\n');
 
   const userMsg = `Scenario:\n${scenario && scenario.prompt ? scenario.prompt : ''}
+
+Tone: ${tone}
 
 Rubric:
 ${(rubric || []).map((r, i) => `${i + 1}. ${r}`).join('\n')}

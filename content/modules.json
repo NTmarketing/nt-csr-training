@@ -1,8 +1,183 @@
 {
   "modules": [
     {
-      "id": "module-1",
+      "id": "module-trailer-basics",
       "number": 1,
+      "title": "Trailer Basics",
+      "description": "What trailers are, how they work, and how rentals fit in. Foundation knowledge before we dive into Neighbors Trailer specifically.",
+      "estimated_minutes": 20,
+      "learning_objectives": [
+        "Identify common types of trailers and their primary uses",
+        "Understand basic hitching and towing terminology",
+        "Explain why people rent trailers instead of buying",
+        "Recognize key safety and legal considerations for towing"
+      ],
+      "sections": [
+        {
+          "id": "tb-section-1",
+          "title": "What is a trailer?",
+          "content_md": "A trailer is an unpowered vehicle towed by a powered one. The key distinction: trailers don't move on their own. They're attached to a truck, SUV, or car via a hitch and pulled along. They show up in everyday life everywhere — moving across the country, hauling a boat to the lake, picking up lumber from Home Depot, transporting a horse, taking a side-by-side to the dunes.\n\nThe US trailer rental market is large because most people don't need a trailer often enough to justify owning one. Buying a $5,000 utility trailer to use twice a year doesn't make sense. Renting one for $50 a day does. That gap is the entire reason peer-to-peer trailer rental marketplaces like Neighbors Trailer exist.",
+          "key_points": [
+            "Trailers don't have their own engine — they're towed",
+            "Most people need a trailer occasionally, not regularly",
+            "Renting is cheaper than buying for occasional use"
+          ]
+        },
+        {
+          "id": "tb-section-2",
+          "title": "Common types of trailers",
+          "content_md": "Trailers fall into rough categories based on what they haul. As a CSR you don't need to be an expert, but recognizing these by name will save you on every other call:\n\n**Utility trailers** — open, flat-bedded, often with low side rails. The most common rental. Used for moving, yard waste, furniture, ATVs, anything weather doesn't matter for.\n\n**Enclosed trailers** — fully boxed in with a door. Used when cargo can't get wet or seen. Movers, contractors, anyone hauling tools or valuables.\n\n**Car haulers** — long, low, designed to carry a single vehicle. Two ramps at the back. Used for moving non-running cars, race cars, project vehicles.\n\n**Flatbed trailers** — flat platform with no walls or roof. For oversized loads — equipment, building materials, hay bales.\n\n**Dump trailers** — like a small dump truck bed but towed. Hydraulic lift to dump dirt, gravel, debris. Common for landscaping and demo work.\n\n**Horse / livestock trailers** — designed for transporting animals. Often divided into stalls. Some have living quarters on the front for owners.\n\n**Tow dollies** — minimal trailers with just two wheels and ramps; tow a car by lifting only its front wheels.\n\n**Boat trailers** — specialized cradle for hauling boats. Skinny, with rollers or bunks shaped for the hull.\n\n**Motorcycle trailers** — small, often with wheel chocks to lock bikes upright.\n\nNeighbors Trailer's listings span all of these categories. Knowing the difference between a 'flatbed' and a 'utility' helps you understand what the renter is asking about when they call.",
+          "key_points": [
+            "Utility = open, the most common rental",
+            "Enclosed = boxed in, for valuables or weather protection",
+            "Car hauler = for vehicles",
+            "Specialty types: dump, horse, boat, motorcycle, tow dolly"
+          ]
+        },
+        {
+          "id": "tb-section-3",
+          "title": "Hitching and towing basics",
+          "content_md": "Trailers attach to tow vehicles via a **hitch**. The two most common types you'll hear about:\n\n**Ball hitch** — by far the most common. A metal ball mounted on the tow vehicle's hitch receiver. The trailer has a coupler that locks down over the ball. Comes in three standard sizes: 1-7/8\", 2\", and 2-5/16\". The ball size MUST match the coupler — wrong size is a major safety issue.\n\n**Gooseneck / fifth-wheel** — used for heavier trailers (large livestock, big flatbeds). Mounts in the bed of a pickup truck rather than the rear bumper. Distributes weight better; allows heavier loads.\n\n**Light plug** — every trailer with brake lights/turn signals also plugs into the tow vehicle's electrical system. Two common types: **4-pin** (basic — running, brake, turn) and **7-pin** (4-pin functions plus electric brakes, reverse, charging). Renters routinely call confused because their truck's plug doesn't match the trailer's plug.\n\n**Tow capacity** — every vehicle has a maximum weight it can safely tow, listed in the owner's manual. The renter is responsible for knowing their vehicle's tow capacity. As a CSR, never quote a tow capacity for a renter's specific vehicle — that's a liability you don't want.\n\n**Trailer brakes** — heavier trailers have their own brakes that activate via a brake controller installed in the tow vehicle. If a renter is asking about a 7-pin plug or 'do I need a brake controller,' the listing has electric brakes.",
+          "key_points": [
+            "Ball hitch sizes: 1-7/8\", 2\", 2-5/16\" — must match",
+            "Gooseneck = heavy-duty, mounts in pickup bed",
+            "Light plugs: 4-pin (basic) vs 7-pin (with electric brakes)",
+            "Never quote tow capacity for someone's specific vehicle"
+          ]
+        },
+        {
+          "id": "tb-section-4",
+          "title": "Why people rent",
+          "content_md": "Understanding the renter's mindset helps every conversation. Common reasons people rent rather than buy:\n\n**Moving** — the largest category. People moving across town or across the country. Often first-time trailer users; they need extra hand-holding.\n\n**One-off projects** — landscaping a yard, hauling debris from a remodel, picking up bulky furniture, moving a riding mower.\n\n**Recreation** — hauling ATVs, side-by-sides, boats, motorcycles to a destination. Weekend warriors.\n\n**Trying before buying** — people considering a trailer purchase rent first to see if the size works for them.\n\n**Their own trailer is unavailable** — broken, sold, lent out. They need a temporary replacement.\n\nFor owners on Neighbors Trailer, the equation is the same in reverse. They own a trailer, use it occasionally, and want to defray ownership costs by renting it out the rest of the time. Many owners are landscapers, contractors, or hobbyists whose trailer sits unused most weeks.\n\nThis isn't 'random rental income' for them — for many owners it's a real chunk of their monthly cash flow. When you're handling an owner's payout problem, that context matters.",
+          "key_points": [
+            "Moving and one-off projects are the bulk of rentals",
+            "Renters are often first-time trailer users",
+            "For owners, payouts are real income — not pocket money"
+          ]
+        },
+        {
+          "id": "tb-section-5",
+          "title": "Safety and legal essentials",
+          "content_md": "You don't need to be a tow expert as a CSR, but you should recognize the most common safety/legal issues that come up:\n\n**Driver's license requirements** — for standard trailers (under ~10,000 lb GVWR), a regular Class C driver's license is sufficient in Texas and most US states. CDL is only required for commercial heavy-duty hauling. Renters sometimes call worried they need a special license — they almost certainly don't, but the verification process (MVR) covers this.\n\n**Insurance** — Neighbors Trailer provides NT Protect (the Protection Package) on every booking, which covers accidental damage during the rental. It does NOT cover tire damage from blowouts/road debris, intentional damage, or theft due to negligence.\n\n**Trailer registration & plates** — owner's responsibility. Every trailer on the platform must be legally registered in the owner's state.\n\n**Securing the load** — the renter's responsibility. Nothing falling out, nothing flying off, properly tied down. NT does not inspect this; the owner verbally walks renters through it at pickup.\n\n**Speed and route** — towing changes everything about driving. Stopping distance is longer. Turns are wider. Some highways and bridges have weight restrictions. Most rental trailers have a recommended max speed (typically 55-65 mph).\n\nWhen a renter calls and says 'I had a tire blow out, who covers it?' — you now know that's not covered by NT Protect. When they say 'do I need a CDL?' — you know almost certainly not.",
+          "key_points": [
+            "Standard Class C license is sufficient for most trailers",
+            "NT Protect covers accidental damage, NOT tire blowouts",
+            "Securing the load is the renter's responsibility",
+            "Towing changes stopping distance, turning radius, max speed"
+          ]
+        }
+      ],
+      "kb_references": [],
+      "scenarios": [
+        {
+          "id": "tb-scenario-1",
+          "type": "free_response",
+          "tone": "casual",
+          "prompt": "Your buddy texts: 'hey what's the difference between a utility trailer and a flatbed?' Reply in a quick text-message tone, not a formal explanation.",
+          "rubric": [
+            "Identifies the key difference (sides/rails vs no sides)",
+            "Casual, conversational tone — not a formal essay",
+            "Brief — fits a text message"
+          ]
+        },
+        {
+          "id": "tb-scenario-2",
+          "type": "free_response",
+          "tone": "professional",
+          "prompt": "An inbound caller says: 'I rented a trailer last weekend and the lights didn't work with my truck. The plug was different.' Acknowledge the issue and explain at a basic level what happened.",
+          "rubric": [
+            "Acknowledges the frustration",
+            "Identifies that the trailer light plug type didn't match the vehicle's outlet",
+            "Mentions 4-pin vs 7-pin distinction (or adapter availability)",
+            "Doesn't blame the renter or the owner — explains it as a compatibility issue"
+          ]
+        },
+        {
+          "id": "tb-scenario-3",
+          "type": "roleplay",
+          "tone": "professional",
+          "prompt": "You're handling an inbound call. The caller is a first-time trailer renter and confused about what kind of trailer they actually need.",
+          "customer_persona": "Friendly but completely new to trailers. They're moving a 1-bedroom apartment 200 miles. They've never towed anything before. Don't volunteer information — make the trainee ask clarifying questions to figure out what trailer fits the job.",
+          "rubric": [
+            "Asks clarifying questions about what they're moving",
+            "Recommends a trailer category that fits (likely enclosed or large utility)",
+            "Mentions tow vehicle capacity as something they should check",
+            "Doesn't overwhelm the caller with jargon"
+          ]
+        }
+      ],
+      "quiz": [
+        {
+          "id": "tb-q1",
+          "question": "Which type of trailer is fully enclosed and used when cargo needs protection from weather or theft?",
+          "type": "multiple_choice",
+          "options": [
+            "Utility trailer",
+            "Enclosed trailer",
+            "Flatbed trailer",
+            "Tow dolly"
+          ],
+          "correct_index": 1,
+          "explanation": "Enclosed trailers are fully boxed in with walls, roof, and a door — used by movers, contractors, and anyone hauling valuables or weather-sensitive cargo."
+        },
+        {
+          "id": "tb-q2",
+          "question": "What's the difference between a 4-pin and a 7-pin trailer light plug?",
+          "type": "multiple_choice",
+          "options": [
+            "4-pin is for cars, 7-pin is for trucks",
+            "4-pin handles basic lights only; 7-pin adds electric brakes, reverse, and charging",
+            "4-pin is older, 7-pin is the new standard",
+            "There's no functional difference"
+          ],
+          "correct_index": 1,
+          "explanation": "4-pin handles running lights, brake lights, and turn signals. 7-pin adds electric trailer brakes, reverse signal, and a charging line. Heavier trailers with their own brakes need a 7-pin connection."
+        },
+        {
+          "id": "tb-q3",
+          "question": "Should a CSR quote a renter's specific tow capacity over the phone?",
+          "type": "multiple_choice",
+          "options": [
+            "Yes, if you can look it up online",
+            "Yes, if the trailer manufacturer's site lists it",
+            "No — tow capacity depends on the renter's vehicle, and the renter is responsible for knowing it",
+            "Only if a manager approves"
+          ],
+          "correct_index": 2,
+          "explanation": "Tow capacity is specific to the renter's vehicle and is the renter's responsibility. Quoting it creates liability if it's wrong. Always direct them to their owner's manual."
+        },
+        {
+          "id": "tb-q4",
+          "question": "Does NT Protect (the Protection Package) cover a tire blowout from road debris during a rental?",
+          "type": "multiple_choice",
+          "options": [
+            "Yes, all damage is covered",
+            "Yes, with a $250 deductible",
+            "No — tire damage is excluded from NT Protect",
+            "Only if the renter calls within 24 hours"
+          ],
+          "correct_index": 2,
+          "explanation": "Tire damage from blowouts or road debris is not covered by NT Protect. This is one of the most common edge-case calls — know it cold."
+        },
+        {
+          "id": "tb-q5",
+          "question": "Does someone renting a standard utility trailer in Texas need a CDL?",
+          "type": "multiple_choice",
+          "options": [
+            "Yes, always",
+            "No — standard Class C license is sufficient for most rental trailers",
+            "Only if they're crossing state lines",
+            "Only if the trailer weighs over 5,000 lb"
+          ],
+          "correct_index": 1,
+          "explanation": "A standard Class C driver's license is sufficient for trailers under about 10,000 lb GVWR — which covers virtually every trailer on Neighbors Trailer's platform. CDL is only required for commercial heavy-duty hauling."
+        }
+      ],
+      "passing_score_percent": 70
+    },
+    {
+      "id": "module-1",
+      "number": 2,
       "title": "Platform Foundations",
       "description": "Overview of NT, the renter and owner roles, the booking lifecycle, and core platform terminology.",
       "estimated_minutes": 15,
@@ -56,21 +231,22 @@
           "type": "free_response",
           "prompt": "A friend asks at dinner: 'What does Neighbors Trailer actually do? Aren't they just like Turo for trailers?' Give a 30-second pitch.",
           "rubric": [
-            "Mentions peer-to-peer marketplace model",
-            "Explains owner/renter dynamic",
-            "Mentions NT's role as facilitator (payments, verification, insurance)",
-            "Concise — fits in 30 seconds"
-          ]
+            "Captures the basic peer-to-peer marketplace idea",
+            "Tone is casual and conversational, not a formal pitch",
+            "Brief — wouldn't bore a friend at dinner"
+          ],
+          "tone": "casual"
         },
         {
           "id": "module-1-scenario-2",
           "type": "free_response",
           "prompt": "A new coworker asks: 'What's the difference between an owner and a renter on the platform?' Explain each role in two sentences.",
           "rubric": [
-            "Owner: lists trailers, accepts bookings, starts/ends rentals, gets paid",
-            "Renter: searches, books, completes Clear + MVR, picks up and returns trailer",
-            "Two sentences per role — not a wall of text"
-          ]
+            "Distinguishes the two roles in plain language",
+            "Tone matches a casual workplace explanation",
+            "Concise"
+          ],
+          "tone": "casual"
         },
         {
           "id": "module-1-scenario-3",
@@ -82,7 +258,8 @@
             "Explains lifecycle clearly without info-dumping",
             "Confirms understanding before moving on",
             "Asks if they have specific questions"
-          ]
+          ],
+          "tone": "professional"
         }
       ],
       "quiz": [
@@ -90,7 +267,10 @@
           "id": "m1-q1",
           "question": "Does Neighbors Trailer own the trailers it rents?",
           "type": "multiple_choice",
-          "options": ["Yes", "No"],
+          "options": [
+            "Yes",
+            "No"
+          ],
           "correct_index": 1,
           "explanation": "NT is a peer-to-peer marketplace. Owners list their trailers; NT facilitates the transaction."
         },
@@ -111,7 +291,12 @@
           "id": "m1-q3",
           "question": "Who initiates ID verification through Clear?",
           "type": "multiple_choice",
-          "options": ["The owner", "The renter", "Either party", "NT staff"],
+          "options": [
+            "The owner",
+            "The renter",
+            "Either party",
+            "NT staff"
+          ],
           "correct_index": 1,
           "explanation": "ID verification is required for the renter before booking is permitted."
         },
@@ -119,7 +304,10 @@
           "id": "m1-q4",
           "question": "What does NT Protect cover?",
           "type": "short_answer",
-          "expected_keywords": ["accidental damage", "rentals"],
+          "expected_keywords": [
+            "accidental damage",
+            "rentals"
+          ],
           "explanation": "NT Protect covers accidental damage during rentals. Tire damage and intentional damage are excluded."
         }
       ],
@@ -127,7 +315,7 @@
     },
     {
       "id": "module-2",
-      "number": 2,
+      "number": 3,
       "title": "Account & Verification",
       "description": "Account creation, Clear ID verification, MVR checks, and the most common 'my account is inactive' triage.",
       "estimated_minutes": 15,
@@ -197,7 +385,8 @@
             "Explains Clear is industry-standard",
             "Mentions NT does not store ID data",
             "Doesn't pressure — lets them decide"
-          ]
+          ],
+          "tone": "professional"
         },
         {
           "id": "module-2-scenario-2",
@@ -209,7 +398,8 @@
             "Does NOT promise a reversal",
             "Explains MVR is third-party and CSR cannot override",
             "Offers to escalate to the team"
-          ]
+          ],
+          "tone": "professional"
         },
         {
           "id": "module-2-scenario-3",
@@ -220,7 +410,8 @@
             "Mentions missing required listing fields second",
             "Mentions compliance hold third (and that it's escalated)",
             "Concise"
-          ]
+          ],
+          "tone": "professional"
         }
       ],
       "quiz": [
@@ -228,7 +419,12 @@
           "id": "m2-q1",
           "question": "Can a CSR override an MVR rejection?",
           "type": "multiple_choice",
-          "options": ["Yes, with manager approval", "No — escalate", "Yes, after re-running the check", "Only for owners"],
+          "options": [
+            "Yes, with manager approval",
+            "No — escalate",
+            "Yes, after re-running the check",
+            "Only for owners"
+          ],
           "correct_index": 1,
           "explanation": "MVR is a third-party check. CSRs cannot override; these must be escalated."
         },
@@ -249,7 +445,12 @@
           "id": "m2-q3",
           "question": "Is a CDL required to rent a standard trailer?",
           "type": "multiple_choice",
-          "options": ["Yes", "No — a standard Class C license is sufficient", "Only for trailers over 5,000 lbs", "Depends on the state"],
+          "options": [
+            "Yes",
+            "No — a standard Class C license is sufficient",
+            "Only for trailers over 5,000 lbs",
+            "Depends on the state"
+          ],
           "correct_index": 1,
           "explanation": "A standard Class C license is sufficient. No CDL is required for standard trailers."
         },
@@ -257,7 +458,10 @@
           "id": "m2-q4",
           "question": "What is the most common cause of an 'account inactive' issue?",
           "type": "short_answer",
-          "expected_keywords": ["unverified email", "email"],
+          "expected_keywords": [
+            "unverified email",
+            "email"
+          ],
           "explanation": "Unverified email is the first thing to check — usually the renter or owner missed the verification email."
         }
       ],
@@ -265,7 +469,7 @@
     },
     {
       "id": "module-3",
-      "number": 3,
+      "number": 4,
       "title": "Booking Lifecycle (Renter Side)",
       "description": "Walking renters through booking, owner non-response, date changes, trailer switches, and pickup confusion.",
       "estimated_minutes": 15,
@@ -326,7 +530,8 @@
             "Sets correct expectation: no hard SLA, but >24h is reasonable to message owner",
             "Offers practical next steps (message owner, look at backups)",
             "Doesn't overpromise"
-          ]
+          ],
+          "tone": "professional"
         },
         {
           "id": "module-3-scenario-2",
@@ -337,7 +542,8 @@
             "Mentions owner must accept the new dates",
             "Mentions fallback (cancel under policy) if declined",
             "Concise"
-          ]
+          ],
+          "tone": "professional"
         },
         {
           "id": "module-3-scenario-3",
@@ -349,7 +555,8 @@
             "If yes — walks them to the booking details page",
             "If no — explains the address appears after acceptance",
             "Calm, doesn't make them feel dumb"
-          ]
+          ],
+          "tone": "professional"
         }
       ],
       "quiz": [
@@ -396,7 +603,11 @@
           "id": "m3-q4",
           "question": "If an owner does not respond for 24+ hours, what should the renter do?",
           "type": "short_answer",
-          "expected_keywords": ["message", "owner", "backup"],
+          "expected_keywords": [
+            "message",
+            "owner",
+            "backup"
+          ],
           "explanation": "Encourage the renter to message the owner directly through the booking and to look at backup options."
         }
       ],
@@ -404,7 +615,7 @@
     },
     {
       "id": "module-4",
-      "number": 4,
+      "number": 5,
       "title": "Booking Lifecycle (Owner Side)",
       "description": "Owner-side flows: accepting bookings, starting and ending rentals, listing approval, and 'my listing isn't showing' troubleshooting.",
       "estimated_minutes": 15,
@@ -466,7 +677,8 @@
             "Notes that common holds are bad photos, missing dimensions, or contact info in photos",
             "Offers to look at the listing or have the team look",
             "Doesn't promise a specific timeline"
-          ]
+          ],
+          "tone": "professional"
         },
         {
           "id": "module-4-scenario-2",
@@ -478,7 +690,8 @@
             "Walks them through ending it now",
             "Explains NT may adjust timing manually",
             "Mentions the importance of starting/ending on time going forward"
-          ]
+          ],
+          "tone": "professional"
         },
         {
           "id": "module-4-scenario-3",
@@ -490,7 +703,8 @@
             "Doesn't agree the policy is bad",
             "Explains the purpose (consistent platform look, anti-circumvention)",
             "Stays professional"
-          ]
+          ],
+          "tone": "professional"
         }
       ],
       "quiz": [
@@ -511,7 +725,12 @@
           "id": "m4-q2",
           "question": "What's the typical listing approval timeframe?",
           "type": "multiple_choice",
-          "options": ["1-2 hours", "Same day", "24-48 hours", "5-7 business days"],
+          "options": [
+            "1-2 hours",
+            "Same day",
+            "24-48 hours",
+            "5-7 business days"
+          ],
           "correct_index": 2,
           "explanation": "Listing approval is typically 24-48 hours and combines automated and manual review."
         },
@@ -532,7 +751,11 @@
           "id": "m4-q4",
           "question": "Should owners quote tow capacity for the renter's vehicle?",
           "type": "short_answer",
-          "expected_keywords": ["no", "renter", "responsibility"],
+          "expected_keywords": [
+            "no",
+            "renter",
+            "responsibility"
+          ],
           "explanation": "Owners should not quote tow capacity. Tow capacity is the renter's responsibility based on their vehicle's documentation."
         }
       ],
@@ -540,7 +763,7 @@
     },
     {
       "id": "module-5",
-      "number": 5,
+      "number": 6,
       "title": "Payments, Fees & Payouts",
       "description": "Renter-side fees, owner-side payouts, the Toll Program, and 'my payout failed' diagnosis.",
       "estimated_minutes": 15,
@@ -604,7 +827,8 @@
             "Explains platform fee, tax, and Protection Package are non-refundable",
             "Doesn't apologize for the policy itself",
             "Calm, factual"
-          ]
+          ],
+          "tone": "professional"
         },
         {
           "id": "module-5-scenario-2",
@@ -616,7 +840,8 @@
             "Asks about bank info connection",
             "Explains typical timing",
             "Offers to escalate if everything looks correct on their end"
-          ]
+          ],
+          "tone": "professional"
         },
         {
           "id": "module-5-scenario-3",
@@ -627,7 +852,8 @@
             "Mentions the main pro (no toll-by-mail chasing)",
             "Mentions edge cases honestly",
             "Doesn't oversell"
-          ]
+          ],
+          "tone": "professional"
         }
       ],
       "quiz": [
@@ -635,7 +861,12 @@
           "id": "m5-q1",
           "question": "Are platform fees refundable?",
           "type": "multiple_choice",
-          "options": ["Yes, always", "No — non-refundable once accepted", "Only on cancellations >72 hours out", "Only for owners"],
+          "options": [
+            "Yes, always",
+            "No — non-refundable once accepted",
+            "Only on cancellations >72 hours out",
+            "Only for owners"
+          ],
           "correct_index": 1,
           "explanation": "Platform fees are non-refundable once a booking is accepted. So are tax and the Protection Package."
         },
@@ -669,7 +900,11 @@
           "id": "m5-q4",
           "question": "What is the typical timing for a deposit refund after a rental closes?",
           "type": "short_answer",
-          "expected_keywords": ["3", "7", "business days"],
+          "expected_keywords": [
+            "3",
+            "7",
+            "business days"
+          ],
           "explanation": "Deposit refunds are typically 3-7 business days after the rental officially closes."
         }
       ],
@@ -677,7 +912,7 @@
     },
     {
       "id": "module-6",
-      "number": 6,
+      "number": 7,
       "title": "Deposits, Damage Claims & Disputes",
       "description": "HIGH STAKES. Damage claim filing, dispute rights, what NT Protect covers and excludes, and how to handle 'I'm being charged for damage I didn't cause.'",
       "estimated_minutes": 20,
@@ -742,7 +977,8 @@
             "Directs them to dispute through their account",
             "Stays neutral — doesn't take a side",
             "Escalates if pushed for a final answer"
-          ]
+          ],
+          "tone": "professional"
         },
         {
           "id": "module-6-scenario-2",
@@ -754,7 +990,8 @@
             "Repair estimate or invoice",
             "Completed claim form",
             "Concise"
-          ]
+          ],
+          "tone": "professional"
         },
         {
           "id": "module-6-scenario-3",
@@ -766,7 +1003,8 @@
             "Empathetic about the situation",
             "Doesn't apologize for the policy",
             "Helps them think about practical next steps"
-          ]
+          ],
+          "tone": "professional"
         }
       ],
       "quiz": [
@@ -774,7 +1012,12 @@
           "id": "m6-q1",
           "question": "Does NT Protect cover tire blowouts?",
           "type": "multiple_choice",
-          "options": ["Yes", "No", "Only with the upgraded plan", "Only on highways"],
+          "options": [
+            "Yes",
+            "No",
+            "Only with the upgraded plan",
+            "Only on highways"
+          ],
           "correct_index": 1,
           "explanation": "Tire damage is not covered by NT Protect. This is one of the most common 'is it covered' questions."
         },
@@ -795,7 +1038,12 @@
           "id": "m6-q3",
           "question": "What four things does an owner submit when filing a damage claim?",
           "type": "short_answer",
-          "expected_keywords": ["description", "photos", "estimate", "form"],
+          "expected_keywords": [
+            "description",
+            "photos",
+            "estimate",
+            "form"
+          ],
           "explanation": "Description specific to rental, photos, repair estimate or invoice, and the completed claim form."
         },
         {
@@ -816,7 +1064,7 @@
     },
     {
       "id": "module-7",
-      "number": 7,
+      "number": 8,
       "title": "Extensions, Cancellations & Late Returns",
       "description": "Cancellation refund schedule, the 80% early-return override, extensions, and late-return escalation.",
       "estimated_minutes": 20,
@@ -891,7 +1139,8 @@
             "Mentions platform fee, tax, Protection Package non-refundable regardless",
             "Empathetic without apologizing for the policy",
             "Directs them to cancel through their account"
-          ]
+          ],
+          "tone": "professional"
         },
         {
           "id": "module-7-scenario-2",
@@ -903,7 +1152,8 @@
             "Explains the $25 fee comes from owner's payout, not renter's refund",
             "Explains owner must authorize before ending the rental",
             "Doesn't promise an outcome"
-          ]
+          ],
+          "tone": "professional"
         },
         {
           "id": "module-7-scenario-3",
@@ -915,7 +1165,8 @@
             "Confirms the renter has been contacted through templates",
             "Sets expectation about NT involvement at the final stage",
             "Calm and reassuring without overpromising"
-          ]
+          ],
+          "tone": "professional"
         },
         {
           "id": "module-7-scenario-4",
@@ -927,7 +1178,8 @@
             "Confirms the actual policy is 80% per Terms of Service Section 20",
             "Doesn't argue or get defensive",
             "Offers to escalate for documentation if pressed"
-          ]
+          ],
+          "tone": "professional"
         }
       ],
       "quiz": [
@@ -935,7 +1187,12 @@
           "id": "m7-q1",
           "question": "What's the refund if a renter cancels 60 hours before rental start?",
           "type": "multiple_choice",
-          "options": ["75%", "50%", "25%", "0%"],
+          "options": [
+            "75%",
+            "50%",
+            "25%",
+            "0%"
+          ],
           "correct_index": 1,
           "explanation": "60 hours falls in the 48-72 hour window, which is 50%."
         },
@@ -982,7 +1239,10 @@
           "id": "m7-q5",
           "question": "Is the platform fee refundable on cancellation?",
           "type": "short_answer",
-          "expected_keywords": ["no", "non-refundable"],
+          "expected_keywords": [
+            "no",
+            "non-refundable"
+          ],
           "explanation": "Platform fee, tax, and Protection Package are non-refundable on cancellation regardless of timing."
         }
       ],
@@ -990,7 +1250,7 @@
     },
     {
       "id": "module-8",
-      "number": 8,
+      "number": 9,
       "title": "Phone Skills (Inbound & Outbound)",
       "description": "Opening calls confidently, handling holds and transfers, closing well, and the 'one-sentence response' discipline.",
       "estimated_minutes": 15,
@@ -1048,7 +1308,8 @@
             "Short qualifying question",
             "Doesn't info-dump or pitch",
             "Reactive tone"
-          ]
+          ],
+          "tone": "professional"
         },
         {
           "id": "module-8-scenario-2",
@@ -1060,7 +1321,8 @@
             "Asks if they have a few minutes",
             "Delivers the specific reason early",
             "Gives clear next step"
-          ]
+          ],
+          "tone": "professional"
         },
         {
           "id": "module-8-scenario-3",
@@ -1072,7 +1334,8 @@
             "Asks for a brief hold with a time estimate",
             "Comes back when promised",
             "Confident, not flustered"
-          ]
+          ],
+          "tone": "professional"
         },
         {
           "id": "module-8-scenario-4",
@@ -1084,7 +1347,8 @@
             "Uses a polite redirect ('that makes sense — so coming back to the booking...')",
             "Stays warm",
             "Gets back on track within a few seconds"
-          ]
+          ],
+          "tone": "professional"
         }
       ],
       "quiz": [
@@ -1131,7 +1395,11 @@
           "id": "m8-q4",
           "question": "What's the one-sentence response discipline?",
           "type": "short_answer",
-          "expected_keywords": ["one sentence", "wait", "reactive"],
+          "expected_keywords": [
+            "one sentence",
+            "wait",
+            "reactive"
+          ],
           "explanation": "Answer simple questions in one sentence, then stop and wait for the follow-up. Reactive, not preemptive."
         }
       ],
@@ -1139,7 +1407,7 @@
     },
     {
       "id": "module-9",
-      "number": 9,
+      "number": 10,
       "title": "De-escalation & When to Escalate",
       "description": "Spotting frustration, using empathy without agreeing the policy is bad, and knowing exactly when to escalate.",
       "estimated_minutes": 15,
@@ -1187,7 +1455,8 @@
             "Doesn't promise reversal",
             "Offers escalation since CSR cannot override MVR",
             "Stays calm under pressure"
-          ]
+          ],
+          "tone": "escalated"
         },
         {
           "id": "module-9-scenario-2",
@@ -1200,7 +1469,8 @@
             "If admin tools are needed, escalates explicitly",
             "Doesn't promise specific outcome",
             "Doesn't try to talk them down from the BBB threat"
-          ]
+          ],
+          "tone": "escalated"
         },
         {
           "id": "module-9-scenario-3",
@@ -1212,7 +1482,8 @@
             "Answers the actual question concisely",
             "Doesn't match the energy",
             "Doesn't escalate unnecessarily — it's a KB answer"
-          ]
+          ],
+          "tone": "escalated"
         },
         {
           "id": "module-9-scenario-4",
@@ -1225,7 +1496,8 @@
             "If it's a CSR-handleable issue, handles it",
             "If it's a true escalation trigger, escalates",
             "Polite throughout"
-          ]
+          ],
+          "tone": "escalated"
         }
       ],
       "quiz": [
@@ -1272,7 +1544,12 @@
           "id": "m9-q4",
           "question": "A customer says 'I want to speak to a manager.' What's the right next step?",
           "type": "short_answer",
-          "expected_keywords": ["ask", "what", "need", "help"],
+          "expected_keywords": [
+            "ask",
+            "what",
+            "need",
+            "help"
+          ],
           "explanation": "Ask what they need first. If it's something a CSR can handle, handle it. Only escalate if it's a real escalation trigger."
         }
       ],
@@ -1280,7 +1557,7 @@
     },
     {
       "id": "module-10",
-      "number": 10,
+      "number": 11,
       "title": "Critical Policy Knowledge",
       "description": "The 12 must-know facts every CSR must know cold. Spaced-repetition drilling required before unlocking the final exam.",
       "estimated_minutes": 20,
@@ -1323,7 +1600,8 @@
             "Correct numbers (80%, 75/50/25/0, 3-7 days)",
             "Correct ownership (owner's payout, renter's account)",
             "No invented facts"
-          ]
+          ],
+          "tone": "professional"
         },
         {
           "id": "module-10-scenario-2",
@@ -1334,7 +1612,8 @@
             "Acknowledges help center text needs updating",
             "Cites Section 20 of TOS as the source",
             "Offers to escalate if pressed for documentation"
-          ]
+          ],
+          "tone": "professional"
         },
         {
           "id": "module-10-scenario-3",
@@ -1345,7 +1624,8 @@
             "Provides it (since explicitly asked)",
             "If not asked, would default to email or live chat",
             "Demonstrates understanding of the default-to-email policy"
-          ]
+          ],
+          "tone": "professional"
         }
       ],
       "quiz": [
@@ -1353,7 +1633,12 @@
           "id": "m10-q1",
           "question": "Maximum refund on early return?",
           "type": "multiple_choice",
-          "options": ["75%", "80%", "100%", "0%"],
+          "options": [
+            "75%",
+            "80%",
+            "100%",
+            "0%"
+          ],
           "correct_index": 1,
           "explanation": "80% of rent for the unused portion. The help center says 75% but it's out of date."
         },
@@ -1374,7 +1659,12 @@
           "id": "m10-q3",
           "question": "Deposit refund typical timing?",
           "type": "multiple_choice",
-          "options": ["Same day", "1-2 business days", "3-7 business days", "2-4 weeks"],
+          "options": [
+            "Same day",
+            "1-2 business days",
+            "3-7 business days",
+            "2-4 weeks"
+          ],
           "correct_index": 2,
           "explanation": "3-7 business days after the rental officially closes."
         },
@@ -1382,14 +1672,24 @@
           "id": "m10-q4",
           "question": "Phone number policy default?",
           "type": "short_answer",
-          "expected_keywords": ["explicitly", "asked", "email", "chat"],
+          "expected_keywords": [
+            "explicitly",
+            "asked",
+            "email",
+            "chat"
+          ],
           "explanation": "Don't share NT's phone number unless explicitly asked. Default to email or live chat."
         },
         {
           "id": "m10-q5",
           "question": "Cancellation refund at 24-48 hours before rental start?",
           "type": "multiple_choice",
-          "options": ["75%", "50%", "25%", "0%"],
+          "options": [
+            "75%",
+            "50%",
+            "25%",
+            "0%"
+          ],
           "correct_index": 2,
           "explanation": "24-48 hours = 25% refund."
         }
@@ -1398,7 +1698,7 @@
     },
     {
       "id": "module-11",
-      "number": 11,
+      "number": 12,
       "title": "Final Certification Exam",
       "description": "25 questions sampled across all modules. Pass = 84% (21/25). Fail = remediation on lowest-scoring modules.",
       "estimated_minutes": 60,

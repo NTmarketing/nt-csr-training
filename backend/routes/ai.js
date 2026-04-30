@@ -12,30 +12,85 @@ function findScenario(mod, scenarioId) {
   return mod.scenarios.find(s => s.id === scenarioId) || null;
 }
 
+function loadTutorConversation(db, userId, moduleId) {
+  if (!moduleId) return null;
+  return db.prepare(
+    `SELECT id, messages_json, created_at, updated_at FROM ai_conversations
+     WHERE user_id = ? AND module_id = ? AND mode = 'tutor'
+     ORDER BY id DESC LIMIT 1`
+  ).get(userId, moduleId);
+}
+
 router.post('/tutor', authRequired, async (req, res, next) => {
   try {
-    const { moduleId, message, history } = req.body || {};
+    const { moduleId, message } = req.body || {};
     if (!message) return res.status(400).json({ error: 'message required' });
-    const mod = moduleId ? content.getModule(moduleId) : null;
+    if (!moduleId) return res.status(400).json({ error: 'moduleId required' });
+    const mod = content.getModule(moduleId);
+    if (!mod) return res.status(404).json({ error: 'Module not found' });
     const kb = content.getKB();
 
-    const reply = await ai.tutorChat(mod, kb, message, history || []);
+    const db = getDb();
+    const existing = loadTutorConversation(db, req.user.id, moduleId);
+    let history = [];
+    if (existing) {
+      try {
+        const parsed = JSON.parse(existing.messages_json);
+        if (Array.isArray(parsed)) history = parsed;
+      } catch (_) {}
+    }
+
+    const reply = await ai.tutorChat(mod, kb, message, history);
     const newHistory = [
-      ...(history || []),
+      ...history,
       { role: 'user', content: message },
       { role: 'assistant', content: reply }
     ];
 
-    try {
-      const db = getDb();
-      db.prepare(`INSERT INTO ai_conversations (user_id, module_id, mode, messages_json)
-                  VALUES (?, ?, 'tutor', ?)`).run(req.user.id, moduleId || null, JSON.stringify(newHistory));
-    } catch (_) {}
+    let conversationId;
+    if (existing) {
+      db.prepare(`UPDATE ai_conversations
+                  SET messages_json = ?, updated_at = CURRENT_TIMESTAMP
+                  WHERE id = ?`).run(JSON.stringify(newHistory), existing.id);
+      conversationId = existing.id;
+    } else {
+      const info = db.prepare(`INSERT INTO ai_conversations (user_id, module_id, mode, messages_json)
+                  VALUES (?, ?, 'tutor', ?)`).run(req.user.id, moduleId, JSON.stringify(newHistory));
+      conversationId = info.lastInsertRowid;
+    }
 
-    res.json({ message: reply, history: newHistory });
+    res.json({ id: conversationId, message: reply, messages: newHistory });
   } catch (err) {
     next(err);
   }
+});
+
+router.get('/conversation/:moduleId', authRequired, (req, res) => {
+  const { moduleId } = req.params;
+  const db = getDb();
+  const row = loadTutorConversation(db, req.user.id, moduleId);
+  if (!row) return res.json(null);
+  let messages = [];
+  try {
+    const parsed = JSON.parse(row.messages_json);
+    if (Array.isArray(parsed)) messages = parsed;
+  } catch (_) {}
+  res.json({
+    id: row.id,
+    messages,
+    created_at: row.created_at,
+    updated_at: row.updated_at
+  });
+});
+
+router.delete('/conversation/:moduleId', authRequired, (req, res) => {
+  const { moduleId } = req.params;
+  const db = getDb();
+  db.prepare(
+    `DELETE FROM ai_conversations
+     WHERE user_id = ? AND module_id = ? AND mode = 'tutor'`
+  ).run(req.user.id, moduleId);
+  res.json({ ok: true });
 });
 
 router.post('/grade-response', authRequired, async (req, res, next) => {

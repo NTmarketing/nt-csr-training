@@ -15,6 +15,7 @@ import type {
   TraineeDetail,
   TraineeQuizAttempt,
   TraineeScenarioAttempt,
+  TutorConversationResponse,
   User,
 } from '../types';
 
@@ -59,6 +60,7 @@ async function request<T>(method: string, path: string, body?: unknown): Promise
 export const apiClient = {
   get: <T>(path: string) => request<T>('GET', path),
   post: <T>(path: string, body?: unknown) => request<T>('POST', path, body ?? {}),
+  patch: <T>(path: string, body?: unknown) => request<T>('PATCH', path, body ?? {}),
   delete: <T>(path: string) => request<T>('DELETE', path),
 };
 
@@ -79,6 +81,11 @@ export const progress = {
     apiClient.post<{ ok: true }>(`/api/progress/${encodeURIComponent(moduleId)}/start`),
   complete: (moduleId: string) =>
     apiClient.post<{ ok: true }>(`/api/progress/${encodeURIComponent(moduleId)}/complete`),
+  markSectionViewed: (moduleId: string, sectionId: string) =>
+    apiClient.post<{ ok: true }>(
+      `/api/progress/${encodeURIComponent(moduleId)}/section-viewed`,
+      { sectionId },
+    ),
   all: () => apiClient.get<Record<string, { status: string; quiz_score: number | null }>>('/api/progress'),
 };
 
@@ -88,12 +95,19 @@ export const quiz = {
 };
 
 export const ai = {
-  tutor: (moduleId: string, message: string, history: ChatMessage[]) =>
-    apiClient.post<{ message: string; history: ChatMessage[] }>('/api/ai/tutor', {
-      moduleId,
-      message,
-      history,
-    }),
+  tutor: (moduleId: string, message: string) =>
+    apiClient.post<{ id: number; message: string; messages: ChatMessage[] }>(
+      '/api/ai/tutor',
+      { moduleId, message },
+    ),
+  getConversation: (moduleId: string) =>
+    apiClient.get<TutorConversationResponse | null>(
+      `/api/ai/conversation/${encodeURIComponent(moduleId)}`,
+    ),
+  clearConversation: (moduleId: string) =>
+    apiClient.delete<{ ok: true }>(
+      `/api/ai/conversation/${encodeURIComponent(moduleId)}`,
+    ),
   roleplay: (moduleId: string, scenarioId: string, message: string, history: ChatMessage[]) =>
     apiClient.post<{ message: string; history: ChatMessage[] }>('/api/ai/roleplay', {
       moduleId,
@@ -126,7 +140,11 @@ export const admin = {
   users: {
     list: () => apiClient.get<AdminUserSummary[]>('/api/admin/users'),
     create: (payload: { username: string; password: string; name: string; role: Role }) =>
-      apiClient.post<AdminUserSummary>('/api/admin/users', payload),
+      apiClient.post<{ user: AdminUserSummary }>('/api/admin/users', payload),
+    update: (id: number, payload: { name?: string; role?: Role }) =>
+      apiClient.patch<{ user: AdminUserSummary }>(`/api/admin/users/${id}`, payload),
+    updatePassword: (id: number, password: string) =>
+      apiClient.patch<{ ok: true }>(`/api/admin/users/${id}/password`, { password }),
     reset: (id: number) => apiClient.post<{ ok: true }>(`/api/admin/users/${id}/reset`),
     delete: (id: number) => apiClient.delete<{ ok: true }>(`/api/admin/users/${id}`),
   },

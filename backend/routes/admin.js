@@ -45,18 +45,45 @@ router.get('/users', (req, res) => {
   })));
 });
 
+const USERNAME_RE = /^[a-zA-Z0-9._-]{3,32}$/;
+
+function validateUsername(u) {
+  if (typeof u !== 'string') return 'Username is required';
+  if (!USERNAME_RE.test(u)) return 'Username must be 3-32 characters: letters, numbers, dot, dash, underscore';
+  return null;
+}
+function validatePassword(p) {
+  if (typeof p !== 'string') return 'Password is required';
+  if (p.length < 8) return 'Password must be at least 8 characters';
+  return null;
+}
+function validateName(n) {
+  if (typeof n !== 'string') return 'Name is required';
+  const t = n.trim();
+  if (t.length < 1 || t.length > 100) return 'Name must be 1-100 characters';
+  return null;
+}
+function validateRole(r) {
+  if (r !== 'admin' && r !== 'trainee') return "Role must be 'trainee' or 'admin'";
+  return null;
+}
+
 router.post('/users', async (req, res, next) => {
   try {
     const { username, password, name, role } = req.body || {};
-    if (!username || !password || !name) {
-      return res.status(400).json({ error: 'username, password, name required' });
-    }
-    const finalRole = role === 'admin' ? 'admin' : 'trainee';
+    const errs = [
+      validateUsername(username),
+      validatePassword(password),
+      validateName(name),
+      validateRole(role)
+    ].filter(Boolean);
+    if (errs.length) return res.status(400).json({ error: errs[0], errors: errs });
+
     const hash = await bcrypt.hash(password, 12);
     const db = getDb();
     try {
       const info = db.prepare(`INSERT INTO users (username, password_hash, name, role) VALUES (?, ?, ?, ?)`)
-        .run(username, hash, name, finalRole);
+        .run(username, hash, name.trim(), role);
       const user = db.prepare('SELECT id, username, name, role, created_at FROM users WHERE id = ?').get(info.lastInsertRowid);
       res.status(201).json({ user });
     } catch (err) {
@@ -65,6 +92,62 @@ router.post('/users', async (req, res, next) => {
       }
       throw err;
     }
+  } catch (err) {
+    next(err);
+  }
+});
+
+router.patch('/users/:id', (req, res, next) => {
+  try {
+    const userId = Number(req.params.id);
+    if (!Number.isInteger(userId)) return res.status(400).json({ error: 'Invalid user id' });
+    const db = getDb();
+    const existing = db.prepare('SELECT id, role FROM users WHERE id = ?').get(userId);
+    if (!existing) return res.status(404).json({ error: 'User not found' });
+
+    const updates = {};
+    if (req.body && req.body.name !== undefined) {
+      const err = validateName(req.body.name);
+      if (err) return res.status(400).json({ error: err });
+      updates.name = req.body.name.trim();
+    }
+    if (req.body && req.body.role !== undefined) {
+      const err = validateRole(req.body.role);
+      if (err) return res.status(400).json({ error: err });
+      if (userId === req.user.id && existing.role === 'admin' && req.body.role !== 'admin') {
+        return res.status(400).json({ error: "Cannot demote your own admin account" });
+      }
+      updates.role = req.body.role;
+    }
+    if (Object.keys(updates).length === 0) {
+      return res.status(400).json({ error: 'Nothing to update' });
+    }
+
+    const setClause = Object.keys(updates).map(k => `${k} = ?`).join(', ');
+    const values = Object.values(updates);
+    db.prepare(`UPDATE users SET ${setClause} WHERE id = ?`).run(...values, userId);
+    const user = db.prepare('SELECT id, username, name, role, created_at FROM users WHERE id = ?').get(userId);
+    res.json({ user });
+  } catch (err) {
+    next(err);
+  }
+});
+
+router.patch('/users/:id/password', async (req, res, next) => {
+  try {
+    const userId = Number(req.params.id);
+    if (!Number.isInteger(userId)) return res.status(400).json({ error: 'Invalid user id' });
+    const { password } = req.body || {};
+    const err = validatePassword(password);
+    if (err) return res.status(400).json({ error: err });
+
+    const db = getDb();
+    const existing = db.prepare('SELECT id FROM users WHERE id = ?').get(userId);
+    if (!existing) return res.status(404).json({ error: 'User not found' });
+
+    const hash = await bcrypt.hash(password, 12);
+    db.prepare('UPDATE users SET password_hash = ? WHERE id = ?').run(hash, userId);
+    res.json({ ok: true });
   } catch (err) {
     next(err);
   }
@@ -84,6 +167,7 @@ router.post('/users/:id/reset', (req, res) => {
     db.prepare('DELETE FROM ai_conversations WHERE user_id = ?').run(userId);
     db.prepare('DELETE FROM final_exam_attempts WHERE user_id = ?').run(userId);
     db.prepare('DELETE FROM section_views WHERE user_id = ?').run(userId);
+    db.prepare('DELETE FROM section_view_state WHERE user_id = ?').run(userId);
   });
   tx();
 

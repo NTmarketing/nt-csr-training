@@ -88,22 +88,28 @@ All API endpoints are prefixed with `/api`. JSON requests/responses unless noted
 - `GET /api/auth/me` — returns current user or 401
 
 ### Modules
-- `GET /api/modules` — returns all 11 modules with status for current user: `[{ id, number, title, description, estimated_minutes, status, quiz_score }]`
-- `GET /api/modules/:id` — full module content: `{ id, number, title, learning_objectives, sections: [...], scenarios: [...], quiz: [...] }`
+- `GET /api/modules` — returns all modules with status for current user: `[{ id, number, title, description, estimated_minutes, status, quiz_score }]`. Total module count is dynamic; `number` is display order, `id` is stable. The final-cert tile is identified by `quiz.length === 0` (not by hard-coded number).
+- `GET /api/modules/:id` — full module content: `{ id, number, title, learning_objectives, sections: [...], sections_viewed: string[], scenarios: [...], scenario_completion: {...}, quiz: [...], passing_score_percent }`. `sections_viewed` is the list of section IDs the current user has ever viewed (persisted in `section_view_state`). `scenario_completion` is keyed by scenario id and contains `{ attempted, best_score, attempt_count }`.
 
 ### Progress
 - `POST /api/progress/:moduleId/start` — marks status as `in_progress`
 - `POST /api/progress/:moduleId/complete` — marks `completed` (only if quiz score >= 70%)
+- `POST /api/progress/:moduleId/section-viewed` — body `{ sectionId }` → records (idempotent) that the user has viewed a given section. Inserts into `section_view_state` (UNIQUE per user/module/section).
 - `GET /api/progress` — full progress object for current user
 
 ### Quiz
-- `POST /api/quiz/:moduleId/submit` — body `{ answers: [{ questionId, answer }] }` → `{ score, total, passed, feedback: [{ questionId, correct, explanation }] }`
+- `POST /api/quiz/:moduleId/submit` — body `{ answers: [{ questionId, answer }] }` → `{ score, total, passed, feedback: [{ questionId, correct, explanation }] }`. Returns 403 with `{ error: 'Complete all practice scenarios before taking the quiz', missing_scenario_ids }` if any module scenario has zero attempts.
+
+### Sections (time tracking)
+- `POST /api/sections/view` — body `{ moduleId, sectionId, durationSeconds }` → records `section_views` row. Caps `durationSeconds` at 3600. Distinct from `section_view_state` — this table tracks duration spent (multiple rows per section), not "ever viewed". Used for admin time-spent reporting.
 
 ### AI
-- `POST /api/ai/tutor` — body `{ moduleId, message, history: [{ role, content }] }` → `{ message, history }` (full response, not streaming for v1 to keep things simple)
-- `POST /api/ai/grade-response` — body `{ moduleId, scenarioId, response }` → `{ score: 0-10, feedback, strengths: [], weaknesses: [] }`
-- `POST /api/ai/roleplay` — body `{ moduleId, scenarioId, message, history }` → `{ message, history }` (Claude plays the customer)
-- `POST /api/ai/grade-roleplay` — body `{ moduleId, scenarioId, transcript: [...] }` → `{ score, feedback, perCriteria: [...] }`
+- `POST /api/ai/tutor` — body `{ moduleId, message }` → `{ id, message, messages: [{ role, content }] }`. Server is the source of truth for tutor history: it loads the persisted conversation (one per user/module), appends the new turn, calls Claude, persists, and returns the full canonical thread. Client does NOT pass history.
+- `GET /api/ai/conversation/:moduleId` — returns the persisted tutor conversation for the current user/module, or `null`. Shape: `{ id, messages, created_at, updated_at }`.
+- `DELETE /api/ai/conversation/:moduleId` — clears the tutor conversation for the current user/module. Returns `{ ok: true }`.
+- `POST /api/ai/grade-response` — body `{ moduleId, scenarioId, response }` → `{ score: 0-10, feedback, strengths: [], weaknesses: [] }`. Grading is calibrated to `scenario.tone` (`casual` | `professional` | `escalated`).
+- `POST /api/ai/roleplay` — body `{ moduleId, scenarioId, message, history }` → `{ message, history }` (Claude plays the customer). Roleplay history is ephemeral and managed by the client.
+- `POST /api/ai/grade-roleplay` — body `{ moduleId, scenarioId, transcript: [...] }` → `{ score, feedback, perCriteria: [...] }`. Grading is calibrated to `scenario.tone`.
 
 ### Exam
 - `POST /api/exam/start` — generates 25 questions sampled across all modules, returns `{ examId, questions: [...] }`
@@ -112,9 +118,16 @@ All API endpoints are prefixed with `/api`. JSON requests/responses unless noted
 
 ### Admin (admin role required)
 - `GET /api/admin/users` — all users with progress summary
-- `POST /api/admin/users` — body `{ username, password, name, role }` → creates user
-- `POST /api/admin/users/:id/reset` — resets all progress for user
-- `DELETE /api/admin/users/:id` — deletes user
+- `POST /api/admin/users` — body `{ username, password, name, role }` → creates user. Validates `username` (3-32 chars, `[a-zA-Z0-9._-]`), `password` (≥8 chars), `name` (1-100), `role` (`'trainee'|'admin'`).
+- `PATCH /api/admin/users/:id` — body `{ name?, role? }` → updates a user's display name and/or role. Cannot demote the calling admin's own account.
+- `PATCH /api/admin/users/:id/password` — body `{ password }` → resets a user's password (admin-driven; no current-password check).
+- `POST /api/admin/users/:id/reset` — resets all progress for a user (clears `progress`, `quiz_attempts`, `scenario_attempts`, `ai_conversations`, `final_exam_attempts`, `section_views`, `section_view_state`).
+- `DELETE /api/admin/users/:id` — deletes user (cascades).
+- `GET /api/admin/users/:id` — full profile + stats + per-module progress with time spent.
+- `GET /api/admin/users/:id/activity` — chronological activity feed across section_views, quiz_attempts, scenario_attempts, ai_conversations, final_exam_attempts.
+- `GET /api/admin/users/:id/conversations` — full message histories for all of the user's AI conversations.
+- `GET /api/admin/users/:id/scenario-attempts` — all scenario attempts with transcripts and grades.
+- `GET /api/admin/users/:id/quiz-attempts` — all quiz attempts with per-question trainee answer + correct answer + explanation.
 
 ---
 
@@ -190,8 +203,35 @@ CREATE TABLE final_exam_attempts (
   FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
+-- Time-spent tracking. Multiple rows per (user, section) — one per visit. Caps
+-- per-row duration at 3600 seconds. Used by admin reporting.
+CREATE TABLE section_views (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  user_id INTEGER NOT NULL,
+  module_id TEXT NOT NULL,
+  section_id TEXT NOT NULL,
+  duration_seconds INTEGER NOT NULL,
+  viewed_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+-- "Have they ever viewed this section?" UNIQUE per (user, module, section) so
+-- inserts are idempotent. Drives Phase 1 completion gating, persistent across
+-- navigation between Module page and scenarios.
+CREATE TABLE section_view_state (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  user_id INTEGER NOT NULL,
+  module_id TEXT NOT NULL,
+  section_id TEXT NOT NULL,
+  first_viewed_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+  UNIQUE(user_id, module_id, section_id),
+  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
 CREATE INDEX idx_progress_user ON progress(user_id);
 CREATE INDEX idx_quiz_user_module ON quiz_attempts(user_id, module_id);
+CREATE INDEX idx_section_views_user ON section_views(user_id);
+CREATE INDEX idx_section_view_state_user_module ON section_view_state(user_id, module_id);
 ```
 
 ---
@@ -199,6 +239,13 @@ CREATE INDEX idx_quiz_user_module ON quiz_attempts(user_id, module_id);
 ## Content Shape — `content/modules.json`
 
 The structured curriculum data, derived from `nt-csr-training-curriculum.md`. Session 3 builds this.
+
+**ID stability:** `id` fields on modules and scenarios are **immutable**. They are the foreign key for `progress`, `quiz_attempts`, `scenario_attempts`, and `exam-questions.json::module_ref`. The `number` field is **display order** and may shift when modules are reordered or inserted. To find "the final cert tile" use `quiz.length === 0`, not a hard-coded number.
+
+**Scenario tone:** every scenario has a `tone` field, one of `'casual' | 'professional' | 'escalated'` (default `'professional'` if absent). The grader (`/api/ai/grade-response`, `/api/ai/grade-roleplay`) reads this and adjusts its rubric expectations:
+- `casual`: brief, conversational; don't penalize missing formal coverage.
+- `professional`: standard CSR-call expectations; cover relevant policies clearly.
+- `escalated`: empathy + de-escalation first, policy second; reward calm acknowledgment, penalize agreeing with the customer's negative framing.
 
 ```json
 {
@@ -230,6 +277,7 @@ The structured curriculum data, derived from `nt-csr-training-curriculum.md`. Se
         {
           "id": "module-1-scenario-1",
           "type": "free_response",
+          "tone": "casual",
           "prompt": "A friend asks at dinner: 'What does Neighbors Trailer actually do? Aren't they just like Turo for trailers?' Give a 30-second pitch.",
           "rubric": [
             "Mentions peer-to-peer marketplace model",

@@ -17,11 +17,12 @@ function loadProgressMap(userId) {
 function computeStatuses(modules, progressMap) {
   const sorted = [...modules].sort((a, b) => a.number - b.number);
   const statusById = {};
+  const isFinalExamModule = (m) => !Array.isArray(m.quiz) || m.quiz.length === 0;
 
   for (let i = 0; i < sorted.length; i++) {
     const mod = sorted[i];
     const stored = progressMap[mod.id];
-    const isFinal = mod.number === 11;
+    const isFinal = isFinalExamModule(mod);
 
     let status;
     if (stored && stored.status === 'completed') {
@@ -32,12 +33,12 @@ function computeStatuses(modules, progressMap) {
       let unlocked;
       if (isFinal) {
         unlocked = sorted
-          .filter(m => m.number >= 1 && m.number <= 10)
+          .filter(m => !isFinalExamModule(m))
           .every(m => progressMap[m.id] && progressMap[m.id].status === 'completed');
-      } else if (mod.number === 1) {
+      } else if (i === 0) {
         unlocked = true;
       } else {
-        const prev = sorted.find(m => m.number === mod.number - 1);
+        const prev = sorted[i - 1];
         unlocked = !!(prev && progressMap[prev.id] && progressMap[prev.id].status === 'completed');
       }
       status = unlocked ? 'available' : 'locked';
@@ -78,9 +79,10 @@ router.get('/:id', authRequired, (req, res) => {
   if (!mod) return res.status(404).json({ error: 'Module not found' });
 
   const scenarios = mod.scenarios || [];
+  const db = getDb();
+
   const scenario_completion = {};
   if (scenarios.length > 0) {
-    const db = getDb();
     const rows = db.prepare(
       `SELECT scenario_id, COUNT(*) AS attempt_count, MAX(score) AS best_score
        FROM scenario_attempts
@@ -99,6 +101,11 @@ router.get('/:id', authRequired, (req, res) => {
     }
   }
 
+  const viewedRows = db.prepare(
+    `SELECT section_id FROM section_view_state WHERE user_id = ? AND module_id = ?`
+  ).all(req.user.id, mod.id);
+  const sections_viewed = viewedRows.map(r => r.section_id);
+
   res.json({
     id: mod.id,
     number: mod.number,
@@ -107,6 +114,7 @@ router.get('/:id', authRequired, (req, res) => {
     estimated_minutes: mod.estimated_minutes,
     learning_objectives: mod.learning_objectives || [],
     sections: mod.sections || [],
+    sections_viewed,
     scenarios,
     scenario_completion,
     quiz: mod.quiz || [],

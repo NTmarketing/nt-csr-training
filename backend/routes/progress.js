@@ -38,6 +38,29 @@ router.post('/:moduleId/start', authRequired, (req, res) => {
   res.json(row);
 });
 
+router.post('/:moduleId/section-viewed', authRequired, (req, res, next) => {
+  try {
+    const { moduleId } = req.params;
+    const { sectionId } = req.body || {};
+    if (typeof sectionId !== 'string' || !sectionId) {
+      return res.status(400).json({ error: 'sectionId is required' });
+    }
+    const mod = content.getModule(moduleId);
+    if (!mod) return res.status(404).json({ error: 'Module not found' });
+    const section = (mod.sections || []).find(s => s.id === sectionId);
+    if (!section) return res.status(404).json({ error: 'Section not found' });
+
+    const db = getDb();
+    db.prepare(
+      `INSERT OR IGNORE INTO section_view_state (user_id, module_id, section_id)
+       VALUES (?, ?, ?)`
+    ).run(req.user.id, moduleId, sectionId);
+    res.json({ ok: true });
+  } catch (err) {
+    next(err);
+  }
+});
+
 router.post('/:moduleId/complete', authRequired, (req, res) => {
   const { moduleId } = req.params;
   const mod = content.getModule(moduleId);

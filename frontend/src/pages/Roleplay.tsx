@@ -108,9 +108,12 @@ export default function Roleplay() {
         >
           <ArrowLeft className="h-4 w-4" /> Back to module
         </Link>
-        <span className="text-xs font-semibold uppercase tracking-wide text-nt-primary-dark">
-          {scenario.type === 'roleplay' ? 'Roleplay' : 'Free response'} · Module {module.number}
-        </span>
+        <div className="flex items-center gap-2">
+          <span className="text-xs font-semibold uppercase tracking-wide text-nt-primary-dark">
+            {scenario.type === 'roleplay' ? 'Roleplay' : 'Free response'} · Module {module.number}
+          </span>
+          <ToneBadge tone={scenario.tone || 'professional'} />
+        </div>
       </div>
 
       <div className="card mb-6 p-5">
@@ -259,5 +262,21 @@ function GradeView({
         </button>
       </div>
     </div>
+  );
+}
+
+function ToneBadge({ tone }: { tone: string }) {
+  const cls =
+    tone === 'casual'
+      ? 'bg-gray-100 text-gray-700'
+      : tone === 'escalated'
+        ? 'bg-red-100 text-red-800'
+        : 'bg-blue-100 text-blue-800';
+  const label =
+    tone === 'casual' ? 'Casual' : tone === 'escalated' ? 'Escalated' : 'Professional';
+  return (
+    <span className={`inline-flex rounded-full px-2 py-0.5 text-[10px] font-semibold ${cls}`}>
+      {label}
+    </span>
   );
 }
