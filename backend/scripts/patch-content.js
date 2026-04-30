@@ -3,11 +3,12 @@
 // One-shot transform of content/modules.json + content/exam-questions.json:
 //   - Insert "module-trailer-basics" at number=1
 //   - Bump every existing module's number by 1
-//   - Tag every scenario with a tone (casual | professional | escalated)
 //   - Loosen module-1's first two scenario rubrics
 //   - Append three exam questions for the new module
 //
 // Idempotent: safe to re-run; transforms are guarded by detection of existing state.
+// (Tone tagging was historically here too — removed when tone-based grading
+// was scrapped in favor of content/clarity/escalation grading.)
 
 const fs = require('fs');
 const path = require('path');
@@ -21,27 +22,6 @@ function read(file) {
 }
 function writePretty(file, data) {
   fs.writeFileSync(file, JSON.stringify(data, null, 2) + '\n', 'utf8');
-}
-
-function classifyTone(scenario) {
-  // Use prompt only — persona descriptions often say "friendly" which is a
-  // false signal for "casual".
-  const blob = (scenario.prompt || '').toLowerCase();
-  if (
-    /shouting|threatens|i want to speak to a manager|aggressive|scam|bbb|legal action|furious|yelling/.test(
-      blob,
-    )
-  ) {
-    return 'escalated';
-  }
-  if (
-    /\bfriend\b|\bfriend asks\b|buddy texts|dinner party|coworker asks|\bcasually\b|text-message tone|at dinner/.test(
-      blob,
-    )
-  ) {
-    return 'casual';
-  }
-  return 'professional';
 }
 
 function newModule() {
@@ -123,19 +103,17 @@ function newModule() {
       {
         id: 'tb-scenario-1',
         type: 'free_response',
-        tone: 'casual',
         prompt:
-          "Your buddy texts: 'hey what's the difference between a utility trailer and a flatbed?' Reply in a quick text-message tone, not a formal explanation.",
+          "Your buddy texts: 'hey what's the difference between a utility trailer and a flatbed?' Explain the difference clearly.",
         rubric: [
           'Identifies the key difference (sides/rails vs no sides)',
-          'Casual, conversational tone — not a formal essay',
-          'Brief — fits a text message',
+          'Mentions the typical use case that drives the choice (e.g., utility for everyday hauls; flatbed for oversized or odd-shaped loads)',
+          "Avoids jargon a non-trailer-person wouldn't recognize",
         ],
       },
       {
         id: 'tb-scenario-2',
         type: 'free_response',
-        tone: 'professional',
         prompt:
           "An inbound caller says: 'I rented a trailer last weekend and the lights didn't work with my truck. The plug was different.' Acknowledge the issue and explain at a basic level what happened.",
         rubric: [
@@ -148,7 +126,6 @@ function newModule() {
       {
         id: 'tb-scenario-3',
         type: 'roleplay',
-        tone: 'professional',
         prompt:
           "You're handling an inbound call. The caller is a first-time trailer renter and confused about what kind of trailer they actually need.",
         customer_persona:
@@ -284,14 +261,13 @@ function loosenedRubricFor(scenarioId) {
   if (scenarioId === 'module-1-scenario-1') {
     return [
       'Captures the basic peer-to-peer marketplace idea',
-      'Tone is casual and conversational, not a formal pitch',
-      "Brief — wouldn't bore a friend at dinner",
+      'Acknowledges the Turo analogy and refines it accurately (same two-sided marketplace model)',
+      "Mentions NT's role as facilitator (payments, verification, Protection Package, dispute resolution) — not just a directory",
     ];
   }
   if (scenarioId === 'module-1-scenario-2') {
     return [
       'Distinguishes the two roles in plain language',
-      'Tone matches a casual workplace explanation',
       'Concise',
     ];
   }
@@ -312,19 +288,12 @@ function transformModules(data) {
     }
   }
 
-  // Step 2 — add tone tags + loosen module-1 rubrics. We re-classify each
-  // run to allow heuristic improvements; module-1 scenario 1+2 are pinned to
-  // 'casual' explicitly via loosenedRubricFor; the new module's scenarios
-  // (id starts with 'tb-') are pinned in newModule() and skipped here.
+  // Step 2 — loosen module-1 scenarios 1+2 rubrics to focus on content
+  // rather than formal-pitch coverage.
   for (const m of data.modules) {
     if (!Array.isArray(m.scenarios)) continue;
     if (m.id === 'module-trailer-basics') continue;
     for (const sc of m.scenarios) {
-      if (sc.id === 'module-1-scenario-1' || sc.id === 'module-1-scenario-2') {
-        sc.tone = 'casual';
-      } else {
-        sc.tone = classifyTone(sc);
-      }
       const loose = loosenedRubricFor(sc.id);
       if (loose) sc.rubric = loose;
     }

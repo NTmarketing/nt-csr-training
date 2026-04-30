@@ -232,18 +232,16 @@
         {
           "id": "tb-scenario-1",
           "type": "free_response",
-          "tone": "casual",
-          "prompt": "Your buddy texts: 'hey what's the difference between a utility trailer and a flatbed?' Reply in a quick text-message tone, not a formal explanation.",
+          "prompt": "Your buddy texts: 'hey what's the difference between a utility trailer and a flatbed?' Explain the difference clearly.",
           "rubric": [
             "Identifies the key difference (sides/rails vs no sides)",
-            "Casual, conversational tone — not a formal essay",
-            "Brief — fits a text message"
+            "Mentions the typical use case that drives the choice (e.g., utility for everyday hauls; flatbed for oversized or odd-shaped loads)",
+            "Avoids jargon a non-trailer-person wouldn't recognize"
           ]
         },
         {
           "id": "tb-scenario-2",
           "type": "free_response",
-          "tone": "professional",
           "prompt": "An inbound caller says: 'I rented a trailer last weekend and the lights didn't work with my truck. The plug was different.' Acknowledge the issue and explain at a basic level what happened.",
           "rubric": [
             "Acknowledges the frustration",
@@ -255,7 +253,6 @@
         {
           "id": "tb-scenario-3",
           "type": "roleplay",
-          "tone": "professional",
           "prompt": "You're handling an inbound call. The caller is a first-time trailer renter and confused about what kind of trailer they actually need.",
           "customer_persona": "Friendly but completely new to trailers. They're moving a 1-bedroom apartment 200 miles. They've never towed anything before. Don't volunteer information — make the trainee ask clarifying questions to figure out what trailer fits the job.",
           "rubric": [
@@ -399,10 +396,9 @@
           "prompt": "A friend asks at dinner: 'What does Neighbors Trailer actually do? Aren't they just like Turo for trailers?' Give a 30-second pitch.",
           "rubric": [
             "Captures the basic peer-to-peer marketplace idea",
-            "Tone is casual and conversational, not a formal pitch",
-            "Brief — wouldn't bore a friend at dinner"
-          ],
-          "tone": "casual"
+            "Acknowledges the Turo analogy and refines it accurately (same two-sided marketplace model)",
+            "Mentions NT's role as facilitator (payments, verification, Protection Package, dispute resolution) — not just a directory"
+          ]
         },
         {
           "id": "module-1-scenario-2",
@@ -410,10 +406,8 @@
           "prompt": "A new coworker asks: 'What's the difference between an owner and a renter on the platform?' Explain each role in two sentences.",
           "rubric": [
             "Distinguishes the two roles in plain language",
-            "Tone matches a casual workplace explanation",
             "Concise"
-          ],
-          "tone": "casual"
+          ]
         },
         {
           "id": "module-1-scenario-3",
@@ -425,8 +419,7 @@
             "Explains lifecycle clearly without info-dumping",
             "Confirms understanding before moving on",
             "Asks if they have specific questions"
-          ],
-          "tone": "professional"
+          ]
         }
       ],
       "quiz": [
@@ -552,8 +545,7 @@
             "Explains Clear is industry-standard",
             "Mentions NT does not store ID data",
             "Doesn't pressure — lets them decide"
-          ],
-          "tone": "professional"
+          ]
         },
         {
           "id": "module-2-scenario-2",
@@ -565,8 +557,7 @@
             "Does NOT promise a reversal",
             "Explains MVR is third-party and CSR cannot override",
             "Offers to escalate to the team"
-          ],
-          "tone": "professional"
+          ]
         },
         {
           "id": "module-2-scenario-3",
@@ -577,8 +568,7 @@
             "Mentions missing required listing fields second",
             "Mentions compliance hold third (and that it's escalated)",
             "Concise"
-          ],
-          "tone": "professional"
+          ]
         }
       ],
       "quiz": [
@@ -697,8 +687,7 @@
             "Sets correct expectation: no hard SLA, but >24h is reasonable to message owner",
             "Offers practical next steps (message owner, look at backups)",
             "Doesn't overpromise"
-          ],
-          "tone": "professional"
+          ]
         },
         {
           "id": "module-3-scenario-2",
@@ -709,8 +698,7 @@
             "Mentions owner must accept the new dates",
             "Mentions fallback (cancel under policy) if declined",
             "Concise"
-          ],
-          "tone": "professional"
+          ]
         },
         {
           "id": "module-3-scenario-3",
@@ -722,8 +710,7 @@
             "If yes — walks them to the booking details page",
             "If no — explains the address appears after acceptance",
             "Calm, doesn't make them feel dumb"
-          ],
-          "tone": "professional"
+          ]
         }
       ],
       "quiz": [
@@ -844,8 +831,7 @@
             "Notes that common holds are bad photos, missing dimensions, or contact info in photos",
             "Offers to look at the listing or have the team look",
             "Doesn't promise a specific timeline"
-          ],
-          "tone": "professional"
+          ]
         },
         {
           "id": "module-4-scenario-2",
@@ -857,8 +843,7 @@
             "Walks them through ending it now",
             "Explains NT may adjust timing manually",
             "Mentions the importance of starting/ending on time going forward"
-          ],
-          "tone": "professional"
+          ]
         },
         {
           "id": "module-4-scenario-3",
@@ -868,10 +853,8 @@
           "rubric": [
             "Explains policy clearly: no logos, phone numbers, addresses in photos",
             "Doesn't agree the policy is bad",
-            "Explains the purpose (consistent platform look, anti-circumvention)",
-            "Stays professional"
-          ],
-          "tone": "professional"
+            "Explains the purpose (consistent platform look, anti-circumvention)"
+          ]
         }
       ],
       "quiz": [
@@ -994,8 +977,7 @@
             "Explains platform fee, tax, and Protection Package are non-refundable",
             "Doesn't apologize for the policy itself",
             "Calm, factual"
-          ],
-          "tone": "professional"
+          ]
         },
         {
           "id": "module-5-scenario-2",
@@ -1007,8 +989,7 @@
             "Asks about bank info connection",
             "Explains typical timing",
             "Offers to escalate if everything looks correct on their end"
-          ],
-          "tone": "professional"
+          ]
         },
         {
           "id": "module-5-scenario-3",
@@ -1019,8 +1000,7 @@
             "Mentions the main pro (no toll-by-mail chasing)",
             "Mentions edge cases honestly",
             "Doesn't oversell"
-          ],
-          "tone": "professional"
+          ]
         }
       ],
       "quiz": [
@@ -1144,8 +1124,7 @@
             "Directs them to dispute through their account",
             "Stays neutral — doesn't take a side",
             "Escalates if pushed for a final answer"
-          ],
-          "tone": "professional"
+          ]
         },
         {
           "id": "module-6-scenario-2",
@@ -1157,8 +1136,7 @@
             "Repair estimate or invoice",
             "Completed claim form",
             "Concise"
-          ],
-          "tone": "professional"
+          ]
         },
         {
           "id": "module-6-scenario-3",
@@ -1170,8 +1148,7 @@
             "Empathetic about the situation",
             "Doesn't apologize for the policy",
             "Helps them think about practical next steps"
-          ],
-          "tone": "professional"
+          ]
         }
       ],
       "quiz": [
@@ -1313,8 +1290,7 @@
             "Mentions platform fee, tax, Protection Package non-refundable regardless",
             "Empathetic without apologizing for the policy",
             "Directs them to cancel through their account"
-          ],
-          "tone": "professional"
+          ]
         },
         {
           "id": "module-7-scenario-2",
@@ -1326,8 +1302,7 @@
             "Explains the $25 fee comes from owner's payout, not renter's refund",
             "Explains owner must authorize before ending the rental",
             "Doesn't promise an outcome"
-          ],
-          "tone": "professional"
+          ]
         },
         {
           "id": "module-7-scenario-3",
@@ -1339,8 +1314,7 @@
             "Confirms the renter has been contacted through templates",
             "Sets expectation about NT involvement at the final stage",
             "Calm and reassuring without overpromising"
-          ],
-          "tone": "professional"
+          ]
         },
         {
           "id": "module-7-scenario-4",
@@ -1352,8 +1326,7 @@
             "Confirms the actual policy is 80% per Terms of Service Section 20",
             "Doesn't argue or get defensive",
             "Offers to escalate for documentation if pressed"
-          ],
-          "tone": "professional"
+          ]
         }
       ],
       "quiz": [
@@ -1480,10 +1453,8 @@
           "rubric": [
             "Standard inbound opening with name",
             "Short qualifying question",
-            "Doesn't info-dump or pitch",
-            "Reactive tone"
-          ],
-          "tone": "professional"
+            "Doesn't info-dump or pitch"
+          ]
         },
         {
           "id": "module-8-scenario-2",
@@ -1495,8 +1466,7 @@
             "Asks if they have a few minutes",
             "Delivers the specific reason early",
             "Gives clear next step"
-          ],
-          "tone": "professional"
+          ]
         },
         {
           "id": "module-8-scenario-3",
@@ -1506,10 +1476,8 @@
           "rubric": [
             "Doesn't fake an answer",
             "Asks for a brief hold with a time estimate",
-            "Comes back when promised",
-            "Confident, not flustered"
-          ],
-          "tone": "professional"
+            "Comes back when promised"
+          ]
         },
         {
           "id": "module-8-scenario-4",
@@ -1519,10 +1487,8 @@
           "rubric": [
             "Doesn't cut them off mid-sentence",
             "Uses a polite redirect ('that makes sense — so coming back to the booking...')",
-            "Stays warm",
             "Gets back on track within a few seconds"
-          ],
-          "tone": "professional"
+          ]
         }
       ],
       "quiz": [
@@ -1629,8 +1595,7 @@
             "Doesn't promise reversal",
             "Offers escalation since CSR cannot override MVR",
             "Stays calm under pressure"
-          ],
-          "tone": "escalated"
+          ]
         },
         {
           "id": "module-9-scenario-2",
@@ -1643,8 +1608,7 @@
             "If admin tools are needed, escalates explicitly",
             "Doesn't promise specific outcome",
             "Doesn't try to talk them down from the BBB threat"
-          ],
-          "tone": "escalated"
+          ]
         },
         {
           "id": "module-9-scenario-3",
@@ -1656,8 +1620,7 @@
             "Answers the actual question concisely",
             "Doesn't match the energy",
             "Doesn't escalate unnecessarily — it's a KB answer"
-          ],
-          "tone": "escalated"
+          ]
         },
         {
           "id": "module-9-scenario-4",
@@ -1670,8 +1633,7 @@
             "If it's a CSR-handleable issue, handles it",
             "If it's a true escalation trigger, escalates",
             "Polite throughout"
-          ],
-          "tone": "escalated"
+          ]
         }
       ],
       "quiz": [
@@ -1774,8 +1736,7 @@
             "Correct numbers (80%, 75/50/25/0, 3-7 days)",
             "Correct ownership (owner's payout, renter's account)",
             "No invented facts"
-          ],
-          "tone": "professional"
+          ]
         },
         {
           "id": "module-10-scenario-2",
@@ -1786,8 +1747,7 @@
             "Acknowledges help center text needs updating",
             "Cites Section 20 of TOS as the source",
             "Offers to escalate if pressed for documentation"
-          ],
-          "tone": "professional"
+          ]
         },
         {
           "id": "module-10-scenario-3",
@@ -1798,8 +1758,7 @@
             "Provides it (since explicitly asked)",
             "If not asked, would default to email or live chat",
             "Demonstrates understanding of the default-to-email policy"
-          ],
-          "tone": "professional"
+          ]
         }
       ],
       "quiz": [
@@ -1886,7 +1845,7 @@
         {
           "id": "section-11-1",
           "title": "Exam Instructions",
-          "content_md": "**Format:** 25 questions sampled across Modules 1-10. Questions come from the exam-questions pool.\n\n**Passing score:** 84% (21 of 25 correct).\n\n**Rules:**\n- No AI tutor available during the exam.\n- Multi-choice questions are auto-scored.\n- Short-answer questions are graded by Claude against the rubric.\n- You can take the exam multiple times if you fail. After failing, the system will recommend remediation on your lowest-scoring modules.\n\n**Scoring rubric (for short-answer questions):**\n- Did you identify the correct policy/procedure?\n- Did you communicate it clearly and concisely?\n- Did you handle tone appropriately (de-escalation when needed)?\n- Did you correctly recognize escalation triggers?\n- Did you avoid sharing the phone number unless explicitly asked?\n- Did you paraphrase rather than reading verbatim from the KB?\n\n**Pass = certified** to start handling live customers with backup support.",
+          "content_md": "**Format:** 25 questions sampled across Modules 1-10. Questions come from the exam-questions pool.\n\n**Passing score:** 84% (21 of 25 correct).\n\n**Rules:**\n- No AI tutor available during the exam.\n- Multi-choice questions are auto-scored.\n- Short-answer questions are graded by Claude against the rubric.\n- You can take the exam multiple times if you fail. After failing, the system will recommend remediation on your lowest-scoring modules.\n\n**Scoring rubric (for short-answer questions):**\n- Did you identify the correct policy/procedure?\n- Did you communicate it clearly and concisely?\n- Did you handle de-escalation appropriately when the situation called for it?\n- Did you correctly recognize escalation triggers?\n- Did you avoid sharing the phone number unless explicitly asked?\n- Did you paraphrase rather than reading verbatim from the KB?\n\n**Pass = certified** to start handling live customers with backup support.",
           "key_points": [
             "25 questions, 84% to pass",
             "Auto-scored multi-choice + Claude-graded short-answer",

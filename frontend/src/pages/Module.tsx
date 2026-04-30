@@ -23,17 +23,6 @@ import type { ModuleFull } from '../types';
 
 type Phase = 1 | 2 | 3;
 
-const TONE_BADGES: Record<string, string> = {
-  casual: 'bg-gray-100 text-gray-700',
-  professional: 'bg-blue-100 text-blue-800',
-  escalated: 'bg-red-100 text-red-800',
-};
-const TONE_LABEL: Record<string, string> = {
-  casual: 'Casual',
-  professional: 'Professional',
-  escalated: 'Escalated',
-};
-
 export default function Module() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
@@ -405,17 +394,13 @@ export default function Module() {
               <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                 {scenarios.map((sc) => {
                   const attempted = !!completion[sc.id]?.attempted;
-                  const tone = sc.tone || 'professional';
                   return (
                     <Link key={sc.id} to={`/module/${module.id}/scenario/${sc.id}`}>
                       <div className="card flex h-full flex-col p-4 transition hover:shadow-md">
                         <div className="flex flex-wrap items-center justify-between gap-1">
-                          <div className="flex items-center gap-1.5">
-                            <span className="text-xs font-semibold uppercase tracking-wide text-nt-primary-dark">
-                              {sc.type === 'roleplay' ? 'Roleplay' : 'Free response'}
-                            </span>
-                            <ToneBadge tone={tone} />
-                          </div>
+                          <span className="text-xs font-semibold uppercase tracking-wide text-nt-primary-dark">
+                            {sc.type === 'roleplay' ? 'Roleplay' : 'Free response'}
+                          </span>
                           {attempted ? (
                             <span className="inline-flex items-center gap-1 rounded-full bg-emerald-100 px-2 py-0.5 text-[11px] font-semibold text-emerald-800">
                               <CheckCircle2 className="h-3 w-3" /> Completed
@@ -580,12 +565,3 @@ function PhaseIndicator({
   );
 }
 
-function ToneBadge({ tone }: { tone: string }) {
-  const cls = TONE_BADGES[tone] || TONE_BADGES.professional;
-  const label = TONE_LABEL[tone] || TONE_LABEL.professional;
-  return (
-    <span className={`inline-flex rounded-full px-1.5 py-0.5 text-[10px] font-semibold ${cls}`}>
-      {label}
-    </span>
-  );
-}

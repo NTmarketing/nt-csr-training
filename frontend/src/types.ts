@@ -2,7 +2,6 @@ export type Role = 'trainee' | 'admin';
 export type ModuleStatus = 'locked' | 'available' | 'in_progress' | 'completed';
 export type QuestionType = 'multiple_choice' | 'true_false' | 'short_answer';
 export type ScenarioType = 'free_response' | 'roleplay';
-export type ScenarioTone = 'casual' | 'professional' | 'escalated';
 
 export interface User {
   id: number;
@@ -56,7 +55,6 @@ export interface ModuleSection {
 export interface ModuleScenario {
   id: string;
   type: ScenarioType;
-  tone?: ScenarioTone;
   prompt: string;
   customer_persona?: string;
   rubric: string[];
