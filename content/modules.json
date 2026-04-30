@@ -21,13 +21,7 @@
             "Trailers don't have their own engine — they're towed",
             "Most people need a trailer occasionally, not regularly",
             "Renting is cheaper than buying for occasional use"
-          ],
-"media": [
-  { "type": "svg", "svg": "$BOOKING_LIFECYCLE", "caption": "The booking lifecycle from search to payout" },
-  { "type": "svg", "svg": "$BALL_HITCH_SIZES", "caption": "Hitch ball sizes" },
-  { "type": "svg", "svg": "$PIN_PLUG_4VS7", "caption": "Trailer light plug pinouts" },
-  { "type": "svg", "svg": "$CANCELLATION_REFUND_TIMELINE", "caption": "Cancellation refund schedule" }
-]
+          ]
         },
         {
           "id": "tb-section-2",
