@@ -108,6 +108,8 @@ The current named exports are:
 
 | Key | Subject |
 |---|---|
+| `$BALL_HITCH_SIZES` | Three coupler ball sizes to relative scale |
+| `$PIN_PLUG_4VS7` | 4-pin vs 7-pin trailer plug pinouts |
 | `$BOOKING_LIFECYCLE` | 9-step booking flow |
 | `$CANCELLATION_REFUND_TIMELINE` | Refund-zone bars by hours-before-rental |
 

@@ -21,13 +21,6 @@
             "Trailers don't have their own engine — they're towed",
             "Most people need a trailer occasionally, not regularly",
             "Renting is cheaper than buying for occasional use"
-          ],
-          "media": [
-            {
-              "type": "svg",
-              "svg": "$BOOKING_LIFECYCLE",
-              "caption": "The Neighbors Trailer booking lifecycle"
-            }
           ]
         },
         {
@@ -39,49 +32,6 @@
             "Enclosed = boxed in, for valuables or weather protection",
             "Car hauler = for vehicles",
             "Specialty types: dump, horse, boat, motorcycle, tow dolly"
-          ],
-          "media": [
-            {
-              "type": "gallery",
-              "columns": 3,
-              "images": [
-                {
-                  "src": "/images/trailer-basics/types/utility-trailer.jpg",
-                  "alt": "Open utility trailer with low side rails",
-                  "caption": "Utility — open, the most common rental"
-                },
-                {
-                  "src": "/images/trailer-basics/types/enclosed-trailer.jpg",
-                  "alt": "Enclosed cargo trailer",
-                  "caption": "Enclosed — for valuables or weather protection"
-                },
-                {
-                  "src": "/images/trailer-basics/types/car-hauler.jpg",
-                  "alt": "Car hauler trailer with rear ramps",
-                  "caption": "Car hauler — for moving a single vehicle"
-                },
-                {
-                  "src": "/images/trailer-basics/types/flatbed-trailer.jpg",
-                  "alt": "Flatbed trailer with no walls",
-                  "caption": "Flatbed — for oversized loads"
-                },
-                {
-                  "src": "/images/trailer-basics/types/dump-trailer.jpg",
-                  "alt": "Dump trailer with hydraulic lift bed",
-                  "caption": "Dump — landscaping and demo work"
-                },
-                {
-                  "src": "/images/trailer-basics/types/horse-trailer.jpg",
-                  "alt": "Horse / livestock trailer",
-                  "caption": "Horse / livestock — divided into stalls"
-                },
-                {
-                  "src": "/images/trailer-basics/types/boat-trailer.jpg",
-                  "alt": "Boat trailer with hull cradle",
-                  "caption": "Boat — specialized cradle shaped for the hull"
-                }
-              ]
-            }
           ]
         },
         {
@@ -1134,13 +1084,6 @@
             "Platform fee, tax, Protection Package always non-refundable",
             "No-show = no refund",
             "CSR cannot cancel for the renter"
-          ],
-          "media": [
-            {
-              "type": "svg",
-              "svg": "$CANCELLATION_REFUND_TIMELINE",
-              "caption": "Cancellation refund schedule"
-            }
           ]
         },
         {

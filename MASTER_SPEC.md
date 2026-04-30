@@ -261,7 +261,7 @@ All photo blocks support click-to-zoom lightbox. Inline `![alt](url)` inside `co
 
 **Image hosting:** photos live at `frontend/public/images/<module-id>/...`. Vite serves them directly at `/images/...` in dev; on build they are copied into `dist/images/` and Nginx serves them in production. One folder per module, named by module **id** (not display number) so renumbering doesn't break references. See `frontend/public/images/README.md` for naming/sizing rules.
 
-**Named SVG diagrams:** `frontend/src/content/svgs.ts` exports reusable inline SVGs (`BOOKING_LIFECYCLE`, `CANCELLATION_REFUND_TIMELINE`). Reference them from `modules.json` with a `$NAME` shortcut on the `svg` field — the renderer resolves it via `resolveSvg()`. Raw inline SVG markup is also accepted. Hitch-ball-size and 4-pin-vs-7-pin diagrams were removed in favor of real photos that are easier to recognize.
+**Named SVG diagrams:** `frontend/src/content/svgs.ts` exports reusable inline SVGs (`BALL_HITCH_SIZES`, `PIN_PLUG_4VS7`, `BOOKING_LIFECYCLE`, `CANCELLATION_REFUND_TIMELINE`). Reference them from `modules.json` with a `$NAME` shortcut on the `svg` field — the renderer resolves it via `resolveSvg()`. Raw inline SVG markup is also accepted.
 
 **Phase B (image content):** populating `frontend/public/images/<module>/` and adding `media` blocks to `modules.json` is a separate workstream. The infrastructure here is intentionally empty.
 
