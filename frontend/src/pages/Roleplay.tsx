@@ -214,26 +214,37 @@ function GradeView({
       <h3 className="mb-1 text-sm font-semibold text-gray-900">Feedback</h3>
       <p className="mb-4 whitespace-pre-wrap text-sm text-gray-700">{grade.feedback}</p>
 
-      {type === 'free_response' && 'strengths' in grade && (
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          <div>
-            <div className="mb-1 text-xs font-semibold uppercase text-emerald-700">Strengths</div>
-            <ul className="list-disc space-y-1 pl-5 text-sm text-gray-700">
-              {grade.strengths.map((s, i) => (
-                <li key={i}>{s}</li>
-              ))}
-            </ul>
+      {type === 'free_response' && 'strengths' in grade && (() => {
+        const hasStrengths = Array.isArray(grade.strengths) && grade.strengths.length > 0;
+        const hasWeaknesses = Array.isArray(grade.weaknesses) && grade.weaknesses.length > 0;
+        if (!hasStrengths && !hasWeaknesses) return null;
+        // Single-section layout when only one bucket has content; two-up grid otherwise.
+        const single = hasStrengths !== hasWeaknesses;
+        return (
+          <div className={single ? '' : 'grid grid-cols-1 gap-4 sm:grid-cols-2'}>
+            {hasStrengths && (
+              <div>
+                <div className="mb-1 text-xs font-semibold uppercase text-emerald-700">Strengths</div>
+                <ul className="list-disc space-y-1 pl-5 text-sm text-gray-700">
+                  {grade.strengths.map((s, i) => (
+                    <li key={i}>{s}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+            {hasWeaknesses && (
+              <div>
+                <div className="mb-1 text-xs font-semibold uppercase text-amber-700">To improve</div>
+                <ul className="list-disc space-y-1 pl-5 text-sm text-gray-700">
+                  {grade.weaknesses.map((s, i) => (
+                    <li key={i}>{s}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </div>
-          <div>
-            <div className="mb-1 text-xs font-semibold uppercase text-amber-700">To improve</div>
-            <ul className="list-disc space-y-1 pl-5 text-sm text-gray-700">
-              {grade.weaknesses.map((s, i) => (
-                <li key={i}>{s}</li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      )}
+        );
+      })()}
 
       {type === 'roleplay' && 'perCriteria' in grade && (
         <ul className="space-y-2">

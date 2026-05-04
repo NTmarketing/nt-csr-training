@@ -106,9 +106,8 @@ function newModule() {
         prompt:
           "Your buddy texts: 'hey what's the difference between a utility trailer and a flatbed?' Explain the difference clearly.",
         rubric: [
-          'Identifies the key difference (sides/rails vs no sides)',
-          'Mentions the typical use case that drives the choice (e.g., utility for everyday hauls; flatbed for oversized or odd-shaped loads)',
-          "Avoids jargon a non-trailer-person wouldn't recognize",
+          'Identifies the key visual difference (sides/rails vs no sides)',
+          'Accurate (no factual errors)',
         ],
       },
       {
@@ -261,8 +260,7 @@ function loosenedRubricFor(scenarioId) {
   if (scenarioId === 'module-1-scenario-1') {
     return [
       'Captures the basic peer-to-peer marketplace idea',
-      'Acknowledges the Turo analogy and refines it accurately (same two-sided marketplace model)',
-      "Mentions NT's role as facilitator (payments, verification, Protection Package, dispute resolution) — not just a directory",
+      'Accurate (NT is the facilitator, not the trailer owner)',
     ];
   }
   if (scenarioId === 'module-1-scenario-2') {

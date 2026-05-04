@@ -397,26 +397,36 @@ function ScenariosView({ rows }: { rows: TraineeScenarioAttempt[] | null }) {
             <div className="rounded-md border border-gray-200 p-3 text-sm">
               <div className="text-xs font-semibold uppercase text-gray-500">AI grade</div>
               <p className="mt-1 whitespace-pre-wrap text-gray-800">{r.grade.feedback}</p>
-              {'strengths' in r.grade && (
-                <div className="mt-2 grid grid-cols-1 gap-2 sm:grid-cols-2">
-                  <div>
-                    <div className="text-xs font-semibold text-emerald-700">Strengths</div>
-                    <ul className="list-disc pl-5 text-xs text-gray-700">
-                      {r.grade.strengths.map((s, i) => (
-                        <li key={i}>{s}</li>
-                      ))}
-                    </ul>
+              {'strengths' in r.grade && (() => {
+                const hasS = Array.isArray(r.grade.strengths) && r.grade.strengths.length > 0;
+                const hasW = Array.isArray(r.grade.weaknesses) && r.grade.weaknesses.length > 0;
+                if (!hasS && !hasW) return null;
+                const single = hasS !== hasW;
+                return (
+                  <div className={`mt-2 ${single ? '' : 'grid grid-cols-1 gap-2 sm:grid-cols-2'}`}>
+                    {hasS && (
+                      <div>
+                        <div className="text-xs font-semibold text-emerald-700">Strengths</div>
+                        <ul className="list-disc pl-5 text-xs text-gray-700">
+                          {r.grade.strengths.map((s, i) => (
+                            <li key={i}>{s}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                    {hasW && (
+                      <div>
+                        <div className="text-xs font-semibold text-amber-700">Weaknesses</div>
+                        <ul className="list-disc pl-5 text-xs text-gray-700">
+                          {r.grade.weaknesses.map((s, i) => (
+                            <li key={i}>{s}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
                   </div>
-                  <div>
-                    <div className="text-xs font-semibold text-amber-700">Weaknesses</div>
-                    <ul className="list-disc pl-5 text-xs text-gray-700">
-                      {r.grade.weaknesses.map((s, i) => (
-                        <li key={i}>{s}</li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              )}
+                );
+              })()}
               {'perCriteria' in r.grade && (
                 <ul className="mt-2 space-y-1">
                   {r.grade.perCriteria.map((c, i) => (

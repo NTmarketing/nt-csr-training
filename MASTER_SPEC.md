@@ -107,9 +107,9 @@ All API endpoints are prefixed with `/api`. JSON requests/responses unless noted
 - `POST /api/ai/tutor` — body `{ moduleId, message }` → `{ id, message, messages: [{ role, content }] }`. Server is the source of truth for tutor history: it loads the persisted conversation (one per user/module), appends the new turn, calls Claude, persists, and returns the full canonical thread. Client does NOT pass history.
 - `GET /api/ai/conversation/:moduleId` — returns the persisted tutor conversation for the current user/module, or `null`. Shape: `{ id, messages, created_at, updated_at }`.
 - `DELETE /api/ai/conversation/:moduleId` — clears the tutor conversation for the current user/module. Returns `{ ok: true }`.
-- `POST /api/ai/grade-response` — body `{ moduleId, scenarioId, response }` → `{ score: 0-10, feedback, strengths: [], weaknesses: [] }`. Grading is calibrated to `scenario.tone` (`casual` | `professional` | `escalated`).
+- `POST /api/ai/grade-response` — body `{ moduleId, scenarioId, response }` → `{ score: 0-10, feedback, strengths: string[], weaknesses: string[] }`. Grading focuses on factual accuracy, clarity, and escalation judgment. **`weaknesses` may be an empty array** when the response substantively meets the rubric — the grader is instructed not to invent filler nitpicks. `strengths` is typically 1-3 items; one is enough for a short correct answer. Frontend hides each section when its array is empty.
 - `POST /api/ai/roleplay` — body `{ moduleId, scenarioId, message, history }` → `{ message, history }` (Claude plays the customer). Roleplay history is ephemeral and managed by the client.
-- `POST /api/ai/grade-roleplay` — body `{ moduleId, scenarioId, transcript: [...] }` → `{ score, feedback, perCriteria: [...] }`. Grading is calibrated to `scenario.tone`.
+- `POST /api/ai/grade-roleplay` — body `{ moduleId, scenarioId, transcript: [...] }` → `{ score, feedback, perCriteria: [...] }`. Grading focuses on factual accuracy, clarity, and escalation judgment.
 
 ### Exam
 - `POST /api/exam/start` — generates 25 questions sampled across all modules, returns `{ examId, questions: [...] }`
@@ -242,10 +242,7 @@ The structured curriculum data, derived from `nt-csr-training-curriculum.md`. Se
 
 **ID stability:** `id` fields on modules and scenarios are **immutable**. They are the foreign key for `progress`, `quiz_attempts`, `scenario_attempts`, and `exam-questions.json::module_ref`. The `number` field is **display order** and may shift when modules are reordered or inserted. To find "the final cert tile" use `quiz.length === 0`, not a hard-coded number.
 
-**Scenario tone:** every scenario has a `tone` field, one of `'casual' | 'professional' | 'escalated'` (default `'professional'` if absent). The grader (`/api/ai/grade-response`, `/api/ai/grade-roleplay`) reads this and adjusts its rubric expectations:
-- `casual`: brief, conversational; don't penalize missing formal coverage.
-- `professional`: standard CSR-call expectations; cover relevant policies clearly.
-- `escalated`: empathy + de-escalation first, policy second; reward calm acknowledgment, penalize agreeing with the customer's negative framing.
+**Scenario grading:** scenarios carry a `rubric: string[]` and the grader (`/api/ai/grade-response`, `/api/ai/grade-roleplay`) scores against it on three explicit axes — factual accuracy, clarity, and escalation judgment. The grader is instructed NOT to grade tonality/register, contractions, casual vs. formal phrasing, or brevity (unless verbosity actually obscures the answer). Casual prompts (e.g., "buddy texts") should have 1-2 substantive rubric items; longer professional prompts (inbound calls, multi-turn handling) typically have 3-4. Tone-as-a-graded-axis was removed — calibration to customer voice happens on the job, not in scripted scenarios. (The `tone` field on scenarios was deprecated and removed from the schema.)
 
 **Section media:** each section may optionally include a `media: MediaBlock[]` field rendered after the prose. Block types (see `frontend/src/types.ts`):
 

@@ -105,12 +105,22 @@ async function gradeResponse(scenario, rubric, response) {
 
 ${GRADING_GUIDANCE}
 
+If the response substantively meets the rubric, the "weaknesses" array can be EMPTY. Do not invent weaknesses to fill the slot. Specifically:
+- Do not flag spelling or grammar issues unless they actually obscure meaning
+- Do not flag "could have included more detail" if the response is appropriate to the scenario context
+- Do not flag missing information unless that information is in the rubric
+- For a buddy text or casual response, brevity is correct, not a weakness
+
+If you have nothing substantive to flag, return weaknesses: [] and a brief feedback note acknowledging the response was solid.
+
+Likewise, if the response is short and got it right, ONE strength is enough — do not pad to three.
+
 Respond with VALID JSON ONLY, no prose, no code fences. Schema:
 {
   "score": <integer 0-10>,
-  "feedback": "<2-4 sentences of specific feedback>",
+  "feedback": "<1-4 sentences of specific feedback>",
   "strengths": ["<bullet>", ...],
-  "weaknesses": ["<bullet>", ...]
+  "weaknesses": ["<bullet>", ...]   // may be empty
 }`;
 
   const userMsg = `Scenario prompt:\n${scenario && scenario.prompt ? scenario.prompt : ''}\n\nRubric:\n${(rubric || []).map((r, i) => `${i + 1}. ${r}`).join('\n')}\n\nTrainee response:\n${response}`;
