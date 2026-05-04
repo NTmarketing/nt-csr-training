@@ -1,6 +1,7 @@
 import {
   AlertCircle,
   ArrowLeft,
+  ArrowRight,
   CheckCircle2,
   Loader2,
   Send,
@@ -8,7 +9,7 @@ import {
   XCircle,
 } from 'lucide-react';
 import { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { ai, modules } from '../api/client';
 import AIChat from '../components/AIChat';
 import type {
@@ -21,6 +22,7 @@ import type {
 
 export default function Roleplay() {
   const { id, scenarioId } = useParams<{ id: string; scenarioId: string }>();
+  const navigate = useNavigate();
   const [module, setModule] = useState<ModuleFull | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [grade, setGrade] = useState<RoleplayGrade | FreeResponseGrade | null>(null);
@@ -137,10 +139,35 @@ export default function Roleplay() {
       </div>
 
       {grade ? (
-        <GradeView grade={grade} type={scenario.type} onRetry={() => {
-          setGrade(null);
-          setFreeResponse('');
-        }} />
+        <GradeView
+          grade={grade}
+          type={scenario.type}
+          onRetry={() => {
+            setGrade(null);
+            setFreeResponse('');
+          }}
+          onNext={() => {
+            // Find the next unattempted scenario in module order, treating the
+            // just-attempted current scenario as attempted regardless of stale
+            // scenario_completion state.
+            const completion = module.scenario_completion ?? {};
+            const next = module.scenarios.find(
+              (s) => s.id !== scenario.id && !completion[s.id]?.attempted,
+            );
+            if (next) {
+              navigate(`/module/${module.id}/scenario/${next.id}`);
+            } else {
+              navigate(`/module/${module.id}`);
+            }
+          }}
+          nextLabel={(() => {
+            const completion = module.scenario_completion ?? {};
+            const next = module.scenarios.find(
+              (s) => s.id !== scenario.id && !completion[s.id]?.attempted,
+            );
+            return next ? 'Next scenario' : 'Back to module';
+          })()}
+        />
       ) : scenario.type === 'roleplay' ? (
         <div className="h-[60vh] min-h-[420px]">
           <AIChat
@@ -190,26 +217,57 @@ function GradeView({
   grade,
   type,
   onRetry,
+  onNext,
+  nextLabel,
 }: {
   grade: RoleplayGrade | FreeResponseGrade;
   type: 'free_response' | 'roleplay';
   onRetry: () => void;
+  onNext: () => void;
+  nextLabel: string;
 }) {
   const score = grade.score;
   const passed = score >= 7;
 
+  // Decide between numeric X/10 and a status badge.
+  // Free response: hide number when weaknesses are empty AND strengths are non-empty.
+  // Roleplay: hide number when every perCriteria item is met.
+  // Edge case (free response, both empty): show "Recorded".
+  let scoreDisplay: 'numeric' | 'solid' | 'recorded' = 'numeric';
+  if (type === 'free_response' && 'strengths' in grade) {
+    const hasS = Array.isArray(grade.strengths) && grade.strengths.length > 0;
+    const hasW = Array.isArray(grade.weaknesses) && grade.weaknesses.length > 0;
+    if (!hasW && hasS) scoreDisplay = 'solid';
+    else if (!hasW && !hasS) scoreDisplay = 'recorded';
+  } else if (type === 'roleplay' && 'perCriteria' in grade) {
+    const allMet = Array.isArray(grade.perCriteria)
+      && grade.perCriteria.length > 0
+      && grade.perCriteria.every((c) => c.met);
+    if (allMet) scoreDisplay = 'solid';
+  }
+
   return (
     <div className="card p-6">
-      <div
-        className={`mb-5 rounded-lg p-4 ${
-          passed ? 'bg-emerald-50 text-emerald-900' : 'bg-amber-50 text-amber-900'
-        }`}
-      >
-        <div className="text-sm font-medium uppercase tracking-wide">Grade</div>
-        <div className="text-3xl font-bold">
-          {score} / 10
+      {scoreDisplay === 'numeric' && (
+        <div
+          className={`mb-5 rounded-lg p-4 ${
+            passed ? 'bg-emerald-50 text-emerald-900' : 'bg-amber-50 text-amber-900'
+          }`}
+        >
+          <div className="text-sm font-medium uppercase tracking-wide">Grade</div>
+          <div className="text-3xl font-bold">{score} / 10</div>
         </div>
-      </div>
+      )}
+      {scoreDisplay === 'solid' && (
+        <div className="mb-5 inline-flex items-center gap-2 rounded-full bg-emerald-100 px-4 py-2 text-sm font-semibold text-emerald-800">
+          <CheckCircle2 className="h-4 w-4" /> Solid
+        </div>
+      )}
+      {scoreDisplay === 'recorded' && (
+        <div className="mb-5 inline-flex items-center gap-2 rounded-full bg-gray-100 px-4 py-2 text-sm font-semibold text-gray-700">
+          Recorded
+        </div>
+      )}
 
       <h3 className="mb-1 text-sm font-semibold text-gray-900">Feedback</h3>
       <p className="mb-4 whitespace-pre-wrap text-sm text-gray-700">{grade.feedback}</p>
@@ -267,6 +325,9 @@ function GradeView({
       <div className="mt-6 flex justify-end gap-2">
         <button onClick={onRetry} className="btn-secondary">
           Try again
+        </button>
+        <button onClick={onNext} className="btn-primary">
+          {nextLabel} <ArrowRight className="h-4 w-4" />
         </button>
       </div>
     </div>
