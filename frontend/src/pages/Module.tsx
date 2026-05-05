@@ -80,17 +80,25 @@ export default function Module() {
       .then(([m]) => {
         if (!mounted) return;
         setModule(m);
-        const persisted = new Set<string>(m.sections_viewed || []);
+        // INVARIANT: viewedSections gates Phase 2/3 visibility — and that
+        // gating is *in-session only*. We deliberately do NOT seed it from
+        // m.sections_viewed (the server-persisted "ever viewed" record).
+        // Otherwise a returning trainee whose UI displays Section 1 would
+        // see Phase 2 already unlocked because their server history says
+        // they viewed all 5 sections last week. Phase 2 should only appear
+        // after they actually click through to Section 5 in this session.
+        // (m.sections_viewed is still useful for admin/observability.)
+        const fresh = new Set<string>();
         if (m.sections.length) {
-          persisted.add(m.sections[0].id);
-          setViewedSections(persisted);
+          fresh.add(m.sections[0].id);
+          setViewedSections(fresh);
           startSectionTimer(m.id, m.sections[0].id);
-          // Persist the first section as viewed (if not already).
+          // Persist the first section as viewed if the server doesn't have it.
           if (!(m.sections_viewed || []).includes(m.sections[0].id)) {
             progress.markSectionViewed(m.id, m.sections[0].id).catch(() => {});
           }
         } else {
-          setViewedSections(persisted);
+          setViewedSections(fresh);
         }
       })
       .catch((err) => {
@@ -111,8 +119,10 @@ export default function Module() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // Refetch when the tab regains focus so scenario completion + sections_viewed
-  // sync after the trainee returns from /module/:id/scenario/:scenarioId.
+  // Refetch when the tab regains focus so scenario completion syncs after the
+  // trainee returns from /module/:id/scenario/:scenarioId. Deliberately does
+  // NOT update sections_viewed here — that field is server-persisted history,
+  // but in-session Phase 2/3 gating uses the local viewedSections Set only.
   useEffect(() => {
     if (!id) return;
     const refetch = () => {
@@ -120,22 +130,9 @@ export default function Module() {
         .get(id)
         .then((m) =>
           setModule((prev) =>
-            prev
-              ? {
-                  ...prev,
-                  scenario_completion: m.scenario_completion,
-                  sections_viewed: m.sections_viewed,
-                }
-              : m,
+            prev ? { ...prev, scenario_completion: m.scenario_completion } : m,
           ),
         )
-        .then(() => {
-          // hydrate viewedSections from server-merged state
-          setViewedSections((prev) => {
-            const merged = new Set(prev);
-            return merged;
-          });
-        })
         .catch(() => {});
     };
     const onVisible = () => {
@@ -149,21 +146,10 @@ export default function Module() {
     };
   }, [id]);
 
-  // When sections_viewed changes from server, merge into viewed set.
-  useEffect(() => {
-    if (!module?.sections_viewed) return;
-    setViewedSections((prev) => {
-      const next = new Set(prev);
-      let changed = false;
-      for (const sid of module.sections_viewed) {
-        if (!next.has(sid)) {
-          next.add(sid);
-          changed = true;
-        }
-      }
-      return changed ? next : prev;
-    });
-  }, [module?.sections_viewed]);
+  // (Intentionally no merge-from-server effect for sections_viewed: Phase 2/3
+  // gating is in-session only; the server's "ever viewed" record must not
+  // back-fill the local set or Phase 2 would unlock immediately for any
+  // returning trainee.)
 
   const totalSections = module?.sections.length ?? 0;
   const allViewed = useMemo(
