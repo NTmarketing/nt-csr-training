@@ -126,7 +126,7 @@ export default function AIChat(props: Props) {
     <div className="flex h-full flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm">
       <div className="flex items-center justify-between border-b border-gray-200 bg-gray-50 px-4 py-3">
         <div className="flex items-center gap-2">
-          <div className="flex h-7 w-7 items-center justify-center rounded-md bg-nt-primary/10 text-nt-primary-dark">
+          <div className="flex h-7 w-7 items-center justify-center rounded-md bg-nt-green-50 text-nt-green-700">
             <Sparkles className="h-4 w-4" />
           </div>
           <div>
@@ -226,7 +226,7 @@ function MessageBubble({ message }: { message: ChatMessage }) {
     <div className={`flex gap-2 ${isUser ? 'flex-row-reverse' : ''}`}>
       <div
         className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full ${
-          isUser ? 'bg-nt-primary text-white' : 'bg-gray-200 text-gray-700'
+          isUser ? 'bg-nt-green-500 text-white' : 'bg-gray-200 text-gray-700'
         }`}
       >
         {isUser ? <UserIcon className="h-4 w-4" /> : <Bot className="h-4 w-4" />}
@@ -234,7 +234,7 @@ function MessageBubble({ message }: { message: ChatMessage }) {
       <div
         className={`max-w-[80%] whitespace-pre-wrap rounded-2xl px-3 py-2 text-sm leading-relaxed ${
           isUser
-            ? 'rounded-tr-sm bg-nt-primary text-white'
+            ? 'rounded-tr-sm bg-nt-green-500 text-white'
             : 'rounded-tl-sm bg-gray-100 text-gray-900'
         }`}
       >

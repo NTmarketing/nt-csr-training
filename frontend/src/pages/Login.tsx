@@ -1,4 +1,4 @@
-import { GraduationCap, Loader2 } from 'lucide-react';
+import { Loader2 } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
@@ -33,20 +33,22 @@ export default function Login() {
   if (loading) {
     return (
       <div className="flex min-h-screen items-center justify-center">
-        <Loader2 className="h-8 w-8 animate-spin text-nt-primary" />
+        <Loader2 className="h-8 w-8 animate-spin text-nt-green-500" />
       </div>
     );
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-gray-50 to-nt-primary/5 px-4 py-12">
+    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-gray-50 to-nt-green-50 px-4 py-12">
       <div className="w-full max-w-md">
         <div className="mb-6 flex flex-col items-center text-center">
-          <div className="mb-3 flex h-14 w-14 items-center justify-center rounded-xl bg-nt-primary text-white shadow-md">
-            <GraduationCap className="h-8 w-8" />
-          </div>
-          <h1 className="text-2xl font-bold text-gray-900">Neighbors Trailer</h1>
-          <p className="text-sm text-gray-600">CSR Training Portal</p>
+          <img
+            src="/brand/nt-mark.png"
+            alt="Neighbors Trailer"
+            className="mb-3 h-14 w-14 object-contain"
+          />
+          <h1 className="text-2xl font-bold text-nt-text-primary">CSR Training</h1>
+          <p className="text-sm text-gray-600">Neighbors Trailer</p>
         </div>
 
         <div className="card p-8">

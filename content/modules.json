@@ -376,7 +376,7 @@
         {
           "id": "section-1-3",
           "title": "Core Terminology",
-          "content_md": "These terms come up in nearly every conversation. Use them confidently.\n\n- **NT Protect / Protection Package** — built-in damage protection covering accidental damage during rentals. **Not insurance** — it's a damage protection product, not an insurance policy. Tire damage and intentional damage are excluded.\n- **Toll Program** — opt-in for owners. Auto-tracks tolls during rentals and bills the renter.\n- **My Reservations** — owner-side feature for managing their bookings.\n- **MVR** — Motor Vehicle Record check, required for renters before booking is allowed.\n- **Clear** — third-party ID verification provider used by NT.\n- **Pending booking** — a booking the owner has not yet accepted.",
+          "content_md": "These terms come up in nearly every conversation. Use them confidently.\n\n- **NT Protect / Protection Package** — built-in damage protection covering accidental damage during rentals. **Not insurance** — it's a damage protection product, not an insurance policy. Intentional damage is excluded. Tire damage is handled case-by-case (see Module 6).\n- **Toll Program** — opt-in for owners. Auto-tracks tolls during rentals and bills the renter.\n- **My Reservations** — owner-side feature for managing their bookings.\n- **MVR** — Motor Vehicle Record check, required for renters before booking is allowed.\n- **Clear** — third-party ID verification provider used by NT.\n- **Pending booking** — a booking the owner has not yet accepted.",
           "key_points": [
             "NT Protect = damage protection (not insurance), with exclusions",
             "Toll Program = owner opt-in",
@@ -479,7 +479,7 @@
             "accidental damage",
             "rentals"
           ],
-          "explanation": "NT Protect covers accidental damage during rentals. Tire damage and intentional damage are excluded."
+          "explanation": "NT Protect covers accidental damage during rentals. Intentional damage is excluded. Tire damage is handled case-by-case based on tire condition and cause (see Module 6)."
         }
       ],
       "passing_score_percent": 70

@@ -93,7 +93,7 @@ export default function MediaBlock({ block }: Props) {
         <button
           type="button"
           onClick={() => openSvg(resolved, block.caption)}
-          className="group block w-full max-h-[400px] overflow-auto rounded-lg border border-gray-200 bg-white p-3 text-left transition hover:border-nt-primary/40"
+          className="group block w-full max-h-[400px] overflow-auto rounded-lg border border-gray-200 bg-white p-3 text-left transition hover:border-nt-green-500/40"
           aria-label="View diagram larger"
         >
           <div

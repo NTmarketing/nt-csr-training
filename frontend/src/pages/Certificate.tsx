@@ -82,10 +82,10 @@ export default function Certificate() {
         </button>
       </div>
 
-      <div className="relative overflow-hidden rounded-2xl border-[6px] border-double border-nt-primary bg-white p-12 text-center shadow-md">
-        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,_rgba(0,191,99,0.06),_transparent_60%)]" />
+      <div className="relative overflow-hidden rounded-2xl border-[6px] border-double border-nt-green-500 bg-white p-12 text-center shadow-md">
+        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,_rgba(45,140,60,0.08),_transparent_60%)]" />
 
-        <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-nt-primary text-white shadow">
+        <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-nt-green-500 text-white shadow">
           <Award className="h-8 w-8" />
         </div>
 
@@ -97,7 +97,7 @@ export default function Certificate() {
           This certifies that
         </p>
 
-        <div className="my-4 text-3xl font-semibold text-nt-primary-dark">{traineeName}</div>
+        <div className="my-4 text-3xl font-semibold text-nt-green-700">{traineeName}</div>
 
         <p className="mx-auto max-w-md text-sm text-gray-700">
           has successfully completed the Neighbors Trailer Customer Service Representative training program

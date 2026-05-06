@@ -239,7 +239,7 @@ export default function Module() {
         </Link>
 
         <div className="mb-4">
-          <div className="text-xs font-semibold uppercase tracking-wide text-nt-primary-dark">
+          <div className="text-xs font-semibold uppercase tracking-wide text-nt-green-700">
             Module {module.number}
           </div>
           <h1 className="text-2xl font-bold text-gray-900">{module.title}</h1>
@@ -266,7 +266,7 @@ export default function Module() {
               className="flex w-full items-center justify-between p-4 text-left"
             >
               <span className="flex items-center gap-2 text-sm font-semibold text-gray-900">
-                <Target className="h-4 w-4 text-nt-primary-dark" />
+                <Target className="h-4 w-4 text-nt-green-700" />
                 Learning objectives
               </span>
               {objectivesOpen ? (
@@ -307,8 +307,8 @@ export default function Module() {
           )}
 
           {section.key_points?.length > 0 && (
-            <div className="mt-6 rounded-lg border border-nt-primary/20 bg-nt-primary/5 p-4">
-              <div className="mb-2 text-sm font-semibold text-nt-primary-dark">Key points</div>
+            <div className="mt-6 rounded-lg border border-nt-green-500/20 bg-nt-green-50 p-4">
+              <div className="mb-2 text-sm font-semibold text-nt-green-700">Key points</div>
               <ul className="list-disc space-y-1 pl-5 text-sm text-gray-800">
                 {section.key_points.map((kp, i) => (
                   <li key={i}>{kp}</li>
@@ -383,7 +383,7 @@ export default function Module() {
       <button
         type="button"
         onClick={() => setChatOpen(true)}
-        className="fixed bottom-4 right-4 z-30 inline-flex items-center gap-2 rounded-full bg-nt-primary px-4 py-3 text-sm font-semibold text-white shadow-lg lg:hidden"
+        className="fixed bottom-4 right-4 z-30 inline-flex items-center gap-2 rounded-full bg-nt-green-500 px-4 py-3 text-sm font-semibold text-white shadow-lg lg:hidden"
       >
         <MessageSquare className="h-4 w-4" /> AI Tutor
       </button>
@@ -427,7 +427,7 @@ function PhaseHeader({
       <div className="flex items-center gap-2">
         <span
           className={`inline-flex h-6 w-6 items-center justify-center rounded-full text-[11px] font-bold ${
-            done ? 'bg-emerald-600 text-white' : 'bg-nt-primary text-white'
+            done ? 'bg-nt-green-600 text-white' : 'bg-nt-green-500 text-white'
           }`}
         >
           {done ? <CheckCircle2 className="h-4 w-4" /> : step}
@@ -453,9 +453,9 @@ function PhaseIndicator({
           <span
             className={`inline-flex h-5 w-5 items-center justify-center rounded-full text-[10px] font-bold ${
               s.done
-                ? 'bg-emerald-600 text-white'
+                ? 'bg-nt-green-600 text-white'
                 : s.active
-                  ? 'bg-nt-primary text-white'
+                  ? 'bg-nt-green-500 text-white'
                   : 'bg-gray-200 text-gray-500'
             }`}
           >
@@ -464,9 +464,9 @@ function PhaseIndicator({
           <span
             className={
               s.active
-                ? 'text-nt-primary-dark'
+                ? 'text-nt-green-700'
                 : s.done
-                  ? 'text-emerald-700'
+                  ? 'text-nt-green-700'
                   : 'text-gray-500'
             }
           >

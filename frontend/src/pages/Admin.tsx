@@ -230,7 +230,7 @@ function CreateUserModal({
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4">
       <div className="card w-full max-w-md p-6">
         <div className="mb-4 flex items-center gap-2">
-          <Plus className="h-5 w-5 text-nt-primary-dark" />
+          <Plus className="h-5 w-5 text-nt-green-700" />
           <h2 className="text-lg font-semibold text-gray-900">Create user</h2>
         </div>
 
@@ -337,7 +337,7 @@ function EditUserModal({
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4">
       <div className="card w-full max-w-md p-6">
         <div className="mb-4 flex items-center gap-2">
-          <Pencil className="h-5 w-5 text-nt-primary-dark" />
+          <Pencil className="h-5 w-5 text-nt-green-700" />
           <h2 className="text-lg font-semibold text-gray-900">Edit @{user.username}</h2>
         </div>
 
@@ -417,13 +417,13 @@ function PasswordResetModal({
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4">
       <div className="card w-full max-w-md p-6">
         <div className="mb-4 flex items-center gap-2">
-          <KeyRound className="h-5 w-5 text-nt-primary-dark" />
+          <KeyRound className="h-5 w-5 text-nt-green-700" />
           <h2 className="text-lg font-semibold text-gray-900">Reset password — @{user.username}</h2>
         </div>
 
         {done ? (
           <div className="space-y-3">
-            <div className="rounded-md border border-emerald-200 bg-emerald-50 p-3 text-sm text-emerald-800">
+            <div className="rounded-md border border-nt-green-100 bg-nt-green-50 p-3 text-sm text-nt-green-700">
               Password updated. Share it with {user.name} and have them log in to confirm.
             </div>
             <div className="flex justify-end">

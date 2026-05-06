@@ -15,7 +15,7 @@ export default function ProtectedRoute({ children, requireAdmin = false }: Props
   if (loading) {
     return (
       <div className="flex min-h-screen items-center justify-center">
-        <Loader2 className="h-8 w-8 animate-spin text-nt-primary" />
+        <Loader2 className="h-8 w-8 animate-spin text-nt-green-500" />
       </div>
     );
   }

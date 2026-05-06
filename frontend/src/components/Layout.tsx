@@ -1,4 +1,4 @@
-import { LogOut, ShieldCheck, GraduationCap } from 'lucide-react';
+import { LogOut, ShieldCheck } from 'lucide-react';
 import { Link, NavLink, Outlet, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 
@@ -15,14 +15,9 @@ export default function Layout() {
     <div className="min-h-screen bg-gray-50">
       <header className="no-print sticky top-0 z-30 border-b border-gray-200 bg-white shadow-sm">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
-          <Link to="/" className="flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-md bg-nt-primary text-white">
-              <GraduationCap className="h-5 w-5" />
-            </div>
-            <div className="leading-tight">
-              <div className="text-sm font-semibold text-gray-900">Neighbors Trailer</div>
-              <div className="text-xs text-gray-500">CSR Training Portal</div>
-            </div>
+          <Link to="/" className="flex items-center gap-3">
+            <img src="/brand/nt-mark.png" alt="Neighbors Trailer" className="h-9 w-9 object-contain" />
+            <span className="text-xl font-bold text-nt-text-primary">CSR Training</span>
           </Link>
 
           <nav className="flex items-center gap-2 sm:gap-4">
@@ -31,7 +26,7 @@ export default function Layout() {
               end
               className={({ isActive }) =>
                 `rounded-md px-3 py-1.5 text-sm font-medium ${
-                  isActive ? 'bg-nt-primary/10 text-nt-primary-dark' : 'text-gray-700 hover:bg-gray-100'
+                  isActive ? 'bg-nt-green-50 text-nt-green-700' : 'text-gray-700 hover:bg-gray-100'
                 }`
               }
             >
@@ -43,7 +38,7 @@ export default function Layout() {
                 to="/admin"
                 className={({ isActive }) =>
                   `flex items-center gap-1 rounded-md px-3 py-1.5 text-sm font-medium ${
-                    isActive ? 'bg-nt-primary/10 text-nt-primary-dark' : 'text-gray-700 hover:bg-gray-100'
+                    isActive ? 'bg-nt-green-50 text-nt-green-700' : 'text-gray-700 hover:bg-gray-100'
                   }`
                 }
               >

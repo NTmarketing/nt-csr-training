@@ -122,16 +122,16 @@ export default function Roleplay() {
         </Link>
         <div className="flex items-center gap-2">
           {scenario.type === 'roleplay' && scenario.difficulty === 'easy' && (
-            <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-emerald-800">
+            <span className="rounded-full bg-nt-green-50 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-nt-green-700">
               Easy
             </span>
           )}
           {scenario.type === 'roleplay' && scenario.difficulty === 'hard' && (
-            <span className="rounded-full bg-amber-100 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-amber-800">
+            <span className="rounded-full bg-amber-50 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-amber-700">
               Challenging
             </span>
           )}
-          <span className="text-xs font-semibold uppercase tracking-wide text-nt-primary-dark">
+          <span className="text-xs font-semibold uppercase tracking-wide text-nt-green-700">
             {scenario.type === 'roleplay' ? 'Roleplay' : 'Free response'} · Module {module.number}
           </span>
         </div>
@@ -210,7 +210,7 @@ export default function Roleplay() {
       ) : (
         <div className="card p-5">
           <label className="mb-2 flex items-center gap-2 text-sm font-semibold text-gray-900">
-            <Sparkles className="h-4 w-4 text-nt-primary-dark" />
+            <Sparkles className="h-4 w-4 text-nt-green-700" />
             Your response
           </label>
           <textarea
@@ -275,7 +275,7 @@ function GradeView({
       {scoreDisplay === 'numeric' && (
         <div
           className={`mb-5 rounded-lg p-4 ${
-            passed ? 'bg-emerald-50 text-emerald-900' : 'bg-amber-50 text-amber-900'
+            passed ? 'bg-nt-green-50 text-nt-green-700' : 'bg-amber-50 text-amber-700'
           }`}
         >
           <div className="text-sm font-medium uppercase tracking-wide">Grade</div>
@@ -283,7 +283,7 @@ function GradeView({
         </div>
       )}
       {scoreDisplay === 'solid' && (
-        <div className="mb-5 inline-flex items-center gap-2 rounded-full bg-emerald-100 px-4 py-2 text-sm font-semibold text-emerald-800">
+        <div className="mb-5 inline-flex items-center gap-2 rounded-full bg-nt-green-50 px-4 py-2 text-sm font-semibold text-nt-green-700">
           <CheckCircle2 className="h-4 w-4" /> Solid
         </div>
       )}
@@ -306,7 +306,7 @@ function GradeView({
           <div className={single ? '' : 'grid grid-cols-1 gap-4 sm:grid-cols-2'}>
             {hasStrengths && (
               <div>
-                <div className="mb-1 text-xs font-semibold uppercase text-emerald-700">Strengths</div>
+                <div className="mb-1 text-xs font-semibold uppercase text-nt-green-700">Strengths</div>
                 <ul className="list-disc space-y-1 pl-5 text-sm text-gray-700">
                   {grade.strengths.map((s, i) => (
                     <li key={i}>{s}</li>
@@ -333,7 +333,7 @@ function GradeView({
           {grade.perCriteria.map((c, i) => (
             <li key={i} className="flex items-start gap-2 text-sm">
               {c.met ? (
-                <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" />
+                <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-nt-green-600" />
               ) : (
                 <XCircle className="mt-0.5 h-4 w-4 shrink-0 text-red-600" />
               )}

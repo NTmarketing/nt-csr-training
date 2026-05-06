@@ -68,7 +68,7 @@ export default function Quiz({ questions, onSubmit, passingPct = 70 }: Props) {
 
       <div className="mb-3 h-1.5 w-full overflow-hidden rounded-full bg-gray-200">
         <div
-          className="h-full bg-nt-primary transition-all"
+          className="h-full bg-nt-green-500 transition-all"
           style={{ width: `${((currentIdx + 1) / total) * 100}%` }}
         />
       </div>
@@ -153,7 +153,7 @@ function QuestionInput({
               key={idx}
               className={`flex cursor-pointer items-start gap-3 rounded-lg border p-3 transition ${
                 selected
-                  ? 'border-nt-primary bg-nt-primary/5'
+                  ? 'border-nt-green-500 bg-nt-green-50'
                   : 'border-gray-200 bg-white hover:bg-gray-50'
               }`}
             >
@@ -162,7 +162,7 @@ function QuestionInput({
                 name={question.id}
                 checked={selected}
                 onChange={() => onChange(idx)}
-                className="mt-0.5 h-4 w-4 accent-nt-primary"
+                className="mt-0.5 h-4 w-4 accent-nt-green-500"
               />
               <span className="text-sm text-gray-800">{opt}</span>
             </label>
@@ -196,7 +196,7 @@ function QuizResultsView({
     <div className="card mx-auto max-w-2xl p-6">
       <div
         className={`mb-6 rounded-lg p-4 ${
-          result.passed ? 'bg-emerald-50 text-emerald-900' : 'bg-amber-50 text-amber-900'
+          result.passed ? 'bg-nt-green-50 text-nt-green-700' : 'bg-amber-50 text-amber-700'
         }`}
       >
         <div className="text-sm font-medium uppercase tracking-wide">
@@ -220,7 +220,7 @@ function QuizResultsView({
             <li key={q.id} className="rounded-lg border border-gray-200 p-4">
               <div className="mb-1 flex items-start gap-2">
                 {fb.correct ? (
-                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" />
+                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-nt-green-600" />
                 ) : (
                   <XCircle className="mt-0.5 h-5 w-5 shrink-0 text-red-600" />
                 )}

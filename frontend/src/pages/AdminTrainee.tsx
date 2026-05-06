@@ -191,7 +191,7 @@ function TabButton({
       onClick={onClick}
       className={`-mb-px border-b-2 px-3 py-2 text-sm font-medium transition ${
         active
-          ? 'border-nt-primary text-nt-primary-dark'
+          ? 'border-nt-green-500 text-nt-green-700'
           : 'border-transparent text-gray-600 hover:text-gray-900'
       }`}
     >
@@ -239,7 +239,7 @@ function ProgressTable({ rows }: { rows: TraineeDetail['module_progress'] }) {
 
 function StatusBadge({ status }: { status: string }) {
   const styles: Record<string, string> = {
-    completed: 'bg-emerald-100 text-emerald-800',
+    completed: 'bg-nt-green-50 text-nt-green-700',
     in_progress: 'bg-amber-100 text-amber-800',
     available: 'bg-gray-100 text-gray-700',
     locked: 'bg-gray-100 text-gray-500',
@@ -294,7 +294,7 @@ function QuizzesView({ rows }: { rows: TraineeQuizAttempt[] | null }) {
               <div className="flex items-center gap-2 text-sm">
                 <span
                   className={`inline-flex rounded-full px-2 py-0.5 text-xs font-medium ${
-                    r.passed ? 'bg-emerald-100 text-emerald-800' : 'bg-red-100 text-red-800'
+                    r.passed ? 'bg-nt-green-50 text-nt-green-700' : 'bg-red-100 text-red-800'
                   }`}
                 >
                   {r.passed ? 'Passed' : 'Failed'}
@@ -311,7 +311,7 @@ function QuizzesView({ rows }: { rows: TraineeQuizAttempt[] | null }) {
               <li key={q.question_id} className="rounded-md border border-gray-200 p-3">
                 <div className="mb-1 flex items-start gap-2">
                   {q.correct ? (
-                    <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" />
+                    <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-nt-green-600" />
                   ) : (
                     <XCircle className="mt-0.5 h-4 w-4 shrink-0 text-red-600" />
                   )}
@@ -383,7 +383,7 @@ function ScenariosView({ rows }: { rows: TraineeScenarioAttempt[] | null }) {
                   key={i}
                   className={`rounded-md p-2 text-sm ${
                     m.role === 'user'
-                      ? 'bg-nt-primary/5 text-gray-900'
+                      ? 'bg-nt-green-50 text-gray-900'
                       : 'bg-gray-50 text-gray-700'
                   }`}
                 >
@@ -406,7 +406,7 @@ function ScenariosView({ rows }: { rows: TraineeScenarioAttempt[] | null }) {
                   <div className={`mt-2 ${single ? '' : 'grid grid-cols-1 gap-2 sm:grid-cols-2'}`}>
                     {hasS && (
                       <div>
-                        <div className="text-xs font-semibold text-emerald-700">Strengths</div>
+                        <div className="text-xs font-semibold text-nt-green-700">Strengths</div>
                         <ul className="list-disc pl-5 text-xs text-gray-700">
                           {r.grade.strengths.map((s, i) => (
                             <li key={i}>{s}</li>
@@ -432,7 +432,7 @@ function ScenariosView({ rows }: { rows: TraineeScenarioAttempt[] | null }) {
                   {r.grade.perCriteria.map((c, i) => (
                     <li key={i} className="flex items-start gap-2 text-xs">
                       {c.met ? (
-                        <CheckCircle2 className="mt-0.5 h-3 w-3 shrink-0 text-emerald-600" />
+                        <CheckCircle2 className="mt-0.5 h-3 w-3 shrink-0 text-nt-green-600" />
                       ) : (
                         <XCircle className="mt-0.5 h-3 w-3 shrink-0 text-red-600" />
                       )}
@@ -498,7 +498,7 @@ function ConversationsView({ rows }: { rows: TraineeConversation[] | null }) {
                     key={i}
                     className={`rounded-md p-2 text-sm ${
                       m.role === 'user'
-                        ? 'bg-nt-primary/5 text-gray-900'
+                        ? 'bg-nt-green-50 text-gray-900'
                         : 'bg-gray-50 text-gray-700'
                     }`}
                   >
@@ -547,7 +547,7 @@ function ActivityIcon({ type }: { type: TraineeActivityEvent['type'] }) {
     case 'ai_conversation':
       return <Brain className={`${cls} text-purple-600`} />;
     case 'final_exam':
-      return <Trophy className={`${cls} text-emerald-600`} />;
+      return <Trophy className={`${cls} text-nt-green-600`} />;
   }
 }
 

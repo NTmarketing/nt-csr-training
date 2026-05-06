@@ -13,22 +13,22 @@ const STATUS_CONFIG: Record<
 > = {
   completed: {
     label: 'Completed',
-    color: 'bg-emerald-100 text-emerald-800 ring-emerald-600/20',
+    color: 'bg-nt-green-50 text-nt-green-700 ring-nt-green-500/20',
     icon: <CheckCircle2 className="h-3.5 w-3.5" />,
   },
   in_progress: {
     label: 'In progress',
-    color: 'bg-amber-100 text-amber-800 ring-amber-600/20',
+    color: 'bg-amber-50 text-amber-700 ring-amber-500/20',
     icon: <Clock className="h-3.5 w-3.5" />,
   },
   available: {
     label: 'Available',
-    color: 'bg-blue-100 text-blue-800 ring-blue-600/20',
+    color: 'bg-blue-50 text-blue-700 ring-blue-500/20',
     icon: <PlayCircle className="h-3.5 w-3.5" />,
   },
   locked: {
     label: 'Locked',
-    color: 'bg-gray-100 text-gray-600 ring-gray-500/20',
+    color: 'bg-gray-100 text-gray-500 ring-gray-400/20',
     icon: <Lock className="h-3.5 w-3.5" />,
   },
 };
@@ -56,21 +56,21 @@ export default function ModuleCard({ module, isFinalExam = false }: Props) {
     : `/module/${module.id}`;
 
   const cardClasses = isFinalExam
-    ? 'card relative flex flex-col overflow-hidden border-2 border-nt-primary/40 bg-gradient-to-br from-white to-nt-primary/5 p-6 shadow-md sm:col-span-2 lg:col-span-3'
+    ? 'card relative flex flex-col overflow-hidden border-2 border-nt-green-500/40 bg-gradient-to-br from-white to-nt-green-50 p-6 shadow-md sm:col-span-2 lg:col-span-3'
     : 'card flex flex-col p-5 transition hover:shadow-md';
 
   return (
     <div className={cardClasses}>
       {isFinalExam && (
         <div className="absolute right-4 top-4 hidden sm:block">
-          <Trophy className="h-10 w-10 text-nt-primary/40" />
+          <Trophy className="h-10 w-10 text-nt-green-500/40" />
         </div>
       )}
 
       <div className="mb-3 flex items-center justify-between gap-2">
         <span
           className={`inline-flex items-center text-xs font-semibold uppercase tracking-wide ${
-            isFinalExam ? 'text-nt-primary-dark' : 'text-gray-500'
+            isFinalExam ? 'text-nt-green-700' : 'text-gray-500'
           }`}
         >
           {isFinalExam ? 'Final certification' : `Module ${module.number}`}
@@ -95,14 +95,14 @@ export default function ModuleCard({ module, isFinalExam = false }: Props) {
         </span>
         {module.quiz_score !== null && (
           <span className="font-medium text-gray-700">
-            Quiz: <span className="text-nt-primary-dark">{module.quiz_score}%</span>
+            Quiz: <span className="text-nt-green-700">{module.quiz_score}%</span>
           </span>
         )}
       </div>
 
       <div className="mt-5 flex justify-end">
         {locked ? (
-          <span className="inline-flex items-center gap-2 rounded-lg bg-gray-100 px-4 py-2 text-sm font-medium text-gray-500">
+          <span className="inline-flex items-center gap-2 rounded-md bg-gray-100 px-4 py-2 text-sm font-medium text-gray-500">
             <Lock className="h-4 w-4" /> Locked
           </span>
         ) : (

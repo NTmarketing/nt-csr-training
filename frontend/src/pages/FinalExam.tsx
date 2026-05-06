@@ -72,8 +72,8 @@ export default function FinalExam() {
           <ArrowLeft className="h-4 w-4" /> Back to dashboard
         </Link>
 
-        <div className="card border-2 border-nt-primary/30 bg-gradient-to-br from-white to-nt-primary/5 p-8 text-center">
-          <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-nt-primary/10 text-nt-primary-dark">
+        <div className="card border-2 border-nt-green-500/30 bg-gradient-to-br from-white to-nt-green-50 p-8 text-center">
+          <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-nt-green-50 text-nt-green-700">
             <Award className="h-7 w-7" />
           </div>
           <h1 className="text-2xl font-bold text-gray-900">Final Certification Exam</h1>
@@ -83,15 +83,15 @@ export default function FinalExam() {
 
           <ul className="mx-auto mt-5 max-w-md space-y-1 text-left text-sm text-gray-700">
             <li className="flex items-start gap-2">
-              <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-nt-primary" /> Questions are sampled from
+              <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-nt-green-500" /> Questions are sampled from
               the full curriculum.
             </li>
             <li className="flex items-start gap-2">
-              <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-nt-primary" /> No AI tutor available
+              <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-nt-green-500" /> No AI tutor available
               during the exam.
             </li>
             <li className="flex items-start gap-2">
-              <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-nt-primary" /> You can navigate back to
+              <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-nt-green-500" /> You can navigate back to
               review answers before submitting.
             </li>
           </ul>
@@ -128,7 +128,7 @@ export default function FinalExam() {
 
       <div className="mb-3 h-1.5 w-full overflow-hidden rounded-full bg-gray-200">
         <div
-          className="h-full bg-nt-primary"
+          className="h-full bg-nt-green-500"
           style={{ width: `${((currentIdx + 1) / questions.length) * 100}%` }}
         />
       </div>
@@ -202,7 +202,7 @@ function ExamQuestionInput({
               key={idx}
               className={`flex cursor-pointer items-start gap-3 rounded-lg border p-3 transition ${
                 selected
-                  ? 'border-nt-primary bg-nt-primary/5'
+                  ? 'border-nt-green-500 bg-nt-green-50'
                   : 'border-gray-200 bg-white hover:bg-gray-50'
               }`}
             >
@@ -211,7 +211,7 @@ function ExamQuestionInput({
                 name={question.id}
                 checked={selected}
                 onChange={() => onChange(idx)}
-                className="mt-0.5 h-4 w-4 accent-nt-primary"
+                className="mt-0.5 h-4 w-4 accent-nt-green-500"
               />
               <span className="text-sm text-gray-800">{opt}</span>
             </label>
@@ -237,12 +237,12 @@ function ExamResultsView({ result, onDashboard }: { result: ExamResult; onDashbo
     <div className="mx-auto max-w-2xl">
       <div
         className={`card mb-6 p-8 text-center ${
-          result.passed ? 'border-emerald-200 bg-emerald-50' : 'border-amber-200 bg-amber-50'
+          result.passed ? 'border-nt-green-100 bg-nt-green-50' : 'border-amber-200 bg-amber-50'
         }`}
       >
         <div
           className={`mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-full ${
-            result.passed ? 'bg-emerald-100 text-emerald-700' : 'bg-amber-100 text-amber-700'
+            result.passed ? 'bg-nt-green-50 text-nt-green-700' : 'bg-amber-100 text-amber-700'
           }`}
         >
           {result.passed ? <Award className="h-7 w-7" /> : <AlertCircle className="h-7 w-7" />}
@@ -281,7 +281,7 @@ function ExamResultsView({ result, onDashboard }: { result: ExamResult; onDashbo
                 >
                   <span className="flex items-center gap-2">
                     {ok ? (
-                      <CheckCircle2 className="h-4 w-4 text-emerald-600" />
+                      <CheckCircle2 className="h-4 w-4 text-nt-green-600" />
                     ) : (
                       <XCircle className="h-4 w-4 text-red-500" />
                     )}

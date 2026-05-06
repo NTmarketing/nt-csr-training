@@ -66,7 +66,7 @@ export default function QuizPage() {
       </div>
 
       <div className="mb-6 text-center">
-        <div className="text-xs font-semibold uppercase tracking-wide text-nt-primary-dark">
+        <div className="text-xs font-semibold uppercase tracking-wide text-nt-green-700">
           Module {module.number} Quiz
         </div>
         <h1 className="text-2xl font-bold text-gray-900">{module.title}</h1>
