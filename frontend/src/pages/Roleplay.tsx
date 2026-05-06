@@ -45,6 +45,16 @@ export default function Roleplay() {
     };
   }, [id]);
 
+  // Reset per-scenario state when navigating between scenarios. The component
+  // stays mounted across /scenario/:scenarioId transitions within the same
+  // module (the load effect above keys on moduleId only), so without this the
+  // grade screen and any typed free-response leak from one scenario to the next.
+  useEffect(() => {
+    setGrade(null);
+    setFreeResponse('');
+    setGrading(false);
+  }, [scenarioId]);
+
   if (error) {
     return (
       <div className="rounded-lg border border-red-200 bg-red-50 p-4 text-sm text-red-800">
