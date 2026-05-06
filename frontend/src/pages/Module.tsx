@@ -344,12 +344,30 @@ export default function Module() {
               <button
                 type="button"
                 onClick={() => {
-                  if (module && section) recordSectionViewed(module.id, section.id);
+                  if (!module || !section) return;
+                  // Mark the last section viewed (in-session) so the inline
+                  // Phase 2 area on this page opens for anyone who navigates
+                  // back here mid-progress. This fires the persistence POST
+                  // too — idempotent.
+                  recordSectionViewed(module.id, section.id);
+                  flushSectionTime();
+                  // Navigate forward: first unattempted scenario, else quiz,
+                  // else back to module if neither exists.
+                  const completion = module.scenario_completion ?? {};
+                  const firstUnattempted = (module.scenarios || []).find(
+                    (s) => !completion[s.id]?.attempted,
+                  );
+                  if (firstUnattempted) {
+                    navigate(`/module/${module.id}/scenario/${firstUnattempted.id}`);
+                  } else if ((module.quiz || []).length > 0) {
+                    navigate(`/module/${module.id}/quiz`);
+                  } else {
+                    navigate(`/module/${module.id}`);
+                  }
                 }}
-                disabled={allViewed}
                 className="btn-primary"
               >
-                {allViewed ? 'Lessons complete' : 'Mark lessons complete'}
+                Next Phase <ArrowRight className="h-4 w-4" />
               </button>
             )}
           </div>

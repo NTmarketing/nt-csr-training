@@ -405,7 +405,13 @@ The 12 must-know facts from Module 10, used for the spaced-repetition drilling r
 - Module page layout: lesson content (left, ~65% width) + AI tutor chat panel (right, ~35% width, collapsible). Section nav at top. "Take quiz" button at the bottom unlocks after scrolling through all sections.
 - Quiz UI: one question at a time, submit per question OR all at once. Show feedback after submission.
 - Roleplay UI: full-screen chat, AI plays customer based on persona. "End conversation" button triggers grading.
-- Scenario grade screen: shows score (numeric or "Solid"/"Recorded" badge per rule above), feedback paragraph, strengths/weaknesses (free response) or per-criteria checklist (roleplay), and **two buttons**: "Try again" (resets the scenario locally) and "Next scenario →" / "Back to module" (navigates to the next unattempted scenario in module order, or back to the module page if none remain). The just-attempted scenario is treated as attempted regardless of stale `scenario_completion` state.
+- Scenario grade screen: shows score (numeric or "Solid"/"Recorded" badge per rule above), feedback paragraph, strengths/weaknesses (free response) or per-criteria checklist (roleplay), and forward navigation. Forward button label and target adapt to context:
+  - If another unattempted scenario exists in the module → **"Next"** → `/module/:id/scenario/:nextId` (first scenario in module order with `attempted: false`; the just-attempted current scenario is treated as attempted regardless of stale `scenario_completion`).
+  - Else if the module has a quiz → **"Start Quiz"** → `/module/:id/quiz`.
+  - Else → **"Back to module"** → `/module/:id`.
+  
+  "Try again" is shown only when `score < 6`; at score ≥ 6 (and for the "Solid" badge case, which always reflects a high underlying numeric), only the forward button renders. Manual click — no auto-advance. Try-again order: `[Try again] [forward]` left-to-right.
+- Module page Phase 1 → Phase 2 transition: the button on the last lesson section reads **"Next Phase"** and navigates directly to the first unattempted scenario (`/module/:id/scenario/:firstUnattemptedId`). If all scenarios are already attempted, it routes to the quiz; if the module has no scenarios (final-cert tile), it routes straight to the quiz. The inline Phase 2 area on the module page still appears once all sections are viewed in-session — it serves trainees who navigate back mid-progress, but is not the primary forward path.
 - Final exam: 25 questions, no AI tutor available, timer optional (10 min/question = 4 hours, generous).
 - Certificate page: clean printable layout with trainee name, completion date, final score.
 

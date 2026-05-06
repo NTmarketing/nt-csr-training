@@ -138,37 +138,39 @@ export default function Roleplay() {
         )}
       </div>
 
-      {grade ? (
-        <GradeView
-          grade={grade}
-          type={scenario.type}
-          onRetry={() => {
-            setGrade(null);
-            setFreeResponse('');
-          }}
-          onNext={() => {
-            // Find the next unattempted scenario in module order, treating the
-            // just-attempted current scenario as attempted regardless of stale
-            // scenario_completion state.
-            const completion = module.scenario_completion ?? {};
-            const next = module.scenarios.find(
-              (s) => s.id !== scenario.id && !completion[s.id]?.attempted,
-            );
-            if (next) {
-              navigate(`/module/${module.id}/scenario/${next.id}`);
-            } else {
-              navigate(`/module/${module.id}`);
-            }
-          }}
-          nextLabel={(() => {
-            const completion = module.scenario_completion ?? {};
-            const next = module.scenarios.find(
-              (s) => s.id !== scenario.id && !completion[s.id]?.attempted,
-            );
-            return next ? 'Next scenario' : 'Back to module';
-          })()}
-        />
-      ) : scenario.type === 'roleplay' ? (
+      {grade ? (() => {
+        // Decide where the forward button leads. Treat the just-attempted
+        // current scenario as attempted regardless of stale completion state.
+        const completion = module.scenario_completion ?? {};
+        const nextUnattempted = module.scenarios.find(
+          (s) => s.id !== scenario.id && !completion[s.id]?.attempted,
+        );
+        const hasQuiz = (module.quiz || []).length > 0;
+        let nextLabel: string;
+        let nextHref: string;
+        if (nextUnattempted) {
+          nextLabel = 'Next';
+          nextHref = `/module/${module.id}/scenario/${nextUnattempted.id}`;
+        } else if (hasQuiz) {
+          nextLabel = 'Start Quiz';
+          nextHref = `/module/${module.id}/quiz`;
+        } else {
+          nextLabel = 'Back to module';
+          nextHref = `/module/${module.id}`;
+        }
+        return (
+          <GradeView
+            grade={grade}
+            type={scenario.type}
+            onRetry={() => {
+              setGrade(null);
+              setFreeResponse('');
+            }}
+            onNext={() => navigate(nextHref)}
+            nextLabel={nextLabel}
+          />
+        );
+      })() : scenario.type === 'roleplay' ? (
         <div className="h-[60vh] min-h-[420px]">
           <AIChat
             mode="roleplay"
@@ -323,9 +325,15 @@ function GradeView({
       )}
 
       <div className="mt-6 flex justify-end gap-2">
-        <button onClick={onRetry} className="btn-secondary">
-          Try again
-        </button>
+        {/* "Try again" only when the trainee actually flubbed it (score < 6).
+            For score 6+ (including the "Solid" badge case, which always reflects
+            a high underlying numeric), the only forward button is shown. If the
+            API somehow didn't return a numeric, default to hiding Try Again. */}
+        {typeof score === 'number' && score < 6 && (
+          <button onClick={onRetry} className="btn-secondary">
+            Try again
+          </button>
+        )}
         <button onClick={onNext} className="btn-primary">
           {nextLabel} <ArrowRight className="h-4 w-4" />
         </button>
