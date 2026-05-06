@@ -2,11 +2,9 @@ import {
   AlertCircle,
   ArrowLeft,
   ArrowRight,
-  Circle,
   CheckCircle2,
   ChevronDown,
   ChevronUp,
-  ClipboardCheck,
   Loader2,
   MessageSquare,
   Target,
@@ -166,10 +164,6 @@ export default function Module() {
   const hasScenarios = scenarios.length > 0;
   const allScenariosDone = !hasScenarios || completedScenarios === scenarios.length;
 
-  const phase2Visible = allViewed; // hide until lessons done
-  const phase3Visible = allViewed && allScenariosDone; // hide until practice done
-  const quizUnlocked = phase3Visible;
-
   const currentPhase: Phase = !allViewed
     ? 1
     : !allScenariosDone
@@ -231,14 +225,11 @@ export default function Module() {
         { n: 2, label: 'Quiz', active: currentPhase === 3, done: false },
       ];
 
-  const nextUpBanner =
-    currentPhase === 1
-      ? hasScenarios
-        ? 'Complete all sections to unlock practice scenarios.'
-        : 'Complete all sections to unlock the quiz.'
-      : currentPhase === 2
-        ? 'Complete all scenarios to unlock the quiz.'
-        : '';
+  const nextUpBanner = !allViewed
+    ? hasScenarios
+      ? 'Continue through the lessons to unlock practice scenarios.'
+      : 'Continue through the lessons to unlock the quiz.'
+    : '';
 
   return (
     <div className="grid grid-cols-1 gap-6 lg:grid-cols-5">
@@ -345,10 +336,9 @@ export default function Module() {
                 type="button"
                 onClick={() => {
                   if (!module || !section) return;
-                  // Mark the last section viewed (in-session) so the inline
-                  // Phase 2 area on this page opens for anyone who navigates
-                  // back here mid-progress. This fires the persistence POST
-                  // too — idempotent.
+                  // Mark the last section viewed (in-session) so allViewed
+                  // flips to true and the PhaseIndicator above shows Lessons
+                  // as done. Also fires the persistence POST — idempotent.
                   recordSectionViewed(module.id, section.id);
                   flushSectionTime();
                   // Navigate forward: first unattempted scenario, else quiz,
@@ -373,91 +363,11 @@ export default function Module() {
           </div>
         </div>
 
-        {/* Phase 2 — Practice scenarios — hidden until Phase 1 complete */}
-        {hasScenarios && phase2Visible && (
-          <div className="mt-8">
-            <PhaseHeader
-              step={2}
-              total={totalPhases}
-              title="Practice scenarios"
-              done={allScenariosDone}
-              progress={`${completedScenarios} / ${scenarios.length}`}
-            />
-            <div
-              className={`rounded-lg border p-4 ${
-                allScenariosDone
-                  ? 'border-emerald-200 bg-emerald-50/40'
-                  : 'border-amber-200 bg-amber-50/40'
-              }`}
-            >
-              <div className="mb-3 flex items-start gap-2 text-sm">
-                <span className="font-medium text-gray-900">
-                  Required: complete all practice scenarios before the quiz.
-                </span>
-              </div>
-              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-                {scenarios.map((sc) => {
-                  const attempted = !!completion[sc.id]?.attempted;
-                  return (
-                    <Link key={sc.id} to={`/module/${module.id}/scenario/${sc.id}`}>
-                      <div className="card flex h-full flex-col p-4 transition hover:shadow-md">
-                        <div className="flex flex-wrap items-center justify-between gap-1">
-                          <span className="text-xs font-semibold uppercase tracking-wide text-nt-primary-dark">
-                            {sc.type === 'roleplay' ? 'Roleplay' : 'Free response'}
-                          </span>
-                          {attempted ? (
-                            <span className="inline-flex items-center gap-1 rounded-full bg-emerald-100 px-2 py-0.5 text-[11px] font-semibold text-emerald-800">
-                              <CheckCircle2 className="h-3 w-3" /> Completed
-                            </span>
-                          ) : (
-                            <span className="inline-flex items-center gap-1 rounded-full bg-gray-100 px-2 py-0.5 text-[11px] font-semibold text-gray-600">
-                              <Circle className="h-3 w-3" /> Not yet
-                            </span>
-                          )}
-                        </div>
-                        <p className="mt-2 line-clamp-3 text-sm text-gray-800">{sc.prompt}</p>
-                        <span className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-gray-600">
-                          {attempted ? 'Practice again' : 'Start practice'}{' '}
-                          <ArrowRight className="h-3.5 w-3.5" />
-                        </span>
-                      </div>
-                    </Link>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* Phase 3 — Quiz — hidden until Phase 2 complete */}
-        {phase3Visible && (
-          <div className="mt-8">
-            <PhaseHeader
-              step={hasScenarios ? 3 : 2}
-              total={totalPhases}
-              title="Quiz"
-              done={false}
-            />
-            <div className="rounded-lg border border-nt-primary/30 bg-nt-primary/5 p-5">
-              <div className="flex items-center justify-between gap-3">
-                <div className="text-sm">
-                  <span className="font-medium text-gray-900">
-                    Ready when you are. You'll need {module.passing_score_percent}% to pass.
-                  </span>
-                </div>
-                <button
-                  type="button"
-                  onClick={() => navigate(`/module/${module.id}/quiz`)}
-                  disabled={!quizUnlocked}
-                  className="btn-primary shrink-0"
-                  title={quizUnlocked ? 'Take the quiz' : 'Quiz locked'}
-                >
-                  <ClipboardCheck className="h-4 w-4" /> Take quiz
-                </button>
-              </div>
-            </div>
-          </div>
-        )}
+        {/* Phase 2 (Practice) and Phase 3 (Quiz) live on dedicated pages.
+            The "Next Phase" button on the last section auto-chains forward to
+            the first unattempted scenario (or quiz if none). The PhaseIndicator
+            roadmap above keeps the trainee oriented without needing inline
+            cards here. */}
       </div>
 
       <aside className="hidden lg:col-span-2 lg:block">
