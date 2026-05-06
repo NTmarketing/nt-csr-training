@@ -718,12 +718,12 @@
         {
           "id": "section-3-1",
           "title": "The Booking Flow (Get the Order Right)",
-          "content_md": "**The correct booking order is:**\n\n1. **Renter searches** for a trailer\n2. **Renter completes ID verification** (during the booking process — Clear + MVR)\n3. **Renter pays** and submits the booking\n4. **Owner accepts** the booking and coordinates pickup\n\n**This is important:** there is **no \"owner accepts → THEN renter pays\" flow.** Payment and ID verification happen at booking submission. The owner's acceptance comes after, with money already on the renter's card.\n\nReminder from Module 2: **ID verification is required on EVERY booking** — not just the first. So step 2 happens every time the renter books.\n\n**Owner-acceptance timing:** NT does not have a hard SLA on owner response. If it has been more than 24 hours with no response:\n- Encourage the renter to message the owner directly through the booking page\n- Look at alternative trailers (different listings) — see the multi-booking note in section 3-5 before suggesting they hold both\n- After 48-72 hours of total silence, escalate so the team can reach the owner or assist with cancellation/refund",
+          "content_md": "**The correct booking order is:**\n\n1. **Renter searches** for a trailer\n2. **Renter completes ID verification** (during the booking process — Clear + MVR)\n3. **Renter pays** and submits the booking\n4. **Owner accepts** the booking and coordinates pickup\n\n**This is important:** there is **no \"owner accepts → THEN renter pays\" flow.** Payment and ID verification happen at booking submission. The owner's acceptance comes after, with money already on the renter's card.\n\nReminder from Module 2: **ID verification is required on EVERY booking** — not just the first. So step 2 happens every time the renter books.\n\n**Owner-acceptance timing:** NT does not have a hard SLA on owner response. If the renter is anxious about the wait, reassure them most owners accept within a few hours. If it's been substantially longer with no response, you can gently nudge the owner via the messaging system or escalate to a manager based on context.\n\nWhile waiting, the renter can also look at alternative trailers (different listings) — see the multi-booking note in section 3-5 before suggesting they hold both.",
           "key_points": [
             "Order: search → ID verify → pay → submit → owner accepts → coordinate",
             "NO \"owner accepts then renter pays\" flow — payment + verification happen at submission",
             "ID verification re-runs on every booking (not just first)",
-            "No hard SLA on owner response; >24h = message owner; >48-72h silence = escalate"
+            "No hard SLA on owner response; reassure that most owners accept within a few hours; nudge or escalate based on context"
           ]
         },
         {
@@ -789,9 +789,9 @@
           "customer_persona": "Impatient renter who expected instant confirmation. Has plans for the weekend. Will get more frustrated if you don't acknowledge the issue quickly.",
           "rubric": [
             "Acknowledges frustration",
-            "Sets correct expectation: no hard SLA, but >24h is reasonable to message owner",
+            "Sets correct expectation: no hard SLA, most owners accept within a few hours",
             "Confirms payment + ID verification already happened at booking submission (so the renter understands their card was charged)",
-            "Mentions escalation path after 48-72 hours of total silence",
+            "Offers a path forward — nudge the owner via messaging, look at alternative listings, or escalate based on context",
             "Doesn't suggest \"book another one as backup\" as a workaround"
           ],
           "difficulty": "standard"
