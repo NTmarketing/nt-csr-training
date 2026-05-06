@@ -83,6 +83,12 @@
       "fact": "Phone number policy: do not proactively share NT's phone number unless the customer explicitly asks. Default to email or live chat.",
       "test_question": "Should a CSR proactively share NT's phone number?",
       "test_answer": "No, only share it if the customer explicitly asks; default to email or live chat"
+    },
+    {
+      "id": "fact-15",
+      "fact": "Owner cancellation = 30% fee deducted from the owner's next payout. No with-cause/without-cause terminology. Edge cases (legitimate emergency, trailer broke unexpectedly) are waivable at NT discretion — open the door for a waiver review, do not promise one.",
+      "test_question": "What is the standard owner cancellation fee, and how is it collected?",
+      "test_answer": "30% of the booking value, deducted from the owner's next payout. Waivable at NT discretion for legitimate emergencies."
     }
   ]
 }

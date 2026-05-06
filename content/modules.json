@@ -342,7 +342,8 @@
         "Explain what Neighbors Trailer is in one sentence",
         "Distinguish between Renter and Owner roles",
         "Walk through the full booking lifecycle from search to payout",
-        "Define core platform terminology (NT Protect, MVR, Clear, Toll Program)"
+        "Define core platform terminology (NT Protect, MVR, Clear, Toll Program)",
+        "Explain the multi-booking policy and why \"back-up bookings\" is bad advice"
       ],
       "sections": [
         {
@@ -380,6 +381,16 @@
             "NT Protect = damage protection (not insurance), with exclusions",
             "Toll Program = owner opt-in",
             "MVR + Clear = required renter verifications"
+          ]
+        },
+        {
+          "id": "section-1-4",
+          "title": "Multi-Booking — Allowed, but Each One Is Real",
+          "content_md": "**Renters CAN book multiple trailers at the same time.** The platform doesn't restrict this. Each booking is independent.\n\n**The catch:** if one booking falls through (rejected, doesn't work out), the **standard cancellation policy applies normally to the others.** Each booking is its own contract.\n\n**Do NOT teach trainees the \"back-up booking\" workaround.** It used to come up as a way to hedge: \"book two trailers in case one falls through, then cancel the one you don't need.\" That advice is wrong because:\n- Both bookings are real, with real money on the renter's card\n- Cancelling the unused one falls under the cancellation refund schedule\n- Owners on the cancelled-side end up with a wasted hold on their calendar\n\n**Right framing for a renter on the fence:** \"Each booking you place is a real reservation with money on the line. If you're unsure about one, message the owner with questions before booking — don't book a second one as backup.\"",
+          "key_points": [
+            "Renters can book multiple trailers at once — each booking is independent",
+            "Cancellation policy applies normally if they cancel one to keep the other",
+            "Do NOT teach the \"back-up booking\" workaround — it costs the renter money and burns owners' calendars"
           ]
         }
       ],
@@ -477,20 +488,25 @@
       "id": "module-2",
       "number": 3,
       "title": "Account & Verification",
-      "description": "Account creation, Clear ID verification, MVR checks, and the most common 'my account is inactive' triage.",
-      "estimated_minutes": 15,
+      "description": "Account creation, ID verification on EVERY booking, MVR checks, the 21+ age requirement, the third-party driver gray area, and account inactive vs. deactivated triage.",
+      "estimated_minutes": 20,
       "learning_objectives": [
         "Walk renters and owners through account creation",
-        "Explain Clear ID verification and respond to refusals",
-        "Explain MVR and the most common rejection reasons",
-        "Triage 'my account is inactive' inquiries"
+        "Explain that ID verification is required on EVERY booking, not just the first",
+        "Explain Clear and respond to refusals",
+        "Explain MVR rejections and the CSR escalation path",
+        "State the 21+ age requirement",
+        "Apply the third-party driver gray-area framing correctly",
+        "Triage account inactive vs. account deactivated"
       ],
       "sections": [
         {
           "id": "section-2-1",
-          "title": "The Two Required Verifications",
-          "content_md": "Before a renter can book, they must complete **two** verifications:\n\n1. **ID verification via Clear** — third-party identity check\n2. **MVR (Motor Vehicle Record)** — driver record check\n\nIf either fails, the booking is blocked. There is no manual override path that a CSR can take. A failed MVR is escalated; a refused Clear is handled by re-explaining the purpose.\n\nA standard **Class C license** is sufficient for renting a standard trailer. **No CDL required.** Customers often think a CDL is needed and it isn't — clear that up early in the call.",
+          "title": "The Two Required Verifications — Every Booking",
+          "content_md": "Before a renter can book, they must complete **two** verifications:\n\n1. **ID verification via Clear** — third-party identity check\n2. **MVR (Motor Vehicle Record)** — driver record check\n\n**Critical:** ID verification is required on **EVERY booking**, not just the first. Not on a schedule. Not just when the system flags something. Every. Single. Booking. This is a notable simplification from older curriculum that taught a more complex \"first booking only\" or \"every 90 days\" schedule. Tell the renter cleanly: \"You'll re-verify each time you book.\"\n\n**Minimum age to rent: 21.** A renter under 21 cannot book on the platform. This is a hard cutoff.\n\nA standard **Class C license** is sufficient for renting a standard trailer. **No CDL required.** Customers often think a CDL is needed and it isn't — clear that up early in the call.\n\nIf either verification fails, the booking is blocked. There is no manual override path that a CSR can take. A failed MVR is escalated; a refused Clear is handled by re-explaining the purpose.",
           "key_points": [
+            "ID verification required on EVERY booking — not just the first",
+            "Minimum age to rent: 21 (hard cutoff)",
             "Both Clear and MVR must pass before booking",
             "Standard Class C license is enough — no CDL",
             "CSR cannot override either rejection"
@@ -499,7 +515,7 @@
         {
           "id": "section-2-2",
           "title": "Handling Clear Refusals",
-          "content_md": "The most common reasons renters refuse Clear:\n- Privacy concerns ('I don't want to share my ID')\n- Technical issues with the Clear flow\n- They don't have the right ID on hand\n\nWhat to say:\n- Clear is industry-standard and used by airlines and stadiums.\n- NT does **not** store your ID image.\n- Verification protects both renters and owners — it's how we keep bad actors off the platform.\n\nDon't argue. Acknowledge their concern, explain the purpose, and let them decide. If they still refuse, the booking simply can't proceed.",
+          "content_md": "The most common reasons renters refuse Clear:\n- Privacy concerns ('I don\\'t want to share my ID')\n- Technical issues with the Clear flow\n- They don\\'t have the right ID on hand\n\nWhat to say:\n- Clear is industry-standard and used by airlines and stadiums.\n- NT does **not** store your ID image.\n- Verification protects both renters and owners — it's how we keep bad actors off the platform.\n\nDon't argue. Acknowledge their concern, explain the purpose, and let them decide. If they still refuse, the booking simply can't proceed.",
           "key_points": [
             "Clear is industry-standard — name-drop airlines/stadiums",
             "NT does not store ID images",
@@ -518,18 +534,35 @@
         },
         {
           "id": "section-2-4",
-          "title": "'My Account Is Inactive'",
-          "content_md": "Three usual causes:\n1. **Unverified email** — most common; have them check spam and resend the verification email\n2. **Missing required listing fields** (owner side) — listing is incomplete\n3. **Compliance hold** — admin action; escalate\n\nTriage in that order. If 1 and 2 don't fit, escalate.",
+          "title": "Third-Party Drivers — The Gray Area",
+          "content_md": "**This is a gray area, not a hard rule. Get the framing right.**\n\nOfficially: only the booking renter should be driving the trailer.\n\nIn practice: a third-party driver IS allowed **if the OWNER is OK with it.** It's a between-the-renter-and-the-owner agreement.\n\n**The right thing to tell a renter** who asks if their friend / spouse / coworker can drive:\n> \"Officially the renter should be the driver, but if the owner approves a third-party driver, that's between you and the owner. Confirm with the owner before pickup.\"\n\n**What NOT to say:**\n- ❌ \"Absolutely no third-party drivers.\" (That's wrong — it's owner discretion.)\n- ❌ \"Yes, anyone can drive.\" (Also wrong — the owner has to approve.)\n\nThe single most common version of this call: \"My spouse and I share driving on long trips — can they drive too?\" The right answer is the owner's call; coach the renter to message the owner before pickup.",
           "key_points": [
-            "Triage order: email → listing fields → compliance hold",
-            "Email change requires verification of the new address"
+            "Third-party driver = gray area, NOT a hard rule",
+            "Officially the renter drives; in practice owner can approve a third-party",
+            "Coach the renter to confirm with the owner before pickup",
+            "Never say \"absolutely not\" or \"yes anyone can\" — both are wrong"
+          ]
+        },
+        {
+          "id": "section-2-5",
+          "title": "Account Inactive vs. Deactivated — Triage",
+          "content_md": "When a customer says \"my account is inactive\" or \"my account is deactivated,\" the **first triage question** is: **which one?** The wording matters.\n\n**Inactive** usually means a low-friction issue:\n- Unverified email (most common)\n- Missing required listing fields (owner side)\n- Profile incomplete\n\n**Deactivated** usually means one of two main causes:\n1. **NT team deactivation due to policy violation** (compliance hold, fraud flag, repeat-offender pattern)\n2. **User self-deactivation** (the user clicked deactivate in account settings)\n\n**Reactivation flow** (for deactivated accounts):\n1. User contacts NT support\n2. Team reviews the deactivation reason\n3. Team reactivates if appropriate\n\nThe CSR can't unilaterally reactivate a deactivated account — escalate to the team. For \"inactive\" cases, walk the user through the obvious fixes (resend verification email, complete profile fields).\n\n**Right opening question on these calls:** \"Is the account showing inactive or deactivated? The wording on the screen matters — they're different paths.\"",
+          "key_points": [
+            "First question: inactive or deactivated? Wording matters.",
+            "Inactive → unverified email, missing fields, incomplete profile",
+            "Deactivated → NT team policy violation OR user self-deactivation",
+            "Reactivation = user contacts support → team reviews → team reactivates if appropriate",
+            "CSR cannot unilaterally reactivate — escalate"
           ]
         }
       ],
       "kb_references": [
         "How do I complete ID verification?",
         "What are the requirements to rent a trailer?",
+        "What is the minimum age to rent a trailer?",
+        "Can someone other than the renter drive the trailer?",
         "Why is my account inactive?",
+        "Why was my account deactivated?",
         "How do I change my email address for my account?",
         "Template: Refusal to use Clear",
         "Template: MVR Booking Rejection"
@@ -563,45 +596,96 @@
         },
         {
           "id": "module-2-scenario-3",
-          "type": "free_response",
-          "prompt": "An owner calls saying their account is inactive and they don't know why. What three things do you check, in order?",
+          "type": "roleplay",
+          "prompt": "A renter asks: 'My husband and I share driving on long trips — can he drive the trailer too?'",
+          "customer_persona": "Practical renter, friendly. Just wants a clear answer.",
           "rubric": [
-            "Mentions unverified email first",
-            "Mentions missing required listing fields second",
-            "Mentions compliance hold third (and that it's escalated)",
-            "Concise"
+            "Does NOT say \"absolutely not\" or \"yes anyone can\"",
+            "States the right gray-area framing: officially the renter, but owner can approve a third-party driver",
+            "Coaches them to confirm with the owner before pickup",
+            "Direct, not wishy-washy"
+          ],
+          "difficulty": "easy"
+        },
+        {
+          "id": "module-2-scenario-4",
+          "type": "free_response",
+          "prompt": "An owner calls saying their account is showing 'deactivated' on their dashboard. What's your first triage question, and what are the two main causes you walk them through?",
+          "rubric": [
+            "First question: confirm wording — inactive vs deactivated",
+            "Names the two main causes of deactivated: NT team deactivation (policy violation) or user self-deactivation",
+            "Explains reactivation = user contacts support → team reviews → team reactivates",
+            "Notes CSR cannot unilaterally reactivate — escalate"
           ]
         }
       ],
       "quiz": [
         {
           "id": "m2-q1",
+          "question": "How often is ID verification required for a renter?",
+          "type": "multiple_choice",
+          "options": [
+            "Only on the first booking",
+            "Every 90 days",
+            "On every booking",
+            "Only when the system flags it"
+          ],
+          "correct_index": 2,
+          "explanation": "ID verification is required on EVERY booking. Not just the first. This is a notable simplification from older curriculum."
+        },
+        {
+          "id": "m2-q2",
+          "question": "What is the minimum age to rent a trailer on the platform?",
+          "type": "multiple_choice",
+          "options": [
+            "18",
+            "21",
+            "25",
+            "No minimum"
+          ],
+          "correct_index": 1,
+          "explanation": "21. Hard cutoff — under-21 callers cannot book."
+        },
+        {
+          "id": "m2-q3",
+          "question": "A renter asks if their spouse can drive the trailer too. What's the correct CSR answer?",
+          "type": "multiple_choice",
+          "options": [
+            "Absolutely not — only the booking renter can drive",
+            "Yes, anyone with a license can drive",
+            "Officially the renter drives, but if the owner approves a third-party driver, that is between you and the owner — confirm with the owner before pickup",
+            "Only with a written waiver from NT"
+          ],
+          "correct_index": 2,
+          "explanation": "Third-party driver is a gray area. Officially the renter drives, but owner can approve a third-party driver. Coach the renter to confirm with the owner before pickup."
+        },
+        {
+          "id": "m2-q4",
           "question": "Can a CSR override an MVR rejection?",
           "type": "multiple_choice",
           "options": [
             "Yes, with manager approval",
-            "No — escalate",
+            "No — escalate every time",
             "Yes, after re-running the check",
             "Only for owners"
           ],
           "correct_index": 1,
-          "explanation": "MVR is a third-party check. CSRs cannot override; these must be escalated."
+          "explanation": "MVR is a third-party check. CSRs cannot override; escalate."
         },
         {
-          "id": "m2-q2",
-          "question": "What is Clear used for?",
-          "type": "multiple_choice",
-          "options": [
-            "Owner background checks",
-            "Renter ID verification",
-            "Insurance underwriting",
-            "Payment processing"
+          "id": "m2-q5",
+          "question": "A user says their account is deactivated. Two main causes?",
+          "type": "short_answer",
+          "expected_keywords": [
+            "NT",
+            "team",
+            "self",
+            "policy"
           ],
-          "correct_index": 1,
-          "explanation": "Clear is the third-party ID verification provider for renters."
+          "explanation": "NT team deactivation due to policy violation, or user self-deactivation through account settings. Reactivation = user contacts support → team reviews → team reactivates."
         },
         {
-          "id": "m2-q3",
+          "id": "m2-q6",
           "question": "Is a CDL required to rent a standard trailer?",
           "type": "multiple_choice",
           "options": [
@@ -612,16 +696,6 @@
           ],
           "correct_index": 1,
           "explanation": "A standard Class C license is sufficient. No CDL is required for standard trailers."
-        },
-        {
-          "id": "m2-q4",
-          "question": "What is the most common cause of an 'account inactive' issue?",
-          "type": "short_answer",
-          "expected_keywords": [
-            "unverified email",
-            "email"
-          ],
-          "explanation": "Unverified email is the first thing to check — usually the renter or owner missed the verification email."
         }
       ],
       "passing_score_percent": 70
@@ -775,43 +849,69 @@
       "id": "module-4",
       "number": 5,
       "title": "Booking Lifecycle (Owner Side)",
-      "description": "Owner-side flows: accepting bookings, starting and ending rentals, listing approval, and 'my listing isn't showing' troubleshooting.",
-      "estimated_minutes": 15,
+      "description": "Owner-side flows: listing approval (and the VIN-already-exists path), the 4-photo pickup/return requirement, start/end compliance, late returns (owner-handled), owner cancellation (30% fee), and self-serve tools.",
+      "estimated_minutes": 25,
       "learning_objectives": [
+        "Explain listing approval timing and what happens when a VIN is already on the platform",
+        "Walk an owner through the 4-photo pickup/return requirement",
         "Walk an owner through accepting, starting, and ending a rental",
-        "Explain listing approval timing and common rejection reasons",
-        "Handle 'my listing isn't showing' calls",
-        "Coach owners on photo and listing policy"
+        "Explain owner-side cancellation: 30% fee, no with-cause/without-cause distinction, edge-case waivers",
+        "Explain how late returns are handled — owner extends or files a DDC; NT does not auto-charge late fees",
+        "Coach owners on listing edits (anytime), photo policy, and multi-trailer ownership (no cap)"
       ],
       "sections": [
         {
           "id": "section-4-1",
-          "title": "Listing Approval",
-          "content_md": "New listings go through approval — typically **24-48 hours**. It's a mix of automated and manual review.\n\nCommon rejection reasons:\n- Bad or low-quality photos\n- Phone numbers, addresses, or company names visible in photos\n- Missing dimensions (length, width, height, weight capacity)\n- Formatting issues in the description\n- Hitch type not specified\n\nIf an owner asks to add their company logo to photos, the answer is **no** — that violates listing policy and the photo will be removed during review.",
+          "title": "Listing Approval & the VIN-Already-Exists Path",
+          "content_md": "New listings go through approval. **Typical timing: 1-2 business hours when no issues are flagged. Up to 24-48 hours when something needs owner follow-up** (photos, dimensions, compliance items).\n\nCommon things that slow approval:\n- Bad or low-quality photos\n- Phone numbers, addresses, or company names visible in photos (will be removed)\n- Missing dimensions (length, width, height, weight capacity)\n- Hitch type not specified\n- Description formatting issues\n\n**VIN-already-exists workflow.** If an owner submits a listing with a VIN already on the platform, the listing is **NOT auto-rejected**. It goes to the review team for manual review. The team checks where that VIN already lives — an existing active listing, a prior account, an inactive listing — before approving the new submission.\n\nWhen an owner calls about a VIN duplicate hold, the right framing is: \"That VIN is already in our system, so the team is reviewing where it currently lives before approving your new listing. This is a manual review, not a rejection — they'll be in touch.\" Don't promise a timeline beyond \"the team is on it.\"\n\nOwners can list **as many trailers as they want.** No fleet cap. No special verification process for high-volume owners.",
           "key_points": [
-            "Approval typically 24-48 hours",
-            "No phone numbers, addresses, logos, or company names in photos",
-            "Missing dimensions is the most common rejection reason"
+            "Listing approval: 1-2 business hours when clean; 24-48 hours when owner follow-up is needed",
+            "No phone numbers, addresses, or company names in photos",
+            "VIN already on platform → manual team review, not auto-reject",
+            "No fleet cap — owners can list unlimited trailers"
           ]
         },
         {
           "id": "section-4-2",
-          "title": "Start and End — The Two Compliance Actions",
-          "content_md": "After acceptance, the owner has two responsibilities tied to specific buttons in their account:\n\n1. **Start the rental** when the renter picks up the trailer\n2. **End the rental** when the trailer is returned\n\nFailure to start or end on time triggers escalation templates and possible payout deductions. This is one of the most common owner-facing issues.\n\nWhen an owner calls saying 'I forgot to end the rental yesterday,' walk them through ending it now and explain that NT may need to manually adjust timing.",
+          "title": "Listing Edits, Photos, and the 4-Photo Inspection Rule",
+          "content_md": "**Owners can edit a listing at any time. No restrictions.** Pricing, photos, description, dimensions — all editable post-approval. Edits don't kick the listing back into approval (unless they trigger a flag like a phone number in a new photo).\n\n**Pickup/return inspection — the only NT-mandated requirement is photos:**\n- **4 photos at start of rental** (during pickup, when the owner starts the rental)\n- **4 photos at end of rental** (during return, when the owner ends the rental)\n\nThat's the entire inspection NT mandates. Walkthrough, condition agreement, sign-offs — all of that is between the owner and renter. **NT does not physically inspect any trailer.** When an owner asks \"do I need NT to inspect this?\" the answer is no — the 4 photos are the inspection record.\n\n**Why the photos matter:** they're the evidence the team uses if a damage claim is filed later. An owner who skips the start-of-rental photos and then files a DDC two days later has a much weaker case. Coach owners to take the photos every time, even when the rental looks routine.",
           "key_points": [
-            "Owner manually starts and ends each rental",
-            "Late start/end → escalation templates + possible payout deductions",
-            "If they forgot, end it now and let them know about adjustments"
+            "Listings are editable anytime — pricing, photos, description, dimensions, all open",
+            "Inspection requirement = 4 photos at start + 4 photos at end. That is it.",
+            "NT does not physically inspect trailers",
+            "Skipping start-of-rental photos weakens any damage claim"
           ]
         },
         {
           "id": "section-4-3",
-          "title": "Owner Self-Serve Tools",
-          "content_md": "Owners can self-serve the following without involving NT:\n- Block calendar dates\n- Set or change rental rates\n- Message renters through the platform\n- Switch a renter to a different trailer (via My Reservations)\n\nOwners do **not** install hitches and should **not** quote tow capacity for the renter's vehicle. Tow capacity is the renter's responsibility based on their vehicle's documentation. Coach owners away from giving towing advice.",
+          "title": "Start, End & Late Returns",
+          "content_md": "After acceptance, the owner has two compliance actions tied to specific buttons in their account:\n\n1. **Start the rental** when the renter picks up the trailer (and take the 4 start photos)\n2. **End the rental** when the trailer is returned (and take the 4 end photos)\n\nIf an owner calls saying \"I forgot to end the rental yesterday,\" walk them through ending it now and explain NT may need to manually adjust timing. End-it-now is always the answer.\n\n**Late returns — owner's responsibility, not an NT auto-fee.** When a renter holds the trailer past the booked end time, NT does **NOT** auto-charge a late fee. The **owner has two options**:\n- **Extend the rental** (with renter consent — see Module 7 for the extension flow)\n- **File a Damage Deposit Deduction Claim (DDC)** and hold the deposit\n\nThe template sequence (Late Return Notice → Urgent Notice → Trailer Not Returned by Renter) still exists for communication and escalation, but those templates do not in themselves charge the renter. They're communication tools that lead toward DDC + escalation if the trailer isn't returned. Coach owners on the two-option choice — don't let them sit waiting for NT to magically charge a fee.",
           "key_points": [
-            "Self-serve: calendar block-out, rates, messaging, trailer switch",
-            "Owners do not install hitches",
-            "Owners should not quote tow capacity"
+            "Owner manually starts and ends each rental",
+            "Late return = owner extends OR files a DDC. NT does not auto-charge late fees.",
+            "Templates communicate; they do not charge",
+            "Forgot to end? End it now."
+          ]
+        },
+        {
+          "id": "section-4-4",
+          "title": "Owner Cancellation — 30% Fee, No With-Cause/Without-Cause",
+          "content_md": "**The old \"with cause vs. without cause\" terminology is gone. Don't use it.**\n\n**Owner cancellation policy:**\n- If the owner cancels and it's **their fault** → owner pays a **30% cancellation fee**, deducted from their next payout.\n- **Edge cases** — legitimate emergency, trailer broke unexpectedly, family emergency, etc. → the fee can be **waived at NT discretion**. The team reviews on a case-by-case basis.\n\n**What to tell an owner who needs to cancel:**\n1. \"Owner-side cancellation carries a 30% fee that comes out of your next payout.\"\n2. \"If this is an emergency or something outside your control, mention that — the team can review whether a waiver applies.\"\n3. Don't promise a waiver. Just open the door.\n\n**What NOT to say:** \"This is a without-cause cancel\" / \"This is a with-cause cancel.\" Those terms are dead. Anyone still using them is working from the old policy.",
+          "key_points": [
+            "Owner cancellation = 30% fee from next payout",
+            "Waivable at NT discretion for legitimate emergencies / out-of-control situations",
+            "No with-cause/without-cause distinction — that terminology is dead",
+            "Open the door to a waiver review; don't promise one"
+          ]
+        },
+        {
+          "id": "section-4-5",
+          "title": "Owner Self-Serve Tools",
+          "content_md": "Owners can self-serve the following without involving NT:\n- **Edit any listing field anytime** (pricing, photos, description, dimensions, hitch type)\n- **Block calendar dates**\n- **Set or change rental rates**\n- **Message renters** through the platform\n- **Switch a renter to a different trailer** (via My Reservations) — same-owner only\n- **List additional trailers** (no fleet cap)\n\nOwners do **not** install hitches and should **not** quote tow capacity for the renter's vehicle. Tow capacity is the renter's responsibility based on their vehicle's documentation. Coach owners away from giving towing advice.",
+          "key_points": [
+            "Self-serve: edit anytime, block dates, set rates, message, switch trailer, list more trailers",
+            "No fleet cap",
+            "Owners do not install hitches and should not quote tow capacity"
           ]
         }
       ],
@@ -823,30 +923,35 @@
         "How do I end a rental from my account?",
         "How do I block calendar dates?",
         "How Do I Change My Rental Rates?",
+        "Photo requirements at pickup and return",
+        "What is the owner cancellation fee?",
+        "A renter has not returned my trailer — what should I do?",
         "Template: How It Works for Trailer Owners"
       ],
       "scenarios": [
         {
           "id": "module-4-scenario-1",
           "type": "free_response",
-          "prompt": "A new owner asks: 'I submitted my listing 2 days ago and it's still pending. What's going on?' Explain timing and what could be holding it up.",
+          "prompt": "An owner calls: 'I submitted my listing yesterday afternoon and it's still pending. Why is it taking so long?' Explain the timing windows and the most likely holds.",
           "rubric": [
-            "Mentions 24-48 hour typical approval window",
-            "Notes that common holds are bad photos, missing dimensions, or contact info in photos",
-            "Offers to look at the listing or have the team look",
-            "Doesn't promise a specific timeline"
+            "States the typical 1-2 business hour window when listing is clean",
+            "Notes 24-48 hours when something needs owner follow-up",
+            "Mentions common holds: photos, missing dimensions, contact info in photos",
+            "Mentions VIN-already-exists as a possible reason (manual team review, not rejection)",
+            "Offers to look at the listing or have the team look"
           ]
         },
         {
           "id": "module-4-scenario-2",
           "type": "roleplay",
-          "prompt": "An owner calls saying they forgot to end the rental yesterday. The renter returned the trailer on time.",
-          "customer_persona": "Owner who is mildly worried about getting penalized. Wants to know if they're going to lose money.",
+          "prompt": "An owner calls saying they forgot to end the rental yesterday. The renter returned the trailer on time and took photos.",
+          "customer_persona": "Owner who is mildly worried about getting penalized. Wants to know if they will lose money.",
           "rubric": [
             "Reassures without overpromising",
             "Walks them through ending it now",
+            "Confirms the renter took return photos (since the owner missed taking them)",
             "Explains NT may adjust timing manually",
-            "Mentions the importance of starting/ending on time going forward"
+            "Coaches on starting/ending on time going forward"
           ],
           "difficulty": "standard"
         },
@@ -861,58 +966,111 @@
             "Explains the purpose (consistent platform look, anti-circumvention)"
           ],
           "difficulty": "standard"
+        },
+        {
+          "id": "module-4-scenario-4",
+          "type": "roleplay",
+          "prompt": "An owner calls in a panic: their car was totaled this morning and they need to cancel a booking that picks up in 18 hours. They're worried about the cancellation fee.",
+          "customer_persona": "Stressed owner dealing with a real emergency. Apologetic, not combative. Wants to know what their options are.",
+          "rubric": [
+            "States the standard owner cancellation = 30% fee from next payout",
+            "Explains the waiver path for legitimate emergencies (NT discretion)",
+            "Doesn't promise the waiver — opens the door for review",
+            "Does NOT use with-cause/without-cause terminology",
+            "Empathetic and practical"
+          ],
+          "difficulty": "standard"
+        },
+        {
+          "id": "module-4-scenario-5",
+          "type": "roleplay",
+          "prompt": "An owner says the trailer is 6 hours past the booked return time and the renter isn't responding. They're asking what NT will do.",
+          "customer_persona": "Worried owner. Wants to know if NT will charge the renter automatically.",
+          "rubric": [
+            "Sets correct expectation: NT does not auto-charge late fees",
+            "Names the two owner options: extend the rental (with renter consent) OR file a DDC and hold the deposit",
+            "Mentions the template sequence (Late Return Notice → Urgent → Trailer Not Returned) for communication and escalation",
+            "Calm and reassuring without overpromising"
+          ],
+          "difficulty": "standard"
         }
       ],
       "quiz": [
         {
           "id": "m4-q1",
-          "question": "What two compliance actions must an owner take during a rental?",
+          "question": "What is the typical listing approval timeframe?",
           "type": "multiple_choice",
           "options": [
-            "Start and End",
-            "Confirm and Bill",
-            "Approve and Release",
-            "Inspect and Report"
+            "Always 24-48 hours",
+            "1-2 business hours when clean; up to 24-48 hours when owner follow-up is needed",
+            "Same day for everything",
+            "5-7 business days"
           ],
-          "correct_index": 0,
-          "explanation": "Owners manually 'Start' the rental at pickup and 'End' it at return."
+          "correct_index": 1,
+          "explanation": "1-2 business hours when no issues are flagged; 24-48 hours when photos, dimensions, or compliance items need owner follow-up."
         },
         {
           "id": "m4-q2",
-          "question": "What's the typical listing approval timeframe?",
+          "question": "An owner submits a listing whose VIN is already on the platform. What happens?",
           "type": "multiple_choice",
           "options": [
-            "1-2 hours",
-            "Same day",
-            "24-48 hours",
-            "5-7 business days"
+            "Listing is auto-rejected",
+            "Listing is auto-approved as a duplicate",
+            "Listing goes to the team for manual review of where the VIN currently lives",
+            "Owner is permanently banned"
           ],
           "correct_index": 2,
-          "explanation": "Listing approval is typically 24-48 hours and combines automated and manual review."
+          "explanation": "Manual team review. The team checks where the VIN already lives (existing listing, prior account, etc.) before approving. Not an auto-reject."
         },
         {
           "id": "m4-q3",
-          "question": "Can owners include their phone number in trailer photos?",
+          "question": "What is the only NT-mandated inspection at pickup and return?",
           "type": "multiple_choice",
           "options": [
-            "Yes",
-            "Only for owners with verified business accounts",
-            "No",
-            "Only on the cover photo"
+            "NT staff physically inspect every trailer",
+            "4 photos at start of rental and 4 photos at end of rental",
+            "A signed condition agreement",
+            "A live video walkthrough with NT support"
           ],
-          "correct_index": 2,
-          "explanation": "Phone numbers, addresses, and company names are not allowed in photos and will be removed during review."
+          "correct_index": 1,
+          "explanation": "4 photos at start, 4 photos at end. Everything else (walkthrough, condition agreement, sign-offs) is between owner and renter. NT does not physically inspect."
         },
         {
           "id": "m4-q4",
-          "question": "Should owners quote tow capacity for the renter's vehicle?",
+          "question": "An owner cancels a booking because they double-booked their schedule. What is the fee?",
+          "type": "multiple_choice",
+          "options": [
+            "No fee",
+            "$25 flat fee",
+            "30% of the booking value, deducted from their next payout",
+            "A without-cause cancellation fee"
+          ],
+          "correct_index": 2,
+          "explanation": "Owner cancellation = 30% fee from next payout. There is no with-cause/without-cause terminology anymore. Edge cases (real emergencies) can be waived at NT discretion."
+        },
+        {
+          "id": "m4-q5",
+          "question": "A trailer is 5 hours late and the renter is unresponsive. The owner asks what NT will do. What are the owner's two options?",
           "type": "short_answer",
           "expected_keywords": [
-            "no",
-            "renter",
-            "responsibility"
+            "extend",
+            "DDC",
+            "deposit"
           ],
-          "explanation": "Owners should not quote tow capacity. Tow capacity is the renter's responsibility based on their vehicle's documentation."
+          "explanation": "Owner extends the rental (with renter consent) OR files a DDC and holds the deposit. NT does not auto-charge a late fee."
+        },
+        {
+          "id": "m4-q6",
+          "question": "Can an owner edit a listing after it is approved?",
+          "type": "multiple_choice",
+          "options": [
+            "No — listings are locked once approved",
+            "Only pricing can be edited",
+            "Yes — anytime, no restrictions on which fields",
+            "Only with NT support assistance"
+          ],
+          "correct_index": 2,
+          "explanation": "Owners can edit any listing field anytime. Pricing, photos, description, dimensions, hitch type — all editable post-approval."
         }
       ],
       "passing_score_percent": 70
@@ -921,39 +1079,67 @@
       "id": "module-5",
       "number": 6,
       "title": "Payments, Fees & Payouts",
-      "description": "Renter-side fees, owner-side payouts, the Toll Program, and 'my payout failed' diagnosis.",
-      "estimated_minutes": 15,
+      "description": "Renter fees, the cancellation refund schedule (75/50/25/0), refund timing (3-5 business days), 20% platform commission, owner payouts (1-3 business days, DDC hold), bank info failures, manual early-return refunds, chargebacks, and the Toll Program.",
+      "estimated_minutes": 25,
       "learning_objectives": [
-        "Explain renter-side fees (rent, platform fee, tax, deposit, Protection Package)",
-        "Explain owner-side payouts (timing, methods, common failures)",
-        "Resolve 'my payout failed' or 'my bank info won't save' issues",
+        "Explain the renter fee breakdown and which fees are non-refundable",
+        "State the cancellation refund schedule (75/50/25/0) by time before booking",
+        "State the deposit and refund timing (3-5 business days)",
+        "Explain the 20% platform commission and how owner payouts work (1-3 business days, DDC hold)",
+        "Diagnose and resolve payout failures (bank info is the #1 cause)",
+        "Explain how chargebacks work and the CSR's role in the response",
         "Explain the Toll Program"
       ],
       "sections": [
         {
           "id": "section-5-1",
-          "title": "Renter Fees and Charges",
-          "content_md": "When a renter books, the total includes:\n- **Rent** (the trailer's nightly/daily rate)\n- **Platform fee** (NT's service fee — non-refundable)\n- **Tax** (non-refundable)\n- **Deposit** (a hold, refunded after rental closes)\n- **Protection Package** — NT Protect's built-in damage protection (not insurance), non-refundable once accepted\n\n**The renter's card is charged when the booking is accepted, not when the request is submitted.** This trips up some renters.\n\nDeposits are released **3-7 business days** after the rental officially closes. If a renter calls 24 hours after rental end asking where their deposit is, the answer is 'it's still processing — typical timing is 3-7 business days.'",
+          "title": "Renter Fees, the Refund Schedule, and Refund Timing",
+          "content_md": "When a renter books, the total includes:\n- **Rent** (the trailer's daily rate)\n- **Platform fee** (NT's service fee — non-refundable once accepted)\n- **Tax** (non-refundable)\n- **Deposit** (a hold, refunded after rental closes)\n- **Protection Package** — NT Protect's built-in damage protection (not insurance), non-refundable once accepted\n\n**The renter's card is charged when the booking is accepted by the owner**, not when the request is submitted. This trips up some renters.\n\n**Renter-initiated cancellation refund schedule (auto-applied):**\n\n| Time before booking start | Refund on rent |\n|---|---|\n| 72+ hours | 75% |\n| 48-72 hours | 50% |\n| 24-48 hours | 25% |\n| Under 24 hours / same-day / no-show | 0% |\n\nPlatform fee, tax, and Protection Package remain non-refundable regardless of when the cancellation happens.\n\n**Refund timing** — when a refund or deposit return is owed, it processes in **3-5 business days back to the renter's card**. This applies to cancellation refunds, early-return refunds, and deposit returns. (When a DDC is filed, the deposit return is held until the dispute window closes — see Module 6.)",
           "key_points": [
             "Card charged at acceptance, not request",
+            "Cancellation refund: 75 / 50 / 25 / 0 at 72+ / 48-72 / 24-48 / under-24 hours",
             "Platform fee, tax, Protection Package = non-refundable once accepted",
-            "Deposit refund: 3-7 business days after rental closes"
+            "Refund timing: 3-5 business days back to the card"
           ]
         },
         {
           "id": "section-5-2",
-          "title": "Owner Payouts",
-          "content_md": "Owner payouts go out after the rental ends successfully. The flow:\n\n1. Owner ends the rental in their account\n2. NT processes the payout to the owner's connected bank\n3. Owner receives funds in standard ACH timing\n\n**The single biggest cause of payout delays is the owner's bank info — either not connected or entered incorrectly.** If a payout fails, the owner gets a 'Payout Failed' template email asking them to update their bank info.\n\nWhen an owner calls about a missing payout, ask them in this order:\n1. Did you end the rental?\n2. Is your bank info connected and correct?\n3. How long has it been since the rental ended?\n\nIf bank info is the issue, walk them through updating it. If everything looks right and it's been more than a week, escalate.",
+          "title": "Owner Payouts — 80% Commission, 1-3 Business Days, DDC Hold",
+          "content_md": "**Platform commission: NT keeps 20%, owner gets 80%.** When an owner asks \"why is my payout less than the rental amount?\" — that's the answer. 20% comes off the top.\n\n**Payout flow:**\n1. Owner ends the rental in their account (and uploads the 4 return photos)\n2. NT initiates the payout\n3. Funds land in the owner's bank in **1-3 business days** from initiation\n\nOwners connect a bank account directly. **No Stripe Connect, no checks — direct bank deposit only.**\n\n**Payout hold for DDC:** if the owner files a Damage Deposit Deduction Claim, the **payout is held until the claim is approved or denied.** The renter has a 24-hour dispute window from when the DDC is filed (see Module 6 for full mechanics). When dispute resolution completes, the payout (less any approved deductions) processes.\n\n**The single biggest cause of payout failures is the owner's bank info — either not connected or entered incorrectly.** When an owner calls about a missing payout, ask them in this order:\n1. Did you end the rental?\n2. Is your bank account info connected and correct?\n3. Is there a DDC pending on this booking?\n4. How long has it been since the rental ended?\n\nIf bank info is the issue, walk them through correcting it. If everything looks right and it has been more than 5 business days with no DDC pending, escalate.",
           "key_points": [
-            "Payout flow: end rental → NT processes → ACH",
-            "Bank info is the #1 cause of failures",
-            "Triage: did you end? bank info? how long?"
+            "20% platform commission — owner gets 80%",
+            "Payout: 1-3 business days from initiation, direct bank deposit only",
+            "DDC pending → payout held until claim resolved",
+            "Bank info is the #1 cause of payout failures",
+            "Triage: ended? bank info? DDC? how long?"
           ]
         },
         {
           "id": "section-5-3",
+          "title": "Early Return — Manual 80% Owner Refund",
+          "content_md": "When a renter returns the trailer early, the **maximum refund is 80% of the rent for the unused portion** (per Section 20 of TOS — see Module 7 for detail).\n\nKey CSR fact: **early-return refunds are MANUAL.** The owner has to approve and issue the refund through their account before ending the rental. **NT does not force owners to refund early returns**, and the refund does not auto-apply.\n\nWhen a renter calls saying \"I returned the trailer 2 days early — when does my refund come?\" the answer is: \"Early-return refunds aren't automatic. The owner authorizes them and chooses how much to refund, up to 80% of the unused portion. If the owner has approved one, it lands on your card in 3-5 business days.\"\n\n**Be careful not to over-promise.** Don't tell a renter they're getting 80% back as if it's guaranteed. Frame it as: 80% is the cap; the owner decides whether to approve the refund and at what level.",
+          "key_points": [
+            "Early-return refund is MANUAL, owner-issued — not automatic",
+            "80% of unused-portion rent is the CAP, not the default",
+            "Owner must authorize before ending the rental",
+            "Don't promise 80% as if guaranteed — frame as a cap"
+          ]
+        },
+        {
+          "id": "section-5-4",
+          "title": "Chargebacks",
+          "content_md": "**NT ALWAYS fights chargebacks on behalf of the owner.** When a renter disputes a charge through their card issuer, NT files a response defending the booking.\n\n**Outcome consequences:**\n- If NT wins → the owner gets paid as normal.\n- If NT loses → the owner does NOT get paid for that booking. The chargeback amount comes back from the owner's payout (or future payouts if already paid out).\n\n**CSR's role when a chargeback is filed (or threatened):**\n1. **Don't try to talk the customer out of the chargeback** — it's their right with their card issuer\n2. **Gather documentation** — booking record, communications, the 4 start/end photos, any DDC paperwork\n3. **File the chargeback response** with the available evidence\n4. **Support the owner** through the process — explain timeline (chargeback resolution takes weeks), explain consequences\n5. **Escalate** if the chargeback is unusually large or the documentation is thin\n\nWhen a renter says \"I'm going to chargeback,\" don't argue. Acknowledge the right, explain that NT will defend the booking through the chargeback response process, and let them know the resolution runs through NT and the card network.",
+          "key_points": [
+            "NT always fights chargebacks on owner's behalf",
+            "If NT loses, the owner is NOT paid for that booking",
+            "CSR gathers documentation + files the response",
+            "Don't argue the customer out of a chargeback — it's their right"
+          ]
+        },
+        {
+          "id": "section-5-5",
           "title": "The Toll Program",
-          "content_md": "The Toll Program is an **opt-in feature for owners**. When enabled, NT auto-tracks tolls during rentals and bills the renter directly. This saves owners from chasing toll-by-mail bills weeks later.\n\nWhen explaining to owners, be honest about pros and cons:\n- **Pro:** No more chasing toll-by-mail bills\n- **Pro:** Renter pays automatically, no friction\n- **Con:** Small percentage of edge cases where tolls aren't captured cleanly\n\nOwners can opt in through their account settings. Encourage it for owners who rent frequently in toll-heavy areas.",
+          "content_md": "The Toll Program is an **opt-in feature for owners**. When enabled, NT auto-tracks tolls during rentals and bills the renter directly. This saves owners from chasing toll-by-mail bills weeks after the rental.\n\nWhen explaining to owners, be honest about pros and cons:\n- **Pro:** No more chasing toll-by-mail bills\n- **Pro:** Renter pays automatically, no friction\n- **Con:** Small percentage of edge cases where tolls aren't captured cleanly\n\nOwners can opt in through their account settings. Encourage it for owners who rent frequently in toll-heavy areas.",
           "key_points": [
             "Opt-in for owners",
             "Auto-tracks tolls and bills the renter",
@@ -970,37 +1156,65 @@
         "How do I receive payouts for my rentals?",
         "Bank information won't submit. What should I do?",
         "How Does the Toll Program Work?",
+        "What is the cancellation policy?",
+        "Will I get a partial refund if I return the trailer early?",
+        "A renter is threatening to dispute charges with their credit card company - what should I do?",
         "Template: Your Payout Failed / Action Required"
       ],
       "scenarios": [
         {
           "id": "module-5-scenario-1",
           "type": "roleplay",
-          "prompt": "A renter cancelled and only got most of their money back. They want to know where the rest is.",
-          "customer_persona": "Frustrated renter who feels they're being short-changed. Doesn't remember reading about non-refundable fees.",
+          "prompt": "A renter cancelled 30 hours before pickup and only got 25% back on the rent. They want to know where the rest is.",
+          "customer_persona": "Frustrated renter who feels they're being short-changed. Doesn't remember reading about the cancellation schedule.",
           "rubric": [
-            "Explains the cancellation refund amount based on timing",
-            "Explains platform fee, tax, and Protection Package are non-refundable",
-            "Doesn't apologize for the policy itself",
-            "Calm, factual"
+            "States the 24-48 hour window = 25% refund on rent",
+            "Explains platform fee, tax, and Protection Package are non-refundable regardless",
+            "States refund processes in 3-5 business days back to the card",
+            "Calm, factual, doesn't apologize for the policy"
           ],
           "difficulty": "standard"
         },
         {
           "id": "module-5-scenario-2",
           "type": "roleplay",
-          "prompt": "An owner says they ended the rental 5 days ago and still haven't been paid.",
+          "prompt": "An owner calls: 'I ended the rental 4 days ago. Where's my payout?'",
           "customer_persona": "Owner who is starting to worry. Wants a real answer, not boilerplate.",
           "rubric": [
-            "Confirms rental was ended",
+            "Confirms rental was ended in their account",
             "Asks about bank info connection",
-            "Explains typical timing",
+            "Asks whether a DDC was filed (would hold the payout)",
+            "States typical timing: 1-3 business days from initiation",
             "Offers to escalate if everything looks correct on their end"
           ],
           "difficulty": "standard"
         },
         {
           "id": "module-5-scenario-3",
+          "type": "roleplay",
+          "prompt": "A renter messages: 'I'm going to dispute this charge with my credit card company if I don't get a full refund today.'",
+          "customer_persona": "Frustrated renter using chargeback as a threat. Has not yet filed.",
+          "rubric": [
+            "Does NOT try to talk them out of the chargeback (it's their right)",
+            "Acknowledges the dispute path",
+            "Explains NT will defend the booking through the chargeback response process",
+            "States consequence honestly (resolution takes weeks; NT and card network handle it)",
+            "Escalates the situation appropriately"
+          ],
+          "difficulty": "hard"
+        },
+        {
+          "id": "module-5-scenario-4",
+          "type": "free_response",
+          "prompt": "An owner asks: 'My booking was $150 but I only got $120. Why?' Walk through the math in 2-3 sentences.",
+          "rubric": [
+            "Names the 20% platform commission",
+            "$150 × 80% = $120 — math checks out",
+            "Concise"
+          ]
+        },
+        {
+          "id": "module-5-scenario-5",
           "type": "free_response",
           "prompt": "An owner asks: 'What is this Toll Program and should I opt in?' Give an honest 4-5 sentence answer.",
           "rubric": [
@@ -1014,16 +1228,16 @@
       "quiz": [
         {
           "id": "m5-q1",
-          "question": "Are platform fees refundable?",
+          "question": "Are platform fees refundable on cancellation?",
           "type": "multiple_choice",
           "options": [
             "Yes, always",
-            "No — non-refundable once accepted",
+            "No — non-refundable once a booking is accepted",
             "Only on cancellations >72 hours out",
             "Only for owners"
           ],
           "correct_index": 1,
-          "explanation": "Platform fees are non-refundable once a booking is accepted. So are tax and the Protection Package."
+          "explanation": "Platform fee, tax, and Protection Package are non-refundable once a booking is accepted. The cancellation schedule applies to rent only."
         },
         {
           "id": "m5-q2",
@@ -1031,7 +1245,7 @@
           "type": "multiple_choice",
           "options": [
             "When the booking request is submitted",
-            "When the booking is accepted",
+            "When the booking is accepted by the owner",
             "At pickup",
             "When the rental ends"
           ],
@@ -1040,27 +1254,66 @@
         },
         {
           "id": "m5-q3",
-          "question": "What's the most common reason for a delayed owner payout?",
+          "question": "What's the cancellation refund 30 hours before booking start?",
           "type": "multiple_choice",
           "options": [
-            "Public holiday",
-            "Bank account not connected or info incorrect",
-            "Rental dispute",
-            "Tax form missing"
+            "75%",
+            "50%",
+            "25%",
+            "0%"
           ],
-          "correct_index": 1,
-          "explanation": "The biggest cause of payout failures is bank info — not connected or entered incorrectly."
+          "correct_index": 2,
+          "explanation": "30 hours falls in the 24-48 hour window = 25% refund on rent. Platform fee, tax, Protection Package non-refundable regardless."
         },
         {
           "id": "m5-q4",
-          "question": "What is the typical timing for a deposit refund after a rental closes?",
+          "question": "Owner gets a $200 booking. What is the standard payout (no fees, no tolls, no DDC)?",
+          "type": "multiple_choice",
+          "options": [
+            "$200",
+            "$180",
+            "$160",
+            "$140"
+          ],
+          "correct_index": 2,
+          "explanation": "20% platform commission. $200 × 80% = $160 to the owner."
+        },
+        {
+          "id": "m5-q5",
+          "question": "Typical owner payout timing from initiation to landing in their bank?",
+          "type": "multiple_choice",
+          "options": [
+            "Same day",
+            "1-3 business days",
+            "5-7 business days",
+            "2-4 weeks"
+          ],
+          "correct_index": 1,
+          "explanation": "1-3 business days via direct bank deposit. NT does not use Stripe Connect or checks."
+        },
+        {
+          "id": "m5-q6",
+          "question": "Refund timing back to a renter's card (cancellation, early-return, or deposit refund)?",
           "type": "short_answer",
           "expected_keywords": [
             "3",
-            "7",
+            "5",
             "business days"
           ],
-          "explanation": "Deposit refunds are typically 3-7 business days after the rental officially closes."
+          "explanation": "3-5 business days back to the renter's card."
+        },
+        {
+          "id": "m5-q7",
+          "question": "A renter messages saying they'll dispute the charge with their bank. What's the right next step?",
+          "type": "multiple_choice",
+          "options": [
+            "Refund them immediately to defuse",
+            "Try to talk them out of the chargeback",
+            "Acknowledge their right, explain NT will defend the booking through the chargeback response, gather documentation, escalate",
+            "Cancel the booking"
+          ],
+          "correct_index": 2,
+          "explanation": "NT always fights chargebacks on the owner's behalf. CSR gathers docs and files the response. Don't argue the customer out of it."
         }
       ],
       "passing_score_percent": 70
@@ -1284,12 +1537,13 @@
         {
           "id": "section-7-1",
           "title": "Cancellation Refund Schedule",
-          "content_md": "Memorize this:\n\n| Time before rental start | Refund |\n|---|---|\n| 72+ hours | 75% |\n| 48-72 hours | 50% |\n| 24-48 hours | 25% |\n| Under 24 hours / same-day | 0% |\n\n**Always non-refundable:** platform fee, tax, Protection Package.\n\n**A no-show counts as a cancellation without notice = no refund.**\n\n**Cancellations must be done by the renter through their account.** A phone, email, or chat request does NOT cancel a booking. CSRs cannot cancel for the renter.",
+          "content_md": "Memorize this:\n\n| Time before rental start | Refund on rent |\n|---|---|\n| 72+ hours | 75% |\n| 48-72 hours | 50% |\n| 24-48 hours | 25% |\n| Under 24 hours / same-day | 0% |\n\n**Always non-refundable:** platform fee, tax, Protection Package.\n\n**A no-show counts as a cancellation without notice = no refund.**\n\n**Renter cancellation defaults to self-service through their account.** A phone, email, or chat request does NOT cancel a booking on its own. **However, CSRs DO have override authority** for legitimate exception cases (unresponsive owner, suspected fraud, renter emergency with documentation, platform-side error) — see Module 10, fact 5. Don't tell a customer \"I cannot cancel for you\" as a flat statement.\n\n**Owner-side cancellation** is different: when an owner cancels and it's their fault, the owner pays a **30% fee from their next payout** (waivable for legitimate emergencies at NT discretion). See Module 4 for the full owner cancellation flow.",
           "key_points": [
             "75 / 50 / 25 / 0 — at 72 / 48 / 24 / under-24 hours",
             "Platform fee, tax, Protection Package always non-refundable",
             "No-show = no refund",
-            "CSR cannot cancel for the renter"
+            "Renter cancellation defaults to self-service; CSRs DO have override authority for legitimate exceptions",
+            "Owner cancellation = 30% fee from next payout (see Module 4)"
           ],
           "media": [
             {
@@ -1302,31 +1556,37 @@
         {
           "id": "section-7-2",
           "title": "Early Return — The 80% Override",
-          "content_md": "**This is the single most important policy correction in this curriculum.**\n\n- Maximum refundable amount on early return is **80% of the rent for the unused portion** — per Section 20 of the Terms of Service.\n- A **$25 processing fee comes out of the OWNER'S payout** — NOT from the renter's refund.\n- Refund only processes if the **owner authorizes it BEFORE ending the rental.**\n\n**Known discrepancy:** The help center article currently says 75%. The correct policy is 80%. If a customer cites the 75% number, acknowledge that the help center text needs updating but the policy is 80%. If they press for documentation, escalate so the team can provide it.\n\n**Why this matters:** A CSR who confirms 75% is making the customer worse off than the actual policy. Always say 80%.",
+          "content_md": "**This is the single most important policy correction in this curriculum.**\n\n- Maximum refundable amount on early return is **80% of the rent for the unused portion** — per Section 20 of the Terms of Service.\n- A **$25 processing fee comes out of the OWNER'S payout** — NOT from the renter's refund.\n- The early-return refund is **MANUAL — owner has to approve and issue it before ending the rental.** It does not auto-apply. NT does not force owners to refund early returns.\n- Refund processes back to the renter's card in **3-5 business days** (same as deposit and cancellation refunds).\n\n**Known discrepancy:** The help center article currently says 75%. The correct policy cap is 80%. If a customer cites the 75% number, acknowledge that the help center text needs updating but the policy is 80%. If they press for documentation, escalate.\n\n**Frame the 80% as a CAP, not a guarantee.** When a renter calls saying \"I returned early — when's my refund?\" the right answer is: \"The owner authorizes early-return refunds and chooses how much, up to 80% of the unused portion. If they've approved one, it lands on your card in 3-5 business days.\" Don't promise 80% as if it's automatic.",
           "key_points": [
-            "Early return = 80% of rent for unused portion (NOT 75%)",
-            "$25 fee comes from OWNER'S payout (NOT renter's refund)",
-            "Owner must authorize BEFORE ending the rental",
-            "If customer cites 75% from help center: acknowledge, correct, escalate if pressed"
+            "Early return = up to 80% of rent for unused portion (CAP, not guarantee)",
+            "Manual — owner must authorize and issue before ending the rental",
+            "$25 fee comes from OWNER'S payout",
+            "Refund timing: 3-5 business days back to renter's card",
+            "Help center says 75% — that text is out of date"
           ]
         },
         {
           "id": "section-7-3",
           "title": "Extensions",
-          "content_md": "Renters can request an extension through the booking. Owners can accept or decline. Owners can also propose extensions to renters.\n\nIf the renter holds the trailer **beyond the booked end time without an approved extension, that's a late return.**\n\nNo manual CSR override on extensions — both parties have to agree through the platform.",
+          "content_md": "**Extension flow:**\n1. **Renter** requests an extension through their account.\n2. **Owner** approves (or declines) through their account.\n3. **Pricing:** the extended period is billed at the **same daily rate** as the original rental.\n4. **NT Protect coverage automatically extends with the rental** — there is no coverage cliff at the original end date.\n\n**CSR scope:**\n- **CSRs CANNOT initiate an extension request on behalf of the renter** — the renter has to do that themselves through their account.\n- **CSRs CAN approve a pending extension on behalf of the owner** when the owner is unresponsive. This is the same kind of override authority that applies to unresponsive-owner cancellations.\n\n**Restriction — cannot extend if another booking is queued.** If the trailer has a back-to-back booking immediately after, the system blocks the extension. Tell the renter: \"There's another renter scheduled right after you, so the extension can't be approved. You'll need to return on time.\"\n\nIf the renter holds the trailer **beyond the booked end time without an approved extension, that's a late return** — see the next section.",
           "key_points": [
-            "Renter requests, owner accepts/declines",
-            "Owner can also propose",
-            "Holding past end time without approval = late return"
+            "Renter requests, owner approves; same daily rate as original",
+            "NT Protect auto-extends with the rental — no cliff",
+            "CSR cannot initiate an extension for the renter",
+            "CSR CAN approve a pending extension on behalf of an unresponsive owner",
+            "Cannot extend if another booking is queued for the trailer"
           ]
         },
         {
           "id": "section-7-4",
           "title": "Late Returns",
-          "content_md": "Late returns trigger a sequence of templates that the CSR should know cold:\n\n1. **Late Return Notice** — first communication when trailer is overdue\n2. **Urgent Notice** — escalated tone, more time has passed\n3. **Trailer Not Returned by Renter** — final escalation before NT involvement\n\nKnow when each one fires so you can tell an owner what to expect. After 'Trailer Not Returned' is sent, NT staff get involved. CSR escalates here.",
+          "content_md": "**Late returns are the OWNER'S responsibility to handle. NT does NOT auto-charge a late fee.**\n\nWhen a renter holds the trailer past the booked end time without an approved extension, the owner has **two options**:\n1. **Extend the rental** (with renter consent — see the extension flow above)\n2. **File a Damage Deposit Deduction Claim (DDC)** and hold the deposit\n\nThere are also three communication templates the platform fires for escalating non-response:\n1. **Late Return Notice** — first communication when trailer is overdue\n2. **Urgent Notice** — escalated tone, more time has passed\n3. **Trailer Not Returned by Renter** — final escalation before NT involvement\n\nThese templates **communicate** with the renter; they do not in themselves charge the renter. They lead toward the owner's choice between extending and filing a DDC. After 'Trailer Not Returned' has been sent and there is still no response, NT staff get involved — escalate.\n\n**CSR talking points for the owner:**\n- \"Late returns are handled by you — the platform doesn't auto-charge a late fee.\"\n- \"You have two options: extend the rental if the renter agrees, or file a DDC and hold the deposit.\"\n- \"The Late Return / Urgent / Not Returned templates have already gone out (or will go out) to push the renter to respond.\"\n- \"If the renter goes truly silent past the final template, we escalate to staff.\"",
           "key_points": [
+            "Late returns are owner-handled — NT does not auto-charge a late fee",
+            "Owner's two options: extend (with renter consent) OR file a DDC",
             "Three templates: Late Return Notice → Urgent Notice → Trailer Not Returned",
-            "After final template: NT staff involvement, CSR escalates"
+            "Templates communicate; they do not charge",
+            "After final template + silence: NT staff escalation"
           ]
         }
       ],
@@ -1334,10 +1594,13 @@
         "What is the cancellation policy?",
         "How do I cancel a booking?",
         "What if I need to cancel due to an emergency?",
+        "What is the owner cancellation fee?",
         "Will I get a partial refund if I return the trailer early?",
         "What is the refund policy for early return?",
         "How do I extend my rental?",
         "How can I extend a rental?",
+        "Does NT Protect cover an extended rental?",
+        "A renter has not returned my trailer — what should I do?",
         "Template: Late Return Notice",
         "Template: Trailer Not Returned by Renter"
       ],
@@ -1437,16 +1700,16 @@
         },
         {
           "id": "m7-q4",
-          "question": "Can a CSR cancel a booking by phone for a renter who's having trouble logging in?",
+          "question": "A renter calls and says they can't log in and want to cancel. What's the right move?",
           "type": "multiple_choice",
           "options": [
-            "Yes — it's a courtesy override",
-            "Yes, with manager approval",
-            "No — must be done by the renter through their account",
-            "Only within the 72-hour window"
+            "Cancel the booking for them as a courtesy",
+            "Help them get logged in so they can self-cancel; CSR-initiated cancel is reserved for legitimate exception cases (unresponsive owner, fraud, renter emergency, platform error)",
+            "Refuse — only the renter can ever cancel",
+            "Escalate to a manager"
           ],
-          "correct_index": 2,
-          "explanation": "Cancellations must be done by the renter through their account. The CSR's job is to help them get logged in, not to cancel for them."
+          "correct_index": 1,
+          "explanation": "Default cancellation is renter self-service. CSRs DO have override authority but it's reserved for legitimate exception cases (unresponsive owner, fraud, renter emergency, platform error). A login problem is solved by helping them log in."
         },
         {
           "id": "m7-q5",
@@ -1457,6 +1720,45 @@
             "non-refundable"
           ],
           "explanation": "Platform fee, tax, and Protection Package are non-refundable on cancellation regardless of timing."
+        },
+        {
+          "id": "m7-q6",
+          "question": "A renter wants to extend by 2 days. The trailer has another booking starting the day after the current rental ends. What do you tell them?",
+          "type": "multiple_choice",
+          "options": [
+            "The extension will be auto-approved",
+            "The extension request will be sent to the owner for approval",
+            "The extension cannot be approved — there is a queued booking right after, so they need to return on time",
+            "NT will move the queued booking to make room"
+          ],
+          "correct_index": 2,
+          "explanation": "Extensions are blocked when another booking is queued back-to-back. The renter must return on time."
+        },
+        {
+          "id": "m7-q7",
+          "question": "Does NT Protect coverage extend when a rental is extended?",
+          "type": "multiple_choice",
+          "options": [
+            "No — coverage ends at the original end date",
+            "Only if the renter pays a coverage extension fee",
+            "Yes — NT Protect coverage automatically extends with the rental",
+            "Only if the owner approves a coverage extension separately"
+          ],
+          "correct_index": 2,
+          "explanation": "Coverage auto-extends with the rental — no cliff, no separate authorization needed."
+        },
+        {
+          "id": "m7-q8",
+          "question": "A trailer is 6 hours past the booked return time. What does NT do automatically about late fees?",
+          "type": "multiple_choice",
+          "options": [
+            "NT auto-charges the renter a per-hour late fee",
+            "NT auto-extends the rental at the same daily rate",
+            "Nothing — late returns are owner-handled. The owner extends (with renter consent) or files a DDC",
+            "NT charges the renter's card a flat $50 fee"
+          ],
+          "correct_index": 2,
+          "explanation": "NT does not auto-charge late fees. Owner's two options: extend the rental (with renter consent) or file a DDC and hold the deposit."
         }
       ],
       "passing_score_percent": 70
@@ -1769,28 +2071,28 @@
       "id": "module-10",
       "number": 11,
       "title": "Critical Policy Knowledge",
-      "description": "The 14 must-know facts every CSR must know cold. Spaced-repetition drilling required before unlocking the final exam.",
+      "description": "The 15 must-know facts every CSR must know cold. Spaced-repetition drilling required before unlocking the final exam.",
       "estimated_minutes": 25,
       "learning_objectives": [
-        "Recall all 14 critical facts from memory in any order",
+        "Recall all 15 critical facts from memory in any order",
         "Apply each fact correctly in a customer scenario",
         "Recognize when the help center contradicts the curriculum (and follow the curriculum)"
       ],
       "sections": [
         {
           "id": "section-10-1",
-          "title": "The 14 Facts",
-          "content_md": "Every CSR must know these cold. The drill in this module quizzes you in random order until you get all 14 right two times in a row.\n\n1. **Early return refund max = 80%** of rent for the unused portion. Per Section 20 of TOS. The help center 75% text is out of date.\n2. **The $25 early-return processing fee comes from the OWNER'S payout.** Not from the renter's refund.\n3. **Platform fees, tax, and Protection Package are non-refundable** once a booking is accepted.\n4. **Cancellation refund schedule:** 72+ hrs = 75% / 48-72 hrs = 50% / 24-48 hrs = 25% / under 24 hrs = 0% / same-day = 0%.\n5. **Cancellations default to renter self-service through their account. CSRs DO have override authority** for legitimate cases (unresponsive owner, suspected fraud, renter emergency with documentation, platform-side error). CSR-initiated cancel lets NT choose the refund and block owner payout. Use sparingly. Never tell a customer \"I cannot cancel for you\" as a flat statement.\n6. **A no-show = no refund** (treated as a renter cancellation without notice).\n7. **Deposit refund timing: 3-5 business days** after the rental is officially closed (when no DDC is filed).\n8. **Tire damage is case-by-case.** Tire condition + cause determine responsibility. Worn/old tires that fail on their own = owner. Good-condition tires damaged by renter actions (impact, overload, speed) = renter. NOT a flat exclusion.\n9. **CSR cannot override an MVR rejection.** Escalate.\n10. **NT Protect: $500 renter deductible, $25,000 coverage cap per claim.** Both numbers are quotable to customers. If the deductible cannot be collected from the renter, the owner becomes responsible for it.\n11. **DDC filing window: during the rental or within 48 hours after.** Past 48 hours = no retroactive claim path.\n12. **Renter dispute window after a DDC is filed = 24 hours.** No response in 24 hours = auto-approve and the deduction processes.\n13. **Pickup address is shared automatically after owner acceptance** — most 'where's my address' calls are renters who haven't checked their booking page.\n14. **Phone number policy: do not proactively share NT's phone number** unless the customer explicitly asks. Default to email or live chat.",
+          "title": "The 15 Facts",
+          "content_md": "Every CSR must know these cold. The drill in this module quizzes you in random order until you get all 15 right two times in a row.\n\n1. **Early return refund max = 80%** of rent for the unused portion. Per Section 20 of TOS. The help center 75% text is out of date.\n2. **The $25 early-return processing fee comes from the OWNER'S payout.** Not from the renter's refund.\n3. **Platform fees, tax, and Protection Package are non-refundable** once a booking is accepted.\n4. **Cancellation refund schedule:** 72+ hrs = 75% / 48-72 hrs = 50% / 24-48 hrs = 25% / under 24 hrs = 0% / same-day = 0%.\n5. **Cancellations default to renter self-service through their account. CSRs DO have override authority** for legitimate cases (unresponsive owner, suspected fraud, renter emergency with documentation, platform-side error). CSR-initiated cancel lets NT choose the refund and block owner payout. Use sparingly. Never tell a customer \"I cannot cancel for you\" as a flat statement.\n6. **A no-show = no refund** (treated as a renter cancellation without notice).\n7. **Deposit refund timing: 3-5 business days** after the rental is officially closed (when no DDC is filed). Same window for cancellation and early-return refunds.\n8. **Tire damage is case-by-case.** Tire condition + cause determine responsibility. Worn/old tires that fail on their own = owner. Good-condition tires damaged by renter actions (impact, overload, speed) = renter. NOT a flat exclusion.\n9. **CSR cannot override an MVR rejection.** Escalate.\n10. **NT Protect: $500 renter deductible, $25,000 coverage cap per claim.** Both numbers are quotable to customers. If the deductible cannot be collected from the renter, the owner becomes responsible for it.\n11. **DDC filing window: during the rental or within 48 hours after.** Past 48 hours = no retroactive claim path.\n12. **Renter dispute window after a DDC is filed = 24 hours.** No response in 24 hours = auto-approve and the deduction processes.\n13. **Pickup address is shared automatically after owner acceptance** — most 'where's my address' calls are renters who haven't checked their booking page.\n14. **Phone number policy: do not proactively share NT's phone number** unless the customer explicitly asks. Default to email or live chat.\n15. **Owner cancellation = 30% fee deducted from next payout.** No \"with cause / without cause\" terminology. Edge cases (legitimate emergency, trailer broke unexpectedly) waivable at NT discretion — open the door to a waiver review, don't promise one.",
           "key_points": [
-            "14 facts — must know cold",
+            "15 facts — must know cold",
             "When help center contradicts curriculum, follow curriculum",
             "Drill randomized — 2x in a row to pass"
           ]
         },
         {
           "id": "section-10-2",
-          "title": "Why These Fourteen",
-          "content_md": "Each of these facts represents one of:\n- A **policy correction** the help center got wrong (early return, deposit timing, tire damage)\n- A **scope boundary** for what a CSR can and can't do — including the override authority CSRs DO have (cancellations, MVR)\n- A **commonly-misunderstood timing** (deposit refund, DDC window, dispute window, pickup address)\n- A **friction point** that drives high call volume (cancellation schedule, NT Protect numbers)\n\nKnowing them cold means most calls become muscle memory instead of KB lookups. Several of these are the answers to the highest-volume questions in the entire support queue — every minute spent looking these up on a call is a minute the customer is on hold.",
+          "title": "Why These Fifteen",
+          "content_md": "Each of these facts represents one of:\n- A **policy correction** the help center got wrong (early return, deposit timing, tire damage)\n- A **scope boundary** for what a CSR can and can't do — including the override authority CSRs DO have (cancellations, MVR, extension approval)\n- A **commonly-misunderstood timing** (deposit refund, DDC window, dispute window, pickup address)\n- A **friction point** that drives high call volume (cancellation schedule, NT Protect numbers, owner cancellation fee)\n\nKnowing them cold means most calls become muscle memory instead of KB lookups. Several of these are the answers to the highest-volume questions in the entire support queue — every minute spent looking these up on a call is a minute the customer is on hold.",
           "key_points": [
             "Policy corrections, scope boundaries (with override authority), timing, friction points",
             "Cold knowledge = faster calls, fewer mistakes"
@@ -1804,13 +2106,14 @@
         {
           "id": "module-10-scenario-1",
           "type": "free_response",
-          "prompt": "Recite all 14 critical facts in any order. (No peeking.)",
+          "prompt": "Recite all 15 critical facts in any order. (No peeking.)",
           "rubric": [
-            "All 14 facts present",
-            "Correct numbers (80%, 75/50/25/0, 3-5 days, $500, $25k, 48h, 24h)",
-            "Correct ownership (owner's payout, renter's account, owner-responsible tire conditions)",
+            "All 15 facts present",
+            "Correct numbers (80%, 75/50/25/0, 30% owner cancel, 3-5 days, $500, $25k, 48h, 24h)",
+            "Correct ownership (owner's payout, renter's account, owner-responsible tire conditions, owner cancellation fee)",
             "No invented facts",
-            "Tire fact stated as case-by-case, NOT as a flat exclusion"
+            "Tire fact stated as case-by-case, NOT as a flat exclusion",
+            "Owner cancellation stated WITHOUT with-cause/without-cause terminology"
           ]
         },
         {
@@ -1846,6 +2149,20 @@
             "Mentions blocking the owner payout while the case is reviewed",
             "Reassures, escalates if outside their authority"
           ]
+        },
+        {
+          "id": "module-10-scenario-5",
+          "type": "roleplay",
+          "prompt": "An owner calls: their car was totaled this morning and they need to cancel a booking that picks up tomorrow. They're asking about the cancellation fee.",
+          "customer_persona": "Stressed owner dealing with a real emergency. Apologetic, not combative.",
+          "rubric": [
+            "States owner cancellation = 30% fee from next payout",
+            "Does NOT use with-cause/without-cause terminology",
+            "Mentions waiver path for legitimate emergencies (NT discretion)",
+            "Opens the door to waiver review without promising it",
+            "Empathetic and practical"
+          ],
+          "difficulty": "standard"
         }
       ],
       "quiz": [
@@ -1964,6 +2281,19 @@
           ],
           "correct_index": 2,
           "explanation": "Unresponsive owner is a legitimate trigger for CSR-initiated cancellation. NT chooses the refund (overriding the standard schedule when warranted) and can block the owner payout while the case is reviewed."
+        },
+        {
+          "id": "m10-q10",
+          "question": "An owner cancels a booking because they overbooked. What is the policy?",
+          "type": "multiple_choice",
+          "options": [
+            "No fee — owners can cancel freely",
+            "$25 flat cancellation fee",
+            "30% fee deducted from the owner's next payout (waivable for legitimate emergencies at NT discretion)",
+            "Owner is suspended from the platform"
+          ],
+          "correct_index": 2,
+          "explanation": "30% fee from next payout. No with-cause/without-cause terminology. Edge cases like real emergencies can be waived at NT discretion — open the door, don't promise."
         }
       ],
       "passing_score_percent": 70

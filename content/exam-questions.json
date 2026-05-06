@@ -113,14 +113,14 @@
     {
       "id": "exam-q9",
       "module_ref": "module-2",
-      "question": "What are the three most common causes of an 'account inactive' issue, in triage order?",
+      "question": "A user says their account is showing 'deactivated' on their dashboard. What are the two main causes you walk them through, and what is the reactivation path?",
       "type": "short_answer",
       "expected_keywords": [
-        "unverified email",
-        "listing fields",
-        "compliance hold"
+        "NT team",
+        "self",
+        "support"
       ],
-      "explanation": "Unverified email first, then missing listing fields, then compliance hold."
+      "explanation": "Two main causes of deactivated: NT team deactivation due to policy violation, or user self-deactivation. Reactivation = user contacts NT support → team reviews → team reactivates if appropriate. (The CSR cannot unilaterally reactivate.) 'Inactive' is a separate, lighter-touch path: unverified email, missing listing fields, or incomplete profile."
     },
     {
       "id": "exam-q10",
@@ -803,6 +803,48 @@
       ],
       "correct_index": 1,
       "explanation": "Two-path flow. Under the deposit = DDC only. Over the deposit = DDC for the deposit amount + NT Protect claim for the remainder. NT Protect carries a $500 deductible (typically from the deposit) and caps at $25,000."
+    },
+    {
+      "id": "exam-q57",
+      "module_ref": "module-2",
+      "question": "How often is ID verification required for a renter on the platform?",
+      "type": "multiple_choice",
+      "options": [
+        "Only on the first booking",
+        "Every 90 days",
+        "On every single booking",
+        "Only when the system flags something suspicious"
+      ],
+      "correct_index": 2,
+      "explanation": "ID verification is required on EVERY booking — not just the first, not on a schedule. This is a notable simplification from older curriculum that taught a more complex schedule."
+    },
+    {
+      "id": "exam-q58",
+      "module_ref": "module-4",
+      "question": "An owner cancels a booking because they double-booked their schedule. What is the cancellation policy?",
+      "type": "multiple_choice",
+      "options": [
+        "No fee — owners can cancel freely",
+        "$25 flat cancellation fee",
+        "30% of the booking value, deducted from the owner's next payout (waivable for legitimate emergencies at NT discretion)",
+        "Categorized as a 'without cause' cancellation with a tiered fee"
+      ],
+      "correct_index": 2,
+      "explanation": "Owner cancellation = 30% fee from next payout. The with-cause/without-cause terminology is dead. Edge cases (real emergencies) can be waived at NT discretion — open the door, don't promise."
+    },
+    {
+      "id": "exam-q59",
+      "module_ref": "module-5",
+      "question": "A renter cancels 30 hours before booking start. What refund applies on the rent portion?",
+      "type": "multiple_choice",
+      "options": [
+        "75%",
+        "50%",
+        "25%",
+        "0%"
+      ],
+      "correct_index": 2,
+      "explanation": "30 hours falls in the 24-48 hour window = 25% refund on rent. Platform fee, tax, and Protection Package remain non-refundable regardless. Refund processes back to the renter's card in 3-5 business days."
     }
   ]
 }
