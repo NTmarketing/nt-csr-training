@@ -62,7 +62,7 @@ nt-csr-training/
 │       └── pages/            # Login, Dashboard, Module, Quiz, Roleplay, FinalExam, Certificate, Admin
 ├── content/                  # Built by Session 3
 │   ├── modules.json          # Structured 11-module curriculum
-│   ├── knowledge-base.txt    # Copy of unified NT KB (Session 3 places it here)
+│   ├── knowledge-base.txt    # Master KB synced from droplet (/opt/nt-agent/data/kb-analysis/master-kb.txt)
 │   ├── exam-questions.json   # Final cert exam question pool
 │   └── critical-facts.json   # The 12 must-know facts from Module 10
 ├── deploy/                   # Built by Session 3
@@ -437,7 +437,22 @@ The 12 must-know facts from Module 10, used for the spaced-repetition drilling r
 ## AI System Prompts (high-level — Session 1 implements)
 
 **Tutor mode:**
-> You are the NT CSR Trainer. The trainee is currently working through Module {N}: {title}. Their goal is to learn {objectives}. The unified knowledge base and module content are below as context. Answer their questions clearly and concisely. Don't info-dump. Reference KB articles by title. The curriculum overrides the KB on the early-return refund (80%, not 75%).
+
+The tutor receives two context blocks: the trainee's current module (objectives + section prose) and a relevance-filtered set of KB excerpts.
+
+KB retrieval pipeline:
+1. `content/knowledge-base.txt` is the production master KB (synced from `/opt/nt-agent/data/kb-analysis/master-kb.txt` on the droplet — currently ~675 KB / ~977 entries).
+2. `content.js` parses it once at startup into structured entries on `--- [Audience] [Category] Q: title ---` boundaries. Each entry has `audience`, `category`, `title`, `body`, plus pre-tokenized title/body word bags for fast scoring.
+3. On each tutor turn, `findRelevantKBEntries(query, {limit: 6})` scores every entry against the trainee's message (concatenated with the previous assistant turn for follow-up context). Title hits weighted 4x, body hits 1x, category hits +3 flat. Real Q&A entries get a 1.5x boost; `Template:` titles and `REFERENCE-ONLY` / `AUTO-REPLY-OK` audience markers get a penalty (they're useful for wording but not for policy lookup).
+4. Top 6 entries are injected into the system prompt under "RELEVANT KNOWLEDGE BASE EXCERPTS".
+
+System-prompt rules (the model is told):
+- The KB is authoritative. If the KB and module content conflict on a factual point, the KB wins (production policies override training material) and the tutor must say so plainly.
+- Don't info-dump. Answer first, offer depth on request.
+- If neither source has the answer, say so honestly — don't fabricate policies, dollar amounts, or timing.
+- The KB excerpts are pre-filtered by keyword relevance — if they look off-topic for the question, ignore them.
+
+Token budget: a typical tutor turn sends ~3-7K input tokens (system prompt + module content + 6 KB entries + history). Acceptable for an internal training tool at low volume.
 
 **Roleplay mode:**
 > You are playing a customer of Neighbors Trailer. Your persona: {persona}. Stay in character. Don't break character to give hints. Respond naturally as the customer would. The trainee is the CSR. After they end the conversation, you will be graded on how realistic and challenging the scenario was — but during the conversation, just be the customer.

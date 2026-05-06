@@ -28,7 +28,6 @@ router.post('/tutor', authRequired, async (req, res, next) => {
     if (!moduleId) return res.status(400).json({ error: 'moduleId required' });
     const mod = content.getModule(moduleId);
     if (!mod) return res.status(404).json({ error: 'Module not found' });
-    const kb = content.getKB();
 
     const db = getDb();
     const existing = loadTutorConversation(db, req.user.id, moduleId);
@@ -40,7 +39,16 @@ router.post('/tutor', authRequired, async (req, res, next) => {
       } catch (_) {}
     }
 
-    const reply = await ai.tutorChat(mod, kb, message, history);
+    // Pick the most relevant KB entries for this turn. Use the new user
+    // message + the last assistant turn (if any) as the search query so
+    // follow-ups like "and how does that work for owners?" still hit.
+    const lastAssistant = [...history].reverse().find((m) => m.role === 'assistant');
+    const searchQuery = lastAssistant
+      ? `${message}\n${lastAssistant.content}`
+      : message;
+    const kbEntries = content.findRelevantKBEntries(searchQuery, { limit: 6 });
+
+    const reply = await ai.tutorChat(mod, kbEntries, message, history);
     const newHistory = [
       ...history,
       { role: 'user', content: message },

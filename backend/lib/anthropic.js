@@ -59,16 +59,42 @@ function buildModuleContext(moduleContent) {
   return parts.join('\n\n');
 }
 
-async function tutorChat(moduleContent, kbContext, userMessage, history = []) {
-  const system = `You are the NT CSR Trainer. The trainee is currently working through ${moduleContent ? `Module ${moduleContent.number}: ${moduleContent.title}` : 'the curriculum'}. Their goal is to learn the module's objectives.
+function formatKBEntry(e) {
+  // Compact text-only rendering of one entry. Body kept full — the relevance
+  // search already filters down to ~6 entries, so per-entry truncation isn't
+  // needed for typical token budgets.
+  const header = `[${e.audience}] [${e.category}] ${e.title}`;
+  return `${header}\n${e.body}`;
+}
 
-The unified knowledge base and module content are provided below as context. Answer questions clearly and concisely. Don't info-dump. Reference KB articles by title when relevant. The curriculum overrides the KB on the early-return refund (80%, not 75%).
+async function tutorChat(moduleContent, kbEntries, userMessage, history = []) {
+  // kbEntries: array of pre-selected relevant KB entries from
+  // content.findRelevantKBEntries(). The route layer does the keyword search
+  // (using the trainee's message + the last assistant turn for follow-up
+  // context) so this function stays a thin Anthropic wrapper.
+  const kbBlock = Array.isArray(kbEntries) && kbEntries.length
+    ? kbEntries.map(formatKBEntry).join('\n\n---\n\n')
+    : '(no matching KB entries found for this question)';
+
+  const system = `You are the NT CSR Trainer. The trainee is currently working through ${moduleContent ? `Module ${moduleContent.number}: ${moduleContent.title}` : 'the curriculum'}. Their goal is to learn the module's objectives, but they may also ask broader questions about real CSR work.
+
+You have two sources of context, in priority order:
+
+1. **MASTER KNOWLEDGE BASE EXCERPTS** — the production source of truth for Neighbors Trailer policy, procedure, and customer-facing answers. These entries come from the live support knowledge base. Use them to answer trainee questions accurately. Reference them by their question/title when helpful so the trainee can look them up later.
+
+2. **MODULE CONTENT** — what the trainee is currently studying. Use this to ground your answer in the lesson context.
+
+Rules:
+- The KB is authoritative. If the KB and module content conflict on a factual point (numbers, deadlines, refund percentages, eligibility, escalation triggers), **the KB wins** — production policies override training material. Tell the trainee plainly when this happens.
+- Don't info-dump. Answer the actual question first, then offer to go deeper.
+- If neither the KB nor the module content has the answer, say so honestly. Do not fabricate policies, dollar amounts, or timing windows.
+- The KB excerpts below are pre-filtered by keyword relevance to the current question; if they look off-topic, ignore them and answer from the module content (or say you don't have authoritative info).
 
 === MODULE CONTENT ===
 ${buildModuleContext(moduleContent)}
 
-=== KNOWLEDGE BASE EXCERPT ===
-${(kbContext || '').slice(0, 12000)}`;
+=== RELEVANT KNOWLEDGE BASE EXCERPTS ===
+${kbBlock}`;
 
   const messages = [
     ...history.filter(m => m && m.role && m.content).map(m => ({
