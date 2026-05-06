@@ -349,11 +349,11 @@
         {
           "id": "section-1-1",
           "title": "What is Neighbors Trailer?",
-          "content_md": "Neighbors Trailer (NT) is a peer-to-peer trailer rental marketplace. **Owners list their trailers** and **renters book them**. NT does not own any of the trailers on the platform.\n\nWhat NT actually provides:\n- Payment processing\n- Identity verification (Clear)\n- MVR (driver record) checks\n- GPS tracking on rentals\n- NT Protect — the Protection Package, a built-in damage protection product (NOT insurance) that covers accidental damage\n- Dispute resolution\n\nIf someone asks 'aren't you just like Turo for trailers?' — yes, that's a fine analogy. The model is the same: a two-sided marketplace where the platform handles trust, payments, and safety so that owners and renters can transact directly.",
+          "content_md": "Neighbors Trailer (NT) is a peer-to-peer trailer rental marketplace. **Owners list their trailers** and **renters book them**. NT does not own any of the trailers on the platform.\n\nWhat NT actually provides:\n- Payment processing\n- Identity verification (Clear)\n- MVR (driver record) checks\n- NT Protect — the Protection Package, a built-in damage protection product (NOT insurance) that covers accidental damage\n- Dispute resolution\n\nThink of it like Airbnb, but for trailers. The model is the same: a two-sided marketplace where the platform handles trust, payments, and safety so that owners and renters can transact directly. Most people instantly understand the concept once they hear that comparison.",
           "key_points": [
             "Peer-to-peer marketplace — NT does not own trailers",
             "Two roles: Owner and Renter",
-            "NT handles payments, verification, GPS, Protection Package, disputes"
+            "NT handles payments, verification, Protection Package, disputes"
           ]
         },
         {
