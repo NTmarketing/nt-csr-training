@@ -305,16 +305,16 @@
         },
         {
           "id": "tb-q4",
-          "question": "Does NT Protect (the Protection Package) cover a tire blowout from road debris during a rental?",
+          "question": "An owner asks if a tire blowout from road debris during a rental is covered by NT Protect. What's the most accurate answer?",
           "type": "multiple_choice",
           "options": [
-            "Yes, all damage is covered",
-            "Yes, with a $250 deductible",
-            "No — tire damage is excluded from NT Protect",
-            "Only if the renter calls within 24 hours"
+            "Tires can be covered like any other damage — but the renter pays the $500 deductible and most single-tire damage doesn't exceed that threshold",
+            "Tire damage is permanently excluded from NT Protect coverage",
+            "All tire damage is the renter's responsibility regardless of tire condition",
+            "Tire damage is only covered if the renter caused it"
           ],
-          "correct_index": 2,
-          "explanation": "Tire damage from blowouts or road debris is not covered by NT Protect. This is one of the most common edge-case calls — know it cold."
+          "correct_index": 0,
+          "explanation": "Tires are covered the same as any other damage under NT Protect — there's no special tire exclusion. What makes tire claims rare is the $500 deductible. A single tire usually costs less than $500 to replace, so the damage falls below the deductible threshold. That means renter or owner pays directly without filing a Protection Package claim — but it's NOT because tires are excluded. If multiple tires are damaged or the repair cost exceeds $500 (e.g., curb impact damaging two tires plus rim), it can be filed as a Protection Package claim. Don't tell customers 'tire damage isn't covered' — tell them how the deductible works."
         },
         {
           "id": "tb-q5",
