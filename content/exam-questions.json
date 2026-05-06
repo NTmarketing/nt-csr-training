@@ -40,7 +40,7 @@
         "All damage of any kind"
       ],
       "correct_index": 1,
-      "explanation": "Accidental damage during rentals. Tire damage, intentional damage, and theft from negligence are excluded."
+      "explanation": "Accidental damage during rentals, with a $500 deductible and $25,000 cap per claim. Intentional damage and theft from renter negligence are excluded. Tire damage is case-by-case (condition + cause), not a flat exclusion."
     },
     {
       "id": "exam-q4",
@@ -167,16 +167,16 @@
     {
       "id": "exam-q13",
       "module_ref": "module-3",
-      "question": "Can a CSR cancel a booking on behalf of a renter who's having trouble logging in?",
+      "question": "A renter calls saying they can't log in and want to cancel their booking. What's the right move?",
       "type": "multiple_choice",
       "options": [
-        "Yes, as a courtesy",
-        "Yes, with renter's verbal consent",
-        "No — must be done by the renter through their account",
-        "Only within the 72-hour window"
+        "Cancel the booking for them as a courtesy",
+        "Help them get logged in so they can self-cancel; CSR-initiated cancel is reserved for legitimate exception cases (unresponsive owner, fraud, renter emergency, platform error)",
+        "Refuse — only the renter can ever cancel",
+        "Escalate to a manager"
       ],
-      "correct_index": 2,
-      "explanation": "Cancellations must be done by the renter. The CSR's job is to help them get logged in, not to cancel for them."
+      "correct_index": 1,
+      "explanation": "Default cancellation flow is renter self-service. CSRs DO have override authority but it's reserved for legitimate exception cases (unresponsive owner, fraud, renter emergency, platform error). A login problem is solved by helping them log in, not by initiating CSR cancel."
     },
     {
       "id": "exam-q14",
@@ -210,13 +210,13 @@
       "question": "What's the typical listing approval timeframe?",
       "type": "multiple_choice",
       "options": [
-        "1-2 hours",
-        "Same day",
-        "24-48 hours",
-        "5-7 business days"
+        "5-7 business days",
+        "Always same day",
+        "1-2 hours when there are no issues; 24-48 hours when something needs owner follow-up",
+        "Manual review only — no published SLA"
       ],
       "correct_index": 2,
-      "explanation": "Typically 24-48 hours, automated + manual review."
+      "explanation": "1-2 hours when no issues are flagged. If photos, fields, or compliance items need owner follow-up, it stretches to 24-48 hours."
     },
     {
       "id": "exam-q17",
@@ -316,14 +316,14 @@
     {
       "id": "exam-q24",
       "module_ref": "module-5",
-      "question": "What is the typical deposit refund timing after a rental closes?",
+      "question": "What is the typical deposit refund timing after a rental closes (no DDC filed)?",
       "type": "short_answer",
       "expected_keywords": [
         "3",
-        "7",
+        "5",
         "business days"
       ],
-      "explanation": "3-7 business days after the rental officially closes."
+      "explanation": "3-5 business days after the rental officially closes (when no DDC is filed). When a DDC is filed, the refund is held until the 24-hour dispute window closes and the deduction processes."
     },
     {
       "id": "exam-q25",
@@ -342,16 +342,16 @@
     {
       "id": "exam-q26",
       "module_ref": "module-6",
-      "question": "Does NT Protect cover tire blowouts?",
+      "question": "A renter blew a tire and is asking if it's covered. What's the correct CSR answer?",
       "type": "multiple_choice",
       "options": [
-        "Yes",
-        "No",
-        "Only on highways",
-        "Only with the upgraded plan"
+        "No — all tire damage is excluded from NT Protect",
+        "Yes — all damage during a rental is covered",
+        "It depends on tire condition and cause; the owner files a claim and NT reviews tire age, wear, and the cause of the failure",
+        "Only if the deductible is paid first"
       ],
-      "correct_index": 1,
-      "explanation": "Tire damage is not covered by NT Protect. This includes blowouts and road debris damage."
+      "correct_index": 2,
+      "explanation": "Tire damage is case-by-case. Worn or old tires that fail on their own = owner is responsible. Good-condition tires damaged by renter actions (impact, overload, speed) = renter pays. The owner files a claim and NT reviews."
     },
     {
       "id": "exam-q27",
@@ -397,16 +397,16 @@
     {
       "id": "exam-q30",
       "module_ref": "module-6",
-      "question": "Which is NOT covered by NT Protect?",
+      "question": "Which of these is unambiguously NOT covered by NT Protect?",
       "type": "multiple_choice",
       "options": [
         "Accidental fender damage during rental",
-        "Tire blowouts and road debris damage",
         "Hail damage during the rental",
-        "Accidental scratches during loading"
+        "Intentional damage or theft due to renter negligence",
+        "A tire blowout from road debris"
       ],
-      "correct_index": 1,
-      "explanation": "Tire damage is the most common excluded item. Accidental damage is generally covered."
+      "correct_index": 2,
+      "explanation": "Intentional damage and theft due to renter negligence are flat exclusions. Tire damage is case-by-case (condition + cause), not a flat exclusion. Accidental damage is generally covered."
     },
     {
       "id": "exam-q31",
@@ -591,12 +591,12 @@
       "type": "multiple_choice",
       "options": [
         "Yes",
-        "No — that's a standard KB answer (3-7 business days)",
+        "No — that's a standard KB answer (3-5 business days when no DDC is filed)",
         "Only if it's been more than a week",
         "Yes, every time"
       ],
       "correct_index": 1,
-      "explanation": "Deposit refund timing is a standard KB answer. Don't escalate."
+      "explanation": "Deposit refund timing is a standard KB answer: 3-5 business days when no DDC is filed. Don't escalate."
     },
     {
       "id": "exam-q45",
@@ -622,7 +622,7 @@
         "Active payout failure requiring admin tools"
       ],
       "correct_index": 1,
-      "explanation": "Deposit refund timing is a standard KB answer (3-7 business days). The other three are escalation triggers."
+      "explanation": "Deposit refund timing is a standard KB answer (3-5 business days when no DDC is filed). The other three are escalation triggers."
     },
     {
       "id": "exam-q47",
@@ -682,16 +682,16 @@
     {
       "id": "exam-q51",
       "module_ref": "module-10",
-      "question": "Which of these CAN a CSR do?",
+      "question": "Which of these is something a CSR CANNOT do?",
       "type": "multiple_choice",
       "options": [
-        "Cancel a booking on behalf of the renter",
-        "Override an MVR rejection",
         "Walk a renter through cancelling through their own account",
-        "Force an owner to accept a date change"
+        "Initiate a cancellation when the owner has gone unresponsive (NT chooses the refund and blocks owner payout)",
+        "Override an MVR rejection",
+        "Initiate a cancellation when there is a documented renter emergency"
       ],
       "correct_index": 2,
-      "explanation": "CSR can guide self-service. CSR cannot cancel for the renter, override MVR, or force owner actions."
+      "explanation": "CSRs cannot override MVR rejections — those must be escalated. CSRs CAN guide self-service AND can initiate cancellation in legitimate exception cases (unresponsive owner, fraud, renter emergency, platform error)."
     },
     {
       "id": "exam-q52",
@@ -751,16 +751,58 @@
     {
       "id": "exam-tb-3",
       "module_ref": "module-trailer-basics",
-      "question": "A renter blew a tire from a piece of road debris during the rental. Is this damage covered by NT Protect?",
+      "question": "A renter blew a tire during the rental. What's the correct CSR answer about coverage?",
       "type": "multiple_choice",
       "options": [
-        "Yes, all damage during the rental is covered",
-        "Yes, with a deductible",
-        "No — tire damage from blowouts or road debris is excluded from NT Protect",
-        "Only if the owner agrees"
+        "Yes — all damage during the rental is automatically covered",
+        "No — tire damage is always excluded from NT Protect",
+        "It depends on tire condition and cause; the owner files a claim and NT reviews tire age, wear, and the cause of failure",
+        "Only if the renter pre-purchased a tire-specific add-on"
       ],
       "correct_index": 2,
-      "explanation": "Tire damage from blowouts/road debris is not covered. This is a frequent edge-case call — the policy excludes wear-and-tire damage even though general accidental damage is covered."
+      "explanation": "Tire damage is case-by-case based on condition + cause. Worn or old tires that fail on their own = owner is responsible. Good-condition tires damaged by renter actions (impact, overload, speed) = renter pays. NOT a flat exclusion."
+    },
+    {
+      "id": "exam-q54",
+      "module_ref": "module-6",
+      "question": "What is the renter deductible per NT Protect claim?",
+      "type": "multiple_choice",
+      "options": [
+        "$250",
+        "$500",
+        "$1,000",
+        "Varies by trailer"
+      ],
+      "correct_index": 1,
+      "explanation": "$500 per claim. Typically taken from the deposit. If the deductible cannot be collected from the renter, the owner becomes responsible for it."
+    },
+    {
+      "id": "exam-q55",
+      "module_ref": "module-6",
+      "question": "An owner files a Damage Deposit Deduction Claim. How long does the renter have to dispute before it auto-approves?",
+      "type": "multiple_choice",
+      "options": [
+        "12 hours",
+        "24 hours",
+        "48 hours",
+        "7 days"
+      ],
+      "correct_index": 1,
+      "explanation": "24 hours. No response in 24 hours = the deduction auto-approves and processes against the deposit. The single largest urgency lever in dispute calls."
+    },
+    {
+      "id": "exam-q56",
+      "module_ref": "module-6",
+      "question": "An owner reports $1,800 in damage on a trailer with a $500 security deposit. Which path applies?",
+      "type": "multiple_choice",
+      "options": [
+        "Owner files a single damage claim; NT pays out $1,800 minus deductible",
+        "Owner files a DDC for the $500 deposit, then a separate NT Protect claim for the remaining $1,300 (subject to the $500 deductible and $25,000 cap)",
+        "Damage above the deposit is the owner's loss — no recovery path",
+        "Renter is automatically charged the difference"
+      ],
+      "correct_index": 1,
+      "explanation": "Two-path flow. Under the deposit = DDC only. Over the deposit = DDC for the deposit amount + NT Protect claim for the remainder. NT Protect carries a $500 deductible (typically from the deposit) and caps at $25,000."
     }
   ]
 }

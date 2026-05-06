@@ -2,7 +2,7 @@
   "facts": [
     {
       "id": "fact-1",
-      "fact": "Early return refund maximum is 80% of rent for the unused portion. Not 75%. The help center is out of date.",
+      "fact": "Early return refund maximum is 80% of rent for the unused portion. Per Section 20 of TOS. The help center 75% text is out of date.",
       "test_question": "What is the maximum refund on an early return?",
       "test_answer": "80% of rent for the unused portion"
     },
@@ -26,9 +26,9 @@
     },
     {
       "id": "fact-5",
-      "fact": "Cancellations must be done by the renter through their account. Phone, email, and chat requests do not cancel a booking.",
-      "test_question": "Can a CSR cancel a booking on behalf of a renter via phone or email?",
-      "test_answer": "No, the renter must cancel through their own account"
+      "fact": "Cancellations default to renter self-service through their account. CSRs DO have override authority for legitimate cases (unresponsive owner, suspected fraud, renter emergency with documentation, platform-side error). CSR-initiated cancel lets NT choose the refund and block owner payout. Use sparingly.",
+      "test_question": "Can a CSR ever cancel a booking on behalf of a renter?",
+      "test_answer": "Yes, for legitimate cases (unresponsive owner, fraud, renter emergency, platform error). Default is still renter self-service. CSR-initiated cancel lets NT choose the refund and block the owner payout."
     },
     {
       "id": "fact-6",
@@ -38,15 +38,15 @@
     },
     {
       "id": "fact-7",
-      "fact": "Deposit refund timing is 3-7 business days after the rental is officially closed.",
+      "fact": "Deposit refund timing is 3-5 business days after the rental is officially closed (when no DDC is filed).",
       "test_question": "How long does a deposit refund take after the rental closes?",
-      "test_answer": "3 to 7 business days"
+      "test_answer": "3 to 5 business days, when no DDC is filed"
     },
     {
       "id": "fact-8",
-      "fact": "Tire damage is not covered by NT Protect / the Protection Package.",
+      "fact": "Tire damage is case-by-case based on tire condition + cause. Worn or old tires that fail on their own = owner is responsible. Good-condition tires damaged by renter actions (impact, overload, speed) = renter is responsible. NOT a flat exclusion.",
       "test_question": "Does NT Protect cover tire damage?",
-      "test_answer": "No, tire damage is not covered"
+      "test_answer": "It depends on tire condition and cause. Worn/old tires that fail = owner. Good tires damaged by renter actions = renter. Not a flat exclusion."
     },
     {
       "id": "fact-9",
@@ -56,19 +56,31 @@
     },
     {
       "id": "fact-10",
-      "fact": "A CSR cannot cancel a booking on behalf of a renter. The renter must do it themselves.",
-      "test_question": "Can a CSR cancel a booking for a renter?",
-      "test_answer": "No, only the renter can cancel through their account"
+      "fact": "NT Protect: $500 renter deductible per claim, $25,000 maximum coverage per claim. Both numbers are quotable to customers. If the deductible cannot be collected from the renter, the owner becomes responsible for it.",
+      "test_question": "What are the two NT Protect numbers every CSR must know cold?",
+      "test_answer": "$500 deductible per claim, $25,000 coverage cap per claim"
     },
     {
       "id": "fact-11",
+      "fact": "A Damage Deposit Deduction Claim (DDC) must be filed during the rental or within 48 hours after the rental ends. Past 48 hours, there is no retroactive claim path.",
+      "test_question": "What is the DDC filing window?",
+      "test_answer": "During the rental or within 48 hours after the rental ends"
+    },
+    {
+      "id": "fact-12",
+      "fact": "Once a DDC is filed, the renter has 24 hours to dispute through their account. No response in 24 hours = the deduction auto-approves and processes against the deposit.",
+      "test_question": "How long does the renter have to dispute a DDC before it auto-approves?",
+      "test_answer": "24 hours; auto-approves at 24 hours of silence"
+    },
+    {
+      "id": "fact-13",
       "fact": "The pickup address is shared automatically with the renter after the owner accepts the booking. Most 'where is the address' calls are from renters who haven't checked their booking page.",
       "test_question": "When is the pickup address shared with the renter?",
       "test_answer": "Automatically after the owner accepts the booking"
     },
     {
-      "id": "fact-12",
-      "fact": "Phone number policy: do not share NT's phone number unless the customer explicitly asks. Default to email or live chat.",
+      "id": "fact-14",
+      "fact": "Phone number policy: do not proactively share NT's phone number unless the customer explicitly asks. Default to email or live chat.",
       "test_question": "Should a CSR proactively share NT's phone number?",
       "test_answer": "No, only share it if the customer explicitly asks; default to email or live chat"
     }

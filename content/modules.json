@@ -1059,81 +1059,90 @@
       "id": "module-6",
       "number": 7,
       "title": "Deposits, Damage Claims & Disputes",
-      "description": "HIGH STAKES. Damage claim filing, dispute rights, what NT Protect covers and excludes, and how to handle 'I'm being charged for damage I didn't cause.'",
-      "estimated_minutes": 20,
+      "description": "HIGH STAKES. The two-path damage claim flow, NT Protect coverage and limits, the DDC filing window, the renter's dispute window, and how to handle 'I'm being charged for damage I didn't cause.'",
+      "estimated_minutes": 25,
       "learning_objectives": [
-        "Explain the damage claim filing process to an owner",
-        "Explain dispute rights to a renter",
-        "Define what NT Protect covers and excludes",
-        "Handle damage dispute calls without committing to fault either way"
+        "Distinguish the two damage-claim paths: under-deposit DDC vs. over-deposit NT Protect claim",
+        "State NT Protect mechanics cold: $500 renter deductible, $25,000 coverage cap",
+        "Explain the DDC 48-hour filing window and the 24-hour renter dispute window",
+        "Apply the tire damage rule as case-by-case (condition + cause), not flat exclusion",
+        "Handle dispute calls without committing to fault, and know when CSR cancellation authority applies"
       ],
       "sections": [
         {
           "id": "section-6-1",
-          "title": "When Damage Happens",
-          "content_md": "When a trailer is returned with damage, the **owner files a damage claim**. The claim must include:\n- A description specific to that rental\n- Photos showing the damage\n- A repair estimate or invoice\n- The completed claim form\n\nNT reviews the claim. If the renter disputes, NT reviews both sides and makes a final determination.\n\nIf damage costs **exceed the deposit**, the owner can pursue additional recovery through NT.",
+          "title": "How Damage Claims Work — The Two-Path Flow",
+          "content_md": "Damage claims have **two paths** and which one applies depends on the dollar amount versus the security deposit on file.\n\n**Path 1 — Damage cost is at or under the deposit:** the **owner files a Damage Deposit Deduction Claim (DDC)** through the End Rental flow. The cost comes out of the renter's deposit. NT Protect is not invoked.\n\n**Path 2 — Damage cost exceeds the deposit:** the owner first files the DDC for the deposit amount, then files an **NT Protect claim** for the remainder. NT Protect carries a **$500 renter deductible** and **caps at $25,000** per claim. The deductible normally comes out of the deposit. If the deductible cannot be collected from the renter, the **owner becomes responsible for the deductible**.\n\n**A DDC must include four things:**\n- A description specific to that rental (not generic wear-and-tear language)\n- Photos showing the damage\n- A repair estimate or invoice\n- The completed claim form\n\n**Filing window — DDC:** the claim must be filed **during the rental or within 48 hours after the rental ends**. Past 48 hours, there is no retroactive path. This is the highest-frequency owner-side mistake.\n\n**Dispute window — renter:** once a DDC is filed, the renter has **24 hours** to dispute through their account. If the renter does not respond within 24 hours, the deduction **auto-approves** and processes against the deposit. This is the single largest urgency lever in dispute calls — when a renter calls in panicked about a charge, the timer matters.\n\n**Deposit refund timing:** when no DDC is filed, the deposit refunds in **3-5 business days** after the rental closes. (When a DDC is filed, the deposit refund is held until the dispute window closes and the deduction processes.)",
           "key_points": [
-            "Owner files: description, photos, estimate/invoice, form",
-            "Renter can dispute through their account",
-            "NT makes final determination on disputed claims"
+            "Two paths: under-deposit = DDC only; over-deposit = DDC + NT Protect claim",
+            "DDC filing window: during rental or up to 48 hours after",
+            "Renter dispute window: 24 hours, then auto-approves",
+            "Deposit refund: 3-5 business days when no DDC filed",
+            "DDC contents: description, photos, estimate, form"
           ]
         },
         {
           "id": "section-6-2",
-          "title": "What NT Protect Covers (and Doesn't)",
-          "content_md": "**Covers:** Accidental damage during rentals, automatically applied to eligible bookings.\n\n**Does NOT cover:**\n- **Tire damage** (blowouts, road debris) — this is the most common 'is it covered' question\n- Intentional damage\n- Theft due to renter negligence\n\nIf a renter calls saying 'I blew a tire on the highway, am I covered?' — the answer is **no, NT Protect does not cover tire damage**. Be direct but empathetic.",
+          "title": "NT Protect — Coverage, Deductible, Cap, and the Tire Rule",
+          "content_md": "**NT Protect (Protection Package)** covers accidental damage during rentals when the cost exceeds the deposit. Two numbers every CSR must know cold:\n\n- **$500 deductible** per claim (renter pays, typically from the deposit)\n- **$25,000 maximum coverage** per claim\n\nBoth numbers are quotable to customers. Do not hedge or look these up on every call.\n\n**What NT Protect DOES cover:**\n- Accidental damage during a rental (dents, broken latches, fender damage, hail, accidental scratches during loading)\n- Damage that exceeds the deposit (up to the $25k cap)\n\n**What NT Protect does NOT cover:**\n- **Intentional damage**\n- **Theft due to renter negligence**\n- Mechanical failure unrelated to the rental\n\n**Tire damage is case-by-case — NOT a flat exclusion.** This is one of the highest-volume call types and the curriculum used to teach it wrong.\n\nThe rule is: **tire condition + cause** determine responsibility.\n- **Renter pays** when good-condition tires are damaged by renter actions: impact (curbs, potholes), overload, excessive speed, road debris where the tire was sound.\n- **Owner is responsible** when worn or old tires fail on their own: tread below safe depth, dry-rot, sidewall cracking, or otherwise defective tires that would have failed regardless of how the renter drove.\n\nWhen a renter calls saying \"I blew a tire on the highway, am I covered?\" — the right answer is **\"It depends on the tire's condition and what caused the failure. The owner files a claim, and NT reviews tire age, wear, and the cause of the blowout to determine responsibility.\"** Do not tell them flatly yes or flatly no.",
           "key_points": [
-            "Tire damage is NOT covered — high-volume call type",
-            "Intentional damage and theft from negligence not covered",
-            "Be direct and empathetic, not apologetic"
+            "$500 deductible, $25,000 cap — memorize both",
+            "Covers accidental damage; excludes intentional damage and theft from negligence",
+            "Tire damage is case-by-case (condition + cause), NOT a flat exclusion",
+            "Renter actions on good tires = renter pays. Worn/old tires that fail = owner's responsibility.",
+            "On tire calls, do NOT say \"tires are excluded.\" Say \"it depends on condition and cause.\""
           ]
         },
         {
           "id": "section-6-3",
-          "title": "How to Handle Dispute Calls",
-          "content_md": "**Critical rule:** Never agree with a renter that 'the deduction is wrong' or that 'the owner is making it up.' You don't have visibility into the claim, the photos, or the prior condition. Stay neutral.\n\nWhat to say:\n- Acknowledge their frustration\n- Explain the dispute process exists exactly for this situation\n- Direct them to dispute through their account\n- Tell them NT will review both sides\n\nWhat NOT to say:\n- 'That sounds unfair'\n- 'I'll get this reversed for you'\n- 'The owner is probably wrong'\n\nIf the customer escalates to demanding a final answer, escalate the call.",
+          "title": "Handling Dispute Calls + CSR Cancellation Authority",
+          "content_md": "**Dispute calls — the neutral-stance rule.** Never agree with a renter that 'the deduction is wrong' or that 'the owner is making it up.' You don't have visibility into the photos, the prior condition, or the repair estimate. Stay neutral and route them to the dispute process.\n\n**What to say:**\n- Acknowledge their frustration\n- Explain the dispute process exists exactly for this situation\n- Direct them to dispute through their account within the 24-hour window\n- Tell them NT will review both sides and make a final determination\n\n**What NOT to say:**\n- 'That sounds unfair'\n- 'I'll get this reversed for you'\n- 'The owner is probably wrong'\n\nIf the customer demands a final answer or threatens chargeback, escalate.\n\n**CSR cancellation authority — the nuance the old curriculum missed.**\n\nThe default rule is **renter self-service**: most cancellations should be done by the renter through their own account. Walk them through it.\n\n**But CSRs DO have cancellation authority** for legitimate cases where self-service isn't appropriate. Use it sparingly. The legitimate triggers are:\n- **Unresponsive owner** (booking not accepted in time, or owner has gone silent)\n- **Suspected fraud** on either side of the booking\n- **Renter emergency** with documentation (medical, family emergency)\n- **Platform-side error** (system fault, listing pulled after booking)\n\nWhen a CSR initiates the cancellation, NT chooses the **refund amount** (overrides the standard schedule when the situation warrants) and can **block the owner payout** while the case is reviewed. That's the whole point of CSR-initiated cancel — it's not just a courtesy; it's a tool that gives NT control over money flow.\n\n**Bottom line:** default = self-service. Override path exists. Don't tell a customer 'I can't cancel for you' as a flat statement; the right phrasing is 'cancellations normally run through your account — let me walk you through it. If your situation falls under one of our exception cases, I can take it from here.'",
           "key_points": [
-            "Never agree the deduction is wrong",
-            "Direct to the dispute process — not your call to make",
-            "Demanding a final answer = escalate"
+            "Stay neutral on dispute calls; route to the 24-hour dispute window",
+            "Default cancellation flow = renter self-service through their account",
+            "CSR has override authority: unresponsive owner, fraud, renter emergency, platform error",
+            "CSR-initiated cancel lets NT choose the refund and block owner payout",
+            "Never tell a customer \"I cannot cancel for you\" as a flat statement"
           ]
         }
       ],
       "kb_references": [
         "How can I file a damage claim?",
+        "How do I file a deposit deduction claim for trailer damage?",
+        "How long does the renter have to respond to my damage claim?",
         "How can I recover damage costs that exceed the deposit?",
         "How can I dispute a deposit deduction claim?",
         "What is the Protection Package?",
-        "How much does the Protection Package cost?",
-        "Am I responsible for tire damage?",
-        "What types of disputes will Neighbors Trailer handle?",
-        "Template: Damage Claim Form",
-        "Template: Deposit Deduction Dispute"
+        "What is the $500 deductible and who pays it?",
+        "How much does NT Protect insurance cover?",
+        "Who is responsible for tire damage during a rental?",
+        "When will I get my security deposit back after returning a trailer?",
+        "A renter is threatening to dispute charges with their credit card company - what should I do?"
       ],
       "scenarios": [
         {
           "id": "module-6-scenario-1",
           "type": "roleplay",
-          "prompt": "A frustrated renter calls: 'They're charging me $400 for a scratch that was already there!' Handle without committing to fault either way.",
+          "prompt": "A frustrated renter calls: 'They're charging me $400 for a scratch that was already there!' The DDC was filed yesterday afternoon. Handle without committing to fault either way.",
           "customer_persona": "Angry renter who is convinced they're being scammed. Will push you to agree with them. Will threaten escalation if you don't.",
           "rubric": [
             "Acknowledges frustration without agreeing the deduction is wrong",
-            "Explains the dispute process exists for this exact situation",
-            "Directs them to dispute through their account",
+            "Notes the 24-hour dispute window and the urgency it creates",
+            "Directs them to dispute through their account immediately",
             "Stays neutral — doesn't take a side",
-            "Escalates if pushed for a final answer"
+            "Escalates if pushed for a final answer or if chargeback is threatened"
           ]
         },
         {
           "id": "module-6-scenario-2",
           "type": "free_response",
-          "prompt": "An owner asks how to file a damage claim. Walk through the four things they need to submit.",
+          "prompt": "An owner calls 3 days after the rental ended. They just noticed a $300 scratch on the trailer. Can they file a claim? Walk through it.",
           "rubric": [
-            "Description specific to the rental",
-            "Photos of the damage",
-            "Repair estimate or invoice",
-            "Completed claim form",
-            "Concise"
+            "States the DDC must be filed within 48 hours of rental end",
+            "States 3 days is past the window — no retroactive path",
+            "Empathetic but clear about the policy",
+            "Suggests proactive end-of-rental walkaround going forward",
+            "Does NOT promise to escalate or override the window"
           ]
         },
         {
@@ -1142,64 +1151,106 @@
           "prompt": "A renter blew a tire on the highway and is asking if they're covered.",
           "customer_persona": "Stranded renter, stressed but not angry. Wants to know what to do next.",
           "rubric": [
-            "Direct: tire damage is not covered by NT Protect",
+            "Does NOT say \"tires are excluded\" or commit to a yes/no",
+            "Explains tire damage is case-by-case based on tire condition and cause",
+            "States the owner files a claim and NT reviews tire age, wear, and cause",
             "Empathetic about the situation",
-            "Doesn't apologize for the policy",
-            "Helps them think about practical next steps"
+            "Helps them think about practical next steps (safe stop, document the scene)"
+          ]
+        },
+        {
+          "id": "module-6-scenario-4",
+          "type": "roleplay",
+          "prompt": "An owner is filing a damage claim for $1,800 in repairs to a trailer with a $500 deposit on file. Walk through the path and the numbers.",
+          "customer_persona": "Owner, calm but unfamiliar with the process. Has photos and an estimate ready.",
+          "rubric": [
+            "Identifies this as the over-deposit path: DDC + NT Protect claim",
+            "States the $500 deductible (typically from the deposit)",
+            "States the $25,000 cap",
+            "Notes the owner's responsibility if the deductible can't be collected from renter",
+            "Walks through the 4 claim contents (description, photos, estimate, form)"
           ]
         }
       ],
       "quiz": [
         {
           "id": "m6-q1",
-          "question": "Does NT Protect cover tire blowouts?",
+          "question": "A renter blew a tire on a highway. Is it covered by NT Protect?",
           "type": "multiple_choice",
           "options": [
-            "Yes",
-            "No",
-            "Only with the upgraded plan",
-            "Only on highways"
+            "No — all tire damage is excluded",
+            "Yes — all damage during the rental is covered",
+            "It depends on tire condition and cause — NT reviews the claim",
+            "Only if the owner authorizes"
           ],
-          "correct_index": 1,
-          "explanation": "Tire damage is not covered by NT Protect. This is one of the most common 'is it covered' questions."
+          "correct_index": 2,
+          "explanation": "Tire damage is case-by-case. Worn or old tires that fail = owner's responsibility. Good-condition tires damaged by renter actions (impact, overload, speed) = renter pays. The owner files a claim and NT reviews."
         },
         {
           "id": "m6-q2",
-          "question": "When a renter calls disputing a deduction, what's the right next step?",
+          "question": "What is NT Protect's renter deductible per claim?",
           "type": "multiple_choice",
           "options": [
-            "Tell them you'll get it reversed",
-            "Direct them to dispute through their account; NT will review",
-            "Escalate immediately",
-            "Agree the deduction sounds unfair"
+            "$250",
+            "$500",
+            "$1,000",
+            "Varies by trailer"
           ],
           "correct_index": 1,
-          "explanation": "Direct the renter to the dispute process. CSR cannot adjudicate and should not commit to fault."
+          "explanation": "$500 per claim. Typically taken from the deposit. If the deductible cannot be collected from the renter, the owner becomes responsible."
         },
         {
           "id": "m6-q3",
-          "question": "What four things does an owner submit when filing a damage claim?",
-          "type": "short_answer",
-          "expected_keywords": [
-            "description",
-            "photos",
-            "estimate",
-            "form"
+          "question": "What is the maximum coverage per NT Protect claim?",
+          "type": "multiple_choice",
+          "options": [
+            "$5,000",
+            "$10,000",
+            "$25,000",
+            "Unlimited"
           ],
-          "explanation": "Description specific to rental, photos, repair estimate or invoice, and the completed claim form."
+          "correct_index": 2,
+          "explanation": "$25,000 cap per claim. Damage above the cap is not covered by NT Protect."
         },
         {
           "id": "m6-q4",
-          "question": "If damage costs exceed the deposit, can the owner recover the rest?",
+          "question": "An owner ends a rental on Tuesday afternoon. On Friday morning they notice damage and call to file. What do you tell them?",
           "type": "multiple_choice",
           "options": [
-            "No — capped at deposit",
-            "Yes — through NT's additional recovery process",
-            "Only with court order",
-            "Only with the renter's consent"
+            "They can file within 7 days as long as they have photos",
+            "They can file with the renter's consent",
+            "No — DDC must be filed during the rental or within 48 hours after; past 48 hours there is no retroactive path",
+            "They can file but NT support must escalate it"
+          ],
+          "correct_index": 2,
+          "explanation": "DDC filing window is during the rental or up to 48 hours after. Tuesday afternoon to Friday morning is past 48 hours — no retroactive path."
+        },
+        {
+          "id": "m6-q5",
+          "question": "After an owner files a DDC, how long does the renter have to dispute before it auto-approves?",
+          "type": "multiple_choice",
+          "options": [
+            "12 hours",
+            "24 hours",
+            "48 hours",
+            "7 days"
           ],
           "correct_index": 1,
-          "explanation": "Owners can pursue additional recovery through NT when costs exceed the deposit."
+          "explanation": "24 hours. If the renter does not respond within 24 hours, the deduction auto-approves and processes against the deposit."
+        },
+        {
+          "id": "m6-q6",
+          "question": "Damage cost is $1,800 on a trailer with a $500 deposit. Walk through which path applies and which numbers come into play.",
+          "type": "short_answer",
+          "expected_keywords": [
+            "DDC",
+            "NT Protect",
+            "deductible",
+            "500",
+            "cap",
+            "25,000"
+          ],
+          "explanation": "Over-deposit path: owner files a DDC for the $500 deposit, then an NT Protect claim for the remaining $1,300. NT Protect carries a $500 deductible (from the deposit) and a $25,000 cap."
         }
       ],
       "passing_score_percent": 70
@@ -1693,30 +1744,30 @@
       "id": "module-10",
       "number": 11,
       "title": "Critical Policy Knowledge",
-      "description": "The 12 must-know facts every CSR must know cold. Spaced-repetition drilling required before unlocking the final exam.",
-      "estimated_minutes": 20,
+      "description": "The 14 must-know facts every CSR must know cold. Spaced-repetition drilling required before unlocking the final exam.",
+      "estimated_minutes": 25,
       "learning_objectives": [
-        "Recall all 12 critical facts from memory in any order",
+        "Recall all 14 critical facts from memory in any order",
         "Apply each fact correctly in a customer scenario",
         "Recognize when the help center contradicts the curriculum (and follow the curriculum)"
       ],
       "sections": [
         {
           "id": "section-10-1",
-          "title": "The 12 Facts",
-          "content_md": "Every CSR must know these cold. The drill in this module quizzes you in random order until you get all 12 right two times in a row.\n\n1. **Early return refund max = 80%** of rent for unused portion. Not 75%. The help center is out of date.\n2. **The $25 early-return processing fee comes from the OWNER'S payout.** Not from the renter's refund.\n3. **Platform fees, tax, and Protection Package are non-refundable** once a booking is accepted.\n4. **Cancellation refund schedule:** 72+ hrs = 75% / 48-72 hrs = 50% / 24-48 hrs = 25% / under 24 hrs = 0% / same-day = 0%.\n5. **Cancellations must be done by the renter through their account.** Phone/email/chat requests don't cancel a booking.\n6. **A no-show = no refund.**\n7. **Deposit refund timing: 3-7 business days** after the rental is officially closed.\n8. **Tire damage is not covered by NT Protect.**\n9. **CSR cannot override an MVR rejection.** Escalate.\n10. **CSR cannot cancel a booking on behalf of a renter.** Renter must do it.\n11. **Pickup address is shared automatically after owner acceptance** — most 'where's my address' calls are renters who haven't checked their booking page.\n12. **Phone number policy: do not share NT's phone number unless the customer explicitly asks.** Default to email or live chat.",
+          "title": "The 14 Facts",
+          "content_md": "Every CSR must know these cold. The drill in this module quizzes you in random order until you get all 14 right two times in a row.\n\n1. **Early return refund max = 80%** of rent for the unused portion. Per Section 20 of TOS. The help center 75% text is out of date.\n2. **The $25 early-return processing fee comes from the OWNER'S payout.** Not from the renter's refund.\n3. **Platform fees, tax, and Protection Package are non-refundable** once a booking is accepted.\n4. **Cancellation refund schedule:** 72+ hrs = 75% / 48-72 hrs = 50% / 24-48 hrs = 25% / under 24 hrs = 0% / same-day = 0%.\n5. **Cancellations default to renter self-service through their account. CSRs DO have override authority** for legitimate cases (unresponsive owner, suspected fraud, renter emergency with documentation, platform-side error). CSR-initiated cancel lets NT choose the refund and block owner payout. Use sparingly. Never tell a customer \"I cannot cancel for you\" as a flat statement.\n6. **A no-show = no refund** (treated as a renter cancellation without notice).\n7. **Deposit refund timing: 3-5 business days** after the rental is officially closed (when no DDC is filed).\n8. **Tire damage is case-by-case.** Tire condition + cause determine responsibility. Worn/old tires that fail on their own = owner. Good-condition tires damaged by renter actions (impact, overload, speed) = renter. NOT a flat exclusion.\n9. **CSR cannot override an MVR rejection.** Escalate.\n10. **NT Protect: $500 renter deductible, $25,000 coverage cap per claim.** Both numbers are quotable to customers. If the deductible cannot be collected from the renter, the owner becomes responsible for it.\n11. **DDC filing window: during the rental or within 48 hours after.** Past 48 hours = no retroactive claim path.\n12. **Renter dispute window after a DDC is filed = 24 hours.** No response in 24 hours = auto-approve and the deduction processes.\n13. **Pickup address is shared automatically after owner acceptance** — most 'where's my address' calls are renters who haven't checked their booking page.\n14. **Phone number policy: do not proactively share NT's phone number** unless the customer explicitly asks. Default to email or live chat.",
           "key_points": [
-            "12 facts — must know cold",
+            "14 facts — must know cold",
             "When help center contradicts curriculum, follow curriculum",
             "Drill randomized — 2x in a row to pass"
           ]
         },
         {
           "id": "section-10-2",
-          "title": "Why These Twelve",
-          "content_md": "Each of these facts represents one of:\n- A **policy correction** the help center got wrong (early return)\n- A **scope boundary** for what a CSR can and can't do (MVR, cancellations)\n- A **commonly-misunderstood timing** (deposit refund, pickup address)\n- A **friction point** that drives high call volume (cancellation schedule, tire damage)\n\nKnowing them cold means most calls become muscle memory instead of KB lookups.",
+          "title": "Why These Fourteen",
+          "content_md": "Each of these facts represents one of:\n- A **policy correction** the help center got wrong (early return, deposit timing, tire damage)\n- A **scope boundary** for what a CSR can and can't do — including the override authority CSRs DO have (cancellations, MVR)\n- A **commonly-misunderstood timing** (deposit refund, DDC window, dispute window, pickup address)\n- A **friction point** that drives high call volume (cancellation schedule, NT Protect numbers)\n\nKnowing them cold means most calls become muscle memory instead of KB lookups. Several of these are the answers to the highest-volume questions in the entire support queue — every minute spent looking these up on a call is a minute the customer is on hold.",
           "key_points": [
-            "Policy corrections, scope boundaries, timing, friction points",
+            "Policy corrections, scope boundaries (with override authority), timing, friction points",
             "Cold knowledge = faster calls, fewer mistakes"
           ]
         }
@@ -1728,12 +1779,13 @@
         {
           "id": "module-10-scenario-1",
           "type": "free_response",
-          "prompt": "Recite all 12 critical facts in any order. (No peeking.)",
+          "prompt": "Recite all 14 critical facts in any order. (No peeking.)",
           "rubric": [
-            "All 12 facts present",
-            "Correct numbers (80%, 75/50/25/0, 3-7 days)",
-            "Correct ownership (owner's payout, renter's account)",
-            "No invented facts"
+            "All 14 facts present",
+            "Correct numbers (80%, 75/50/25/0, 3-5 days, $500, $25k, 48h, 24h)",
+            "Correct ownership (owner's payout, renter's account, owner-responsible tire conditions)",
+            "No invented facts",
+            "Tire fact stated as case-by-case, NOT as a flat exclusion"
           ]
         },
         {
@@ -1750,12 +1802,24 @@
         {
           "id": "module-10-scenario-3",
           "type": "free_response",
-          "prompt": "A renter on a call asks for NT's phone number. What do you do?",
+          "prompt": "A renter calls 22 hours after a DDC was filed against their deposit. They want to dispute it but don't know where to start. Walk through the urgency and the path.",
           "rubric": [
-            "Recognizes the phone number was explicitly asked for",
-            "Provides it (since explicitly asked)",
-            "If not asked, would default to email or live chat",
-            "Demonstrates understanding of the default-to-email policy"
+            "Names the 24-hour dispute window and that they have ~2 hours left",
+            "Directs them to the dispute path through their account",
+            "States consequence of inaction: auto-approve at 24h, deduction processes",
+            "Stays neutral on the merits — does not commit to fault"
+          ]
+        },
+        {
+          "id": "module-10-scenario-4",
+          "type": "free_response",
+          "prompt": "A renter calls panicked: their booking is in 18 hours and the owner has gone silent — no acceptance, no replies. They want to cancel without losing their money. Walk through it.",
+          "rubric": [
+            "Recognizes this as an unresponsive-owner case (CSR cancellation authority applies)",
+            "Does NOT tell the customer \"I cannot cancel for you\"",
+            "States CSR can initiate the cancel and NT will choose the refund (overriding the standard schedule when warranted)",
+            "Mentions blocking the owner payout while the case is reviewed",
+            "Reassures, escalates if outside their authority"
           ]
         }
       ],
@@ -1771,7 +1835,7 @@
             "0%"
           ],
           "correct_index": 1,
-          "explanation": "80% of rent for the unused portion. The help center says 75% but it's out of date."
+          "explanation": "80% of rent for the unused portion, per Section 20 of TOS. The help center says 75% but it is out of date."
         },
         {
           "id": "m10-q2",
@@ -1788,16 +1852,16 @@
         },
         {
           "id": "m10-q3",
-          "question": "Deposit refund typical timing?",
+          "question": "Deposit refund typical timing (when no DDC is filed)?",
           "type": "multiple_choice",
           "options": [
             "Same day",
             "1-2 business days",
-            "3-7 business days",
+            "3-5 business days",
             "2-4 weeks"
           ],
           "correct_index": 2,
-          "explanation": "3-7 business days after the rental officially closes."
+          "explanation": "3-5 business days after the rental officially closes. (When a DDC is filed, the refund is held until the dispute window closes.)"
         },
         {
           "id": "m10-q4",
@@ -1809,7 +1873,7 @@
             "email",
             "chat"
           ],
-          "explanation": "Don't share NT's phone number unless explicitly asked. Default to email or live chat."
+          "explanation": "Don't proactively share NT's phone number unless explicitly asked. Default to email or live chat."
         },
         {
           "id": "m10-q5",
@@ -1823,6 +1887,58 @@
           ],
           "correct_index": 2,
           "explanation": "24-48 hours = 25% refund."
+        },
+        {
+          "id": "m10-q6",
+          "question": "NT Protect's deductible per claim is:",
+          "type": "multiple_choice",
+          "options": [
+            "$250",
+            "$500",
+            "$1,000",
+            "Varies by trailer"
+          ],
+          "correct_index": 1,
+          "explanation": "$500 per claim. Typically taken from the deposit. If the deductible cannot be collected from the renter, the owner becomes responsible."
+        },
+        {
+          "id": "m10-q7",
+          "question": "Maximum coverage per NT Protect claim?",
+          "type": "multiple_choice",
+          "options": [
+            "$5,000",
+            "$10,000",
+            "$25,000",
+            "Unlimited"
+          ],
+          "correct_index": 2,
+          "explanation": "$25,000 cap per claim."
+        },
+        {
+          "id": "m10-q8",
+          "question": "After an owner files a DDC, how long does the renter have to dispute before it auto-approves?",
+          "type": "multiple_choice",
+          "options": [
+            "12 hours",
+            "24 hours",
+            "48 hours",
+            "7 days"
+          ],
+          "correct_index": 1,
+          "explanation": "24 hours. No response in 24 hours = auto-approve and the deduction processes against the deposit."
+        },
+        {
+          "id": "m10-q9",
+          "question": "A renter calls 18 hours before pickup; the owner has gone silent and never accepted. The renter wants to cancel without losing money. What's the right CSR move?",
+          "type": "multiple_choice",
+          "options": [
+            "Tell them you can't cancel for them — they have to do it through their account",
+            "Wait — the booking will auto-cancel",
+            "Initiate the cancellation via CSR authority (unresponsive owner) so NT can choose the refund and block owner payout",
+            "Refund 100% immediately as a courtesy"
+          ],
+          "correct_index": 2,
+          "explanation": "Unresponsive owner is a legitimate trigger for CSR-initiated cancellation. NT chooses the refund (overriding the standard schedule when warranted) and can block the owner payout while the case is reviewed."
         }
       ],
       "passing_score_percent": 70
