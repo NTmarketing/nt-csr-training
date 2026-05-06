@@ -120,9 +120,21 @@ export default function Roleplay() {
         >
           <ArrowLeft className="h-4 w-4" /> Back to module
         </Link>
-        <span className="text-xs font-semibold uppercase tracking-wide text-nt-primary-dark">
-          {scenario.type === 'roleplay' ? 'Roleplay' : 'Free response'} · Module {module.number}
-        </span>
+        <div className="flex items-center gap-2">
+          {scenario.type === 'roleplay' && scenario.difficulty === 'easy' && (
+            <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-emerald-800">
+              Easy
+            </span>
+          )}
+          {scenario.type === 'roleplay' && scenario.difficulty === 'hard' && (
+            <span className="rounded-full bg-amber-100 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-amber-800">
+              Challenging
+            </span>
+          )}
+          <span className="text-xs font-semibold uppercase tracking-wide text-nt-primary-dark">
+            {scenario.type === 'roleplay' ? 'Roleplay' : 'Free response'} · Module {module.number}
+          </span>
+        </div>
       </div>
 
       <div className="card mb-6 p-5">

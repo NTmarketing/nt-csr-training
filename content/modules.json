@@ -259,7 +259,8 @@
             "Recommends a trailer category that fits (likely enclosed or large utility)",
             "Mentions tow vehicle capacity as something they should check",
             "Doesn't overwhelm the caller with jargon"
-          ]
+          ],
+          "difficulty": "easy"
         }
       ],
       "quiz": [
@@ -417,7 +418,8 @@
             "Explains lifecycle clearly without info-dumping",
             "Confirms understanding before moving on",
             "Asks if they have specific questions"
-          ]
+          ],
+          "difficulty": "easy"
         }
       ],
       "quiz": [
@@ -543,7 +545,8 @@
             "Explains Clear is industry-standard",
             "Mentions NT does not store ID data",
             "Doesn't pressure — lets them decide"
-          ]
+          ],
+          "difficulty": "standard"
         },
         {
           "id": "module-2-scenario-2",
@@ -555,7 +558,8 @@
             "Does NOT promise a reversal",
             "Explains MVR is third-party and CSR cannot override",
             "Offers to escalate to the team"
-          ]
+          ],
+          "difficulty": "hard"
         },
         {
           "id": "module-2-scenario-3",
@@ -685,7 +689,8 @@
             "Sets correct expectation: no hard SLA, but >24h is reasonable to message owner",
             "Offers practical next steps (message owner, look at backups)",
             "Doesn't overpromise"
-          ]
+          ],
+          "difficulty": "standard"
         },
         {
           "id": "module-3-scenario-2",
@@ -708,7 +713,8 @@
             "If yes — walks them to the booking details page",
             "If no — explains the address appears after acceptance",
             "Calm, doesn't make them feel dumb"
-          ]
+          ],
+          "difficulty": "easy"
         }
       ],
       "quiz": [
@@ -841,7 +847,8 @@
             "Walks them through ending it now",
             "Explains NT may adjust timing manually",
             "Mentions the importance of starting/ending on time going forward"
-          ]
+          ],
+          "difficulty": "standard"
         },
         {
           "id": "module-4-scenario-3",
@@ -852,7 +859,8 @@
             "Explains policy clearly: no logos, phone numbers, addresses in photos",
             "Doesn't agree the policy is bad",
             "Explains the purpose (consistent platform look, anti-circumvention)"
-          ]
+          ],
+          "difficulty": "standard"
         }
       ],
       "quiz": [
@@ -975,7 +983,8 @@
             "Explains platform fee, tax, and Protection Package are non-refundable",
             "Doesn't apologize for the policy itself",
             "Calm, factual"
-          ]
+          ],
+          "difficulty": "standard"
         },
         {
           "id": "module-5-scenario-2",
@@ -987,7 +996,8 @@
             "Asks about bank info connection",
             "Explains typical timing",
             "Offers to escalate if everything looks correct on their end"
-          ]
+          ],
+          "difficulty": "standard"
         },
         {
           "id": "module-5-scenario-3",
@@ -1131,7 +1141,8 @@
             "Directs them to dispute through their account immediately",
             "Stays neutral — doesn't take a side",
             "Escalates if pushed for a final answer or if chargeback is threatened"
-          ]
+          ],
+          "difficulty": "hard"
         },
         {
           "id": "module-6-scenario-2",
@@ -1156,7 +1167,8 @@
             "States the owner files a claim and NT reviews tire age, wear, and cause",
             "Empathetic about the situation",
             "Helps them think about practical next steps (safe stop, document the scene)"
-          ]
+          ],
+          "difficulty": "standard"
         },
         {
           "id": "module-6-scenario-4",
@@ -1169,7 +1181,8 @@
             "States the $25,000 cap",
             "Notes the owner's responsibility if the deductible can't be collected from renter",
             "Walks through the 4 claim contents (description, photos, estimate, form)"
-          ]
+          ],
+          "difficulty": "standard"
         }
       ],
       "quiz": [
@@ -1339,7 +1352,8 @@
             "Mentions platform fee, tax, Protection Package non-refundable regardless",
             "Empathetic without apologizing for the policy",
             "Directs them to cancel through their account"
-          ]
+          ],
+          "difficulty": "standard"
         },
         {
           "id": "module-7-scenario-2",
@@ -1351,7 +1365,8 @@
             "Explains the $25 fee comes from owner's payout, not renter's refund",
             "Explains owner must authorize before ending the rental",
             "Doesn't promise an outcome"
-          ]
+          ],
+          "difficulty": "easy"
         },
         {
           "id": "module-7-scenario-3",
@@ -1363,7 +1378,8 @@
             "Confirms the renter has been contacted through templates",
             "Sets expectation about NT involvement at the final stage",
             "Calm and reassuring without overpromising"
-          ]
+          ],
+          "difficulty": "standard"
         },
         {
           "id": "module-7-scenario-4",
@@ -1375,7 +1391,8 @@
             "Confirms the actual policy is 80% per Terms of Service Section 20",
             "Doesn't argue or get defensive",
             "Offers to escalate for documentation if pressed"
-          ]
+          ],
+          "difficulty": "hard"
         }
       ],
       "quiz": [
@@ -1503,7 +1520,8 @@
             "Standard inbound opening with name",
             "Short qualifying question",
             "Doesn't info-dump or pitch"
-          ]
+          ],
+          "difficulty": "easy"
         },
         {
           "id": "module-8-scenario-2",
@@ -1515,7 +1533,8 @@
             "Asks if they have a few minutes",
             "Delivers the specific reason early",
             "Gives clear next step"
-          ]
+          ],
+          "difficulty": "easy"
         },
         {
           "id": "module-8-scenario-3",
@@ -1526,7 +1545,8 @@
             "Doesn't fake an answer",
             "Asks for a brief hold with a time estimate",
             "Comes back when promised"
-          ]
+          ],
+          "difficulty": "easy"
         },
         {
           "id": "module-8-scenario-4",
@@ -1537,7 +1557,8 @@
             "Doesn't cut them off mid-sentence",
             "Uses a polite redirect ('that makes sense — so coming back to the booking...')",
             "Gets back on track within a few seconds"
-          ]
+          ],
+          "difficulty": "standard"
         }
       ],
       "quiz": [
@@ -1644,7 +1665,8 @@
             "Doesn't promise reversal",
             "Offers escalation since CSR cannot override MVR",
             "Stays calm under pressure"
-          ]
+          ],
+          "difficulty": "hard"
         },
         {
           "id": "module-9-scenario-2",
@@ -1657,7 +1679,8 @@
             "If admin tools are needed, escalates explicitly",
             "Doesn't promise specific outcome",
             "Doesn't try to talk them down from the BBB threat"
-          ]
+          ],
+          "difficulty": "hard"
         },
         {
           "id": "module-9-scenario-3",
@@ -1669,7 +1692,8 @@
             "Answers the actual question concisely",
             "Doesn't match the energy",
             "Doesn't escalate unnecessarily — it's a KB answer"
-          ]
+          ],
+          "difficulty": "hard"
         },
         {
           "id": "module-9-scenario-4",
@@ -1682,7 +1706,8 @@
             "If it's a CSR-handleable issue, handles it",
             "If it's a true escalation trigger, escalates",
             "Polite throughout"
-          ]
+          ],
+          "difficulty": "standard"
         }
       ],
       "quiz": [

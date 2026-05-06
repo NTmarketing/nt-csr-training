@@ -304,6 +304,7 @@ All photo blocks support click-to-zoom lightbox. Inline `![alt](url)` inside `co
         {
           "id": "module-1-scenario-2",
           "type": "roleplay",
+          "difficulty": "easy",
           "prompt": "You're answering an inbound call. The caller is a brand-new renter and confused about how the platform works.",
           "customer_persona": "First-time renter, friendly but uncertain. Has never used a peer-to-peer platform before.",
           "rubric": [
@@ -456,6 +457,13 @@ Token budget: a typical tutor turn sends ~3-7K input tokens (system prompt + mod
 
 **Roleplay mode:**
 > You are playing a customer of Neighbors Trailer. Your persona: {persona}. Stay in character. Don't break character to give hints. Respond naturally as the customer would. The trainee is the CSR. After they end the conversation, you will be graded on how realistic and challenging the scenario was — but during the conversation, just be the customer.
+
+The roleplay system prompt also injects per-scenario difficulty and a soft turn cap to prevent endless conversations:
+
+- `scenario.difficulty` ∈ `{ easy | standard | hard }` (optional; defaults to `standard`). Easy customers accept clear answers within 1-2 follow-ups. Standard customers ask one or two natural follow-ups then accept. Hard customers are confused/distracted/multi-concern but never abusive, and still wrap up after the CSR demonstrates competence.
+- Wrap-up thresholds (CSR exchanges): easy=4, standard=6, hard=8. After the threshold the customer starts signaling closure if the CSR has been at all helpful.
+- Hard cap = **10 exchanges**. At or past the cap the customer ends the conversation regardless of CSR performance.
+- `Roleplay.tsx` shows an `EASY` (green) or `CHALLENGING` (amber) pill near the header. Standard scenarios get no pill (default, uncluttered).
 
 **Grading mode (free-response):**
 > You are grading a CSR trainee's response to a scenario. The scenario was: {prompt}. The rubric is: {rubric}. The trainee's response is: {response}. Score from 0-10 against the rubric. Provide specific, honest feedback — strengths and weaknesses. Don't be excessively kind; the cost of false confidence is real customer mistakes later.

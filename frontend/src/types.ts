@@ -58,6 +58,9 @@ export interface ModuleScenario {
   prompt: string;
   customer_persona?: string;
   rubric: string[];
+  // Roleplay-only. Drives the customer-AI turn cap and behavioral tone.
+  // Missing/undefined is treated as 'standard' by both backend and UI.
+  difficulty?: 'easy' | 'standard' | 'hard';
 }
 
 export interface ModuleQuizQuestion {

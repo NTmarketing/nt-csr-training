@@ -161,13 +161,52 @@ Respond with VALID JSON ONLY, no prose, no code fences. Schema:
   return parseJsonResponse(extractText(resp));
 }
 
+// Difficulty-keyed behavioral guidance and turn-cap thresholds.
+// Wrap-up threshold = soft cue to start signaling closure if the CSR has been
+// helpful. Hard cap = unconditional close regardless of CSR performance.
+const DIFFICULTY_GUIDANCE = {
+  easy:
+    'You are a reasonable, easy-going customer. After the CSR gives you a clear answer to your initial question, accept it, thank them, and signal you are satisfied. Do not invent new concerns or push back unnecessarily. If the CSR\'s first response substantially answers your question, wrap up the conversation within 1-2 more turns max.',
+  standard:
+    'You are a normal customer who may have one or two natural follow-up questions, but you are not difficult. Once the CSR has substantively addressed your concerns, accept the answer and wrap up naturally. Do not manufacture new objections.',
+  hard:
+    'You are confused, distracted, or have a complicated situation. You may ask tangential or follow-up questions, miss things the CSR explained the first time, or have multiple connected concerns. But you are NOT abusive or rude. After the CSR demonstrates competence over several exchanges, you should still wrap up naturally — this is realistic difficult, not endless difficult.',
+};
+
+const WRAP_UP_THRESHOLDS = { easy: 4, standard: 6, hard: 8 };
+const HARD_CAP_TURNS = 10;
+
+function normalizeDifficulty(d) {
+  return d === 'easy' || d === 'hard' ? d : 'standard';
+}
+
 async function roleplayCustomer(scenario, persona, userMessage, history = []) {
+  const difficulty = normalizeDifficulty(scenario && scenario.difficulty);
+  // CSR turn count = number of user-role messages already in history. The
+  // current incoming message is the (csrTurnsSoFar + 1)th and is included in
+  // the count we expose to the model so the threshold is "after this turn".
+  const csrTurnsSoFar = (Array.isArray(history) ? history : [])
+    .filter(m => m && m.role === 'user' && typeof m.content === 'string')
+    .length;
+  const csrTurnsIncludingNow = csrTurnsSoFar + 1;
+  const wrapUpAt = WRAP_UP_THRESHOLDS[difficulty];
+
   const system = `You are playing a customer of Neighbors Trailer in a CSR training roleplay.
 
 Your persona: ${persona || (scenario && scenario.customer_persona) || 'A typical customer'}.
 Scenario context: ${scenario && scenario.prompt ? scenario.prompt : ''}
 
 Stay in character at all times. Don't break character to give hints, evaluate the trainee, or explain what you're doing. Respond naturally as the customer would — with their tone, frustrations, questions, and emotions. Keep responses realistic in length (usually 1-3 sentences, longer only when the customer would naturally vent or explain).
+
+Difficulty: ${difficulty}
+${DIFFICULTY_GUIDANCE[difficulty]}
+
+Conversation context:
+- CSR has sent ${csrTurnsIncludingNow} message${csrTurnsIncludingNow === 1 ? '' : 's'} so far (counting the one you are about to reply to).
+- Wrap-up threshold for this difficulty: ${wrapUpAt} exchanges. After this point, if the CSR has been at all helpful, start signaling that you are ready to wrap up — thank them, confirm what you'll do next, and close the loop.
+- Hard cap: ${HARD_CAP_TURNS} exchanges. At or past the hard cap you MUST end the conversation regardless of CSR performance — say something like "OK I think I've got what I need, thanks for your help" and stop.
+
+When wrapping up, your last message should clearly signal closure: thank the CSR, say you'll proceed with what they suggested, or otherwise make it unambiguous that the call is done. The CSR will see this and click 'End & Grade' to complete the scenario.
 
 The trainee is the CSR. After they end the conversation, grading happens separately — during the conversation, just be the customer.`;
 
