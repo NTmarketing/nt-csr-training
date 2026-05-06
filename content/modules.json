@@ -218,10 +218,10 @@
         {
           "id": "tb-section-5",
           "title": "Safety and legal essentials",
-          "content_md": "You don't need to be a tow expert as a CSR, but you should recognize the most common safety/legal issues that come up:\n\n**Driver's license requirements** — for standard trailers (under ~10,000 lb GVWR), a regular Class C driver's license is sufficient in Texas and most US states. CDL is only required for commercial heavy-duty hauling. Renters sometimes call worried they need a special license — they almost certainly don't, but the verification process (MVR) covers this.\n\n**Damage protection** — Neighbors Trailer provides NT Protect / the Protection Package on every booking — a built-in damage protection product, **not insurance**, that covers accidental damage during the rental. It does NOT cover tire damage from blowouts/road debris, intentional damage, or theft due to negligence.\n\n**Trailer registration & plates** — owner's responsibility. Every trailer on the platform must be legally registered in the owner's state.\n\n**Securing the load** — the renter's responsibility. Nothing falling out, nothing flying off, properly tied down. NT does not inspect this; the owner verbally walks renters through it at pickup.\n\n**Speed and route** — towing changes everything about driving. Stopping distance is longer. Turns are wider. Some highways and bridges have weight restrictions. Most rental trailers have a recommended max speed (typically 55-65 mph).\n\nWhen a renter calls and says 'I had a tire blow out, who covers it?' — you now know that's not covered by NT Protect. When they say 'do I need a CDL?' — you know almost certainly not.",
+          "content_md": "You don't need to be a tow expert as a CSR, but you should recognize the most common safety/legal issues that come up:\n\n**Driver's license requirements** — CDL requirements depend on **local laws and regulations** and vary by state and trailer weight class. Renters who think they need a CDL should be directed to **check with their local DMV.** As a CSR, don't quote a specific weight cutoff over the phone — the rules vary, and the safe answer is \"check with your local DMV.\" The MVR check that runs at booking covers most license-validity issues, but it doesn't replace the renter knowing what their state requires.\n\n**Damage protection** — Neighbors Trailer provides NT Protect / the Protection Package on every booking — a built-in damage protection product, **not insurance**, that covers accidental damage during the rental. **Tire damage is case-by-case** — see Module 6 for the full rule (tire condition + cause determine responsibility; not a flat exclusion). Intentional damage and theft due to renter negligence are excluded.\n\n**Trailer registration & plates** — owner's responsibility. Every trailer on the platform must be legally registered in the owner's state.\n\n**Securing the load** — the renter's responsibility. Nothing falling out, nothing flying off, properly tied down. NT does not inspect this; the owner verbally walks renters through it at pickup.\n\n**Speed and route** — towing changes everything about driving. Stopping distance is longer. Turns are wider. Some highways and bridges have weight restrictions. Most rental trailers have a recommended max speed (typically 55-65 mph).\n\nWhen a renter asks 'do I need a CDL?' — the right answer is \"check your local DMV; the rules vary by state and trailer weight.\" Don't give them a number.",
           "key_points": [
-            "Standard Class C license is sufficient for most trailers",
-            "NT Protect covers accidental damage, NOT tire blowouts",
+            "CDL requirements vary by local law — direct renters to their DMV, do NOT quote weight cutoffs",
+            "NT Protect covers accidental damage; tire damage is case-by-case (Module 6)",
             "Securing the load is the renter's responsibility",
             "Towing changes stopping distance, turning radius, max speed"
           ]
@@ -318,16 +318,16 @@
         },
         {
           "id": "tb-q5",
-          "question": "Does someone renting a standard utility trailer in Texas need a CDL?",
+          "question": "A renter calls asking if they need a CDL to rent a standard trailer. What's the correct CSR answer?",
           "type": "multiple_choice",
           "options": [
-            "Yes, always",
-            "No — standard Class C license is sufficient for most rental trailers",
-            "Only if they're crossing state lines",
-            "Only if the trailer weighs over 5,000 lb"
+            "Yes, always — every trailer requires a CDL",
+            "No — Class C is sufficient for trailers under 10,000 lb GVWR",
+            "CDL requirements depend on local laws and regulations — direct them to check with their local DMV",
+            "Only if they're towing across state lines"
           ],
-          "correct_index": 1,
-          "explanation": "A standard Class C driver's license is sufficient for trailers under about 10,000 lb GVWR — which covers virtually every trailer on Neighbors Trailer's platform. CDL is only required for commercial heavy-duty hauling."
+          "correct_index": 2,
+          "explanation": "CDL requirements vary by state and trailer weight class. Don't quote a specific cutoff over the phone — direct the renter to their local DMV. The MVR check at booking covers license validity but doesn't replace the renter knowing local rules."
         }
       ],
       "passing_score_percent": 70
@@ -704,43 +704,70 @@
       "id": "module-3",
       "number": 4,
       "title": "Booking Lifecycle (Renter Side)",
-      "description": "Walking renters through booking, owner non-response, date changes, trailer switches, and pickup confusion.",
-      "estimated_minutes": 15,
+      "description": "Renter-side flows: the correct booking order (ID verify pre-pay, then owner accepts), bidirectional date change, the no-shortening rule, post-acceptance pickup address, owner no-show consequences, and the multi-booking warning.",
+      "estimated_minutes": 20,
       "learning_objectives": [
-        "Walk a renter through booking start to finish",
-        "Set expectations when an owner does not respond",
-        "Handle date change requests and trailer switches",
-        "Resolve 'where is my pickup address' calls"
+        "Walk a renter through the correct booking order: search → ID verify → pay → submit → owner accepts → coordinate",
+        "Handle date change requests bidirectionally (either party can request)",
+        "Explain the no-shortening rule and the early-return alternative",
+        "Resolve pickup-address calls (post-acceptance only; owner sends a message with details)",
+        "Explain owner no-show consequences honestly without overpromising",
+        "Reference the multi-booking warning (each booking is independent — see Module 1)"
       ],
       "sections": [
         {
           "id": "section-3-1",
-          "title": "From Request to Acceptance",
-          "content_md": "A renter selects a trailer and submits a booking request. The owner then has time to accept or reject.\n\n**NT does not have a hard SLA on owner response.** This trips up renters who expect instant confirmation.\n\nWhat to tell renters:\n- Booking confirmation is **not** instant — it requires owner acceptance\n- If it's been over 24 hours and no response, message the owner directly through the booking\n- Encourage them to look at backup options in case this owner doesn't come through\n- Once the owner accepts, the pickup address and owner phone appear automatically on the booking page",
+          "title": "The Booking Flow (Get the Order Right)",
+          "content_md": "**The correct booking order is:**\n\n1. **Renter searches** for a trailer\n2. **Renter completes ID verification** (during the booking process — Clear + MVR)\n3. **Renter pays** and submits the booking\n4. **Owner accepts** the booking and coordinates pickup\n\n**This is important:** there is **no \"owner accepts → THEN renter pays\" flow.** Payment and ID verification happen at booking submission. The owner's acceptance comes after, with money already on the renter's card.\n\nReminder from Module 2: **ID verification is required on EVERY booking** — not just the first. So step 2 happens every time the renter books.\n\n**Owner-acceptance timing:** NT does not have a hard SLA on owner response. If it has been more than 24 hours with no response:\n- Encourage the renter to message the owner directly through the booking page\n- Look at alternative trailers (different listings) — see the multi-booking note in section 3-5 before suggesting they hold both\n- After 48-72 hours of total silence, escalate so the team can reach the owner or assist with cancellation/refund",
           "key_points": [
-            "No hard SLA on owner response",
-            "After 24 hours of silence: message owner, look at backups",
-            "Pickup address auto-appears after acceptance"
+            "Order: search → ID verify → pay → submit → owner accepts → coordinate",
+            "NO \"owner accepts then renter pays\" flow — payment + verification happen at submission",
+            "ID verification re-runs on every booking (not just first)",
+            "No hard SLA on owner response; >24h = message owner; >48-72h silence = escalate"
           ]
         },
         {
           "id": "section-3-2",
-          "title": "Date Changes & Trailer Switches",
-          "content_md": "**Date changes:** Renters can request a date change through their booking. The owner must accept the new dates. If the owner declines, the renter has to cancel under the cancellation policy (Module 7) — they can't force the new dates.\n\n**Trailer switches:** A renter can switch to a different trailer **from the same owner** through the owner's 'My Reservations' feature. The owner has to facilitate the switch on their end.\n\nA renter cannot switch to a different owner without cancelling and rebooking.",
+          "title": "Date Changes — Bidirectional",
+          "content_md": "**Either party — renter OR owner — can request a date change.** The other party must approve. The old curriculum framed this as renter-only-requests; that's wrong.\n\n- **Renter requests** through their booking → owner approves or declines\n- **Owner requests** through their reservation → renter approves or declines\n\nIf the other party declines, the booking stays on the original dates. The requesting party can then either keep the booking as-is or cancel under the cancellation policy (Module 7).\n\n**There is no \"force the change\" path.** Both sides have to agree. CSR cannot push a date change through unilaterally.",
           "key_points": [
-            "Date change = owner must accept",
-            "Same-owner switch = via owner's My Reservations",
-            "Different-owner change = cancel + rebook"
+            "Date change is bidirectional — either party can request",
+            "Other party must approve",
+            "Decline = booking stays on original dates; requester can cancel under policy",
+            "No CSR override on date changes"
           ]
         },
         {
           "id": "section-3-3",
-          "title": "Pickup Address Calls",
-          "content_md": "This is one of the highest-volume call types: 'where do I pick up?'\n\nMost of the time the address is already on their booking page — they just haven't scrolled or didn't realize. Walk them to the booking details page first.\n\nIf the owner has not yet accepted, the address won't be there yet. That's the actual issue in maybe 10% of these calls.\n\n**Renters cannot cancel via phone, email, or chat.** Only through their account. This applies even when they're asking the CSR to cancel for them.",
+          "title": "No Shortening + Trailer Switches",
+          "content_md": "**Renters CANNOT shorten an active or upcoming booking.** There is no \"trim 2 days off\" path through the system.\n\nThe only path to \"less time\" is **early return after pickup** — and that's the manual 80% partial refund path covered in Module 5/Module 7. To recap from those modules:\n- Up to 80% refund of the unused-portion rent\n- Owner must approve and authorize before ending the rental\n- Refund is NOT automatic — owner discretion\n\nA renter who wants to cut days has two options:\n1. **Cancel and rebook** — taking the cancellation refund hit (Module 7 schedule)\n2. **Proceed with the original booking and return early** — with no guarantee of refund\n\n**Trailer switches:** A renter can switch to a different trailer **from the same owner** through the owner's 'My Reservations' feature. The owner facilitates it. Switching to a different owner requires cancelling and rebooking.",
           "key_points": [
-            "Most pickup-address calls = renter hasn't checked booking page",
-            "If owner not yet accepted → no address yet",
-            "CSR cannot cancel for the renter"
+            "Renters cannot shorten a booking through the system",
+            "\"Less time\" = early return after pickup, with manual 80% refund path (owner discretion)",
+            "Two paths to cut days: cancel+rebook (refund hit) OR return early (no refund guarantee)",
+            "Same-owner trailer switch = via owner's My Reservations",
+            "Different-owner change = cancel + rebook"
+          ]
+        },
+        {
+          "id": "section-3-4",
+          "title": "Pickup Address & Owner No-Show",
+          "content_md": "**Pickup address visibility:** the address is **hidden until the owner ACCEPTS the booking.** After acceptance:\n- The address appears on the renter's booking page\n- The owner sends the renter a message with the **full address + their contact info**\n\n**Don't tell renters \"you'll see it as soon as you book.\" That's wrong.** The address requires owner acceptance. If they're calling pre-acceptance asking where to pick up, the answer is \"the owner hasn't accepted yet — once they do, the address shows up on your booking page and the owner will message you with their contact info.\"\n\nMost \"where's my address\" calls are post-acceptance renters who haven't checked the booking page or didn't see the owner's message. Walk them to the booking details page.\n\n**Owner no-show** (renter shows up at pickup time and the owner is a no-show):\n- **Renter gets a full refund**\n- **The owner faces consequences** — situational based on circumstances. Possibilities include:\n  - Account review\n  - Listing or account suspension\n  - **30% fee** (same penalty structure as owner-initiated cancellation — see Module 4)\n\n**Don't promise the renter \"the owner will be banned.\"** Say something like: \"You'll get a full refund, and the owner will face consequences which may include account review, suspension, or a fee, depending on the situation.\" Be specific about the renter's outcome (full refund) and vague about the owner's outcome (depends).",
+          "key_points": [
+            "Pickup address hidden until owner accepts",
+            "After acceptance: address appears on booking page + owner sends a message with contact info",
+            "Owner no-show → renter gets full refund",
+            "Owner faces situational consequence (review, suspension, or 30% fee) — never promise \"they'll be banned\""
+          ]
+        },
+        {
+          "id": "section-3-5",
+          "title": "Multi-Booking — Reference Module 1",
+          "content_md": "**Renters can have multiple simultaneous bookings.** The platform doesn't restrict this. But each booking is independent and the **standard cancellation policy applies normally** if one is cancelled.\n\n**Don't teach trainees to suggest \"back-up booking\" as a workaround.** Both bookings are real, with money on the card and a calendar block on the owner's side. The full lesson is in **Module 1, section 1-4** — refer trainees there for the rationale.\n\n**The right framing for a renter on the fence:** \"Each booking is a real reservation with money on the line. If you're unsure about one, message the owner with questions before booking — don't book a second one as backup.\"",
+          "key_points": [
+            "Multi-booking allowed; each booking is independent",
+            "Cancellation policy applies normally if one is cancelled",
+            "Do NOT suggest \"back-up booking\" — full lesson in Module 1, §1-4"
           ]
         }
       ],
@@ -748,9 +775,11 @@
         "How do I book a trailer rental?",
         "How long does booking confirmation take?",
         "How Do I Change My Booking Dates?",
+        "Can I shorten a booking?",
         "How do I get the pick-up address?",
         "Can I switch to a different trailer from the same owner?",
-        "How do I contact a trailer owner?"
+        "How do I contact a trailer owner?",
+        "What happens if the owner does not show up at pickup?"
       ],
       "scenarios": [
         {
@@ -761,86 +790,139 @@
           "rubric": [
             "Acknowledges frustration",
             "Sets correct expectation: no hard SLA, but >24h is reasonable to message owner",
-            "Offers practical next steps (message owner, look at backups)",
-            "Doesn't overpromise"
+            "Confirms payment + ID verification already happened at booking submission (so the renter understands their card was charged)",
+            "Mentions escalation path after 48-72 hours of total silence",
+            "Doesn't suggest \"book another one as backup\" as a workaround"
           ],
           "difficulty": "standard"
         },
         {
           "id": "module-3-scenario-2",
           "type": "free_response",
-          "prompt": "A renter wants to push their booking dates back two days. Walk them through self-serve in 3-4 sentences.",
+          "prompt": "Walk a brand-new renter through the booking flow in 4-5 sentences. Make the order explicit so they don't think payment happens after the owner accepts.",
           "rubric": [
-            "Mentions requesting date change through the booking",
-            "Mentions owner must accept the new dates",
-            "Mentions fallback (cancel under policy) if declined",
-            "Concise"
+            "States the four steps in order: search → ID verify → pay → submit → owner accepts → coordinate",
+            "Calls out that payment and ID verification happen at submission, BEFORE owner acceptance",
+            "Mentions ID verification re-runs on every booking",
+            "Concise and accurate"
           ]
         },
         {
           "id": "module-3-scenario-3",
           "type": "roleplay",
           "prompt": "A renter says they can't find the pickup address. Diagnose and resolve.",
-          "customer_persona": "Renter who just booked. Doesn't realize the address is on their booking page. Slightly flustered.",
+          "customer_persona": "Renter who just booked. Doesn't realize the address is on their booking page after acceptance. Slightly flustered.",
           "rubric": [
-            "First checks if owner has accepted yet",
-            "If yes — walks them to the booking details page",
-            "If no — explains the address appears after acceptance",
+            "First confirms whether the owner has accepted yet",
+            "If yes — walks them to the booking details page AND mentions the owner's message with contact info",
+            "If no — explains the address appears post-acceptance and the owner will message them",
+            "Does NOT say \"you should see it as soon as you book\"",
             "Calm, doesn't make them feel dumb"
           ],
           "difficulty": "easy"
+        },
+        {
+          "id": "module-3-scenario-4",
+          "type": "roleplay",
+          "prompt": "A renter shows up at pickup time and the owner is a no-show. They're calling angry, demanding the owner be banned.",
+          "customer_persona": "Frustrated renter who feels they were stood up. Expects NT to take strong action. Will push for specifics.",
+          "rubric": [
+            "Confirms the renter will receive a full refund",
+            "Does NOT promise the owner will be banned",
+            "Explains owner consequence is situational (account review, suspension, or 30% fee)",
+            "Empathetic; doesn't agree the platform is broken",
+            "Escalates so the team can review the owner-side"
+          ],
+          "difficulty": "hard"
+        },
+        {
+          "id": "module-3-scenario-5",
+          "type": "free_response",
+          "prompt": "A renter wants to shorten their 7-day booking to 5 days. Walk through the rule and the two real options in 3-4 sentences.",
+          "rubric": [
+            "States renters CANNOT shorten a booking through the system",
+            "Names the two paths: cancel + rebook (refund per cancellation schedule) OR proceed and return early (manual 80% refund, owner discretion, no guarantee)",
+            "Mentions that early-return refunds are NOT automatic",
+            "Concise"
+          ]
         }
       ],
       "quiz": [
         {
           "id": "m3-q1",
-          "question": "Can a CSR cancel a booking on behalf of a renter?",
+          "question": "When in the booking flow does the renter actually pay?",
           "type": "multiple_choice",
           "options": [
-            "Yes, with the renter's verbal consent",
-            "Yes, by submitting an internal form",
-            "No — the renter must do it through their account",
-            "Only for emergencies"
+            "After the owner accepts",
+            "At pickup, in person to the owner",
+            "When the renter submits the booking — payment and ID verification happen at submission, before owner acceptance",
+            "After the rental ends, like a hotel"
           ],
           "correct_index": 2,
-          "explanation": "Cancellations must be done by the renter through their own account. Phone/email/chat requests don't cancel a booking."
+          "explanation": "Payment and ID verification both happen at booking submission. The owner accepts AFTER, with money already on the renter's card. There is no \"owner accepts then renter pays\" flow."
         },
         {
           "id": "m3-q2",
-          "question": "When does the pickup address get shared with the renter?",
+          "question": "Who can request a date change on a booking?",
           "type": "multiple_choice",
           "options": [
-            "Via SMS one hour before pickup",
-            "Automatically on the booking details page after the owner accepts",
-            "By the owner manually",
-            "After payment clears"
+            "Only the renter",
+            "Only the owner",
+            "Either party — the other has to approve",
+            "NT support, on behalf of either party"
           ],
-          "correct_index": 1,
-          "explanation": "The address appears automatically on the booking page once the owner accepts."
+          "correct_index": 2,
+          "explanation": "Either party can request a date change. The other party must approve. If declined, the booking stays on the original dates and the requester can cancel under policy."
         },
         {
           "id": "m3-q3",
-          "question": "How does a renter switch to a different trailer from the same owner?",
+          "question": "Can a renter shorten an active or upcoming booking through the system?",
           "type": "multiple_choice",
           "options": [
-            "By cancelling and rebooking",
-            "Through the owner's 'My Reservations' feature",
-            "By contacting NT support",
-            "Through the renter's profile settings"
+            "Yes — through their booking page",
+            "No — the only path to less time is early return after pickup, which is the manual 80% refund path (owner discretion, not automatic)",
+            "Only with the owner's approval",
+            "Yes — NT support can do it"
           ],
           "correct_index": 1,
-          "explanation": "Same-owner switches happen through the owner's My Reservations feature."
+          "explanation": "There is no shortening path through the system. The renter's two options: cancel and rebook (taking the cancellation refund hit), or proceed and return early (manual 80% refund, owner discretion, no guarantee)."
         },
         {
           "id": "m3-q4",
-          "question": "If an owner does not respond for 24+ hours, what should the renter do?",
+          "question": "When does the pickup address become visible to the renter?",
+          "type": "multiple_choice",
+          "options": [
+            "As soon as they book",
+            "Via SMS one hour before pickup",
+            "After the owner accepts — appears on the booking page, and the owner also sends a message with full address and contact info",
+            "Only at pickup, in person"
+          ],
+          "correct_index": 2,
+          "explanation": "Post-acceptance only. The address appears on the booking page AND the owner sends a message with details. Don't tell renters they'll see it as soon as they book — that's wrong."
+        },
+        {
+          "id": "m3-q5",
+          "question": "A renter shows up at pickup and the owner is a no-show. What do you tell them about consequences?",
+          "type": "multiple_choice",
+          "options": [
+            "The owner will be banned immediately",
+            "Renter gets a full refund. The owner faces situational consequences — possibilities include account review, listing or account suspension, or a 30% fee. Don't promise specifics.",
+            "NT will charge the owner double",
+            "There's nothing NT can do — it's between the renter and the owner"
+          ],
+          "correct_index": 1,
+          "explanation": "Renter gets a full refund. Owner consequence is situational: review, suspension, or 30% fee depending on circumstances. Never promise the renter \"the owner will be banned.\""
+        },
+        {
+          "id": "m3-q6",
+          "question": "A renter on the fence about a booking asks if they should book a second trailer as backup in case the first owner doesn't accept. What do you tell them?",
           "type": "short_answer",
           "expected_keywords": [
-            "message",
-            "owner",
-            "backup"
+            "independent",
+            "cancellation",
+            "message"
           ],
-          "explanation": "Encourage the renter to message the owner directly through the booking and to look at backup options."
+          "explanation": "Each booking is independent and cancellation policy applies normally if they cancel one. Don't suggest book-as-backup as a workaround. Encourage them to message the owner with questions before booking. (See Module 1, §1-4 for the full reasoning.)"
         }
       ],
       "passing_score_percent": 70
@@ -1766,21 +1848,23 @@
     {
       "id": "module-8",
       "number": 9,
-      "title": "Phone Skills (Inbound & Outbound)",
-      "description": "Opening calls confidently, handling holds and transfers, closing well, and the 'one-sentence response' discipline.",
+      "title": "Phone Skills & Documentation",
+      "description": "This role is phone-heavy with backup email/chat support. Opening calls confidently, holds and transfers, the one-sentence response discipline, and the documentation requirement that applies to every interaction.",
       "estimated_minutes": 15,
       "learning_objectives": [
         "Open inbound and outbound calls with the right structure",
         "Handle holds, transfers, and closings",
         "Maintain pace and tone — neither rushed nor rambling",
-        "Apply the 'one-sentence response' discipline: reactive, no upsells, no option dumps, no filler"
+        "Apply the 'one-sentence response' discipline: reactive, no upsells, no option dumps, no filler",
+        "Document every interaction in the right entity (profile / listing / booking) using the required format"
       ],
       "sections": [
         {
           "id": "section-8-1",
-          "title": "Openings",
-          "content_md": "**Inbound:**\n> 'Thanks for calling Neighbors Trailer, this is [name], how can I help you today?'\n\n**Outbound:**\n> 'Hi, this is [name] with Neighbors Trailer — is this [customer name]? Do you have a few minutes? I'm calling about [specific reason].'\n\nEvery outbound call must include three things: **who you are, where you're calling from, and the reason for the call.** Don't bury the lead.\n\nAfter the opening, **wait for the customer to react.** Don't keep talking.",
+          "title": "Channel Reality + Openings",
+          "content_md": "**This role is phone-heavy.** Phone is the primary channel. Email and live chat are secondary backup channels you'll handle less frequently. The skills in this module apply to all three, but the default expectation is voice.\n\n**Inbound opening:**\n> 'Thanks for calling Neighbors Trailer, this is [name], how can I help you today?'\n\n**Outbound opening:**\n> 'Hi, this is [name] with Neighbors Trailer — is this [customer name]? Do you have a few minutes? I'm calling about [specific reason].'\n\nEvery outbound call must include three things: **who you are, where you're calling from, and the reason for the call.** Don't bury the lead.\n\nAfter the opening, **wait for the customer to react.** Don't keep talking.",
           "key_points": [
+            "This role is phone-heavy; email/chat are secondary",
             "Inbound: thanks for calling, name, how can I help",
             "Outbound: name, NT, reason — all three",
             "Wait for reaction"
@@ -1805,6 +1889,18 @@
             "Concise > thorough",
             "Reactive > preemptive",
             "Paraphrase, don't read"
+          ]
+        },
+        {
+          "id": "section-8-4",
+          "title": "Documentation — Every Interaction, Every Time",
+          "content_md": "**Every interaction must be documented in the system.** Phone, email, chat — doesn't matter. If you talked to a customer, it gets logged. This is most often forgotten on phone calls because there's no automatic transcript.\n\n**Where to document:**\n- **Profile** — for account-level interactions (verification questions, account access, password help)\n- **Listing** — for listing-level interactions (approval status, photo issues, edits)\n- **Booking** — for booking-level interactions (everything tied to a specific rental — the most common case)\n\nMatch the entity to what the call was about. A call about a renter's deposit goes on the booking. A call about an owner's bank info goes on the profile.\n\n**Required format:** **date — initials — what was said/done.**\n\n**Example:**\n> `11/4/26 - LD - Spoke with renter, confirmed pickup address sent, no further action needed`\n\n**Another example:**\n> `11/4/26 - LD - Owner called re: payout 4 days late. Bank info confirmed correct. Escalated to payouts team.`\n\n**Never skip documentation, even on \"nothing happened\" calls.** A renter who calls confused and you walked them through a self-serve fix is still a documented interaction. The next CSR who picks up that customer needs to see it.\n\nThe rule: **if it wasn't documented, it didn't happen.** Audit will treat undocumented interactions as a quality issue.",
+          "key_points": [
+            "Document EVERY interaction — phone, email, chat",
+            "Where: profile (account-level) / listing (listing-level) / booking (booking-level — most common)",
+            "Format: date — initials — what was said/done",
+            "Don't skip \"nothing happened\" calls — the next CSR needs the trail",
+            "If it wasn't documented, it didn't happen"
           ]
         }
       ],
@@ -1913,6 +2009,42 @@
             "reactive"
           ],
           "explanation": "Answer simple questions in one sentence, then stop and wait for the follow-up. Reactive, not preemptive."
+        },
+        {
+          "id": "m8-q5",
+          "question": "You took a 4-minute phone call with a renter who just needed to be walked to their booking page to find the pickup address. Do you document?",
+          "type": "multiple_choice",
+          "options": [
+            "No — nothing substantive happened",
+            "No — only document calls that involve money or escalation",
+            "Yes — every interaction is documented, regardless of outcome",
+            "Only if the renter asks for a transcript"
+          ],
+          "correct_index": 2,
+          "explanation": "Every interaction is documented. \"Nothing happened\" calls still get a one-line entry. The next CSR picking up that customer needs the trail."
+        },
+        {
+          "id": "m8-q6",
+          "question": "Required documentation format for every interaction?",
+          "type": "short_answer",
+          "expected_keywords": [
+            "date",
+            "initials"
+          ],
+          "explanation": "Date — initials — what was said/done. Example: '11/4/26 - LD - Spoke with renter, confirmed pickup address sent, no further action needed.' Documentation lives on the profile, listing, or booking depending on what the call was about."
+        },
+        {
+          "id": "m8-q7",
+          "question": "A call about an owner's bank info correction. Where does the documentation entry go?",
+          "type": "multiple_choice",
+          "options": [
+            "On the most recent booking",
+            "On the owner's profile (account-level interaction)",
+            "On any listing — doesn't matter which",
+            "It doesn't need to be documented since it's a self-serve fix"
+          ],
+          "correct_index": 1,
+          "explanation": "Bank info is account-level → profile. Listing-level interactions go on the listing; booking-specific calls go on the booking."
         }
       ],
       "passing_score_percent": 70
@@ -1921,12 +2053,14 @@
       "id": "module-9",
       "number": 10,
       "title": "De-escalation & When to Escalate",
-      "description": "Spotting frustration, using empathy without agreeing the policy is bad, and knowing exactly when to escalate.",
+      "description": "Spotting frustration, empathy without trashing the platform, the abuse-vs-anger judgment line, BBB threats (don't panic), chargeback threats (tiered authority), and knowing when to escalate.",
       "estimated_minutes": 15,
       "learning_objectives": [
         "Spot early signs of a frustrated customer",
         "Use empathy without over-apologizing or agreeing the policy is bad",
-        "Apply the 'explain the purpose, don't agree the experience is bad' framework",
+        "Apply the abuse-vs-anger line: when can a CSR end an interaction unilaterally vs. escalate",
+        "Handle BBB threats without panicking or compromising on policy",
+        "Apply the tiered authority model on chargeback threats: new CSRs ask before bending; trusted CSRs can bend",
         "Know exactly when to escalate vs. handle solo"
       ],
       "sections": [
@@ -1943,11 +2077,46 @@
         {
           "id": "section-9-2",
           "title": "When to Escalate",
-          "content_md": "Escalate when:\n- Customer threatens **legal action**\n- **Active payout failure** that requires admin tools (not a simple bank info fix)\n- **Damage claim disputes** where the customer is demanding a final answer\n- **Account suspension or compliance hold** inquiries\n- **A specific booking ID where you don't have visibility**\n- **Multi-topic situations** mixing billing + damage + escalated tone\n- **You don't know.** When in doubt, escalate.\n\nDo NOT escalate when:\n- Standard how-to question (any KB-covered topic)\n- Cancellation refund explanation\n- Listing approval timing\n- Toll Program questions\n- Deposit timing questions\n\nCustomers asking for 'a manager' aren't an automatic escalation. Ask what they need; if it's something you can handle, handle it.",
+          "content_md": "Escalate when:\n- Customer threatens **legal action**\n- **Active payout failure** that requires admin tools (not a simple bank info fix)\n- **Damage claim disputes** where the customer is demanding a final answer\n- **Account suspension or compliance hold** inquiries\n- **A specific booking ID where you don't have visibility**\n- **Multi-topic situations** mixing billing + damage + escalated tone\n- **You don't know.** When in doubt, escalate.\n\nDo NOT escalate when:\n- Standard how-to question (any KB-covered topic)\n- Cancellation refund explanation\n- Listing approval timing\n- Toll Program questions\n- Deposit refund timing (3-5 business days when no DDC is filed — see Module 5)\n\nCustomers asking for 'a manager' aren't an automatic escalation. Ask what they need; if it's something you can handle, handle it.",
           "key_points": [
             "Always escalate: legal threats, payout admin issues, final-answer damage disputes, suspensions",
-            "Don't escalate: standard KB questions",
+            "Don't escalate: standard KB questions (deposit timing 3-5 days is a KB answer)",
             "'I want a manager' ≠ escalate — ask what they need first"
+          ]
+        },
+        {
+          "id": "section-9-3",
+          "title": "Abuse vs. Anger — Where the Line Is",
+          "content_md": "**This is judgment-based.** It's up to the CSR to recognize where frustration ends and abuse begins.\n\n**Treat as anger (de-escalate, don't terminate):**\n- Frustration with policy\n- Raised voice\n- Complaints about wait times, refund amounts, the process\n- Repeated questions, persistent pushback\n\nWork toward resolution. Don't match their tone.\n\n**Treat as abuse (warn → end if it continues):**\n- Personal attacks on the CSR\n- Slurs\n- Threats (\"I'll find you,\" \"I know where you work\")\n- Sustained profanity directed at the CSR (not just venting)\n\n**Authority on clearly abusive interactions:**\n- The CSR can **warn the customer** (\"I want to help, but I can't continue if the language continues\")\n- If the abuse continues after the warning, the CSR can **end the interaction** — does not need manager approval for clearly abusive behavior\n- Document the language used (verbatim if possible) in the system\n\n**Borderline cases:** if you're not sure whether it's anger or abuse, **escalate to a manager** rather than terminating yourself. The judgment call exists exactly for cases where you're uncertain.\n\nThe underlying claim still gets evaluated on its merits — abusive language doesn't void a legitimate complaint. Process the issue separately from how the customer behaved.",
+          "key_points": [
+            "Anger (frustration, raised voice, complaints) → de-escalate, don't terminate",
+            "Abuse (personal attacks, slurs, threats, sustained profanity at the CSR) → warn, then end if it continues",
+            "CSR can end clearly abusive interactions without manager approval",
+            "Borderline → escalate to manager rather than terminate yourself",
+            "Document the language. The underlying claim still gets evaluated on its merits."
+          ]
+        },
+        {
+          "id": "section-9-4",
+          "title": "BBB Threats — Don't Panic",
+          "content_md": "**BBB threats are common and they're not a huge concern operationally.** Don't change the answer just to avoid a BBB filing.\n\nWhat to do:\n- **Acknowledge the customer's right** to file with the BBB\n- **Don't compromise on policy because of the threat** — the underlying issue is what matters, not the BBB filing\n- **Handle the actual problem** the customer is calling about\n\nWhat NOT to do:\n- ❌ Issue a courtesy refund just because they mentioned the BBB\n- ❌ Promise an exception to policy to avoid the threat\n- ❌ Get defensive or anxious — the threat itself isn't the problem\n\n**Example response:**\n> 'I understand if you'd like to file with the BBB. That's your right. In the meantime, let me see what I can actually do about the underlying issue — let's go back to the deposit refund.'\n\nThe answer doesn't change because of the threat. Handle the underlying issue.",
+          "key_points": [
+            "BBB threats are common — not operationally serious",
+            "Acknowledge the right to file; don't change the answer",
+            "Handle the underlying issue — that's what matters",
+            "Never issue a courtesy refund or waive a fee solely to avoid a BBB filing"
+          ]
+        },
+        {
+          "id": "section-9-5",
+          "title": "Chargeback Threats — Tiered Authority",
+          "content_md": "**Chargeback threats are more serious than BBB threats.** A real chargeback costs the owner the booking (Module 5, §5-4). Take them seriously, but don't panic.\n\n**CSR's first move:** de-escalate and understand the underlying complaint. Most chargeback threats come from a real grievance that can be addressed without bending policy.\n\n**Tiered authority model — read this carefully:**\n\n**If you are NEW or junior:**\n- **ASK FOR APPROVAL before bending policy.** Do NOT solo-decide to issue a courtesy refund or waive a fee.\n- Escalate the situation; let the manager decide whether a compromise is warranted.\n- This is not a sign of weakness — it's the right move when you're still building judgment about which compromises are appropriate.\n\n**Once you are trained and trusted as a decision-maker:**\n- You can **bend rules in chargeback-threat situations** to prevent the chargeback:\n  - Issue a courtesy refund (even if policy doesn't require it)\n  - Waive or reduce a fee\n  - Other compromise positions\n- But: **do NOT compromise on serious policy issues just to prevent a chargeback.** A chargeback threat doesn't license you to override damage claim findings, MVR rejections, or compliance holds.\n\n**The framing:** \"When you're new, ask. When you're trusted, here are the tools you have.\" The authority grows with experience and judgment — it isn't a binary CSR-can or CSR-can't.\n\n**Always:** gather documentation regardless. If the chargeback gets filed, NT defends the booking through the chargeback response process. The documentation you gather now becomes the response material later.",
+          "key_points": [
+            "Chargeback threats are more serious than BBB threats — but don't panic",
+            "New/junior CSRs: ASK before bending policy — don't solo-decide a courtesy refund",
+            "Trained/trusted CSRs: can issue courtesy refunds, waive fees, find compromises",
+            "Never compromise on serious policy (damage findings, MVR, compliance) just to prevent a chargeback",
+            "Always gather documentation — feeds the chargeback response if filed"
           ]
         }
       ],
@@ -2045,12 +2214,12 @@
           "type": "multiple_choice",
           "options": [
             "Yes",
-            "No — that's a KB answer (3-7 business days)",
+            "No — that's a KB answer (3-5 business days when no DDC is filed)",
             "Only if it's been more than a week",
             "Yes, by default"
           ],
           "correct_index": 1,
-          "explanation": "Deposit refund timing is a standard KB answer (3-7 business days). Don't escalate."
+          "explanation": "Deposit refund timing is a standard KB answer: 3-5 business days when no DDC is filed. Don't escalate."
         },
         {
           "id": "m9-q4",
@@ -2063,6 +2232,45 @@
             "help"
           ],
           "explanation": "Ask what they need first. If it's something a CSR can handle, handle it. Only escalate if it's a real escalation trigger."
+        },
+        {
+          "id": "m9-q5",
+          "question": "A customer is yelling and using profanity directed at you. You've warned them once. They keep going. What can you do?",
+          "type": "multiple_choice",
+          "options": [
+            "Wait for a manager to authorize ending the call",
+            "End the interaction — CSR has authority to end clearly abusive interactions without manager approval. Document the language verbatim.",
+            "Match their tone to make a point",
+            "Refuse to process their underlying claim until they apologize"
+          ],
+          "correct_index": 1,
+          "explanation": "The CSR can end clearly abusive interactions without manager approval. Document the language. The underlying claim still gets evaluated on its merits separately."
+        },
+        {
+          "id": "m9-q6",
+          "question": "A customer threatens to file with the BBB. What's the right CSR move?",
+          "type": "multiple_choice",
+          "options": [
+            "Issue a courtesy refund to avoid the filing",
+            "Acknowledge their right to file, don't change the answer, handle the underlying issue",
+            "Escalate every BBB threat",
+            "Refuse to discuss the issue further"
+          ],
+          "correct_index": 1,
+          "explanation": "BBB threats are common and not operationally serious. Acknowledge the right to file, don't compromise on policy, handle the underlying issue. Never issue a courtesy refund just to avoid a BBB filing."
+        },
+        {
+          "id": "m9-q7",
+          "question": "You're a new CSR. A renter threatens to chargeback if you don't waive a $50 fee. What do you do?",
+          "type": "multiple_choice",
+          "options": [
+            "Waive the fee on the spot to prevent the chargeback",
+            "ASK for approval before bending policy. Escalate so a manager can decide whether the compromise is warranted. Gather documentation either way.",
+            "Tell them to go ahead and file — chargebacks always lose",
+            "Refuse to engage with the threat"
+          ],
+          "correct_index": 1,
+          "explanation": "New/junior CSRs ASK before bending policy. Don't solo-decide a courtesy refund or fee waiver. Once trained and trusted, the CSR can bend rules to prevent a chargeback — but not while still building judgment."
         }
       ],
       "passing_score_percent": 70

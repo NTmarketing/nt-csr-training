@@ -143,12 +143,12 @@
       "type": "multiple_choice",
       "options": [
         "Via SMS one hour before pickup",
-        "Automatically on the booking page after the owner accepts",
-        "Only by the owner manually",
-        "When payment clears"
+        "Automatically on the booking page after the owner accepts — and the owner also sends a message with full address and contact info",
+        "As soon as the renter completes payment",
+        "When the rental period starts"
       ],
       "correct_index": 1,
-      "explanation": "Automatically on the booking page after owner acceptance."
+      "explanation": "Post-acceptance only. The address appears on the booking page and the owner sends a message with details. Don't tell renters they'll see it as soon as they book — that's wrong."
     },
     {
       "id": "exam-q12",
@@ -181,14 +181,14 @@
     {
       "id": "exam-q14",
       "module_ref": "module-3",
-      "question": "If an owner hasn't accepted a booking after 24 hours, what should you tell the renter?",
+      "question": "An owner hasn't accepted a booking after 24 hours of silence. What do you tell the renter?",
       "type": "short_answer",
       "expected_keywords": [
         "message",
         "owner",
-        "backup"
+        "alternative"
       ],
-      "explanation": "Encourage them to message the owner directly through the booking and to look at backup options."
+      "explanation": "Encourage them to message the owner directly through the booking. They can look at alternative trailers in case this owner doesn't come through. After 48-72 hours of total silence, escalate. Do NOT suggest 'book a second trailer as a backup' — each booking is a real reservation with money on the line (see Module 1, §1-4)."
     },
     {
       "id": "exam-q15",
@@ -845,6 +845,48 @@
       ],
       "correct_index": 2,
       "explanation": "30 hours falls in the 24-48 hour window = 25% refund on rent. Platform fee, tax, and Protection Package remain non-refundable regardless. Refund processes back to the renter's card in 3-5 business days."
+    },
+    {
+      "id": "exam-q60",
+      "module_ref": "module-3",
+      "question": "What is the correct order of the booking flow?",
+      "type": "multiple_choice",
+      "options": [
+        "Renter searches → owner accepts → renter pays + verifies ID → coordinate pickup",
+        "Renter searches → renter pays → owner accepts → renter verifies ID at pickup",
+        "Renter searches → renter completes ID verification → renter pays + submits → owner accepts → coordinate pickup",
+        "Renter searches → renter pays a hold → owner accepts → renter pays the rest"
+      ],
+      "correct_index": 2,
+      "explanation": "Payment AND ID verification both happen at booking submission, BEFORE the owner accepts. There is no 'owner accepts then renter pays' flow. ID verification re-runs on every booking, not just the first."
+    },
+    {
+      "id": "exam-q61",
+      "module_ref": "module-8",
+      "question": "Required format for documenting an interaction in the system?",
+      "type": "multiple_choice",
+      "options": [
+        "Free-form paragraph at the end of your shift",
+        "Date — initials — what was said/done (logged on the relevant profile, listing, or booking)",
+        "Only the customer's name and a one-word category",
+        "No documentation needed for routine self-serve fixes"
+      ],
+      "correct_index": 1,
+      "explanation": "Format: date — initials — what was said/done. Goes on the relevant entity: profile (account-level), listing (listing-level), or booking (booking-level — most common). Every interaction is documented, even 'nothing happened' calls. If it wasn't documented, it didn't happen."
+    },
+    {
+      "id": "exam-q62",
+      "module_ref": "module-9",
+      "question": "You're a brand-new CSR. A renter threatens to chargeback if you don't waive a $50 fee. What's the right move?",
+      "type": "multiple_choice",
+      "options": [
+        "Waive the fee on the spot to prevent the chargeback",
+        "Tell them to go ahead and file — chargebacks always lose",
+        "ASK for approval before bending policy. Escalate so a manager can decide whether the compromise is warranted. Gather documentation either way.",
+        "Refuse to engage with the threat"
+      ],
+      "correct_index": 2,
+      "explanation": "New/junior CSRs ASK before bending policy on chargeback threats — don't solo-decide a courtesy refund or fee waiver. Once trained and trusted, the CSR can bend rules to prevent a chargeback (courtesy refund, waive a fee). Never compromise on serious policy (damage findings, MVR, compliance) just to prevent a chargeback. Always gather documentation — feeds the response if it's filed."
     }
   ]
 }
